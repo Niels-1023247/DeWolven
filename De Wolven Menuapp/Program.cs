@@ -51,7 +51,7 @@ namespace De_Wolven_Menuapp
             {
                 Console.Clear();
                 Console.WriteLine("MENUKAART\n\n");
-                //Plaats hieronder de eerste 10 menuopties
+                //Plaats hieronder de tweede 10 menuopties
                 Console.WriteLine($"menuoptie 2, prijsinformatie, allergeneninformatie");
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk ok Escape om terug te gaan.");
             }
@@ -59,7 +59,7 @@ namespace De_Wolven_Menuapp
             {
                 Console.Clear();
                 Console.WriteLine("MENUKAART\n\n\n");
-                //Plaats hieronder de eerste 10 menuopties
+                //Plaats hieronder de derde 10 menuopties
                 Console.WriteLine($"menuoptie 3, prijsinformatie, allergeneninformatie");
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk ok Escape om terug te gaan.");
             }
