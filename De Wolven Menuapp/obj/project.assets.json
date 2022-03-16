@@ -8,26 +8,27 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\kevin\\.nuget\\packages\\": {}
+    "C:\\Users\\Faraaz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kevin\\OneDrive\\Documenten\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+      "projectUniqueName": "C:\\Users\\Faraaz\\Source\\Repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
       "projectName": "De Wolven Menuapp",
-      "projectPath": "C:\\Users\\kevin\\OneDrive\\Documenten\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
-      "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kevin\\OneDrive\\Documenten\\GitHub\\DeWolven\\De Wolven Menuapp\\obj\\",
+      "projectPath": "C:\\Users\\Faraaz\\Source\\Repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+      "packagesPath": "C:\\Users\\Faraaz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Faraaz\\Source\\Repos\\DeWolven\\De Wolven Menuapp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Faraaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
@@ -54,6 +55,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.14, 5.0.14]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
