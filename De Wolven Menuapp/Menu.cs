@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace De_Wolven_Menuapp
 {
-    internal class Menu
+    internal class Menu 
     {
         public static void menukaart()
         {

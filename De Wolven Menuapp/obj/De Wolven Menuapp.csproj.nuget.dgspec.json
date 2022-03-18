@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj": {}
+    "D:\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj": {
+    "D:\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+        "projectUniqueName": "D:\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
         "projectName": "De Wolven Menuapp",
-        "projectPath": "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+        "projectPath": "D:\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
         "packagesPath": "C:\\Users\\solqu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\obj\\",
+        "outputPath": "D:\\DeWolven\\De Wolven Menuapp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\solqu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -51,8 +51,20 @@
           "warn": true,
           "downloadDependencies": [
             {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
               "name": "Microsoft.NETCore.App.Host.win-x64",
               "version": "[5.0.14, 5.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
             }
           ],
           "frameworkReferences": {
