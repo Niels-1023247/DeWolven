@@ -1,13 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "9xYw17YX3xGWCLsb0KKQMwwMHQ2CL9D0pFnEUrB8vDt8eYddEp2GScZbge6BrPaFi3VzZzzXTzFAlGC9Q95EFw==",
+  "dgSpecHash": "ymu/0r1ymNBfUe0FFdB+h2bzpNeA654OIK2DrzE/FrZCHdjuNeZgmiyfuAgFxYgXiTHVUETPHg+acJqr2GCc6A==",
   "success": true,
   "projectFilePath": "D:\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\solqu\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.14\\microsoft.netcore.app.host.win-x64.5.0.14.nupkg.sha512",
-    "C:\\Users\\solqu\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\solqu\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\solqu\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
-  ],
-  "logs": []
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\DeWolven\\De Wolven Menuapp\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
