@@ -41,7 +41,7 @@ namespace De_Wolven_Menuapp
                 {
                     screen++;
                 }
-                else if (input == ConsoleKey.LeftArrow & pgmax != 1) // verlaag screenvariable
+                else if (input == ConsoleKey.LeftArrow & pgmax != 1 & screen > 1) // verlaag screenvariable
                 {
                     screen -= 1;
                 }
