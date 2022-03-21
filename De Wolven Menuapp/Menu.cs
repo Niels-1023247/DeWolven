@@ -14,6 +14,7 @@ namespace De_Wolven_Menuapp
             int pgmax = 5; // variable die bewaart hoeveel schermen er in totaal zijn
             char euro = '€'; // euroteken voor c# gezeur
             ConsoleKey input;
+            hoofdmenuscherm menuutje = new hoofdmenuscherm();
             while (true)
             {
                 if (screen == 1) // activeert de juiste method voor het juiste scherm mbv de screen-variable
@@ -47,7 +48,7 @@ namespace De_Wolven_Menuapp
                 }
                 else if (input == ConsoleKey.Escape) // terug naar hoofdmenu
                 {
-                    break;
+                    menuutje.SchermKlanten();
                 }
                 else if (input == ConsoleKey.RightArrow & pgmax == screen) // als je na het laatste scherm naar rechts gaat dan gaat hij terug naar het eerste scherm
                 {
