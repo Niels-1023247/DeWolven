@@ -46,3 +46,19 @@ C:\Users\ncvan\source\repos\Project B\De Wolven Menuapp\obj\Debug\net5.0\De Wolv
 C:\Users\ncvan\source\repos\Project B\De Wolven Menuapp\obj\Debug\net5.0\ref\De Wolven Menuapp.dll
 C:\Users\ncvan\source\repos\Project B\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.pdb
 C:\Users\ncvan\source\repos\Project B\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.genruntimeconfig.cache
+D:\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.exe
+D:\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.deps.json
+D:\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.runtimeconfig.json
+D:\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.runtimeconfig.dev.json
+D:\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.dll
+D:\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\ref\De Wolven Menuapp.dll
+D:\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.pdb
+D:\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.csproj.AssemblyReference.cache
+D:\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.GeneratedMSBuildEditorConfig.editorconfig
+D:\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.AssemblyInfoInputs.cache
+D:\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.AssemblyInfo.cs
+D:\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.csproj.CoreCompileInputs.cache
+D:\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.dll
+D:\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\ref\De Wolven Menuapp.dll
+D:\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.pdb
+D:\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.genruntimeconfig.cache
