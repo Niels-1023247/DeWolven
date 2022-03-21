@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kevin\\OneDrive\\Documenten\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+      "projectUniqueName": "C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
       "projectName": "De Wolven Menuapp",
-      "projectPath": "C:\\Users\\kevin\\OneDrive\\Documenten\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+      "projectPath": "C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
       "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kevin\\OneDrive\\Documenten\\GitHub\\DeWolven\\De Wolven Menuapp\\obj\\",
+      "outputPath": "C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
