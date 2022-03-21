@@ -54,17 +54,36 @@ namespace De_Wolven_Menuapp
             void Screen1()
             {
                 Console.Clear();
-                Console.WriteLine("MENUKAART\n\n");
+                Console.WriteLine("MENUKAART - GERECHTEN\n\n");
                 //Plaats hieronder de eerste 10 menuopties
-                Console.WriteLine($"menuoptie 1, prijsinformatie, allergeneninformatie");
+                Console.WriteLine($"Erwtensoep, €8,-(selderij)");
+                Console.WriteLine($"Tomatensoep, €7.60,(soja/selderij)");
+                Console.WriteLine($"Seldersoep, €8.50,(soja/selderij)");
+                Console.WriteLine($"Spaghetti Bolognese, €16.99,(gluten/ei/selderij)");
+                Console.WriteLine($"Pizza margherita, €13,-(gluten/melk)");
+                Console.WriteLine($"Broodje jonge kaas, €7.30 (gluten/melk)");
+                Console.WriteLine($"Broodje eiersalade, €7.40 (gluten/ei)");
+                Console.WriteLine($"Groenten quiche broccoli-spek, €13,-(gluten/ei/melk)");
+                Console.WriteLine($"Groenten quiche kastanje-vegi, €12.50,(gluten/ei/melk/selderij)");
+                Console.WriteLine($"Spaghetti Carbonara, €17.30, (gluten/ei/melk)");
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk ok Escape om terug te gaan.");
             }
             void Screen2()
             {
                 Console.Clear();
-                Console.WriteLine("MENUKAART\n\n");
+                Console.WriteLine("MENUKAART - GERECHTEN/DESSERT\n\n");
                 //Plaats hieronder de tweede 10 menuopties
-                Console.WriteLine($"menuoptie 2, prijsinformatie, allergeneninformatie");
+                Console.WriteLine($"Lasagne Bolognese, €13,-(gluten/ei/selderij)");
+                Console.WriteLine($"Penne pesto kip, €16,-(gluten/ei/pinda's)");
+                Console.WriteLine($"Ringatone tomaat, €13,-(gluten/ei)");
+                Console.WriteLine($"");
+                Console.WriteLine($"");
+                Console.WriteLine($"Dame Blanche, €9,-(ei/noten/melk)");
+                Console.WriteLine($"Chocolade moulleux, €7,-(ei/noten/melk)");
+                Console.WriteLine($"Gegrilde ananas, €6.50,(gluten/pinda's/noten/melk)");
+                Console.WriteLine($"Scropinno Parfait, €9,-(gluten/ei/melk)");
+                Console.WriteLine($"Tiramisu classico, €9.50,(ei/melk)");
+
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk ok Escape om terug te gaan.");
             }
             void Screen3()

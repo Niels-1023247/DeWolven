@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\solqu\\.nuget\\packages\\": {}
+    "C:\\Users\\ncvan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+      "projectUniqueName": "C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
       "projectName": "De Wolven Menuapp",
-      "projectPath": "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
-      "packagesPath": "C:\\Users\\solqu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\obj\\",
+      "projectPath": "C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+      "packagesPath": "C:\\Users\\ncvan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\solqu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ncvan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -55,12 +55,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[5.0.14, 5.0.14]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
