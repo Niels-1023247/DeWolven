@@ -49,6 +49,7 @@ namespace De_Wolven_Menuapp
                 else if (input == ConsoleKey.Escape) // terug naar hoofdmenu
                 {
                     menu.SchermKlanten();
+                    break;
                 }
                 else if (input == ConsoleKey.RightArrow & pgmax == screen) // als je na het laatste scherm naar rechts gaat dan gaat hij terug naar het eerste scherm
                 {
