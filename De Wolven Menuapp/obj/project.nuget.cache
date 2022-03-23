@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WvcUtT397MN8gqMfbquf8t1SiUCA6lTME6UjYnPfJSNOOU6/B8qNFlv1GZo5Nh8lB6plMPehKW2n7qD/jfqMHw==",
+  "dgSpecHash": "APZo5dTiNOW7egaVG6fudDe4ocQ+B8qVDu9Si1JtXD0zkMCic90R4tdZHJyi9LBYNQGMayCYjA8PZ+8KQgcqAA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\solqu\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.14\\microsoft.netcore.app.host.win-x64.5.0.14.nupkg.sha512"
+  ],
   "logs": []
 }
