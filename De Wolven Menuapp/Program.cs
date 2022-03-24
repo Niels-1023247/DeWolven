@@ -6,9 +6,11 @@ namespace De_Wolven_Menuapp
     {
         static void Main(string[] args)
         {
-            Menu.menukaart();
+            beginscherm a = new beginscherm();
+            a.Begin();
+            
         }
-        
+
     }
-    
+
 }
