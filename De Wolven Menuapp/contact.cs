@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace De_Wolven_Menuapp
 {
-    internal class contact
+    internal class Contact
     {
-        public void Contactgegevens()
+        public static void Contactgegevens()
         {
-            hoofdmenuscherm b = new hoofdmenuscherm();
+        
             ConsoleKey input;
             Console.Clear();
             Console.WriteLine("De Wolven");
@@ -18,13 +18,20 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("Adres: Wijnhaven 60,");
             Console.WriteLine("       3011WM Rotterdam");
             Console.WriteLine("Telefoonnumer: 010-2189034");
-            Console.WriteLine("OPENINGSTIJDEN");
-            Console.WriteLine("Maandag t/m zondag van 16:00 tot 21:30 uur");
+            Console.WriteLine("\n\nOPENINGSTIJDEN");
+            Console.WriteLine("Openigtijden:\n");
+            Console.WriteLine("Ma: 12:00-22:00");
+            Console.WriteLine("Di: 12:00-22:00");
+            Console.WriteLine("Wo: 12:00-22:00");
+            Console.WriteLine("Do: 12:00-22:00");
+            Console.WriteLine("Vr: 12:00-23:00");
+            Console.WriteLine("Za: 10:00-23:00");
+            Console.WriteLine("Zo: 10:00-23:00");
             Console.WriteLine("\nDrup op Esc om terug te gaan");
             input = Console.ReadKey().Key;
             if (input == ConsoleKey.Escape)
             {
-                b.SchermKlanten();
+                Hoofdmenuscherm.SchermKlanten();
             }
         }
     }
