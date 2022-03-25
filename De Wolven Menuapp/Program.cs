@@ -14,8 +14,10 @@ namespace De_Wolven_Menuapp
         static void Main(string[] args)
         {
             string jsonString = JsonSerializer.Serialize(weatherForecast);
-            ///Beginscherm.Begin();
+            //Beginscherm.Begin();
             var welcome = Welcome.FromJson("Assets/Menukaart.JSON");
+            var kak = new Beginscherm();
+            kak.Begin();
         }
 
     }

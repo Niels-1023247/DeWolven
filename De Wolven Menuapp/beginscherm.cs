@@ -8,7 +8,7 @@ namespace De_Wolven_Menuapp
 {
     internal class Beginscherm
     {
-        public static void Begin()
+        public void Begin()
         {
             ConsoleKey soortgebruiker;
             Console.WriteLine("Welkom bij de wolven!");
