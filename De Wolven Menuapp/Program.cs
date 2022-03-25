@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+
 
 namespace De_Wolven_Menuapp
 {
@@ -16,8 +16,8 @@ namespace De_Wolven_Menuapp
             //string jsonString = JsonSerializer.Serialize(weatherForecast);
             //Beginscherm.Begin();
             //var welcome = Welcome.FromJson("Assets/Menukaart.JSON");// wat betekent dit???
-            var kak = new Beginscherm();
-            kak.Begin();
+            var startbeginscherm = new Beginscherm();
+            startbeginscherm.Begin();
         }
 
     }

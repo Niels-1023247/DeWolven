@@ -49,7 +49,7 @@ namespace De_Wolven_Menuapp
                     screen = 1;
                 }
             }
-            void Screen1() // methode voor scherm 3
+            void Screen1()
             {
                 Console.Clear();
                 Console.WriteLine("MENUKAART - DRANKEN\n\n\n");
@@ -66,7 +66,7 @@ namespace De_Wolven_Menuapp
                 Console.WriteLine($"Rooibosthee, €3");
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
             }
-            void Screen2() // methode voor scherm 4
+            void Screen2()
             {
                 Console.Clear();
                 Console.WriteLine("MENUKAART - DRANKEN\n\n\n");
@@ -82,7 +82,7 @@ namespace De_Wolven_Menuapp
                 Console.WriteLine($"Kruidige tomatencocktail met tuinkersgarnering, €7");
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
             }
-            void Screen3() // methode voor scherm 5
+            void Screen3()
             {
                 Console.Clear();
                 Console.WriteLine("MENUKAART- DRANKEN\n\n\n");
