@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace De_Wolven_Menuapp
 {
-    internal class Hoofdmenuscherm
+    internal class hoofdmenuscherm
     {
-        public static void SchermMedewerker()
+        public void SchermMedewerker()
         {
             Console.Clear();
             Console.WriteLine("Welkom alpha");
@@ -17,20 +17,19 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("[3] Maak een nieuwe reservering");
             Console.WriteLine("[4] Bekijk besteltotaal per tafel");
             Console.WriteLine("[5] Verander menukaart");
-            Console.WriteLine("Voer 1, 2, 3, 4 of 5");
+            Console.WriteLine("Voer 1, 2, 3, 4 of 5 in en druk op <ENTER>");
             string optiemedewerker = Console.ReadLine();
         }
 
-        public static void SchermKlanten()
+        public void SchermKlanten()
         {
             Console.Clear();
             Console.WriteLine("Welkom bij de wolven gast!");
             Console.WriteLine("[1] Reserveer een tafel");
             Console.WriteLine("[2] Bekijk ons menukaart");
-            Console.WriteLine("[3] Log in");
+            Console.WriteLine("[3] Login met uw speciale code");
             Console.WriteLine("[4] Over ons");
             Console.WriteLine("Voer 1, 2, 3 of 4 in");
-            
             ConsoleKey optieklanten = Console.ReadKey().Key;
             if (optieklanten == ConsoleKey.D1)
             {
@@ -40,18 +39,19 @@ namespace De_Wolven_Menuapp
             else if (optieklanten == ConsoleKey.D2)
             {
                 Console.Clear();
-                Menu.Menukaart();
+                Menu.menukaart();
             }
             else if (optieklanten == ConsoleKey.D3)
 
             {
-                Loginfo.Loginfoscherm();
+                Console.WriteLine("ook nog niks");
             }
 
             else if (optieklanten == ConsoleKey.D4)
             {
                 Console.Clear();
-                Contact.Contactgegevens();
+                contact c = new contact();
+                c.Contactgegevens();
 
             }
         }

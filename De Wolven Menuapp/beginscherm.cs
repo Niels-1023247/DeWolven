@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace De_Wolven_Menuapp
 {
-    internal class Beginscherm
+    internal class beginscherm
     {
-        public static void Begin()
+        public void Begin()
         {
             ConsoleKey soortgebruiker;
             Console.WriteLine("Welkom bij de wolven!");
@@ -20,13 +20,13 @@ namespace De_Wolven_Menuapp
             soortgebruiker = Console.ReadKey().Key;
             if (soortgebruiker == ConsoleKey.D1)
             {
-                
-                Hoofdmenuscherm.SchermKlanten();
+                hoofdmenuscherm b = new hoofdmenuscherm();
+                b.SchermKlanten();
             }
             else if (soortgebruiker == ConsoleKey.D2)
             {
-                
-                Hoofdmenuscherm.SchermMedewerker();
+                hoofdmenuscherm e = new hoofdmenuscherm();
+                e.SchermMedewerker();
             }
             
             if (soortgebruiker == ConsoleKey.Escape)
