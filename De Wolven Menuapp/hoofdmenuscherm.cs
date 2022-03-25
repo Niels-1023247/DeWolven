@@ -26,13 +26,8 @@ namespace De_Wolven_Menuapp
             Console.Clear();
             Console.WriteLine("Welkom bij de wolven gast!");
             Console.WriteLine("[1] Reserveer een tafel");
-<<<<<<< HEAD
             Console.WriteLine("[2] Bekijk ons menukaart");
             Console.WriteLine("[3] Log in");
-=======
-            Console.WriteLine("[2] Bekijk onze menukaart");
-            Console.WriteLine("[3] Login met uw speciale code");
->>>>>>> 4315bb697b164646acf2a97e99c9505e0b1b1cec
             Console.WriteLine("[4] Over ons");
             Console.WriteLine("Voer 1, 2, 3 of 4 in");
             
