@@ -1,25 +1,32 @@
 
-{
-  "Gerechten": {
-    [
-      {
-        "naam": "Erwtensoep",
-        "prijs": "8 euro",
-        "allergenen": "selderij"
-      },
-      {
-        "naam": "Vegaburg",
-        "prijs": "5 euro",
-        "allergenen": "selderij"
-      }
-    ]
-  },
-  "Desserts": {
+  {
+    "Menukaart": {
+      "Gerechten": [
+        {
+          "GerechtNaam": "",
+          "Prijs": "",
+          "Allergenen": ""
 
-  },
-  "Dranken": {
-
+        },
+        {
+          "GerechtNaam": "",
+          "Prijs": "",
+          "Allergenen": ""
+        }
+      ],
+      "Dranken": [
+        {
+          "DrankNaam": "",
+          "Prijs": "",
+          "Allergenen": ""
+        }
+      ],
+      "Desserts": [
+        {
+          "DessertNaam": "",
+          "Prijs": "",
+          "Allergenen": ""
+        }
+      ]
+    }
   }
-}
-
-  
