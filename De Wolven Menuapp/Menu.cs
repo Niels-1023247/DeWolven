@@ -59,6 +59,7 @@ namespace De_Wolven_Menuapp
                 }
 
             }
+            
             void Screen1() // methode voor scherm 1
             {
                 Console.Clear();
