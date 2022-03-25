@@ -12,7 +12,6 @@ namespace De_Wolven_Menuapp
         {
             int screen = 1; // bewaart op welke van de 5 schermen de gebruiker zit
             int pgmax = 5; // variable die bewaart hoeveel schermen er in totaal zijn
-            char euro = '€'; // euroteken voor c# gezeur
             ConsoleKey input;
             Menu menu = new Menu();
             while (true)

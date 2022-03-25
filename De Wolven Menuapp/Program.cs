@@ -13,9 +13,9 @@ namespace De_Wolven_Menuapp
     {
         static void Main(string[] args)
         {
-            string jsonString = JsonSerializer.Serialize(weatherForecast);
+            //string jsonString = JsonSerializer.Serialize(weatherForecast);
             //Beginscherm.Begin();
-            var welcome = Welcome.FromJson("Assets/Menukaart.JSON");
+            //var welcome = Welcome.FromJson("Assets/Menukaart.JSON");// wat betekent dit???
             var kak = new Beginscherm();
             kak.Begin();
         }

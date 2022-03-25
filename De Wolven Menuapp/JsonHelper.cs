@@ -1,4 +1,4 @@
-﻿namespace De_Wolven_Menuapp
+﻿/*namespace De_Wolven_Menuapp
 {
     public partial class Welcome
     {
@@ -49,3 +49,4 @@
         }
     }
 
+*/
