@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Text.Json;
 
 namespace De_Wolven_Menuapp
 {
+    
     internal class Menu 
     {
-        public static void menukaart() // method om het menu tevoorschijn te *. toveren *'.
+        public static void Menukaart() // method om het menu tevoorschijn te *. toveren *'.
         {
             int screen = 1; // bewaart op welke van de 5 schermen de gebruiker zit
             int pgmax = 5; // variable die bewaart hoeveel schermen er in totaal zijn
             char euro = '€'; // euroteken voor c# gezeur
             ConsoleKey input;
-            hoofdmenuscherm menu = new hoofdmenuscherm();
             while (true)
             {
                 if (screen == 1) // activeert de juiste method voor het juiste scherm mbv de screen-variable
@@ -48,7 +50,7 @@ namespace De_Wolven_Menuapp
                 }
                 else if (input == ConsoleKey.Escape) // terug naar hoofdmenu
                 {
-                    menu.SchermKlanten();
+                    Hoofdmenuscherm.SchermKlanten();
                     break;
                 }
                 else if (input == ConsoleKey.RightArrow & pgmax == screen) // als je na het laatste scherm naar rechts gaat dan gaat hij terug naar het eerste scherm
@@ -82,8 +84,7 @@ namespace De_Wolven_Menuapp
                 Console.WriteLine($"Lasagne Bolognese, €13,-(gluten/ei/selderij)");
                 Console.WriteLine($"Penne pesto kip, €16,-(gluten/ei/pinda's)");
                 Console.WriteLine($"Ringatone tomaat, €13,-(gluten/ei)");
-                Console.WriteLine($"");
-                Console.WriteLine($"");
+                Console.WriteLine($"\n\n");
                 Console.WriteLine($"Dame Blanche, €9,-(ei/noten/melk)");
                 Console.WriteLine($"Chocolade moulleux, €7,-(ei/noten/melk)");
                 Console.WriteLine($"Gegrilde ananas, €6.50,(gluten/pinda's/noten/melk)");
