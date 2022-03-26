@@ -27,7 +27,7 @@ De_Wolven_MenuApp
 		SchermMedewerker()		(Startmenu voor medewerker laten zien)
 		SchermKlanten()			(Startmenu voor klanten laten zien)
 	JsonHelper (in progress)
-		pass					(Bruh moment)
+		pass					(Bevat alle JSON models)
 	Loginfo
 		Loginfoscherm()			(Optiemenu voor inloggen met account of met reserveringscode)
 		LoginAccount()			(Inloggen met account)

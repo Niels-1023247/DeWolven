@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace De_Wolven_Menuapp
 {
-    internal class Menu
+    internal static class Menu
     {
         public static void menukaart() // method om het menu tevoorschijn te *. toveren *'.
         {
             int screen = 1; // bewaart op welke van de 5 schermen de gebruiker zit
             int pgmax = 5; // variable die bewaart hoeveel schermen er in totaal zijn
             ConsoleKey input;
-            // hoofdmenu = new Hoofdmenuscherm();
             while (true)
             {
                 if (screen == 1) // activeert de juiste method voor het juiste scherm mbv de screen-variable
