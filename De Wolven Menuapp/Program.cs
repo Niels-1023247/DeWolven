@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
+
 namespace De_Wolven_Menuapp
 {
     
@@ -13,11 +14,11 @@ namespace De_Wolven_Menuapp
     {
         static void Main(string[] args)
         {
-            string jsonString = JsonSerializer.Serialize(weatherForecast);
+            //string jsonString = JsonSerializer.Serialize(weatherForecast);
             //Beginscherm.Begin();
-            var welcome = Welcome.FromJson("Assets/Menukaart.JSON");
-            var kak = new Beginscherm();
-            kak.Begin();
+            //var welcome = Welcome.FromJson("Assets/Menukaart.JSON");// wat betekent dit???
+            var startbeginscherm = new Beginscherm();
+            startbeginscherm.Begin();
         }
 
     }

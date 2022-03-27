@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace De_Wolven_Menuapp
 {
-    internal class Hoofdmenuscherm
+    internal static class Hoofdmenuscherm
     {
         public static void SchermMedewerker()
         {
@@ -40,7 +40,7 @@ namespace De_Wolven_Menuapp
             else if (optieklanten == ConsoleKey.D2)
             {
                 Console.Clear();
-                Menu.Menukaart();
+                Menu.menukaart();
             }
             else if (optieklanten == ConsoleKey.D3)
 

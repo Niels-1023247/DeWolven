@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
@@ -12,9 +14,10 @@ namespace De_Wolven_Menuapp
         {
             int screen = 1; // bewaart op welke van de 5 schermen de gebruiker zit
             int pgmax = 5; // variable die bewaart hoeveel schermen er in totaal zijn
-            char euro = '€'; // euroteken voor c# gezeur
             ConsoleKey input;
-            Menu menu = new Menu();
+            string dejsontekst = File.ReadAllText(@"Assets/Menukaart.JSON");
+            var hetgehelemenu = JsonConvert.DeserializeObject<Menukaart>(dejsontekst);
+            //var poep = hetgehelemenu.Desserts.
             while (true)
             {
                 if (screen == 1) // activeert de juiste method voor het juiste scherm mbv de screen-variable
@@ -48,19 +51,23 @@ namespace De_Wolven_Menuapp
             void Screen1() // methode voor overschakelen naar de verschillende menu soorten
             {
                 Console.Clear();
-                Console.WriteLine("MENUKAART - GERECHTEN\n\n");
-                //Plaats hieronder de eerste 10 menuopties
-                Console.WriteLine($"Erwtensoep, €8,-(selderij)");
-                Console.WriteLine($"Tomatensoep, €7.60,(soja/selderij)");
-                Console.WriteLine($"Seldersoep, €8.50,(soja/selderij)");
-                Console.WriteLine($"Spaghetti Bolognese, €16.99,(gluten/ei/selderij)");
-                Console.WriteLine($"Pizza margherita, €13,-(gluten/melk)");
-                Console.WriteLine($"Broodje jonge kaas, €7.30 (gluten/melk)");
-                Console.WriteLine($"Broodje eiersalade, €7.40 (gluten/ei)");
-                Console.WriteLine($"Groenten quiche broccoli-spek, €13,-(gluten/ei/melk)");
-                Console.WriteLine($"Groenten quiche kastanje-vegi, €12.50,(gluten/ei/melk/selderij)");
-                Console.WriteLine($"Spaghetti Carbonara, €17.30, (gluten/ei/melk)");
-                Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
+
+                Console.WriteLine($"{hetgehelemenu.Gerechten[0].GerechtNaam}");
+
+
+                //Console.WriteLine($"{hetgehelemenu.Gerechten}");
+                //Console.WriteLine("MENUKAART - GERECHTEN\n\n");
+                //Console.WriteLine($"Erwtensoep, €8,-(selderij)");
+                //Console.WriteLine($"Tomatensoep, €7.60,(soja/selderij)");
+                //Console.WriteLine($"Seldersoep, €8.50,(soja/selderij)");
+                //Console.WriteLine($"Spaghetti Bolognese, €16.99,(gluten/ei/selderij)");
+                //Console.WriteLine($"Pizza margherita, €13,-(gluten/melk)");
+                //Console.WriteLine($"Broodje jonge kaas, €7.30 (gluten/melk)");
+                //Console.WriteLine($"Broodje eiersalade, €7.40 (gluten/ei)");
+                //Console.WriteLine($"Groenten quiche broccoli-spek, €13,-(gluten/ei/melk)");
+                //Console.WriteLine($"Groenten quiche kastanje-vegi, €12.50,(gluten/ei/melk/selderij)");
+                //Console.WriteLine($"Spaghetti Carbonara, €17.30, (gluten/ei/melk)");
+                //Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
             }
             void Screen2() // methode voor scherm 2
             {
