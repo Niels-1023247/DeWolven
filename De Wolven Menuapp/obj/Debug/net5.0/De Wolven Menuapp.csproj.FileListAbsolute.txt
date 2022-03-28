@@ -84,3 +84,21 @@ D:\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\Newtonsoft.Json.dll
 D:\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.csproj.CopyComplete
 C:\Users\ncvan\source\repos\Project B\De Wolven Menuapp\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\ncvan\source\repos\Project B\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.csproj.CopyComplete
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.exe
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.deps.json
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.runtimeconfig.json
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.runtimeconfig.dev.json
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.dll
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.pdb
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.csproj.AssemblyReference.cache
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.GeneratedMSBuildEditorConfig.editorconfig
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.AssemblyInfoInputs.cache
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.AssemblyInfo.cs
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.csproj.CoreCompileInputs.cache
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.csproj.CopyComplete
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.dll
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\refint\De Wolven Menuapp.dll
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.pdb
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.genruntimeconfig.cache
+D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\ref\De Wolven Menuapp.dll

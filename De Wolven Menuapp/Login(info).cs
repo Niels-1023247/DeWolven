@@ -18,7 +18,15 @@ namespace De_Wolven_Menuapp
             if (LoginType == ConsoleKey.D1)
             {
                 LoginAccount();
-            };
+            }
+            else if (LoginType == ConsoleKey.D2)
+            {
+                LoginCode();
+            }
+            else if (LoginType == ConsoleKey.Escape)
+            {
+                Hoofdmenuscherm.SchermKlanten();
+            }
 
         }
         public static void LoginAccount()
