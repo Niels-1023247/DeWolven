@@ -48,7 +48,16 @@ namespace De_Wolven_Menuapp
             // append
 
         }
+        public static void LoginAccount()
+        {
+            Console.Clear();
+            Console.WriteLine("Voer uw Gebruikersnaam in:");
 
+            string username = Console.ReadLine();
+            Console.WriteLine("Voer uw Wachtwoord in:");
+            string password = Console.ReadLine();
+            ///Validate(username, password);
+        }
         public static void LoginCode()
         {
             Console.Clear();
