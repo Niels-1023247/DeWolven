@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
@@ -13,6 +15,8 @@ namespace De_Wolven_Menuapp
             int screen = 1; // bewaart op welke van de 5 schermen de gebruiker zit
             int pgmax = 5; // variable die bewaart hoeveel schermen er in totaal zijn
             ConsoleKey input;
+            string dejsontekst = File.ReadAllText("Menukaart.JSON");
+            var hetgehelemenu = JsonConvert.DeserializeObject<Menukaart>(dejsontekst);
             while (true)
             {
                 if (screen == 1) // activeert de juiste method voor het juiste scherm mbv de screen-variable
@@ -53,16 +57,16 @@ namespace De_Wolven_Menuapp
                 Console.Clear();
                 Console.WriteLine("MENUKAART - DRANKEN\n\n\n");
                 //Plaats hieronder de derde 10 menuopties
-                Console.WriteLine($"Broccolishake met spinazie, munt en avocado, €8,-");
-                Console.WriteLine($"Mangoshake met chilipeper en kurkuma, €8,-");
-                Console.WriteLine($"Bananenshake met kikkererwten en kiwi, €8,-");
-                Console.WriteLine($"Wortelshake met kurkuma en kokosmelk, €8,- (sojamelk/kokosmelk)");
-                Console.WriteLine($"Paprikashake met tomaat en peterselie, €8,-");
-                Console.WriteLine($"Coca-Cola met citroenschijfje, €4 (Classic/Light/Zero)");
-                Console.WriteLine($"Kersen- ananassap, €6");
-                Console.WriteLine($"Water (1L), €2");
-                Console.WriteLine($"Muntthee, €3");
-                Console.WriteLine($"Rooibosthee, €3");
+                Console.WriteLine(hetgehelemenu.dranken[0].dranknaam + ", " + hetgehelemenu.dranken[0].prijs + " euro, " + hetgehelemenu.dranken[0].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[1].dranknaam + ", " + hetgehelemenu.dranken[1].prijs + " euro, " + hetgehelemenu.dranken[1].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[2].dranknaam + ", " + hetgehelemenu.dranken[2].prijs + " euro, " + hetgehelemenu.dranken[2].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[3].dranknaam + ", " + hetgehelemenu.dranken[3].prijs + " euro, " + hetgehelemenu.dranken[3].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[4].dranknaam + ", " + hetgehelemenu.dranken[4].prijs + " euro, " + hetgehelemenu.dranken[4].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[5].dranknaam + ", " + hetgehelemenu.dranken[5].prijs + " euro, " + hetgehelemenu.dranken[5].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[6].dranknaam + ", " + hetgehelemenu.dranken[6].prijs + " euro, " + hetgehelemenu.dranken[6].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[7].dranknaam + ", " + hetgehelemenu.dranken[7].prijs + " euro, " + hetgehelemenu.dranken[7].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[8].dranknaam + ", " + hetgehelemenu.dranken[8].prijs + " euro, " + hetgehelemenu.dranken[8].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[9].dranknaam + ", " + hetgehelemenu.dranken[9].prijs + " euro, " + hetgehelemenu.dranken[9].allergenen);
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
                 Console.WriteLine($"[1] [2] [3]\n ^");
             }
@@ -70,16 +74,16 @@ namespace De_Wolven_Menuapp
             {
                 Console.Clear();
                 Console.WriteLine("MENUKAART - DRANKEN\n\n\n");
-                Console.WriteLine($"Lipton Ijsthee, €4,- (citroen/mango/green tea)");
-                Console.WriteLine($"Cassis, €4,-");
-                Console.WriteLine($"Warme chocolademelk, €4,- (Bevat melk)");
-                Console.WriteLine($"Tapbier, €4,- (Heineken/Amstel/Grolsch/Hertog Jan) (Bevat gluten)");
-                Console.WriteLine($"Verse bio-melk, €4,-");
-                Console.WriteLine($"Biologische merlot, €7");
-                Console.WriteLine($"Biologische blanc sauvignon, €7");
-                Console.WriteLine($"Frisse meloencocktail met aardbeigarnering, €7");
-                Console.WriteLine($"Zoete muntcocktail met honing en steranijs, €7");
-                Console.WriteLine($"Kruidige tomatencocktail met tuinkersgarnering, €7");
+                Console.WriteLine(hetgehelemenu.dranken[10].dranknaam + ", " + hetgehelemenu.dranken[10].prijs + " euro, " + hetgehelemenu.dranken[10].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[11].dranknaam + ", " + hetgehelemenu.dranken[11].prijs + " euro, " + hetgehelemenu.dranken[11].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[12].dranknaam + ", " + hetgehelemenu.dranken[12].prijs + " euro, " + hetgehelemenu.dranken[12].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[13].dranknaam + ", " + hetgehelemenu.dranken[13].prijs + " euro, " + hetgehelemenu.dranken[13].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[14].dranknaam + ", " + hetgehelemenu.dranken[14].prijs + " euro, " + hetgehelemenu.dranken[14].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[15].dranknaam + ", " + hetgehelemenu.dranken[15].prijs + " euro, " + hetgehelemenu.dranken[15].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[16].dranknaam + ", " + hetgehelemenu.dranken[16].prijs + " euro, " + hetgehelemenu.dranken[16].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[17].dranknaam + ", " + hetgehelemenu.dranken[17].prijs + " euro, " + hetgehelemenu.dranken[17].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[18].dranknaam + ", " + hetgehelemenu.dranken[18].prijs + " euro, " + hetgehelemenu.dranken[18].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[19].dranknaam + ", " + hetgehelemenu.dranken[19].prijs + " euro, " + hetgehelemenu.dranken[19].allergenen);
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
                 Console.WriteLine($"[1] [2] [3]\n     ^");
             }
@@ -87,8 +91,8 @@ namespace De_Wolven_Menuapp
             {
                 Console.Clear();
                 Console.WriteLine("MENUKAART- DRANKEN\n\n\n");
-                Console.WriteLine($"Mystery Cocktail..., €20,- (Bevat gluten, ei, vis, noten, selderij)");
-                Console.WriteLine($"Garnalencocktail met gin en tonic, €8,- (Bevat vis)");
+                Console.WriteLine(hetgehelemenu.dranken[20].dranknaam + ", " + hetgehelemenu.dranken[0].prijs + " euro, " + hetgehelemenu.dranken[20].allergenen);
+                Console.WriteLine(hetgehelemenu.dranken[21].dranknaam + ", " + hetgehelemenu.dranken[1].prijs + " euro, " + hetgehelemenu.dranken[21].allergenen);
                 Console.WriteLine($"");
                 Console.WriteLine($"");
                 Console.WriteLine($"");

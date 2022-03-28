@@ -1,219 +1,211 @@
-//{
-//  "menuaanwezig": true
-//}
-
-
-
 {
-  "menukaart": {
-    "gerechten": [
-      {
-        "gerechtnaam": "Erwtensoep",
-        "prijs": "8",
-        "allergenen": "selderij"
+  "Gerechten": [
+    {
+      "GerechtNaam": "Erwtensoep",
+      "Prijs": "8",
+      "Allergie": "selderij"
 
-      },
-      {
-        "gerechtnaam": "Tomatensoep",
-        "prijs": "7.60",
-        "allergenen": "soja/selderij"
-      },
-      {
-        "gerechtnaam": "Spaghetti Bolognese",
-        "prijs": "16.99",
-        "allergenen": "gluten/ei/selderij"
+    },
+    {
+      "GerechtNaam": "Tomatensoep",
+      "Prijs": "7.60",
+      "Allergie": "soja/selderij"
+    },
+    {
+      "GerechtNaam": "Spaghetti Bolognese",
+      "Prijs": "16.99",
+      "Allergie": "gluten/ei/selderij"
 
-      },
-      {
-        "gerechtnaam": "Pizza margherita",
-        "prijs": "13",
-        "allergenen": "gluten/melk"
-      },
-      {
-        "gerechtnaam": "Broodje jonge kaa",
-        "prijs": "7.30",
-        "allergenen": "gluten/melk"
+    },
+    {
+      "GerechtNaam": "Pizza margherita",
+      "Prijs": "13",
+      "Allergie": "gluten/melk"
+    },
+    {
+      "GerechtNaam": "Broodje jonge kaa",
+      "Prijs": "7.30",
+      "Allergie": "gluten/melk"
 
-      },
-      {
-        "gerechtnaam": "Broodje eiersalade",
-        "prijs": "7.40",
-        "allergenen": "gluten/ei"
-      },
-      {
-        "gerechtnaam": "Groenten quiche broccoli-spek",
-        "prijs": "13",
-        "allergenen": "gluten/ei/melk"
+    },
+    {
+      "GerechtNaam": "Broodje eiersalade",
+      "Prijs": "7.40",
+      "Allergie": "gluten/ei"
+    },
+    {
+      "GerechtNaam": "Groenten quiche broccoli-spek",
+      "Prijs": "13",
+      "Allergie": "gluten/ei/melk"
 
-      },
-      {
-        "gerechtnaam": "Groenten quiche kastanje-vegi",
-        "prijs": "12.50",
-        "allergenen": "gluten/ei/melk/selderij"
-      },
-      {
-        "gerechtnaam": "Spaghetti Carbonara",
-        "prijs": "17.30",
-        "allergenen": "gluten/ei/melk"
+    },
+    {
+      "GerechtNaam": "Groenten quiche kastanje-vegi",
+      "Prijs": "12.50",
+      "Allergie": "gluten/ei/melk/selderij"
+    },
+    {
+      "GerechtNaam": "Spaghetti Carbonara",
+      "Prijs": "17.30",
+      "Allergie": "gluten/ei/melk"
 
-      },
-      {
-        "gerechtnaam": "Lasagne Bolognese",
-        "prijs": "13",
-        "allergenen": "gluten/ei/selderij"
-      },
-      {
-        "gerechtnaam": "Penne pesto kip",
-        "prijs": "16",
-        "allergenen": "gluten/ei/pinda's'"
+    },
+    {
+      "GerechtNaam": "Lasagne Bolognese",
+      "Prijs": "13",
+      "Allergie": "gluten/ei/selderij"
+    },
+    {
+      "GerechtNaam": "Penne pesto kip",
+      "Prijs": "16",
+      "Allergie": "gluten/ei/pinda's'"
 
-      },
-      {
-        "gerechtnaam": "Ringatone tomaat",
-        "prijs": "13",
-        "allergenen": "gluten/ei"
-      }
+    },
+    {
+      "GerechtNaam": "Ringatone tomaat",
+      "Prijs": "13",
+      "Allergie": "gluten/ei"
+    }
 
-    ],
-    "dranken": [
-      {
-        "dranknaam": "Broccolishake met spinazie, munt en avocado",
-        "prijs": "8",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Mangoshake met chilipeper en kurkuma",
-        "prijs": "8",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Bananenshake met kikkererwten en kiwi",
-        "prijs": "8",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Wortelshake met kurkuma en kokosmelk",
-        "prijs": "8",
-        "allergenen": "sojamelk/kokosmelk"
-      },
-      {
-        "dranknaam": "Paprikashake met tomaat en peterselie",
-        "prijs": "8",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Coca-Cola met citroenschijfje (Classic/Light/Zero)",
-        "prijs": "4",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Kersen- ananassap",
-        "prijs": "6",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Water (1L)",
-        "prijs": "2",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Muntthee",
-        "prijs": "3",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Rooibosthee",
-        "prijs": "3",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Lipton Ijsthee (citroen/mango/green tea)",
-        "prijs": "4",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Cassis",
-        "prijs": "4",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Warme chocolademelk",
-        "prijs": "4",
-        "allergenen": "Melk"
-      },
-      {
-        "dranknaam": "Tapbier (Heineken/Amstel/Grolsch/Hertog Jan)",
-        "prijs": "4",
-        "allergenen": "gluten"
-      },
-      {
-        "dranknaam": "Verse bio-melk",
-        "prijs": "4",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Biologische merlot",
-        "prijs": "7",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Biologische blanc sauvignon",
-        "prijs": "7",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Frisse meloencocktail met aardbeigarnering",
-        "prijs": "7",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Zoete muntcocktail met honing en steranijs",
-        "prijs": "7",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Kruidige tomatencocktail met tuinkersgarnering",
-        "prijs": "7",
-        "allergenen": "geen"
-      },
-      {
-        "dranknaam": "Mystery Cocktail...",
-        "prijs": "20",
-        "allergenen": "gluten/ei/vis/noten/selderij"
-      },
-      {
-        "dranknaam": "Garnalencocktail met gin en tonic",
-        "prijs": "8",
-        "allergenen": "vis"
-      }
+  ],
+  "dranken": [
+    {
+      "dranknaam": "Broccolishake met spinazie, munt en avocado",
+      "Prijs": "8",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Mangoshake met chilipeper en kurkuma",
+      "Prijs": "8",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Bananenshake met kikkererwten en kiwi",
+      "Prijs": "8",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Wortelshake met kurkuma en kokosmelk",
+      "Prijs": "8",
+      "Allergie": "sojamelk/kokosmelk"
+    },
+    {
+      "dranknaam": "Paprikashake met tomaat en peterselie",
+      "Prijs": "8",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Coca-Cola met citroenschijfje (Classic/Light/Zero)",
+      "Prijs": "4",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Kersen- ananassap",
+      "Prijs": "6",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Water (1L)",
+      "Prijs": "2",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Muntthee",
+      "Prijs": "3",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Rooibosthee",
+      "Prijs": "3",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Lipton Ijsthee (citroen/mango/green tea)",
+      "Prijs": "4",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Cassis",
+      "Prijs": "4",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Warme chocolademelk",
+      "Prijs": "4",
+      "Allergie": "Melk"
+    },
+    {
+      "dranknaam": "Tapbier (Heineken/Amstel/Grolsch/Hertog Jan)",
+      "Prijs": "4",
+      "Allergie": "gluten"
+    },
+    {
+      "dranknaam": "Verse bio-melk",
+      "Prijs": "4",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Biologische merlot",
+      "Prijs": "7",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Biologische blanc sauvignon",
+      "Prijs": "7",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Frisse meloencocktail met aardbeigarnering",
+      "Prijs": "7",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Zoete muntcocktail met honing en steranijs",
+      "Prijs": "7",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Kruidige tomatencocktail met tuinkersgarnering",
+      "Prijs": "7",
+      "Allergie": "geen"
+    },
+    {
+      "dranknaam": "Mystery Cocktail...",
+      "Prijs": "20",
+      "Allergie": "gluten/ei/vis/noten/selderij"
+    },
+    {
+      "dranknaam": "Garnalencocktail met gin en tonic",
+      "Prijs": "8",
+      "Allergie": "vis"
+    }
 
-    ],
-    "desserts": [
-      {
-        "dessertnaam": "Dame Blanche",
-        "prijs": "9",
-        "allergenen": "ei/noten/melk"
-      },
-      {
-        "dessertnaam": "Chocolade moulleux",
-        "prijs": "7",
-        "allergenen": "ei/noten/melk"
-      },
-      {
-        "dessertnaam": "Gegrilde ananas",
-        "prijs": "6.50",
-        "allergenen": "gluten/pinda's/noten/melk"
-      },
-      {
-        "dessertnaam": "Scropinno Parfait",
-        "prijs": "9",
-        "allergenen": "gluten/ei/melk"
-      },
-      {
-        "dessertnaam": "Tiramisu classico",
-        "prijs": "9.50",
-        "allergenen": "ei/melk"
-      }
-    ]
-  }
+  ],
+  "desserts": [
+    {
+      "dessertnaam": "Dame Blanche",
+      "Prijs": "9",
+      "Allergie": "ei/noten/melk"
+    },
+    {
+      "dessertnaam": "Chocolade moulleux",
+      "Prijs": "7",
+      "Allergie": "ei/noten/melk"
+    },
+    {
+      "dessertnaam": "Gegrilde ananas",
+      "Prijs": "6.50",
+      "Allergie": "gluten/pinda's/noten/melk"
+    },
+    {
+      "dessertnaam": "Scropinno Parfait",
+      "Prijs": "9",
+      "Allergie": "gluten/ei/melk"
+    },
+    {
+      "dessertnaam": "Tiramisu classico",
+      "Prijs": "9.50",
+      "Allergie": "ei/melk"
+    }
+  ]
 }

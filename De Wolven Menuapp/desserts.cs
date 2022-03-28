@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
@@ -13,6 +15,8 @@ namespace De_Wolven_Menuapp
             int screen = 1; // bewaart op welke van de 5 schermen de gebruiker zit
             int pgmax = 5; // variable die bewaart hoeveel schermen er in totaal zijn
             ConsoleKey input;
+            string dejsontekst = File.ReadAllText("Menukaart.JSON");
+            var hetgehelemenu = JsonConvert.DeserializeObject<Menukaart>(dejsontekst);
             while (true)
             {
                 if (screen == 1) // activeert de juiste method voor het juiste scherm mbv de screen-variable
@@ -44,11 +48,11 @@ namespace De_Wolven_Menuapp
                 Console.Clear();
                 Console.WriteLine("MENUKAART - DESSERTS\n\n");
                 //Plaats hieronder de eerste 10 menuopties
-                Console.WriteLine($"Dame Blanche, €9,-(ei/noten/melk)");
-                Console.WriteLine($"Chocolade moulleux, €7,-(ei/noten/melk)");
-                Console.WriteLine($"Gegrilde ananas, €6.50,(gluten/pinda's/noten/melk)");
-                Console.WriteLine($"Scropinno Parfait, €9,-(gluten/ei/melk)");
-                Console.WriteLine($"Tiramisu classico, €9.50,(ei/melk)");
+                Console.WriteLine(hetgehelemenu.desserts[0].dessertnaam + ", " + hetgehelemenu.desserts[0].prijs + " euro, " + hetgehelemenu.desserts[0].allergenen);
+                Console.WriteLine(hetgehelemenu.desserts[1].dessertnaam + ", " + hetgehelemenu.desserts[1].prijs + " euro, " + hetgehelemenu.desserts[1].allergenen);
+                Console.WriteLine(hetgehelemenu.desserts[2].dessertnaam + ", " + hetgehelemenu.desserts[2].prijs + " euro, " + hetgehelemenu.desserts[2].allergenen);
+                Console.WriteLine(hetgehelemenu.desserts[3].dessertnaam + ", " + hetgehelemenu.desserts[3].prijs + " euro, " + hetgehelemenu.desserts[3].allergenen);
+                Console.WriteLine(hetgehelemenu.desserts[4].dessertnaam + ", " + hetgehelemenu.desserts[4].prijs + " euro, " + hetgehelemenu.desserts[4].allergenen);
                 Console.WriteLine($"");
                 Console.WriteLine($"");
                 Console.WriteLine($"");
