@@ -1,22 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "D:\\School\\AA HR\\Project B\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj": {}
-  },
-  "projects": {
-    "D:\\School\\AA HR\\Project B\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\School\\AA HR\\Project B\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
-        "projectName": "De Wolven Menuapp",
-        "projectPath": "D:\\School\\AA HR\\Project B\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
-        "packagesPath": "C:\\Users\\Faraaz\\.nuget\\packages\\",
-        "outputPath": "D:\\School\\AA HR\\Project B\\DeWolven\\De Wolven Menuapp\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Faraaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
     "C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj": {}
   },
   "projects": {
@@ -31,7 +15,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 7fd2705f2c88db82b037f22cb138d7424808a0b9
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -80,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
