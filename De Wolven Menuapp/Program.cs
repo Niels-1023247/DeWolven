@@ -9,14 +9,10 @@ using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
-    
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            //string jsonString = JsonSerializer.Serialize(weatherForecast);
-            //Beginscherm.Begin();
-            //var welcome = Welcome.FromJson("Assets/Menukaart.JSON");// wat betekent dit???
             var startbeginscherm = new Beginscherm();
             startbeginscherm.Begin();
         }

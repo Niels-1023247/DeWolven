@@ -8,16 +8,20 @@ using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
-    internal class gerechten
+    public class gerechten
     {
         public void gerechtenmenukaart()
         {
             int screen = 1; // bewaart op welke van de 5 schermen de gebruiker zit
             int pgmax = 5; // variable die bewaart hoeveel schermen er in totaal zijn
             ConsoleKey input;
-            string dejsontekst = File.ReadAllText(@"Assets/Menukaart.JSON");
+            string dejsontekst = File.ReadAllText("Menukaart.JSON");
             var hetgehelemenu = JsonConvert.DeserializeObject<Menukaart>(dejsontekst);
-            //var poep = hetgehelemenu.Desserts.
+
+            //Console.WriteLine(hetgehelemenu.Dummy1);
+            Console.WriteLine(hetgehelemenu.Dishes);
+            Console.WriteLine("Done");
+            Console.ReadLine();
             while (true)
             {
                 if (screen == 1) // activeert de juiste method voor het juiste scherm mbv de screen-variable
@@ -52,8 +56,7 @@ namespace De_Wolven_Menuapp
             {
                 Console.Clear();
 
-                Console.WriteLine($"{hetgehelemenu.Gerechten[0].GerechtNaam}");
-
+                //Console.WriteLine($"{hetgehelemenu.Gerechten[1].Prijs}");
 
                 //Console.WriteLine($"{hetgehelemenu.Gerechten}");
                 //Console.WriteLine("MENUKAART - GERECHTEN\n\n");

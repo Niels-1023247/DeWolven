@@ -1,0 +1,112 @@
+{
+  "Gerechten": [
+    {
+      "GerechtNaam": "Broccolishake met spinazie, munt en avocado",
+      "Prijs": "8 euro",
+      "Allergie": "Geen!"
+    },
+    {
+      "GerechtNaam": "Mangoshake met chilipeper en kurkuma",
+      "Prijs": "8 euro",
+      "Allergie": "Geen!"
+    }
+  ]
+}
+
+//{
+//  "Menukaart": {
+//    "Gerechten": [
+//      {
+//        "GerechtNaam": "broodje cola",
+//        "Prijs": "1",
+//        "Allergenen": "uranium"
+
+//      },
+//      {
+//        "GerechtNaam": "broodje pindakaas",
+//        "Prijs": "2",
+//        "Allergenen": "pinda"
+//      }
+//    ],
+//    "Dranken": [
+//      {
+//        "DrankNaam": "smoothie",
+//        "Prijs": "100",
+//        "Allergenen": "ook pinda"
+//      },
+//      {
+//        "DrankNaam": "cola met colasmaak",
+//        "Prijs": "3",
+//        "Allergenen": "cola allergeen"
+//      }
+//    ],
+//    "Desserts": [
+//      {
+//        "DessertNaam": "taart met taartsmaak",
+//        "Prijs": "20",
+//        "Allergenen": "meer pinda"
+//      },
+//      {
+//        "DessertNaam": "taart met anti taart smaak",
+//        "Prijs": "je leven + 5 euro servicekosten",
+//        "Allergenen": "minder pinda"
+//      }
+//    ]
+//  }
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//{
+//  "Menukaart": {
+//    "Gerechten": [
+//      {
+//        "GerechtNaam": "broodje cola",
+//        "Prijs": "1",
+//        "Allergenen": "uranium"
+
+//      },
+//      {
+//        "GerechtNaam": "broodje pindakaas",
+//        "Prijs": "2",
+//        "Allergenen": "pinda"
+//      }
+//    ],
+//    "Dranken": [
+//      {
+//        "DrankNaam": "smoothie",
+//        "Prijs": "100",
+//        "Allergenen": "ook pinda"
+//      },
+//      {
+//        "DrankNaam": "cola met colasmaak",
+//        "Prijs": "3",
+//        "Allergenen": "cola allergeen"
+//      }
+//    ],
+//    "Desserts": [
+//      {
+//        "DessertNaam": "taart met taartsmaak",
+//        "Prijs": "20",
+//        "Allergenen": "meer pinda"
+//      },
+//      {
+//        "DessertNaam": "taart met anti taart smaak",
+//        "Prijs": "je leven + 5 euro servicekosten",
+//        "Allergenen": "minder pinda"
+//      }
+//    ]
+//  }
+//}
