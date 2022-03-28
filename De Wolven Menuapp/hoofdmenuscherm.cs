@@ -41,7 +41,7 @@ namespace De_Wolven_Menuapp
             else if (optieklanten == ConsoleKey.D2)
             {
                 Console.Clear();
-                Menu.menukaart();
+                Menu.Menukaart();
             }
             else if (optieklanten == ConsoleKey.D3)
 

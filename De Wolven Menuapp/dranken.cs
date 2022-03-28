@@ -44,7 +44,7 @@ namespace De_Wolven_Menuapp
                 }
                 else if (input == ConsoleKey.Escape) // terug naar hoofdmenu
                 {
-                    Menu.menukaart();
+                    Menu.Menukaart();
                     break;
                 }
                 else if (input == ConsoleKey.RightArrow & pgmax == screen) // als je na het laatste scherm naar rechts gaat dan gaat hij terug naar het eerste scherm
@@ -57,16 +57,16 @@ namespace De_Wolven_Menuapp
                 Console.Clear();
                 Console.WriteLine("MENUKAART - DRANKEN\n\n\n");
                 //Plaats hieronder de derde 10 menuopties
-                Console.WriteLine(hetgehelemenu.dranken[0].dranknaam + ", " + hetgehelemenu.dranken[0].prijs + " euro, " + hetgehelemenu.dranken[0].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[1].dranknaam + ", " + hetgehelemenu.dranken[1].prijs + " euro, " + hetgehelemenu.dranken[1].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[2].dranknaam + ", " + hetgehelemenu.dranken[2].prijs + " euro, " + hetgehelemenu.dranken[2].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[3].dranknaam + ", " + hetgehelemenu.dranken[3].prijs + " euro, " + hetgehelemenu.dranken[3].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[4].dranknaam + ", " + hetgehelemenu.dranken[4].prijs + " euro, " + hetgehelemenu.dranken[4].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[5].dranknaam + ", " + hetgehelemenu.dranken[5].prijs + " euro, " + hetgehelemenu.dranken[5].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[6].dranknaam + ", " + hetgehelemenu.dranken[6].prijs + " euro, " + hetgehelemenu.dranken[6].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[7].dranknaam + ", " + hetgehelemenu.dranken[7].prijs + " euro, " + hetgehelemenu.dranken[7].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[8].dranknaam + ", " + hetgehelemenu.dranken[8].prijs + " euro, " + hetgehelemenu.dranken[8].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[9].dranknaam + ", " + hetgehelemenu.dranken[9].prijs + " euro, " + hetgehelemenu.dranken[9].allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[0].Dranknaam + ", " + hetgehelemenu.Dranken[0].Prijs + " euro, " + hetgehelemenu.Dranken[0].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[1].Dranknaam + ", " + hetgehelemenu.Dranken[1].Prijs + " euro, " + hetgehelemenu.Dranken[1].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[2].Dranknaam + ", " + hetgehelemenu.Dranken[2].Prijs + " euro, " + hetgehelemenu.Dranken[2].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[3].Dranknaam + ", " + hetgehelemenu.Dranken[3].Prijs + " euro, " + hetgehelemenu.Dranken[3].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[4].Dranknaam + ", " + hetgehelemenu.Dranken[4].Prijs + " euro, " + hetgehelemenu.Dranken[4].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[5].Dranknaam + ", " + hetgehelemenu.Dranken[5].Prijs + " euro, " + hetgehelemenu.Dranken[5].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[6].Dranknaam + ", " + hetgehelemenu.Dranken[6].Prijs + " euro, " + hetgehelemenu.Dranken[6].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[7].Dranknaam + ", " + hetgehelemenu.Dranken[7].Prijs + " euro, " + hetgehelemenu.Dranken[7].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[8].Dranknaam + ", " + hetgehelemenu.Dranken[8].Prijs + " euro, " + hetgehelemenu.Dranken[8].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[9].Dranknaam + ", " + hetgehelemenu.Dranken[9].Prijs + " euro, " + hetgehelemenu.Dranken[9].Allergenen);
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
                 Console.WriteLine($"[1] [2] [3]\n ^");
             }
@@ -74,16 +74,16 @@ namespace De_Wolven_Menuapp
             {
                 Console.Clear();
                 Console.WriteLine("MENUKAART - DRANKEN\n\n\n");
-                Console.WriteLine(hetgehelemenu.dranken[10].dranknaam + ", " + hetgehelemenu.dranken[10].prijs + " euro, " + hetgehelemenu.dranken[10].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[11].dranknaam + ", " + hetgehelemenu.dranken[11].prijs + " euro, " + hetgehelemenu.dranken[11].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[12].dranknaam + ", " + hetgehelemenu.dranken[12].prijs + " euro, " + hetgehelemenu.dranken[12].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[13].dranknaam + ", " + hetgehelemenu.dranken[13].prijs + " euro, " + hetgehelemenu.dranken[13].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[14].dranknaam + ", " + hetgehelemenu.dranken[14].prijs + " euro, " + hetgehelemenu.dranken[14].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[15].dranknaam + ", " + hetgehelemenu.dranken[15].prijs + " euro, " + hetgehelemenu.dranken[15].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[16].dranknaam + ", " + hetgehelemenu.dranken[16].prijs + " euro, " + hetgehelemenu.dranken[16].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[17].dranknaam + ", " + hetgehelemenu.dranken[17].prijs + " euro, " + hetgehelemenu.dranken[17].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[18].dranknaam + ", " + hetgehelemenu.dranken[18].prijs + " euro, " + hetgehelemenu.dranken[18].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[19].dranknaam + ", " + hetgehelemenu.dranken[19].prijs + " euro, " + hetgehelemenu.dranken[19].allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[10].Dranknaam + ", " + hetgehelemenu.Dranken[10].Prijs + " euro, " + hetgehelemenu.Dranken[10].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[11].Dranknaam + ", " + hetgehelemenu.Dranken[11].Prijs + " euro, " + hetgehelemenu.Dranken[11].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[12].Dranknaam + ", " + hetgehelemenu.Dranken[12].Prijs + " euro, " + hetgehelemenu.Dranken[12].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[13].Dranknaam + ", " + hetgehelemenu.Dranken[13].Prijs + " euro, " + hetgehelemenu.Dranken[13].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[14].Dranknaam + ", " + hetgehelemenu.Dranken[14].Prijs + " euro, " + hetgehelemenu.Dranken[14].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[15].Dranknaam + ", " + hetgehelemenu.Dranken[15].Prijs + " euro, " + hetgehelemenu.Dranken[15].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[16].Dranknaam + ", " + hetgehelemenu.Dranken[16].Prijs + " euro, " + hetgehelemenu.Dranken[16].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[17].Dranknaam + ", " + hetgehelemenu.Dranken[17].Prijs + " euro, " + hetgehelemenu.Dranken[17].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[18].Dranknaam + ", " + hetgehelemenu.Dranken[18].Prijs + " euro, " + hetgehelemenu.Dranken[18].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[19].Dranknaam + ", " + hetgehelemenu.Dranken[19].Prijs + " euro, " + hetgehelemenu.Dranken[19].Allergenen);
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
                 Console.WriteLine($"[1] [2] [3]\n     ^");
             }
@@ -91,8 +91,8 @@ namespace De_Wolven_Menuapp
             {
                 Console.Clear();
                 Console.WriteLine("MENUKAART- DRANKEN\n\n\n");
-                Console.WriteLine(hetgehelemenu.dranken[20].dranknaam + ", " + hetgehelemenu.dranken[0].prijs + " euro, " + hetgehelemenu.dranken[20].allergenen);
-                Console.WriteLine(hetgehelemenu.dranken[21].dranknaam + ", " + hetgehelemenu.dranken[1].prijs + " euro, " + hetgehelemenu.dranken[21].allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[20].Dranknaam + ", " + hetgehelemenu.Dranken[0].Prijs + " euro, " + hetgehelemenu.Dranken[20].Allergenen);
+                Console.WriteLine(hetgehelemenu.Dranken[21].Dranknaam + ", " + hetgehelemenu.Dranken[1].Prijs + " euro, " + hetgehelemenu.Dranken[21].Allergenen);
                 Console.WriteLine($"");
                 Console.WriteLine($"");
                 Console.WriteLine($"");
