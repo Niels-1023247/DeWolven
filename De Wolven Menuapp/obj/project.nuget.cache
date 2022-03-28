@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CmOoFUMEdM+f/zjnyt9l9/HNAIUSSSXS63CkD7mtuJeJndw9yNn2/SChZ1eCaih5s2qAIkht1TQFeLhtJQPasQ==",
+  "dgSpecHash": "5sJ10MLZGnSXmzSmwHcqQsxEJ+nmRmFUcLpu9un4qVsYVif27NNt8sE0AT0aM1Vi96J2+A9nsPSHl1IqrQejdw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
   "expectedPackageFiles": [
@@ -41,5 +41,12 @@
     "C:\\Users\\ncvan\\.nuget\\packages\\system.xml.readerwriter\\4.0.11\\system.xml.readerwriter.4.0.11.nupkg.sha512",
     "C:\\Users\\ncvan\\.nuget\\packages\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

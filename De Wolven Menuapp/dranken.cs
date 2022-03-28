@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace De_Wolven_Menuapp
 {
-    internal class dranken
+    internal class Dranken
     {
-        public void drankenmenukaart()
+        public static void Drankenmenukaart()
         {
             int screen = 1; // bewaart op welke van de 5 schermen de gebruiker zit
             int pgmax = 5; // variable die bewaart hoeveel schermen er in totaal zijn
@@ -64,6 +64,7 @@ namespace De_Wolven_Menuapp
                 Console.WriteLine($"Muntthee, €3");
                 Console.WriteLine($"Rooibosthee, €3");
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
+                Console.WriteLine($"[1] [2] [3]\n ^");
             }
             void Screen2()
             {
@@ -80,6 +81,7 @@ namespace De_Wolven_Menuapp
                 Console.WriteLine($"Zoete muntcocktail met honing en steranijs, €7");
                 Console.WriteLine($"Kruidige tomatencocktail met tuinkersgarnering, €7");
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
+                Console.WriteLine($"[1] [2] [3]\n     ^");
             }
             void Screen3()
             {
@@ -96,6 +98,7 @@ namespace De_Wolven_Menuapp
                 Console.WriteLine($"");
                 Console.WriteLine($"");
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
+                Console.WriteLine($"[1] [2] [3]\n         ^");
 
             }
         }

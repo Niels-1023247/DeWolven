@@ -2675,6 +2675,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Microsoft.CSharp >= 4.0.1",
       "Newtonsoft.Json >= 9.0.1"
     ]
   },
@@ -2717,6 +2718,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Microsoft.CSharp": {
+            "target": "Package",
+            "version": "[4.0.1, )"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[9.0.1, )"
@@ -2740,5 +2745,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

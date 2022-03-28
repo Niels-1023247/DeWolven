@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace De_Wolven_Menuapp
 {
-    internal class desserts
+    public static class Desserts
     {
-        public void dessertsmenukaart()
+        public static void Dessertsmenukaart()
         {
             int screen = 1; // bewaart op welke van de 5 schermen de gebruiker zit
             int pgmax = 5; // variable die bewaart hoeveel schermen er in totaal zijn
@@ -55,6 +55,7 @@ namespace De_Wolven_Menuapp
                 Console.WriteLine($"");
                 Console.WriteLine($"");
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
+                Console.WriteLine($"[1]\n ^");
             }
 
 
