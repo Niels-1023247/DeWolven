@@ -1,0 +1,37 @@
+﻿Dit is een document wat ik voor mezelf heb gemaakt om alle methods op een rijtje te zetten.
+
+DOCUMENTATIE
+
+
+namespace
+	Class
+		method()
+
+De_Wolven_MenuApp
+	Program
+		Main()					(MAIN)
+	Beginscherm
+		Begin()					(Kiezen voor gast/medewerker)
+	Contact
+		Contactgegevens()		(laat scherm voor contactgegevens zien)
+	dranken
+		drankenmenukaart()		(Optiemenu voor drankenschermselectie)
+		Screen1()				(drankenscherm 1)
+		Screen2()				(drankenscherm 2)
+		Screen3()				(drankenscherm 3)
+	gerechten
+		gerechtenmenukaart()	(Optiemenu voor gerechtenschermselectie)
+		Screen1()				(gerechtenscherm 1)
+		Screen2()				(gerechtenscherm 2)
+	Hoofdmenuscherm
+		SchermMedewerker()		(Startmenu voor medewerker laten zien)
+		SchermKlanten()			(Startmenu voor klanten laten zien)
+	JsonHelper (in progress)
+		pass					(Bevat alle JSON models)
+	Loginfo
+		Loginfoscherm()			(Optiemenu voor inloggen met account of met reserveringscode)
+		LoginAccount()			(Inloggen met account)
+		LoginCode()				(Inloggen met reserveringscode)
+	Menu
+		menukaart()				(Optiemenu voor gerechten/dranken/desserts)
+
