@@ -2680,19 +2680,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ncvan\\.nuget\\packages\\": {}
+    "C:\\Users\\solqu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+      "projectUniqueName": "D:\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
       "projectName": "De Wolven Menuapp",
-      "projectPath": "C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
-      "packagesPath": "C:\\Users\\ncvan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\obj\\",
+      "projectPath": "D:\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+      "packagesPath": "C:\\Users\\solqu\\.nuget\\packages\\",
+      "outputPath": "D:\\DeWolven\\De Wolven Menuapp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ncvan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\solqu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2745,13 +2745,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

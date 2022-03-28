@@ -17,11 +17,6 @@ namespace De_Wolven_Menuapp
             ConsoleKey input;
             string dejsontekst = File.ReadAllText("Menukaart.JSON");
             var hetgehelemenu = JsonConvert.DeserializeObject<Menukaart>(dejsontekst);
-
-            //Console.WriteLine(hetgehelemenu.Dummy1);
-            Console.WriteLine(hetgehelemenu.Dishes);
-            Console.WriteLine("Done");
-            Console.ReadLine();
             while (true)
             {
                 if (screen == 1) // activeert de juiste method voor het juiste scherm mbv de screen-variable
@@ -56,34 +51,27 @@ namespace De_Wolven_Menuapp
             {
                 Console.Clear();
 
-                //Console.WriteLine($"{hetgehelemenu.Gerechten[1].Prijs}");
-
-                //Console.WriteLine($"{hetgehelemenu.Gerechten}");
-                //Console.WriteLine("MENUKAART - GERECHTEN\n\n");
-                //Console.WriteLine($"Erwtensoep, €8,-(selderij)");
-                //Console.WriteLine($"Tomatensoep, €7.60,(soja/selderij)");
-                //Console.WriteLine($"Seldersoep, €8.50,(soja/selderij)");
-                //Console.WriteLine($"Spaghetti Bolognese, €16.99,(gluten/ei/selderij)");
-                //Console.WriteLine($"Pizza margherita, €13,-(gluten/melk)");
-                //Console.WriteLine($"Broodje jonge kaas, €7.30 (gluten/melk)");
-                //Console.WriteLine($"Broodje eiersalade, €7.40 (gluten/ei)");
-                //Console.WriteLine($"Groenten quiche broccoli-spek, €13,-(gluten/ei/melk)");
-                //Console.WriteLine($"Groenten quiche kastanje-vegi, €12.50,(gluten/ei/melk/selderij)");
-                //Console.WriteLine($"Spaghetti Carbonara, €17.30, (gluten/ei/melk)");
-                //Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
-                //Console.WriteLine($"[1] [2]\n ^");
+                Console.WriteLine("MENUKAART - GERECHTEN\n\n");
+                Console.WriteLine(hetgehelemenu.gerechten[0].gerechtnaam + ", " + hetgehelemenu.gerechten[0].prijs + " euro, " + hetgehelemenu.gerechten[0].allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[1].gerechtnaam + ", " + hetgehelemenu.gerechten[1].prijs + " euro, " + hetgehelemenu.gerechten[1].allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[2].gerechtnaam + ", " + hetgehelemenu.gerechten[2].prijs + " euro, " + hetgehelemenu.gerechten[2].allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[3].gerechtnaam + ", " + hetgehelemenu.gerechten[3].prijs + " euro, " + hetgehelemenu.gerechten[3].allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[4].gerechtnaam + ", " + hetgehelemenu.gerechten[4].prijs + " euro, " + hetgehelemenu.gerechten[4].allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[5].gerechtnaam + ", " + hetgehelemenu.gerechten[5].prijs + " euro, " + hetgehelemenu.gerechten[5].allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[6].gerechtnaam + ", " + hetgehelemenu.gerechten[6].prijs + " euro, " + hetgehelemenu.gerechten[6].allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[7].gerechtnaam + ", " + hetgehelemenu.gerechten[7].prijs + " euro, " + hetgehelemenu.gerechten[7].allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[8].gerechtnaam + ", " + hetgehelemenu.gerechten[8].prijs + " euro, " + hetgehelemenu.gerechten[8].allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[9].gerechtnaam + ", " + hetgehelemenu.gerechten[9].prijs + " euro, " + hetgehelemenu.gerechten[9].allergenen);
+                
+                Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
+                Console.WriteLine($"[1] [2]\n ^");
             }
             void Screen2() // methode voor scherm 2
             {
                 Console.Clear();
                 Console.WriteLine("MENUKAART - GERECHTEN\n\n");
-                //Plaats hieronder de tweede 10 menuopties
-                Console.WriteLine($"Lasagne Bolognese, €13,-(gluten/ei/selderij)");
-                Console.WriteLine($"Penne pesto kip, €16,-(gluten/ei/pinda's)");
-                Console.WriteLine($"Ringatone tomaat, €13,-(gluten/ei)");
-                Console.WriteLine($"");
-                Console.WriteLine($"");
-                Console.WriteLine($"");
+                Console.WriteLine(hetgehelemenu.gerechten[10].gerechtnaam + ", " + hetgehelemenu.gerechten[10].prijs + " euro, " + hetgehelemenu.gerechten[10].allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[11].gerechtnaam + ", " + hetgehelemenu.gerechten[11].prijs + " euro, " + hetgehelemenu.gerechten[11].allergenen);
                 Console.WriteLine($"");
                 Console.WriteLine($"");
                 Console.WriteLine($"");
