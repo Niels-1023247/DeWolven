@@ -16,7 +16,7 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("LOGIN\n\n");
             Console.WriteLine("[1]Login met een bestaand account\n[2]Check uw reservatie zonder account\n");
             Console.WriteLine("Voer 1 of 2 in");
-            Account acc = new Account();
+            
             ConsoleKey LoginType = Console.ReadKey().Key;
             if (LoginType == ConsoleKey.D1)
             {
@@ -32,16 +32,23 @@ namespace De_Wolven_Menuapp
             }
 
         }
-        public static void LoginAccount()
+        public static void CreateAccount()
         {
             Console.Clear();
+            Account newacc = new Account();
+
+            newacc.Id = 1;
             Console.WriteLine("Voer uw Gebruikersnaam in:");
-            
-            string username = Console.ReadLine();
+            newacc.Username = Console.ReadLine();
             Console.WriteLine("Voer uw Wachtwoord in:");
-            string password = Console.ReadLine();
-            ///Validate(username, password);
+            newacc.Password = Console.ReadLine();
+            string jsonData = JsonConvert.SerializeObject(newacc);
+            Console.WriteLine(jsonData);
+            string path = @"D:\DeWolven\De Wolven Menuapp\accounts.json";
+            // append
+
         }
+
         public static void LoginCode()
         {
             Console.Clear();
