@@ -71,6 +71,7 @@ namespace De_Wolven_Menuapp
                 //Console.WriteLine($"Groenten quiche kastanje-vegi, €12.50,(gluten/ei/melk/selderij)");
                 //Console.WriteLine($"Spaghetti Carbonara, €17.30, (gluten/ei/melk)");
                 //Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
+                //Console.WriteLine($"[1] [2]\n ^");
             }
             void Screen2() // methode voor scherm 2
             {
@@ -89,6 +90,7 @@ namespace De_Wolven_Menuapp
                 Console.WriteLine($"");
 
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
+                Console.WriteLine($"[1] [2]\n     ^");
             }
 
         }
