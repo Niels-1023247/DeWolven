@@ -8,9 +8,9 @@ using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
-    public class gerechten
+    public class Gerechtenkaart
     {
-        public void gerechtenmenukaart()
+        public static void Gerechtenmenukaart()
         {
             int screen = 1; // bewaart op welke van de 5 schermen de gebruiker zit
             int pgmax = 5; // variable die bewaart hoeveel schermen er in totaal zijn

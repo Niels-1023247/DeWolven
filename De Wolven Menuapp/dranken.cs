@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace De_Wolven_Menuapp
 {
-    internal class dranken
+    internal class Dranken
     {
-        public void drankenmenukaart()
+        public static void Drankenmenukaart()
         {
             int screen = 1; // bewaart op welke van de 5 schermen de gebruiker zit
             int pgmax = 5; // variable die bewaart hoeveel schermen er in totaal zijn

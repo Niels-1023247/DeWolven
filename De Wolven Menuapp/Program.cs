@@ -13,8 +13,7 @@ namespace De_Wolven_Menuapp
     {
         public static void Main()
         {
-            var startbeginscherm = new Beginscherm();
-            startbeginscherm.Begin();
+            Beginscherm.Begin();
         }
 
     }

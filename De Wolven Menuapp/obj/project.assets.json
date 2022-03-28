@@ -2675,31 +2675,31 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Microsoft.CSharp >= 4.0.1",
       "Newtonsoft.Json >= 9.0.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\solqu\\.nuget\\packages\\": {}
+    "C:\\Users\\kevin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+      "projectUniqueName": "C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
       "projectName": "De Wolven Menuapp",
-      "projectPath": "D:\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
-      "packagesPath": "C:\\Users\\solqu\\.nuget\\packages\\",
-      "outputPath": "D:\\DeWolven\\De Wolven Menuapp\\obj\\",
+      "projectPath": "C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+      "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\solqu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
       },
       "frameworks": {
         "net5.0": {
@@ -2717,6 +2717,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Microsoft.CSharp": {
+            "target": "Package",
+            "version": "[4.0.1, )"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[9.0.1, )"

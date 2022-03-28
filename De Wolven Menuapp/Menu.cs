@@ -52,22 +52,19 @@ namespace De_Wolven_Menuapp
                 if (optieklanten == ConsoleKey.D1)
                 {
                     Console.Clear();
-                    gerechten opengerechten = new gerechten();
-                    opengerechten.gerechtenmenukaart();
+                    Gerechtenkaart.Gerechtenmenukaart();
                 }
 
                 else if (optieklanten == ConsoleKey.D2)
                 {
                     Console.Clear();
-                    desserts opendesserts = new desserts();
-                    opendesserts.dessertsmenukaart();
+                    Desserts.Dessertsmenukaart();
                 }
                 else if (optieklanten == ConsoleKey.D3)
 
                 {
                     Console.Clear();
-                    dranken opendranken = new dranken();
-                    opendranken.drankenmenukaart();
+                    Dranken.Drankenmenukaart();
                 }
             }
         }
