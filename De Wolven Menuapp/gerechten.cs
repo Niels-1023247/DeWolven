@@ -39,7 +39,7 @@ namespace De_Wolven_Menuapp
                 }
                 else if (input == ConsoleKey.Escape) // terug naar hoofdmenu
                 {
-                    Menu.menukaart();
+                    Menu.Menukaart();
                     break;
                 }
                 else if (input == ConsoleKey.RightArrow & pgmax == screen) // als je na het laatste scherm naar rechts gaat dan gaat hij terug naar het eerste scherm
@@ -52,16 +52,16 @@ namespace De_Wolven_Menuapp
                 Console.Clear();
 
                 Console.WriteLine("MENUKAART - GERECHTEN\n\n");
-                Console.WriteLine(hetgehelemenu.gerechten[0].gerechtnaam + ", " + hetgehelemenu.gerechten[0].prijs + " euro, " + hetgehelemenu.gerechten[0].allergenen);
-                Console.WriteLine(hetgehelemenu.gerechten[1].gerechtnaam + ", " + hetgehelemenu.gerechten[1].prijs + " euro, " + hetgehelemenu.gerechten[1].allergenen);
-                Console.WriteLine(hetgehelemenu.gerechten[2].gerechtnaam + ", " + hetgehelemenu.gerechten[2].prijs + " euro, " + hetgehelemenu.gerechten[2].allergenen);
-                Console.WriteLine(hetgehelemenu.gerechten[3].gerechtnaam + ", " + hetgehelemenu.gerechten[3].prijs + " euro, " + hetgehelemenu.gerechten[3].allergenen);
-                Console.WriteLine(hetgehelemenu.gerechten[4].gerechtnaam + ", " + hetgehelemenu.gerechten[4].prijs + " euro, " + hetgehelemenu.gerechten[4].allergenen);
-                Console.WriteLine(hetgehelemenu.gerechten[5].gerechtnaam + ", " + hetgehelemenu.gerechten[5].prijs + " euro, " + hetgehelemenu.gerechten[5].allergenen);
-                Console.WriteLine(hetgehelemenu.gerechten[6].gerechtnaam + ", " + hetgehelemenu.gerechten[6].prijs + " euro, " + hetgehelemenu.gerechten[6].allergenen);
-                Console.WriteLine(hetgehelemenu.gerechten[7].gerechtnaam + ", " + hetgehelemenu.gerechten[7].prijs + " euro, " + hetgehelemenu.gerechten[7].allergenen);
-                Console.WriteLine(hetgehelemenu.gerechten[8].gerechtnaam + ", " + hetgehelemenu.gerechten[8].prijs + " euro, " + hetgehelemenu.gerechten[8].allergenen);
-                Console.WriteLine(hetgehelemenu.gerechten[9].gerechtnaam + ", " + hetgehelemenu.gerechten[9].prijs + " euro, " + hetgehelemenu.gerechten[9].allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[0].Gerechtnaam + ", " + hetgehelemenu.gerechten[0].Prijs + " euro, " + hetgehelemenu.gerechten[0].Allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[1].Gerechtnaam + ", " + hetgehelemenu.gerechten[1].Prijs + " euro, " + hetgehelemenu.gerechten[1].Allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[2].Gerechtnaam + ", " + hetgehelemenu.gerechten[2].Prijs + " euro, " + hetgehelemenu.gerechten[2].Allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[3].Gerechtnaam + ", " + hetgehelemenu.gerechten[3].Prijs + " euro, " + hetgehelemenu.gerechten[3].Allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[4].Gerechtnaam + ", " + hetgehelemenu.gerechten[4].Prijs + " euro, " + hetgehelemenu.gerechten[4].Allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[5].Gerechtnaam + ", " + hetgehelemenu.gerechten[5].Prijs + " euro, " + hetgehelemenu.gerechten[5].Allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[6].Gerechtnaam + ", " + hetgehelemenu.gerechten[6].Prijs + " euro, " + hetgehelemenu.gerechten[6].Allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[7].Gerechtnaam + ", " + hetgehelemenu.gerechten[7].Prijs + " euro, " + hetgehelemenu.gerechten[7].Allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[8].Gerechtnaam + ", " + hetgehelemenu.gerechten[8].Prijs + " euro, " + hetgehelemenu.gerechten[8].Allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[9].Gerechtnaam + ", " + hetgehelemenu.gerechten[9].Prijs + " euro, " + hetgehelemenu.gerechten[9].Allergenen);
                 
                 Console.WriteLine($"Dit is pagina {screen}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
                 Console.WriteLine($"[1] [2]\n ^");
@@ -70,8 +70,8 @@ namespace De_Wolven_Menuapp
             {
                 Console.Clear();
                 Console.WriteLine("MENUKAART - GERECHTEN\n\n");
-                Console.WriteLine(hetgehelemenu.gerechten[10].gerechtnaam + ", " + hetgehelemenu.gerechten[10].prijs + " euro, " + hetgehelemenu.gerechten[10].allergenen);
-                Console.WriteLine(hetgehelemenu.gerechten[11].gerechtnaam + ", " + hetgehelemenu.gerechten[11].prijs + " euro, " + hetgehelemenu.gerechten[11].allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[10].Gerechtnaam + ", " + hetgehelemenu.gerechten[10].Prijs + " euro, " + hetgehelemenu.gerechten[10].Allergenen);
+                Console.WriteLine(hetgehelemenu.gerechten[11].Gerechtnaam + ", " + hetgehelemenu.gerechten[11].Prijs + " euro, " + hetgehelemenu.gerechten[11].Allergenen);
                 Console.WriteLine($"");
                 Console.WriteLine($"");
                 Console.WriteLine($"");

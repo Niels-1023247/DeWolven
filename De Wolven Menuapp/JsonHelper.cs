@@ -11,29 +11,29 @@ namespace De_Wolven_Menuapp
     public class Menukaart
     {
         public Gerechten[] gerechten;
-        public MenuDranken[] dranken { get; set; }
-        public MenuDesserts[] desserts { get; set; }
+        public MenuDranken[] Dranken { get; set; }
+        public MenuDesserts[] Desserts { get; set; }
 
     }
 
     public class Gerechten
     {
-        public string gerechtnaam { get; set; }
-        public string prijs { get; set; }
-        public string allergenen { get; set; }
+        public string Gerechtnaam { get; set; }
+        public string Prijs { get; set; }
+        public string Allergenen { get; set; }
     }
 
     public class MenuDranken
     {
-        public string dranknaam { get; set; }
-        public string prijs { get; set; }
-        public string allergenen { get; set; }
+        public string Dranknaam { get; set; }
+        public string Prijs { get; set; }
+        public string Allergenen { get; set; }
     }
     public class MenuDesserts
     {
-        public string dessertnaam { get; set; }
-        public string prijs { get; set; }
-        public string allergenen { get; set; }
+        public string Dessertnaam { get; set; }
+        public string Prijs { get; set; }
+        public string Allergenen { get; set; }
     }
 
 

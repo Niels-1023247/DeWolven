@@ -35,7 +35,7 @@ namespace De_Wolven_Menuapp
                 }
                 else if (input == ConsoleKey.Escape) // terug naar hoofdmenu
                 {
-                    Menu.menukaart();
+                    Menu.Menukaart();
                     break;
                 }
                 else if (input == ConsoleKey.RightArrow & pgmax == screen) // als je na het laatste scherm naar rechts gaat dan gaat hij terug naar het eerste scherm
@@ -48,11 +48,11 @@ namespace De_Wolven_Menuapp
                 Console.Clear();
                 Console.WriteLine("MENUKAART - DESSERTS\n\n");
                 //Plaats hieronder de eerste 10 menuopties
-                Console.WriteLine(hetgehelemenu.desserts[0].dessertnaam + ", " + hetgehelemenu.desserts[0].prijs + " euro, " + hetgehelemenu.desserts[0].allergenen);
-                Console.WriteLine(hetgehelemenu.desserts[1].dessertnaam + ", " + hetgehelemenu.desserts[1].prijs + " euro, " + hetgehelemenu.desserts[1].allergenen);
-                Console.WriteLine(hetgehelemenu.desserts[2].dessertnaam + ", " + hetgehelemenu.desserts[2].prijs + " euro, " + hetgehelemenu.desserts[2].allergenen);
-                Console.WriteLine(hetgehelemenu.desserts[3].dessertnaam + ", " + hetgehelemenu.desserts[3].prijs + " euro, " + hetgehelemenu.desserts[3].allergenen);
-                Console.WriteLine(hetgehelemenu.desserts[4].dessertnaam + ", " + hetgehelemenu.desserts[4].prijs + " euro, " + hetgehelemenu.desserts[4].allergenen);
+                Console.WriteLine(hetgehelemenu.Desserts[0].Dessertnaam + ", " + hetgehelemenu.Desserts[0].Prijs + " euro, " + hetgehelemenu.Desserts[0].Allergenen);
+                Console.WriteLine(hetgehelemenu.Desserts[1].Dessertnaam + ", " + hetgehelemenu.Desserts[1].Prijs + " euro, " + hetgehelemenu.Desserts[1].Allergenen);
+                Console.WriteLine(hetgehelemenu.Desserts[2].Dessertnaam + ", " + hetgehelemenu.Desserts[2].Prijs + " euro, " + hetgehelemenu.Desserts[2].Allergenen);
+                Console.WriteLine(hetgehelemenu.Desserts[3].Dessertnaam + ", " + hetgehelemenu.Desserts[3].Prijs + " euro, " + hetgehelemenu.Desserts[3].Allergenen);
+                Console.WriteLine(hetgehelemenu.Desserts[4].Dessertnaam + ", " + hetgehelemenu.Desserts[4].Prijs + " euro, " + hetgehelemenu.Desserts[4].Allergenen);
                 Console.WriteLine($"");
                 Console.WriteLine($"");
                 Console.WriteLine($"");

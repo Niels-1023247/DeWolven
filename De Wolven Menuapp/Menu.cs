@@ -8,7 +8,7 @@ namespace De_Wolven_Menuapp
 {
     internal static class Menu
     {
-        public static void menukaart() // method om het menu tevoorschijn te *. toveren *'.
+        public static void Menukaart() // method om het menu tevoorschijn te *. toveren *'.
         {
             int screen = 1; // bewaart op welke van de 5 schermen de gebruiker zit
             int pgmax = 5; // variable die bewaart hoeveel schermen er in totaal zijn
@@ -40,7 +40,7 @@ namespace De_Wolven_Menuapp
 
             }
 
-            void Screen1() // methode voor overschakelen naar de verschillende menu soorten
+            static void Screen1() // methode voor overschakelen naar de verschillende menu soorten
             {
                 Console.Clear();
                 Console.WriteLine("Welkom bij het menu-scherm van De Wolven!");

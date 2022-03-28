@@ -71,142 +71,142 @@
     }
 
   ],
-  "dranken": [
+  "Dranken": [
     {
-      "dranknaam": "Broccolishake met spinazie, munt en avocado",
+      "Dranknaam": "Broccolishake met spinazie, munt en avocado",
       "Prijs": "8",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Mangoshake met chilipeper en kurkuma",
+      "Dranknaam": "Mangoshake met chilipeper en kurkuma",
       "Prijs": "8",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Bananenshake met kikkererwten en kiwi",
+      "Dranknaam": "Bananenshake met kikkererwten en kiwi",
       "Prijs": "8",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Wortelshake met kurkuma en kokosmelk",
+      "Dranknaam": "Wortelshake met kurkuma en kokosmelk",
       "Prijs": "8",
       "Allergie": "sojamelk/kokosmelk"
     },
     {
-      "dranknaam": "Paprikashake met tomaat en peterselie",
+      "Dranknaam": "Paprikashake met tomaat en peterselie",
       "Prijs": "8",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Coca-Cola met citroenschijfje (Classic/Light/Zero)",
+      "Dranknaam": "Coca-Cola met citroenschijfje (Classic/Light/Zero)",
       "Prijs": "4",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Kersen- ananassap",
+      "Dranknaam": "Kersen- ananassap",
       "Prijs": "6",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Water (1L)",
+      "Dranknaam": "Water (1L)",
       "Prijs": "2",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Muntthee",
+      "Dranknaam": "Muntthee",
       "Prijs": "3",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Rooibosthee",
+      "Dranknaam": "Rooibosthee",
       "Prijs": "3",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Lipton Ijsthee (citroen/mango/green tea)",
+      "Dranknaam": "Lipton Ijsthee (citroen/mango/green tea)",
       "Prijs": "4",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Cassis",
+      "Dranknaam": "Cassis",
       "Prijs": "4",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Warme chocolademelk",
+      "Dranknaam": "Warme chocolademelk",
       "Prijs": "4",
       "Allergie": "Melk"
     },
     {
-      "dranknaam": "Tapbier (Heineken/Amstel/Grolsch/Hertog Jan)",
+      "Dranknaam": "Tapbier (Heineken/Amstel/Grolsch/Hertog Jan)",
       "Prijs": "4",
       "Allergie": "gluten"
     },
     {
-      "dranknaam": "Verse bio-melk",
+      "Dranknaam": "Verse bio-melk",
       "Prijs": "4",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Biologische merlot",
+      "Dranknaam": "Biologische merlot",
       "Prijs": "7",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Biologische blanc sauvignon",
+      "Dranknaam": "Biologische blanc sauvignon",
       "Prijs": "7",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Frisse meloencocktail met aardbeigarnering",
+      "Dranknaam": "Frisse meloencocktail met aardbeigarnering",
       "Prijs": "7",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Zoete muntcocktail met honing en steranijs",
+      "Dranknaam": "Zoete muntcocktail met honing en steranijs",
       "Prijs": "7",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Kruidige tomatencocktail met tuinkersgarnering",
+      "Dranknaam": "Kruidige tomatencocktail met tuinkersgarnering",
       "Prijs": "7",
       "Allergie": "geen"
     },
     {
-      "dranknaam": "Mystery Cocktail...",
+      "Dranknaam": "Mystery Cocktail...",
       "Prijs": "20",
       "Allergie": "gluten/ei/vis/noten/selderij"
     },
     {
-      "dranknaam": "Garnalencocktail met gin en tonic",
+      "Dranknaam": "Garnalencocktail met gin en tonic",
       "Prijs": "8",
       "Allergie": "vis"
     }
 
   ],
-  "desserts": [
+  "Desserts": [
     {
-      "dessertnaam": "Dame Blanche",
+      "Dessertnaam": "Dame Blanche",
       "Prijs": "9",
       "Allergie": "ei/noten/melk"
     },
     {
-      "dessertnaam": "Chocolade moulleux",
+      "Dessertnaam": "Chocolade moulleux",
       "Prijs": "7",
       "Allergie": "ei/noten/melk"
     },
     {
-      "dessertnaam": "Gegrilde ananas",
+      "Dessertnaam": "Gegrilde ananas",
       "Prijs": "6.50",
       "Allergie": "gluten/pinda's/noten/melk"
     },
     {
-      "dessertnaam": "Scropinno Parfait",
+      "Dessertnaam": "Scropinno Parfait",
       "Prijs": "9",
       "Allergie": "gluten/ei/melk"
     },
     {
-      "dessertnaam": "Tiramisu classico",
+      "Dessertnaam": "Tiramisu classico",
       "Prijs": "9.50",
       "Allergie": "ei/melk"
     }
