@@ -16,7 +16,7 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("LOGIN\n\n");
             Console.WriteLine("[1]Login met een bestaand account\n[2]Creeër nieuw account\n");
             Console.WriteLine("Voer 1 of 2 in");
-            Account acc = new Account();
+            
             ConsoleKey LoginType = Console.ReadKey().Key;
             while (1 == 1)
             {
@@ -58,7 +58,7 @@ namespace De_Wolven_Menuapp
         {
             Console.Clear();
             Console.WriteLine("Voer uw Gebruikersnaam in:");
-            
+
             string username = Console.ReadLine();
             Console.WriteLine("Voer uw Wachtwoord in:");
             string password = Console.ReadLine();
