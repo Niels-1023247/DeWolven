@@ -21,16 +21,39 @@ namespace De_Wolven_Menuapp
 		public static void Klantinfo()
 		{
 			Console.Clear();
-			string vandaag = DateTime.Now.ToString("dd/MM/yyyy");
-			char streepje = '-';
+			int res = 0;
+
 			Console.WriteLine("Vul de onderstaande gegevens in om een reservering te maken");
 			Console.WriteLine("Voer uw naam in:");
 			string naam = Console.ReadLine();
+
 			Console.WriteLine("Vul de datum in dat u wilt komen in de vorm dd/MM/yyyy");
 			string datum = Console.ReadLine();
 
-			DateTime d1 = DateTime.Now;
-			DateTime d2 = Convert.ToDateTime(datum);
+			//DateTime d1 = DateTime.Now; // datum nu
+			//DateTime d2 = Convert.ToDateTime(datum); // datum die ingevoerd is
+
+			//while (DateTime.Compare(d1, d2) == -1) // voer datum opnieuw in als ie fout is
+			//{
+			//	Console.WriteLine("Datum is verkeerd");
+   //             Console.WriteLine("Voer een nieuwe datum in: ");
+			//	datum = Console.ReadLine();
+			//}
+			//Console.WriteLine("hij is door alle controles heeeen gekomen!!!!");
+
+			//bool datumklopt = false; // nieuwe boolean, die false is als de datum niet klopt
+			//while (datumklopt == false)
+			//{ // hij gaat alleen de loop in als de datum niet klopt, of als hij voor het eerst vraagt om een datum
+			//	datumklopt = true; // we gaan er van uit dat de datum klopt, en we verzetten hem naar false als ie niet door een van de controle komt
+			//	Console.WriteLine("Kies datum DD-MM (bijv. 19/04/2022):");
+			//	datum = Console.ReadLine();
+			//	if (DateTime.Compare(d1, d2) < 0)
+			//	{
+			//		datumklopt = false; // hij gaat naar false als de datum voor vandaag is
+			//		Console.WriteLine("Datum is vandaag of al geweest, voer opnieuw in");
+			//	}
+			//}
+
 		}
 		public static int Compare(DateTime d1, DateTime d2)
 		{
@@ -38,16 +61,18 @@ namespace De_Wolven_Menuapp
 			if (d1 == d2)
 			{
 				return 0;
+				
 			}
 
 			else if (d1 < d2)
 			{
-				return -1;
+				return 1;
+				
 			}
 
 			else if (d1 > d2)
 			{
-				return 1;
+				return -1;
 			}
 
 			else
@@ -58,42 +83,35 @@ namespace De_Wolven_Menuapp
 
 		}
 
+	
 
 
 
 
 
 
-		//	bool datumklopt = false; // nieuwe boolean, die false is als de datum niet klopt
-		//	while (datumklopt == false) { // hij gaat alleen de loop in als de datum niet klopt, of als hij voor het eerst vraagt om een datum
-		//		datumklopt = true; // we gaan er van uit dat de datum klopt, en we verzetten hem naar false als ie niet door een van de controle komt
-		//		Console.WriteLine("Kies datum DD-MM (bijv. 19/04/2022):");
-		//		datum = Console.ReadLine();
-		//		if (IsDateBeforeOrToday(datum) == false) {
-		//			datumklopt = false; // hij gaat naar false als de datum voor vandaag is
-		//                  Console.WriteLine("Datum is vandaag of al geweest, voer opnieuw in");
-		//		}
 
 
-		//	}
-		//          Console.WriteLine("hij is door alle controles heeeen gekomen!!!!");
+
+	//	}
+	//          
 
 
 
 
 
-		//	//while (datum[2] != streepje && datum.Length != 10)
-		//	//{
-		//	//	Console.WriteLine("Schrijf de datum in vorm DD/MM/yyyy");
-		//	//	Console.WriteLine("Schrijf de datum dat u wilt komen in de vorm DD/MM/yyyy");
-		//	//	datum = Console.ReadLine();
+	//	//while (datum[2] != streepje && datum.Length != 10)
+	//	//{
+	//	//	Console.WriteLine("Schrijf de datum in vorm DD/MM/yyyy");
+	//	//	Console.WriteLine("Schrijf de datum dat u wilt komen in de vorm DD/MM/yyyy");
+	//	//	datum = Console.ReadLine();
 
-		//	//}
-
-
-		//	//Console.WriteLine($"Met hoeveel mensen wilt u komen op {datum}");
-		//	//string aantal_mensen = Console.ReadLine();
+	//	//}
 
 
-	}
+	//	//Console.WriteLine($"Met hoeveel mensen wilt u komen op {datum}");
+	//	//string aantal_mensen = Console.ReadLine();
+
+
+}
 }
