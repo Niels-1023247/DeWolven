@@ -54,7 +54,7 @@ namespace De_Wolven_Menuapp
             File.WriteAllText(@"accounts.json", newAccJson);
             Console.WriteLine("Signed up");
         }
-        public static void LoginAccount()
+        public static void LoginAccount() 
         {
             Console.Clear();
             Console.WriteLine("Voer uw Gebruikersnaam in:");

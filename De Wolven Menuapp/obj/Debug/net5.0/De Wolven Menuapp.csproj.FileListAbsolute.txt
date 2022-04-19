@@ -102,3 +102,5 @@ D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\refint\De 
 D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.pdb
 D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.genruntimeconfig.cache
 D:\School\AA HR\Project B\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\ref\De Wolven Menuapp.dll
+C:\Users\solqu\Documents\GitHub\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\solqu\Documents\GitHub\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.csproj.CopyComplete
