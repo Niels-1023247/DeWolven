@@ -8,6 +8,13 @@ using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
+    public class Account
+    { 
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+    }
+
     public class Menukaart
     {
         public Gerechten[] gerechten;
