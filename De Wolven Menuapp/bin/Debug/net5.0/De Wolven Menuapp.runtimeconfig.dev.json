@@ -2,6 +2,7 @@
   "runtimeOptions": {
     "additionalProbingPaths": [
 <<<<<<< HEAD
+<<<<<<< HEAD
       "C:\\Users\\ncvan\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\ncvan\\.nuget\\packages"
 =======
@@ -13,6 +14,10 @@
       "C:\\Users\\kevin\\.nuget\\packages"
 >>>>>>> commit all
 >>>>>>> fd7e035dd6948a1dbbc6fa9b8d8a88bd4ca4add7
+=======
+      "C:\\Users\\kevin\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\kevin\\.nuget\\packages"
+>>>>>>> 36917657a6c53bb1cd59be0fc29ef1e911652f5b
     ]
   }
 }
