@@ -2649,14 +2649,22 @@
   },
   "packageFolders": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\ncvan\\.nuget\\packages\\": {}
 =======
     "C:\\Users\\solqu\\.nuget\\packages\\": {}
 >>>>>>> 466cf7251abbda312791db690be99f2d42aafb2c
+=======
+    "C:\\Users\\Jaël\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\kevin\\.nuget\\packages\\": {}
+>>>>>>> commit all
+>>>>>>> fd7e035dd6948a1dbbc6fa9b8d8a88bd4ca4add7
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
       "projectName": "De Wolven Menuapp",
@@ -2668,22 +2676,38 @@
         "C:\\Users\\ncvan\\AppData\\Roaming\\NuGet\\NuGet.Config",
 =======
       "projectUniqueName": "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+=======
+      "projectUniqueName": "C:\\Users\\Jaël\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+>>>>>>> fd7e035dd6948a1dbbc6fa9b8d8a88bd4ca4add7
       "projectName": "De Wolven Menuapp",
       "projectPath": "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
       "packagesPath": "C:\\Users\\solqu\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\solqu\\AppData\\Roaming\\NuGet\\NuGet.Config",
 >>>>>>> 466cf7251abbda312791db690be99f2d42aafb2c
+=======
+        "C:\\Users\\Jaël\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+      "projectName": "De Wolven Menuapp",
+      "projectPath": "C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+      "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> commit all
+>>>>>>> fd7e035dd6948a1dbbc6fa9b8d8a88bd4ca4add7
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
       },
       "frameworks": {
         "net5.0": {
@@ -2720,12 +2744,15 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+<<<<<<< HEAD
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Host.win-x64",
             "version": "[5.0.14, 5.0.14]"
           }
         ],
+=======
+>>>>>>> commit all
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
