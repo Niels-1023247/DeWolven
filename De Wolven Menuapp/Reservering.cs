@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace De_Wolven_Menuapp
 {
 	internal class Reservering
 	{
-
+		
 		public static void Availability_Check()
 		{
 			int x = 1;
@@ -20,7 +22,9 @@ namespace De_Wolven_Menuapp
 		public static void Klantinfo()
 		{
 			Console.Clear();
-			int res = 0;
+			
+			var reserveringJson = File.ReadAllText("reserveringenbestand.json");
+			Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
 
 			Console.WriteLine("Vul de onderstaande gegevens in om een reservering te maken");
 			Console.WriteLine("Voer uw naam in:");
@@ -28,6 +32,8 @@ namespace De_Wolven_Menuapp
 
 			Console.WriteLine("Vul de datum in dat u wilt komen in de vorm dd/MM/yyyy");
 			string datum = Console.ReadLine();
+
+            Console.WriteLine(reserveringJson);
 
 
 

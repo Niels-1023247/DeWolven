@@ -1,0 +1,22 @@
+{
+  "Reserveringen": [
+    {
+      "Name": "aaaa",
+      "Date": "aaaa",
+      "Time": "aaaa",
+      "CountofPeople": "aaaa"
+    },
+    {
+      "Name": "bbbb",
+      "Date": "bbbb",
+      "Time": "bbbb",
+      "CountofPeople": "bbbb"
+    },
+    {
+      "Name": "cccc",
+      "Date": "cccc",
+      "Time": "cccc",
+      "CountofPeople": "cccc"
+    }
+  ]
+}
