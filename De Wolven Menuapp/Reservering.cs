@@ -12,8 +12,7 @@ namespace De_Wolven_Menuapp
 		public static void Availability_Check()
 		{
 			int x = 1;
-			if (x ==
-				1)
+			if (x == 1)
 			{
 				Console.WriteLine("ökay then");
 			}
@@ -29,6 +28,8 @@ namespace De_Wolven_Menuapp
 
 			Console.WriteLine("Vul de datum in dat u wilt komen in de vorm dd/MM/yyyy");
 			string datum = Console.ReadLine();
+
+
 
 			//DateTime d1 = DateTime.Now; // datum nu
 			//DateTime d2 = Convert.ToDateTime(datum); // datum die ingevoerd is
