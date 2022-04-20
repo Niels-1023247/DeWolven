@@ -1,0 +1,22 @@
+{
+  "Accounts": [
+    {
+      "Id": "1",
+      "Username": "admin",
+      "Password": "feyenoord010",
+      "Code": "A6B03"
+    },
+    {
+      "Id": "2",
+      "Username": "voetbal_fan1980",
+      "Password": "messi",
+      "Code": "N8K32"
+    },
+    {
+      "Id": "3",
+      "Username": "quinten",
+      "Password": "frans",
+      "Code": "LO24G"
+    }
+  ]
+}
