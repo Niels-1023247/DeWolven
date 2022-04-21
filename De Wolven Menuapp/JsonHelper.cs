@@ -21,6 +21,8 @@ namespace De_Wolven_Menuapp
 		public string Password { get; set; }
 
 		public string Code { get; set; }
+
+		public string Level { get; set; }
 	}
 
 	public class Menukaart

@@ -8,14 +8,19 @@ using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
-    internal class Loginfo
+    public class Loginfo
     {
+
         
-        public static void Loginfoscherm()
+        public static void Loginfoscherm(string soortGebruiker)
         {
+            
             Console.Clear();
             Console.WriteLine("LOGIN\n\n");
-            Console.WriteLine("[1]Login met een bestaand account.\n[2]Check uw reservatie met een code.\n");
+
+            Console.WriteLine("Hallo " + soortGebruiker + ".\n");
+
+            Console.WriteLine("[1]Login met een bestaand account.\n[2]Login met uw code.\n");
             Console.WriteLine("Voer 1 of 2 in");
 
             
@@ -23,15 +28,16 @@ namespace De_Wolven_Menuapp
             ConsoleKey LoginType = Console.ReadKey().Key;
             if (LoginType == ConsoleKey.D1)
             {
-                LoginAccount();
+                LoginAccount(soortGebruiker);
             }
             else if (LoginType == ConsoleKey.D2)
             {
-                LoginCode();
+                LoginCode(soortGebruiker);
             }
             else if (LoginType == ConsoleKey.Escape)
             {
-                Hoofdmenuscherm.SchermKlanten();
+                if(soortGebruiker == "Klant") Hoofdmenuscherm.SchermKlanten();
+                if (soortGebruiker == "Medewerker") Hoofdmenuscherm.SchermMedewerker();
             }
 
         }
@@ -51,7 +57,7 @@ namespace De_Wolven_Menuapp
             // append
 
         }
-        public static void LoginAccount()
+        public static void LoginAccount(string soortGebruiker)
         {
             string dejsontekst = File.ReadAllText("accounts.JSON");
             AccountData alleAccounts = JsonConvert.DeserializeObject<AccountData>(dejsontekst);
@@ -65,8 +71,13 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("Voer uw Wachtwoord in:");
             string enteredpassword = Console.ReadLine();
 
+            // CODE WAT CHECKED OF HET DE ADMIN IS
+
+            if (enteredusername == "admin" && enteredpassword == "feyenoord010") Hoofdmenuscherm.SchermAdmin();
+
+
             // SCHRIJF HIER CODE OM ACCOUNTS TE VERGELIJKEN UIT DE JSON //
-            
+
             for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
             {
                 //Console.WriteLine(alleAccounts.Accounts[item].Username);
@@ -75,18 +86,20 @@ namespace De_Wolven_Menuapp
                 {
                     Console.WriteLine("Ingelogd");
                     inlogStatus = true;
-                    
+
+                    if (alleAccounts.Accounts[item].Level == "1") Hoofdmenuscherm.SchermKlanten();
+                    if (alleAccounts.Accounts[item].Level == "2") medewerkerHome.SchermMedewerker();
                     break;
                 }
             }
 
 
-            if (inlogStatus == false) Reload_back("Verkeerde gegevens.");
+            if (inlogStatus == false) Reload_back(soortGebruiker,"Verkeerde gegevens.");
 
 
 
         }
-        public static void LoginCode()
+        public static void LoginCode(string soortGebruiker)
         {
             string dejsontekst = File.ReadAllText("accounts.JSON");
             AccountData alleAccounts = JsonConvert.DeserializeObject<AccountData>(dejsontekst);
@@ -106,15 +119,18 @@ namespace De_Wolven_Menuapp
                     Console.WriteLine("Ingelogd");
                     inlogStatus = true;
 
+                    if (soortGebruiker == "Klant") Hoofdmenuscherm.SchermKlanten();
+                    if (soortGebruiker == "Medewerker") Hoofdmenuscherm.SchermMedewerker();
+
                     break;
                 }
             }
 
-            if (inlogStatus == false) Reload_back("Foute code");
+            if (inlogStatus == false) Reload_back(soortGebruiker, "Foute code");
             ///ValidateCode(code);
         }
 
-        public static void Reload_back(string message)
+        public static void Reload_back(string soortGebruiker, string message)
         {
             Console.Clear();
             Console.WriteLine(message + "\n");
@@ -124,12 +140,12 @@ namespace De_Wolven_Menuapp
             {
                 if (invoerterug == ConsoleKey.Escape) // terug naar hoofdmenu
                 {
-                    Loginfo.Loginfoscherm();
+                    Loginfo.Loginfoscherm(soortGebruiker);
                     break;
                 }
                 else 
                 {
-                    Reload_back("Verkeerde toets!");
+                    Reload_back(soortGebruiker,"Verkeerde toets!");
                 }
             }
         }

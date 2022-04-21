@@ -12,14 +12,24 @@ namespace De_Wolven_Menuapp
         public static void SchermMedewerker()
         {
             Console.Clear();
-            Console.WriteLine("Welkom alpha");
-            Console.WriteLine("[1] Bekijk de reserveringen");
-            Console.WriteLine("[2] Neem een bestelling op");
-            Console.WriteLine("[3] Maak een nieuwe reservering");
-            Console.WriteLine("[4] Bekijk besteltotaal per tafel");
-            Console.WriteLine("[5] Verander menukaart");
-            Console.WriteLine("Voer 1, 2, 3, 4 of 5");
-            string optiemedewerker = Console.ReadLine();
+            Console.WriteLine("Welkom medewerker\n\n");
+            Console.WriteLine("Log in");
+            Console.WriteLine("Druk op Enter");
+
+            ConsoleKey optieMedewerker = Console.ReadKey().Key;
+            if (optieMedewerker == ConsoleKey.Enter)
+            {
+                Loginfo.Loginfoscherm("Medewerker");
+            }
+
+        }
+
+        public static void SchermAdmin()
+        {
+            Console.Clear();
+            Console.WriteLine("Welkom Admin.\n\n");
+            Console.WriteLine("Momenteel is deze admin pagina nog onder constructie.");
+
         }
 
         public static void SchermKlanten()
@@ -46,7 +56,7 @@ namespace De_Wolven_Menuapp
             else if (optieklanten == ConsoleKey.D3)
 
             {
-                Loginfo.Loginfoscherm();
+                Loginfo.Loginfoscherm("Klant");
             }
 
             else if (optieklanten == ConsoleKey.D4)

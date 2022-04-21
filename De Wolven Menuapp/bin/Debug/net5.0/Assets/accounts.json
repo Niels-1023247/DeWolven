@@ -1,22 +1,32 @@
 {
-  "Accounts": [
+  "accounts": [
     {
-      "Id": "1",
-      "Username": "admin",
-      "Password": "feyenoord010",
-      "Code": "A6B03"
+      "id": "1",
+      "username": "admin",
+      "password": "feyenoord010",
+      "code": "A6B03",
+      "level": "2"
     },
     {
-      "Id": "2",
-      "Username": "voetbal_fan1980",
-      "Password": "messi",
-      "Code": "N8K32"
+      "id": "2",
+      "username": "voetbal_fan1980",
+      "password": "messi",
+      "code": "N8K32",
+      "level": "1"
     },
     {
-      "Id": "3",
-      "Username": "quinten",
-      "Password": "frans",
-      "Code": "LO24G"
+      "id": "3",
+      "username": "quinten",
+      "password": "frans",
+      "code": "LO24G",
+      "level": "1"
+    },
+    {
+      "id": "4",
+      "username": "sjaak",
+      "password": "toprestaurant",
+      "code": "C8J56",
+      "level": "2"
     }
   ]
 }
