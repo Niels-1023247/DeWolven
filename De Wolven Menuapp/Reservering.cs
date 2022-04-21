@@ -27,13 +27,36 @@ namespace De_Wolven_Menuapp
 			Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
 
 			Console.WriteLine("Vul de onderstaande gegevens in om een reservering te maken");
+
 			Console.WriteLine("Voer uw naam in:");
-			string naam = Console.ReadLine();
+			string newName = Console.ReadLine();
 
 			Console.WriteLine("Vul de datum in dat u wilt komen in de vorm dd/MM/yyyy");
-			string datum = Console.ReadLine();
+			string newDate = Console.ReadLine();
 
-            Console.WriteLine(reserveringJson);
+			Console.WriteLine($"Hoelaat wilt u komen op {newDate}?");
+			string newTime = Console.ReadLine();
+
+			Console.WriteLine($"Met hoeveel mensen wilt u komen op {newDate}");
+
+			string newCountofPeople = Console.ReadLine();
+
+			var newaccount = new List<EnkeleReservering>
+			{
+				new EnkeleReservering
+				{
+					Name = newName,
+					Date = newDate,
+					Time = newTime,
+					CountofPeople = newCountofPeople
+				}
+			};
+
+			List<Account> editingJson = new List<Account>(reserveringsData.Reserveringen);
+			// hoe converteer je die array van accounts naar een lijst?
+
+
+			Console.WriteLine(reserveringJson);
 
 
 

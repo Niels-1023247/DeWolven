@@ -8,7 +8,8 @@ namespace De_Wolven_Menuapp
 {
     public class Information
     {
-        public EnkeleReservering[] Reserveringen { get; set; }
+        public List<EnkeleReservering> Reserveringen { get; set; }
+        
     }
     public class EnkeleReservering
     {
