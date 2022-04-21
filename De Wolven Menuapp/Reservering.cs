@@ -46,19 +46,20 @@ namespace De_Wolven_Menuapp
 					Code = "insert random code here",
 					CountofPeople = newCountofPeople
 				};
-            Console.WriteLine(newReservation.Name);
 
+
+
+			// als er een nieuwe reservering wordt toegevoegd, DAN pas haalt ie de json van reserveringenbestand op en zet ie em er bij
 			var reserveringJson = File.ReadAllText("reserveringenbestand.json");
 			Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
 			reserveringsData.Reserveringen.Add(newReservation);
-
-
-			//List<Account> editingJson = new List<Account>(reserveringsData.Reserveringen);
-			// hoe converteer je die array van accounts naar een lijst?
+			var updatedReservations = JsonConvert.SerializeObject(reserveringsData, Formatting.Indented);
+			File.WriteAllText("reserveringenbestand.json", updatedReservations);
+            Console.WriteLine(updatedReservations);
 
 			Console.ReadLine();
 			Console.WriteLine(reserveringsData);
-			// als er een nieuwe reservering wordt toegevoegd, DAN pas haalt ie de json van reserveringenbestand op en zet ie em er bij
+
 
 
 			//DateTime d1 = DateTime.Now; // datum nu
@@ -111,38 +112,6 @@ namespace De_Wolven_Menuapp
 				return 2;
 			}
 
-
 		}
-
-	
-
-
-
-
-
-
-
-
-
-	//	}
-	//          
-
-
-
-
-
-	//	//while (datum[2] != streepje && datum.Length != 10)
-	//	//{
-	//	//	Console.WriteLine("Schrijf de datum in vorm DD/MM/yyyy");
-	//	//	Console.WriteLine("Schrijf de datum dat u wilt komen in de vorm DD/MM/yyyy");
-	//	//	datum = Console.ReadLine();
-
-	//	//}
-
-
-	//	//Console.WriteLine($"Met hoeveel mensen wilt u komen op {datum}");
-	//	//string aantal_mensen = Console.ReadLine();
-
-
-}
+	}
 }
