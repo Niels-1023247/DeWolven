@@ -10,7 +10,13 @@ namespace De_Wolven_Menuapp
 {
     public class Loginfo
     {
-
+        public static void Jsontest()
+        {
+            var JsonString = File.ReadAllText("accounts.json");
+            var DeserialisedResult = JsonConvert.DeserializeObject<AccountData>(JsonString);
+            Console.WriteLine(DeserialisedResult.Accounts[1].Username);
+            
+        }
         
         public static void Loginfoscherm(string soortGebruiker)
         {
@@ -43,19 +49,36 @@ namespace De_Wolven_Menuapp
         }
         public static void CreateAccount()
         {
+            
             Console.Clear();
-            Account newacc = new Account();
-
-            newacc.Id = 1;
-            Console.WriteLine("Voer uw Gebruikersnaam in:");
-            newacc.Username = Console.ReadLine();
-            Console.WriteLine("Voer uw Wachtwoord in:");
-            newacc.Password = Console.ReadLine();
-            string jsonData = JsonConvert.SerializeObject(newacc);
-            Console.WriteLine(jsonData);
-            string path = @"D:\DeWolven\De Wolven Menuapp\accounts.json";
-            // append
-
+            Console.WriteLine("Wat is uw naam?");
+            string Name=Console.ReadLine();
+            Console.WriteLine("Wat is uw E-mail");
+            string Mail=Console.ReadLine();
+            Console.WriteLine("Kies een Gebruikersnaam");
+            string Username = Console.ReadLine();
+            Console.WriteLine("Kies een wachtwoord");
+            string Password = Console.ReadLine();
+            var NewCusAcc = new Account
+            {
+                Name = Name,
+                Email = Mail,
+                Password = Password,
+                Username = Username,
+                Code = new List<string>(),
+                Level="1"
+            };
+            var JsonString = File.ReadAllText("accounts.json");
+            var DeserialisedResult = JsonConvert.DeserializeObject<AccountData>(JsonString);
+            Console.WriteLine(DeserialisedResult.Accounts[0]);
+            var NewAccount = new AccountData { Accounts= new List<Account>(), EmpAcc=DeserialisedResult.EmpAcc};
+            for (int i = 0; i < DeserialisedResult.Accounts.Count; i++)
+            {
+                NewAccount.Accounts.Add(DeserialisedResult.Accounts[i]);
+            }
+            NewAccount.Accounts.Add(NewCusAcc);
+            var WrJsonString = JsonConvert.SerializeObject(NewAccount, Formatting.Indented);
+            File.WriteAllText("accounts.json", WrJsonString);
         }
         public static void LoginAccount(string soortGebruiker)
         {
@@ -63,10 +86,8 @@ namespace De_Wolven_Menuapp
             AccountData alleAccounts = JsonConvert.DeserializeObject<AccountData>(dejsontekst);
 
             Console.Clear();
-            Console.WriteLine("Voer uw Gebruikersnaam in:");
-
             bool inlogStatus = false;
-
+            Console.WriteLine("Voer uw Gebruikersnaam in:");
             string enteredusername = Console.ReadLine();
             Console.WriteLine("Voer uw Wachtwoord in:");
             string enteredpassword = Console.ReadLine();
@@ -114,7 +135,7 @@ namespace De_Wolven_Menuapp
             {
                 //Console.WriteLine(alleAccounts.Accounts[item].Username);
 
-                if (alleAccounts.Accounts[item].Code == enteredcode)
+                if (true)///alleAccounts.Accounts[item].Code == enteredcode)
                 {
                     Console.WriteLine("Ingelogd");
                     inlogStatus = true;

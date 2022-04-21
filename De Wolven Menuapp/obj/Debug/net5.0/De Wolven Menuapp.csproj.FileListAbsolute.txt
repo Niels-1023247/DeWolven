@@ -24,3 +24,13 @@ C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolve
 C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.dll
 C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\ref\De Wolven Menuapp.dll
 C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.pdb
+C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.exe
+C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.deps.json
+C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.runtimeconfig.json
+C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.runtimeconfig.dev.json
+C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.dll
+C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\ref\De Wolven Menuapp.dll
+C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\De Wolven Menuapp.pdb
+C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.csproj.CopyComplete
+C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.genruntimeconfig.cache

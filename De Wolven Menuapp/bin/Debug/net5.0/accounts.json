@@ -1,32 +1,38 @@
 {
-  "accounts": [
+  "Accounts": [
     {
-      "id": "1",
-      "username": "admin",
-      "password": "feyenoord010",
-      "code": "A6B03",
-      "level": "2"
+      "Name": "Lionel",
+      "Username": "voetbal_fan1980",
+      "Password": "messi",
+      "Email": "voetbalfan@gmail.com",
+      "Code": [],
+      "Level": "1"
     },
     {
-      "id": "2",
-      "username": "voetbal_fan1980",
-      "password": "messi",
-      "code": "N8K32",
-      "level": "1"
+      "Name": "Quinten",
+      "Username": "quinten",
+      "Password": "frans",
+      "Email": "Quitn",
+      "Code": [],
+      "Level": "1"
     },
     {
-      "id": "3",
-      "username": "quinten",
-      "password": "frans",
-      "code": "LO24G",
-      "level": "1"
-    },
+      "Name": "Kevin",
+      "Username": "kevn",
+      "Password": "kevnWW",
+      "Email": "1027074@hr.nl",
+      "Code": [],
+      "Level": "1"
+    }
+  ],
+  "EmpAcc": [
     {
-      "id": "4",
-      "username": "sjaak",
-      "password": "toprestaurant",
-      "code": "C8J56",
-      "level": "2"
+      "Name": "sjaak",
+      "Username": "sjakie",
+      "Password": "toprestaurant",
+      "Email": "s@jaak.com",
+      "Code": null,
+      "Level": "2"
     }
   ]
 }

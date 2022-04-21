@@ -13,8 +13,8 @@ namespace De_Wolven_Menuapp
     {
         public static void Main()
         {
-            
-            Beginscherm.Begin();
+            Loginfo.CreateAccount();
+            ///Beginscherm.Begin();
         }
 
     }
