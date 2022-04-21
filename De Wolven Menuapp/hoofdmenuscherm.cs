@@ -18,8 +18,13 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("[3] Maak een nieuwe reservering");
             Console.WriteLine("[4] Bekijk besteltotaal per tafel");
             Console.WriteLine("[5] Verander menukaart");
-            Console.WriteLine("Voer 1, 2, 3, 4 of 5");
-            string optiemedewerker = Console.ReadLine();
+            Console.WriteLine("[6] Verander Contactinformatie");
+            Console.WriteLine("Voer 1, 2, 3, 4, 5 of 6");
+            ConsoleKey optiemedewerker = Console.ReadKey().Key;
+            if (optiemedewerker == ConsoleKey.D6)
+            {
+                Contact.ChangeInfoMenu();
+            }
         }
 
         public static void SchermKlanten()
@@ -31,6 +36,7 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("[3] Log in");
             Console.WriteLine("[4] Over ons");
             Console.WriteLine("Voer 1, 2, 3 of 4 in");
+            Console.WriteLine("Druk op esc om terug te gaan");
             
             ConsoleKey optieklanten = Console.ReadKey().Key;
             if (optieklanten == ConsoleKey.D1)
@@ -54,6 +60,10 @@ namespace De_Wolven_Menuapp
                 Console.Clear();
                 Contact.Contactgegevens();
 
+            }
+            else if (optieklanten== ConsoleKey.Escape)
+            {
+                Beginscherm.Begin();
             }
         }
     }
