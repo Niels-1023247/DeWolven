@@ -11,7 +11,7 @@ namespace De_Wolven_Menuapp
 	internal class Reservering
 	{
 		
-		public static void Availability_Check()
+		public static void Availability_Check() // beschikbaarheid tafel controleren, moet nog gemaakt worden.
 		{
 			int x = 1;
 			if (x == 1)
@@ -22,9 +22,6 @@ namespace De_Wolven_Menuapp
 		public static void Klantinfo()
 		{
 			Console.Clear();
-			
-			var reserveringJson = File.ReadAllText("reserveringenbestand.json");
-			Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
 
 			Console.WriteLine("Vul de onderstaande gegevens in om een reservering te maken");
 
@@ -41,23 +38,27 @@ namespace De_Wolven_Menuapp
 
 			string newCountofPeople = Console.ReadLine();
 
-			var newaccount = new List<EnkeleReservering>
-			{
-				new EnkeleReservering
+			EnkeleReservering newReservation = new()
 				{
 					Name = newName,
 					Date = newDate,
 					Time = newTime,
+					Code = "insert random code here",
 					CountofPeople = newCountofPeople
-				}
-			};
+				};
+            Console.WriteLine(newReservation.Name);
 
-			List<Account> editingJson = new List<Account>(reserveringsData.Reserveringen);
+			var reserveringJson = File.ReadAllText("reserveringenbestand.json");
+			Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
+			reserveringsData.Reserveringen.Add(newReservation);
+
+
+			//List<Account> editingJson = new List<Account>(reserveringsData.Reserveringen);
 			// hoe converteer je die array van accounts naar een lijst?
 
-
-			Console.WriteLine(reserveringJson);
-
+			Console.ReadLine();
+			Console.WriteLine(reserveringsData);
+			// als er een nieuwe reservering wordt toegevoegd, DAN pas haalt ie de json van reserveringenbestand op en zet ie em er bij
 
 
 			//DateTime d1 = DateTime.Now; // datum nu
