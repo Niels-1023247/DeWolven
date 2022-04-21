@@ -41,6 +41,7 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("[3] Log in");
             Console.WriteLine("[4] Over ons");
             Console.WriteLine("Voer 1, 2, 3 of 4 in");
+            Console.WriteLine("Druk op esc om terug te gaan");
             
             ConsoleKey optieklanten = Console.ReadKey().Key;
             if (optieklanten == ConsoleKey.D1)
@@ -64,6 +65,10 @@ namespace De_Wolven_Menuapp
                 Console.Clear();
                 Contact.Contactgegevens();
 
+            }
+            else if (optieklanten== ConsoleKey.Escape)
+            {
+                Beginscherm.Begin();
             }
         }
     }
