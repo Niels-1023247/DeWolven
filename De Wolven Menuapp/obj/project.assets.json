@@ -2680,16 +2680,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\ncvan\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\kevin\\.nuget\\packages\\": {}
->>>>>>> 36917657a6c53bb1cd59be0fc29ef1e911652f5b
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
       "projectName": "De Wolven Menuapp",
       "projectPath": "C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
@@ -2698,16 +2693,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ncvan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
-      "projectName": "De Wolven Menuapp",
-      "projectPath": "C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
-      "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 36917657a6c53bb1cd59be0fc29ef1e911652f5b
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2766,11 +2751,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-<<<<<<< HEAD
       "message": "Problem reading the cache file C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-=======
-      "message": "Problem reading the cache file C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
->>>>>>> 36917657a6c53bb1cd59be0fc29ef1e911652f5b
     }
   ]
 }

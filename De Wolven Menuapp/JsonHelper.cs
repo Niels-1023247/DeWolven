@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
+
     public class ContactInfo
     {
         public string Address { get; set; }
