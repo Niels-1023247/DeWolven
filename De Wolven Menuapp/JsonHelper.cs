@@ -44,12 +44,6 @@ namespace De_Wolven_Menuapp
         public int Code { get; set; }
         public string CountofPeople { get; set; }
     }
-    public class Account
-    { 
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-    }
 
     public class Menukaart
     {
