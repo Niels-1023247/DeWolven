@@ -148,5 +148,9 @@ namespace De_Wolven_Menuapp
 			}
 
 		}
+		public static void LinkResv()
+        {
+
+        }
 	}
 }
