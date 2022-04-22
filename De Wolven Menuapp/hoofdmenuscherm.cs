@@ -24,8 +24,7 @@ namespace De_Wolven_Menuapp
             ConsoleKey optiemedewerker = Console.ReadKey().Key;
             if (optiemedewerker == ConsoleKey.D1)
             {
-                Console.Clear();
-                Console.WriteLine("Name: Janell Acharju \nDate: 22/04/2022 \nTime: 18:00 \nCode: null \nCountofPeople: 12");
+                Verander.DisplayReserveringen();
             }
             else if (optiemedewerker == ConsoleKey.D2)
             {
