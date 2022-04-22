@@ -14,9 +14,15 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("Type het tafelnummer");
             ConsoleKey tafelnummer = Console.ReadKey().Key;
             Console.Clear();
-            Menu.Menukaart();
             Console.WriteLine($"Bestelling voor tafel {tafelnummer}");
+            Menu.Menukaart();
             Console.ReadLine();
+        }
+        
+        public static void Random()
+        {
+            int num = new Random().Next(10000, 99999);
+            Console.WriteLine(num);
         }
     }
 }

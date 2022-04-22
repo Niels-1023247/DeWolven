@@ -30,7 +30,23 @@ namespace De_Wolven_Menuapp
             else if (optiemedewerker == ConsoleKey.D2)
             {
                 Console.Clear();
-                Console.ReadLine();
+                Bestellingopnemen.Bestelling();
+
+            }
+            else if (optiemedewerker == ConsoleKey.D3)
+            {
+                Console.Clear();
+                Bestellingopnemen.Random();
+            }
+            else if (optiemedewerker == ConsoleKey.D4)
+            {
+                Console.Clear();
+                Console.WriteLine("ook nog niks");
+            }
+            else if (optiemedewerker == ConsoleKey.D5)
+            {
+                Console.Clear();
+                Console.WriteLine("Ook nog niks");
             }
         }
       
@@ -48,7 +64,7 @@ namespace De_Wolven_Menuapp
             ConsoleKey optieklanten = Console.ReadKey().Key;
             if (optieklanten == ConsoleKey.D1)
             {
-                Reservering.Klantinfo();
+                Console.WriteLine("wacht op Kevin");
             }
 
             else if (optieklanten == ConsoleKey.D2)
