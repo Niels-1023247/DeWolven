@@ -11,39 +11,20 @@
       "Name": "bbbb",
       "Date": "bbbb",
       "Time": "bbbb",
-<<<<<<< HEAD
-      "Code": 12344,
-=======
       "Code": 12345,
->>>>>>> 5553605cfc87278c991e730cfc2b64312d6520e2
       "CountofPeople": "bbbb"
     },
     {
       "Name": "cccc",
       "Date": "cccc",
       "Time": "cccc",
-<<<<<<< HEAD
       "Code": 12333,
-=======
-      "Code": 12345,
->>>>>>> 5553605cfc87278c991e730cfc2b64312d6520e2
       "CountofPeople": "cccc"
     },
     {
       "Name": "quintensol",
       "Date": "19042001",
       "Time": "20.20",
-<<<<<<< HEAD
-      "Code": 12333,
-      "CountofPeople": "9"
-    },
-    {
-      "Name": "quintensol",
-      "Date": "19/04/2001",
-      "Time": "20:00",
-      "Code": 54080,
-      "CountofPeople": "12"
-=======
       "Code": 12345,
       "CountofPeople": "9"
     },
@@ -60,7 +41,20 @@
       "Time": "asdf",
       "Code": 12345,
       "CountofPeople": "af"
->>>>>>> 5553605cfc87278c991e730cfc2b64312d6520e2
+    },
+    {
+      "Name": "Kevin",
+      "Date": "12/02/1990",
+      "Time": "19:00",
+      "Code": 44092,
+      "CountofPeople": "200"
+    },
+    {
+      "Name": "rgbf",
+      "Date": "tyu",
+      "Time": "rthfg",
+      "Code": 17664,
+      "CountofPeople": "gg"
     }
   ]
 }

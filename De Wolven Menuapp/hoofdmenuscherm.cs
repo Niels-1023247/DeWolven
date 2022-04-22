@@ -45,7 +45,7 @@ namespace De_Wolven_Menuapp
             else if (optiemedewerker == ConsoleKey.D5)
             {
                 Console.Clear();
-                Console.WriteLine("Ook nog niks");
+                Verander.VeranderenReservering();
             }
         }
       

@@ -49,6 +49,11 @@ namespace De_Wolven_Menuapp
                     string changeCountofPeople = Console.ReadLine();
                     reserveringsData.Reserveringen[i].CountofPeople = changeCountofPeople;
 
+                    var updatedReservations = JsonConvert.SerializeObject(reserveringsData, Formatting.Indented);
+                    File.WriteAllText("reserveringenbestand.json", updatedReservations);
+                    Console.WriteLine(updatedReservations);
+                    Console.ReadLine();
+
                 }
             }
             
