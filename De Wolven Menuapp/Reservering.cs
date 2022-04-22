@@ -19,10 +19,37 @@ namespace De_Wolven_Menuapp
 				Console.WriteLine("ökay then");
 			}
 		}
+
+		public static bool dubbeleReserveringsCodeGevonden(int nieuweCode) // returnt true als ie 
+        {
+			var reserveringJson = File.ReadAllText("reserveringenbestand.json"); // json ophalen
+			Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
+			for (int i = 0; i < reserveringsData.Reserveringen.Count; i++) // ga elke reservering af
+			{
+				if (reserveringsData.Reserveringen[i].Code == nieuweCode) // komt de nieuwe code overeen?
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		/*public static Information jsonNaarObject(string fileName, class jsonStructuur)
+        {
+			string opgehaaldeTekst = File.ReadAllText(fileName);
+
+        }
+		*/
+
 		public static void Klantinfo()
 		{
 			Console.Clear();
 
+			// nieuwe var voor de json
+			string reserveringJson;
+			Information reserveringsData;
+
+			// script voor gebruiker om nieuwe reservering te maken
 			Console.WriteLine("Vul de onderstaande gegevens in om een reservering te maken");
 
 			Console.WriteLine("Voer uw naam in:");
@@ -35,36 +62,36 @@ namespace De_Wolven_Menuapp
 			string newTime = Console.ReadLine();
 
 			Console.WriteLine($"Met hoeveel mensen wilt u komen op {newDate}");
-
 			string newCountofPeople = Console.ReadLine();
-			int num = new Random().Next(10000, 99999);
-			
-            {
 
-            }
+			// genereer nieuwe code en controleer
+			// int newNum = new Random().Next(10000, 99999);
+			int newNum = 12345;
+			while (dubbeleReserveringsCodeGevonden(newNum) == true) // als die code al gebruikt is 
+            {
+                Console.WriteLine($"code {newNum} was already found, generating new code...");
+				newNum = new Random().Next(10000, 99999);
+			}
+            Console.WriteLine($"De nieuwe, niet eerder gebruikte code is: {newNum}");
 
 			EnkeleReservering newReservation = new()
 				{
 					Name = newName,
 					Date = newDate,
 					Time = newTime,
-					Code = num,
+					Code = newNum,
 					CountofPeople = newCountofPeople
 				};
 
-
-
-			// als er een nieuwe reservering wordt toegevoegd, DAN pas haalt ie de json van reserveringenbestand op en zet ie em er bij
-			var reserveringJson = File.ReadAllText("reserveringenbestand.json");
-			Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
+			// haal json op en voeg reservering toe, zet daarna terug in json
+			reserveringJson = File.ReadAllText("reserveringenbestand.json");
+			reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
 			reserveringsData.Reserveringen.Add(newReservation);
 			var updatedReservations = JsonConvert.SerializeObject(reserveringsData, Formatting.Indented);
 			File.WriteAllText("reserveringenbestand.json", updatedReservations);
             Console.WriteLine(updatedReservations);
 
 			Console.ReadLine();
-			Console.WriteLine(reserveringsData);
-
 
 
 			//DateTime d1 = DateTime.Now; // datum nu
