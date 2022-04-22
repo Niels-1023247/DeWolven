@@ -19,7 +19,42 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("[4] Bekijk besteltotaal per tafel");
             Console.WriteLine("[5] Verander menukaart");
             Console.WriteLine("Voer 1, 2, 3, 4 of 5");
-            string optiemedewerker = Console.ReadLine();
+
+
+            ConsoleKey optiemedewerker = Console.ReadKey().Key;
+            if (optiemedewerker == ConsoleKey.D1)
+            {
+                Verander.DisplayReserveringen();
+            }
+            else if (optiemedewerker == ConsoleKey.D2)
+            {
+                Console.Clear();
+                Bestellingopnemen.Bestelling();
+
+            }
+            else if (optiemedewerker == ConsoleKey.D3)
+            {
+                Console.Clear();
+                Reservering.AddReservering();
+
+            }
+            else if (optiemedewerker == ConsoleKey.D4)
+            {
+                Console.Clear();
+                Console.WriteLine("ook nog niks");
+            }
+            else if (optiemedewerker == ConsoleKey.D5)
+            {
+                Console.Clear();
+                Verander.VeranderenReservering();
+            }
+        }
+        public static void SchermAdmin()
+        {
+            Console.Clear();
+            Console.WriteLine("Welkom Admin.\n\n");
+            Console.WriteLine("Momenteel is deze admin pagina nog onder constructie.");
+
         }
 
         public static void SchermKlanten()
@@ -29,13 +64,15 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("[1] Reserveer een tafel");
             Console.WriteLine("[2] Bekijk de menukaart");
             Console.WriteLine("[3] Log in");
-            Console.WriteLine("[4] Over ons");
-            Console.WriteLine("Voer 1, 2, 3 of 4 in");
+            Console.WriteLine("[4] Registreer");
+            Console.WriteLine("[5] Over ons");
+            Console.WriteLine("Voer 1, 2, 3, 4 of 5 in");
+            Console.WriteLine("Druk op esc om terug te gaan");
             
             ConsoleKey optieklanten = Console.ReadKey().Key;
             if (optieklanten == ConsoleKey.D1)
             {
-                Console.WriteLine("Nog niks");
+                Reservering.AddReservering();
             }
 
             else if (optieklanten == ConsoleKey.D2)
@@ -46,10 +83,16 @@ namespace De_Wolven_Menuapp
             else if (optieklanten == ConsoleKey.D3)
 
             {
-                Loginfo.Loginfoscherm();
+                Loginfo.Loginfoscherm("Klant");
             }
 
             else if (optieklanten == ConsoleKey.D4)
+            {
+                Console.Clear();
+                Loginfo.CreateAccount();
+
+            }
+            else if (optieklanten == ConsoleKey.D5)
             {
                 Console.Clear();
                 Contact.Contactgegevens();
