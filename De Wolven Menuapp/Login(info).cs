@@ -37,7 +37,7 @@ namespace De_Wolven_Menuapp
             {
                 if (LoginType == ConsoleKey.D1)
                 {
-                    LoginAccount();
+                    LoginAccount("Klant");
                 }
                 else if (LoginType == ConsoleKey.D2)
                 {
