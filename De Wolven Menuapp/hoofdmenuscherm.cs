@@ -49,7 +49,13 @@ namespace De_Wolven_Menuapp
                 Verander.VeranderenReservering();
             }
         }
-      
+        public static void SchermAdmin()
+        {
+            Console.Clear();
+            Console.WriteLine("Welkom Admin.\n\n");
+            Console.WriteLine("Momenteel is deze admin pagina nog onder constructie.");
+
+        }
 
         public static void SchermKlanten()
         {
@@ -77,7 +83,7 @@ namespace De_Wolven_Menuapp
             else if (optieklanten == ConsoleKey.D3)
 
             {
-                Loginfo.Loginfoscherm();
+                Loginfo.Loginfoscherm("Klant");
             }
 
             else if (optieklanten == ConsoleKey.D4)
