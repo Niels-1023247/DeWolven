@@ -1,11 +1,11 @@
 {
   "Reserveringen": [
     {
-      "Name": "aaaa",
-      "Date": "aaaa",
-      "Time": "aaaa",
+      "Name": "Frans",
+      "Date": "zijnverjaardag",
+      "Time": "3.00",
       "Code": 12345,
-      "CountofPeople": "aaaa"
+      "CountofPeople": "-2"
     },
     {
       "Name": "bbbb",
