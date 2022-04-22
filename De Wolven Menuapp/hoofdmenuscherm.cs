@@ -64,7 +64,7 @@ namespace De_Wolven_Menuapp
             ConsoleKey optieklanten = Console.ReadKey().Key;
             if (optieklanten == ConsoleKey.D1)
             {
-                Console.WriteLine("wacht op Kevin");
+                Reservering.Klantinfo();
             }
 
             else if (optieklanten == ConsoleKey.D2)

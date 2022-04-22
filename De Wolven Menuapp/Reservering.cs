@@ -19,23 +19,29 @@ namespace De_Wolven_Menuapp
 				Console.WriteLine("ökay then");
 			}
 		}
-		public static void Klantinfo()
+		public static void AddReservering()
 		{
 			Console.Clear();
+			bool cond = true;
+			string newName;
+			string newDate;
+			string newTime;
+			string newCountofPeople;
+			
+				Console.WriteLine("Vul de onderstaande gegevens in om een reservering te maken");
 
-			Console.WriteLine("Vul de onderstaande gegevens in om een reservering te maken");
+				Console.WriteLine("Op welke naam is de reservering?\n");
+				newName = Console.ReadLine();
 
-			Console.WriteLine("Voer uw naam in:");
-			string newName = Console.ReadLine();
+				Console.WriteLine("Op welke datum is de reservering?\n");
+				newDate = Console.ReadLine();
 
-			Console.WriteLine("Vul de datum in dat u wilt komen in de vorm dd/MM/yyyy");
-			string newDate = Console.ReadLine();
+				Console.WriteLine($"Hoelaat is de reservering?\n");
+				newTime = Console.ReadLine();
 
-			Console.WriteLine($"Hoelaat wilt u komen op {newDate}?");
-			string newTime = Console.ReadLine();
-
-			Console.WriteLine($"Met hoeveel mensen wilt u komen op {newDate}");
-
+				Console.WriteLine($"Hoeveel mensen komen er?");
+				newCountofPeople = Console.ReadLine();
+			
 			string newCountofPeople = Console.ReadLine();
 			int num = new Random().Next(10000, 99999);
 			
