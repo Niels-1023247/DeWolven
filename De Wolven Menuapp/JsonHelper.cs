@@ -8,6 +8,22 @@ using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
+    public class ContactInfo
+    {
+        public string Address { get; set; }
+        public string Phone { get; set; }
+        public OpeningsTijden OpenT { get; set; }
+    }
+    public class OpeningsTijden
+    {
+        public string Monday { get; set; }
+        public string Tuesday { get; set; }
+        public string Wednesday { get; set; }
+        public string Thursday { get; set; }
+        public string Friday { get; set; }
+        public string Saturday { get; set; }
+        public string Sunday { get; set; }
+    }
     public class Account
     {
         public string Name { get; set; }
