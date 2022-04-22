@@ -2648,11 +2648,16 @@
     ]
   },
   "packageFolders": {
+<<<<<<< Updated upstream
     "C:\\Users\\Jaël\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\RAlti\\.nuget\\packages\\": {}
+>>>>>>> Stashed changes
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< Updated upstream
       "projectUniqueName": "C:\\Users\\Jaël\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
       "projectName": "De Wolven Menuapp",
       "projectPath": "C:\\Users\\Jaël\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
@@ -2661,6 +2666,16 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Jaël\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "C:\\Users\\RAlti\\source\\repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+      "projectName": "De Wolven Menuapp",
+      "projectPath": "C:\\Users\\RAlti\\source\\repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+      "packagesPath": "C:\\Users\\RAlti\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\RAlti\\source\\repos\\DeWolven\\De Wolven Menuapp\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\RAlti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Stashed changes
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
