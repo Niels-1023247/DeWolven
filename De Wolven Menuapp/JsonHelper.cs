@@ -7,7 +7,20 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
-{
+{ 
+    public class Information
+    {
+        public List<EnkeleReservering> Reserveringen { get; set; }
+    }
+
+    public class EnkeleReservering
+    {
+        public string Name { get; set; }
+        public string Date { get; set; }
+        public string Time { get; set; }
+        public int Code { get; set; }
+        public string CountofPeople { get; set; }
+    }
     public class Account
     { 
         public int Id { get; set; }
