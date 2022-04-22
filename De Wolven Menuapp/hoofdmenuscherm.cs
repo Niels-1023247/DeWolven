@@ -19,8 +19,37 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("[4] Bekijk besteltotaal per tafel");
             Console.WriteLine("[5] Verander menukaart");
             Console.WriteLine("Voer 1, 2, 3, 4 of 5");
-            string optiemedewerker = Console.ReadLine();
+
+
+            ConsoleKey optiemedewerker = Console.ReadKey().Key;
+            if (optiemedewerker == ConsoleKey.D1)
+            {
+                Console.Clear();
+                Console.WriteLine("Name: Janell Acharju \nDate: 22/04/2022 \nTime: 18:00 \nCode: null \nCountofPeople: 12");
+            }
+            else if (optiemedewerker == ConsoleKey.D2)
+            {
+                Console.Clear();
+                Bestellingopnemen.Bestelling();
+
+            }
+            else if (optiemedewerker == ConsoleKey.D3)
+            {
+                Console.Clear();
+                Bestellingopnemen.Random();
+            }
+            else if (optiemedewerker == ConsoleKey.D4)
+            {
+                Console.Clear();
+                Console.WriteLine("ook nog niks");
+            }
+            else if (optiemedewerker == ConsoleKey.D5)
+            {
+                Console.Clear();
+                Console.WriteLine("Ook nog niks");
+            }
         }
+      
 
         public static void SchermKlanten()
         {
@@ -35,7 +64,7 @@ namespace De_Wolven_Menuapp
             ConsoleKey optieklanten = Console.ReadKey().Key;
             if (optieklanten == ConsoleKey.D1)
             {
-                Reservering.Klantinfo();
+                Console.WriteLine("wacht op Kevin");
             }
 
             else if (optieklanten == ConsoleKey.D2)

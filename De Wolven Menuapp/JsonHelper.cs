@@ -18,7 +18,7 @@ namespace De_Wolven_Menuapp
         public string Name { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
-        public string Code { get; set; }
+        public int Code { get; set; }
         public string CountofPeople { get; set; }
     }
     public class Account

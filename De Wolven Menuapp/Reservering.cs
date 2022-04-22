@@ -37,13 +37,18 @@ namespace De_Wolven_Menuapp
 			Console.WriteLine($"Met hoeveel mensen wilt u komen op {newDate}");
 
 			string newCountofPeople = Console.ReadLine();
+			int num = new Random().Next(10000, 99999);
+			
+            {
+
+            }
 
 			EnkeleReservering newReservation = new()
 				{
 					Name = newName,
 					Date = newDate,
 					Time = newTime,
-					Code = "insert random code here",
+					Code = num,
 					CountofPeople = newCountofPeople
 				};
 
