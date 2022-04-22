@@ -42,12 +42,9 @@ namespace De_Wolven_Menuapp
 				Console.WriteLine($"Hoeveel mensen komen er?");
 				newCountofPeople = Console.ReadLine();
 			
-			string newCountofPeople = Console.ReadLine();
-			int num = new Random().Next(10000, 99999);
+				int num = new Random().Next(10000, 99999);
 			
-            {
-
-            }
+            
 
 			EnkeleReservering newReservation = new()
 				{
