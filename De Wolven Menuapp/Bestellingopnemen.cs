@@ -19,10 +19,6 @@ namespace De_Wolven_Menuapp
             Console.ReadLine();
         }
         
-        public static void Random()
-        {
-            int num = new Random().Next(10000, 99999);
-            Console.WriteLine(num);
-        }
+      
     }
 }

@@ -36,7 +36,7 @@ namespace De_Wolven_Menuapp
             else if (optiemedewerker == ConsoleKey.D3)
             {
                 Console.Clear();
-                Bestellingopnemen.Random();
+                
             }
             else if (optiemedewerker == ConsoleKey.D4)
             {
