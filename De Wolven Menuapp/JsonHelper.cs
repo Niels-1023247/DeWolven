@@ -7,7 +7,46 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
-{ 
+{
+    public class ContactInfo
+    {
+        public string Address { get; set; }
+        public string Phone { get; set; }
+        public OpeningsTijden OpenT { get; set; }
+    }
+    public class OpeningsTijden
+    {
+        public string Monday { get; set; }
+        public string Tuesday { get; set; }
+        public string Wednesday { get; set; }
+        public string Thursday { get; set; }
+        public string Friday { get; set; }
+        public string Saturday { get; set; }
+        public string Sunday { get; set; }
+    }
+    public class Account
+    {
+        public string Name { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public List<string> Code { get; set; }
+        public string Level { get; set; }
+    }
+    public class EmpAcc
+    {
+        public string Name { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public string Level { get; set; }
+    }
+        public class AccountData
+	{
+		public List<Account> Accounts { get; set; }
+        public List<Account> EmpAcc { get; set; }
+	}
+
     public class Information
     {
         public List<EnkeleReservering> Reserveringen { get; set; }
@@ -20,12 +59,6 @@ namespace De_Wolven_Menuapp
         public string Time { get; set; }
         public int Code { get; set; }
         public string CountofPeople { get; set; }
-    }
-    public class Account
-    { 
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
     }
 
     public class Menukaart
