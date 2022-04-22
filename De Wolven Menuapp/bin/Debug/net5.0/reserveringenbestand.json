@@ -11,20 +11,29 @@
       "Name": "bbbb",
       "Date": "bbbb",
       "Time": "bbbb",
+<<<<<<< HEAD
       "Code": 12344,
+=======
+      "Code": 12345,
+>>>>>>> 5553605cfc87278c991e730cfc2b64312d6520e2
       "CountofPeople": "bbbb"
     },
     {
       "Name": "cccc",
       "Date": "cccc",
       "Time": "cccc",
+<<<<<<< HEAD
       "Code": 12333,
+=======
+      "Code": 12345,
+>>>>>>> 5553605cfc87278c991e730cfc2b64312d6520e2
       "CountofPeople": "cccc"
     },
     {
       "Name": "quintensol",
       "Date": "19042001",
       "Time": "20.20",
+<<<<<<< HEAD
       "Code": 12333,
       "CountofPeople": "9"
     },
@@ -34,6 +43,24 @@
       "Time": "20:00",
       "Code": 54080,
       "CountofPeople": "12"
+=======
+      "Code": 12345,
+      "CountofPeople": "9"
+    },
+    {
+      "Name": "Janellaa",
+      "Date": "12/08/1998",
+      "Time": "20:30",
+      "Code": 12345,
+      "CountofPeople": "20"
+    },
+    {
+      "Name": "quitnensol",
+      "Date": "sdaf",
+      "Time": "asdf",
+      "Code": 12345,
+      "CountofPeople": "af"
+>>>>>>> 5553605cfc87278c991e730cfc2b64312d6520e2
     }
   ]
 }

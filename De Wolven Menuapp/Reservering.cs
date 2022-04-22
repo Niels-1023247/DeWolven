@@ -10,7 +10,7 @@ namespace De_Wolven_Menuapp
 {
 	internal class Reservering
 	{
-		
+
 		public static void Availability_Check() // beschikbaarheid tafel controleren, moet nog gemaakt worden.
 		{
 			int x = 1;
@@ -35,16 +35,20 @@ namespace De_Wolven_Menuapp
 		}
 
 		/*public static Information jsonNaarObject(string fileName, class jsonStructuur)
-        {
+		{
 			string opgehaaldeTekst = File.ReadAllText(fileName);
 
-        }
+		}
 		*/
 
-		public static void Klantinfo()
+		public static void AddReservering()
 		{
 			Console.Clear();
-
+			string newName;
+			string newDate;
+			string newTime;
+			string newCountofPeople;
+			
 			// nieuwe var voor de json
 			string reserveringJson;
 			Information reserveringsData;
@@ -52,27 +56,26 @@ namespace De_Wolven_Menuapp
 			// script voor gebruiker om nieuwe reservering te maken
 			Console.WriteLine("Vul de onderstaande gegevens in om een reservering te maken");
 
-			Console.WriteLine("Voer uw naam in:");
-			string newName = Console.ReadLine();
+			Console.WriteLine("Op welke naam is de reservering?\n");
+			newName = Console.ReadLine();
 
-			Console.WriteLine("Vul de datum in dat u wilt komen in de vorm dd/MM/yyyy");
-			string newDate = Console.ReadLine();
+			Console.WriteLine("Op welke datum is de reservering?\n");
+			newDate = Console.ReadLine();
 
-			Console.WriteLine($"Hoelaat wilt u komen op {newDate}?");
-			string newTime = Console.ReadLine();
+			Console.WriteLine($"Hoelaat is de reservering?\n");
+			newTime = Console.ReadLine();
 
 			Console.WriteLine($"Met hoeveel mensen wilt u komen op {newDate}");
-			string newCountofPeople = Console.ReadLine();
+			newCountofPeople = Console.ReadLine();
 
 			// genereer nieuwe code en controleer
-			// int newNum = new Random().Next(10000, 99999);
-			int newNum = 12345;
+			int newNum = new Random().Next(10000, 99999);
 			while (dubbeleReserveringsCodeGevonden(newNum) == true) // als die code al gebruikt is 
             {
-                Console.WriteLine($"code {newNum} was already found, generating new code...");
+                // Console.WriteLine($"code {newNum} was already found, generating new code...");
 				newNum = new Random().Next(10000, 99999);
 			}
-            Console.WriteLine($"De nieuwe, niet eerder gebruikte code is: {newNum}");
+            // Console.WriteLine($"De nieuwe, niet eerder gebruikte code is: {newNum}");
 
 			EnkeleReservering newReservation = new()
 				{
