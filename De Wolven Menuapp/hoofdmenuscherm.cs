@@ -39,8 +39,9 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("[1] Reserveer een tafel");
             Console.WriteLine("[2] Bekijk de menukaart");
             Console.WriteLine("[3] Log in");
-            Console.WriteLine("[4] Over ons");
-            Console.WriteLine("Voer 1, 2, 3 of 4 in");
+            Console.WriteLine("[4] Registreer");
+            Console.WriteLine("[5] Over ons");
+            Console.WriteLine("Voer 1, 2, 3, 4 of 5 in");
             Console.WriteLine("Druk op esc om terug te gaan");
             
             ConsoleKey optieklanten = Console.ReadKey().Key;
@@ -61,6 +62,12 @@ namespace De_Wolven_Menuapp
             }
 
             else if (optieklanten == ConsoleKey.D4)
+            {
+                Console.Clear();
+                Loginfo.CreateAccount();
+
+            }
+            else if (optieklanten == ConsoleKey.D5)
             {
                 Console.Clear();
                 Contact.Contactgegevens();

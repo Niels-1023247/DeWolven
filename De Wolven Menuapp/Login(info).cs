@@ -26,20 +26,21 @@ namespace De_Wolven_Menuapp
 
             Console.WriteLine("Hallo " + soortGebruiker + ".\n");
 
-            Console.WriteLine("[1]Login met een bestaand account.\n[2]Login met uw code.\n");
-            Console.WriteLine("Voer 1 of 2 in");
+            Console.WriteLine("[1]Login met een bestaand account.\n");
+            Console.WriteLine("Druk op 1 om je gegevens in te voeren.!\n");
+            Console.WriteLine("Druk op Escape om terug te gaan!\n");
 
             
 
             ConsoleKey LoginType = Console.ReadKey().Key;
-            if (LoginType == ConsoleKey.D1)
+            if (LoginType == ConsoleKey.D1 || LoginType == ConsoleKey.Enter)
             {
-                LoginAccount(soortGebruiker);
+                
+               LoginAccount(soortGebruiker);
+                
+
             }
-            else if (LoginType == ConsoleKey.D2)
-            {
-                LoginCode(soortGebruiker);
-            }
+            
             else if (LoginType == ConsoleKey.Escape)
             {
                 if(soortGebruiker == "Klant") Hoofdmenuscherm.SchermKlanten();
@@ -93,26 +94,43 @@ namespace De_Wolven_Menuapp
             string enteredpassword = Console.ReadLine();
 
             // CODE WAT CHECKED OF HET DE ADMIN IS
-
-            if (enteredusername == "admin" && enteredpassword == "feyenoord010") Hoofdmenuscherm.SchermAdmin();
-
-
-            // SCHRIJF HIER CODE OM ACCOUNTS TE VERGELIJKEN UIT DE JSON //
-
-            for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
+            
+            if(soortGebruiker == "Klant")
             {
-                //Console.WriteLine(alleAccounts.Accounts[item].Username);
-
-                if (alleAccounts.Accounts[item].Username == enteredusername && alleAccounts.Accounts[item].Password == enteredpassword)
+                for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
                 {
-                    Console.WriteLine("Ingelogd");
-                    inlogStatus = true;
+                    //Console.WriteLine(alleAccounts.Accounts[item].Username);
 
-                    if (alleAccounts.Accounts[item].Level == "1") Hoofdmenuscherm.SchermKlanten();
-                    if (alleAccounts.Accounts[item].Level == "2") medewerkerHome.SchermMedewerker();
-                    break;
+                    if (alleAccounts.Accounts[item].Username == enteredusername && alleAccounts.Accounts[item].Password == enteredpassword)
+                    {
+                        Console.WriteLine("Ingelogd");
+                        inlogStatus = true;
+
+                        if (alleAccounts.Accounts[item].Level == "1") Hoofdmenuscherm.SchermKlanten();
+                        
+                        break;
+                    }
                 }
             }
+            if(soortGebruiker == "Medewerker")
+            {
+                if (enteredusername == "admin" && enteredpassword == "feyenoord010") Hoofdmenuscherm.SchermAdmin();
+                for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
+                {
+
+                    if (alleAccounts.EmpAcc[item].Username == enteredusername && alleAccounts.EmpAcc[item].Password == enteredpassword)
+                    {
+                        Console.WriteLine("Ingelogd");
+                        inlogStatus = true;
+
+                        
+                        if (alleAccounts.EmpAcc[item].Level == "2") medewerkerHome.SchermMedewerker();
+                        
+                        break;
+                    }
+                }
+            }
+            
 
 
             if (inlogStatus == false) Reload_back(soortGebruiker,"Verkeerde gegevens.");
@@ -120,37 +138,6 @@ namespace De_Wolven_Menuapp
 
 
         }
-        public static void LoginCode(string soortGebruiker)
-        {
-            string dejsontekst = File.ReadAllText("accounts.JSON");
-            AccountData alleAccounts = JsonConvert.DeserializeObject<AccountData>(dejsontekst);
-
-            bool inlogStatus = false;
-
-            Console.Clear();
-            Console.WriteLine("Voer hier de code in die u heeft ontvangen:");
-            string enteredcode = Console.ReadLine();
-
-            for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
-            {
-                //Console.WriteLine(alleAccounts.Accounts[item].Username);
-
-                if (true)///alleAccounts.Accounts[item].Code == enteredcode)
-                {
-                    Console.WriteLine("Ingelogd");
-                    inlogStatus = true;
-
-                    if (soortGebruiker == "Klant") Hoofdmenuscherm.SchermKlanten();
-                    if (soortGebruiker == "Medewerker") Hoofdmenuscherm.SchermMedewerker();
-
-                    break;
-                }
-            }
-
-            if (inlogStatus == false) Reload_back(soortGebruiker, "Foute code");
-            ///ValidateCode(code);
-        }
-
         public static void Reload_back(string soortGebruiker, string message)
         {
             Console.Clear();
