@@ -2648,16 +2648,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\solqu\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\Jaël\\.nuget\\packages\\": {}
->>>>>>> 173ad08809b0897fbf5309583f73d7842e123ea5
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
       "projectName": "De Wolven Menuapp",
       "projectPath": "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
@@ -2666,16 +2661,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\solqu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "C:\\Users\\Jaël\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
-      "projectName": "De Wolven Menuapp",
-      "projectPath": "C:\\Users\\Jaël\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
-      "packagesPath": "C:\\Users\\Jaël\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jaël\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\Jaël\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 173ad08809b0897fbf5309583f73d7842e123ea5
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2723,11 +2708,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Host.win-x64",
-<<<<<<< HEAD
             "version": "[5.0.14, 5.0.14]"
-=======
-            "version": "[5.0.15, 5.0.15]"
->>>>>>> 173ad08809b0897fbf5309583f73d7842e123ea5
           }
         ],
         "frameworkReferences": {
@@ -2735,8 +2716,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
