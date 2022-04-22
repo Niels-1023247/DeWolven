@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
@@ -10,29 +12,112 @@ namespace De_Wolven_Menuapp
     {
         public static void Contactgegevens()
         {
-        
+            var JsonString = File.ReadAllText("ContactInfo.json");
+            var DeserialisedResult = JsonConvert.DeserializeObject<ContactInfo>(JsonString);
+
             ConsoleKey input;
             Console.Clear();
             Console.WriteLine("De Wolven");
             Console.WriteLine("CONTACT");
-            Console.WriteLine("Adres: Wijnhaven 60,");
-            Console.WriteLine("       3011WM Rotterdam");
-            Console.WriteLine("Telefoonnumer: 010-2189034");
+            Console.WriteLine($"Adres: {DeserialisedResult.Address}");
+            Console.WriteLine($"Telefoonnumer: {DeserialisedResult.Phone}");
             Console.WriteLine("\n\nOPENINGSTIJDEN");
             Console.WriteLine("Openigtijden:\n");
-            Console.WriteLine("Ma: 12:00-22:00");
-            Console.WriteLine("Di: 12:00-22:00");
-            Console.WriteLine("Wo: 12:00-22:00");
-            Console.WriteLine("Do: 12:00-22:00");
-            Console.WriteLine("Vr: 12:00-23:00");
-            Console.WriteLine("Za: 10:00-23:00");
-            Console.WriteLine("Zo: 10:00-23:00");
+            Console.WriteLine($"{DeserialisedResult.OpenT.Monday}");
+            Console.WriteLine($"{DeserialisedResult.OpenT.Tuesday}");
+            Console.WriteLine($"{DeserialisedResult.OpenT.Wednesday}");
+            Console.WriteLine($"{DeserialisedResult.OpenT.Thursday}");
+            Console.WriteLine($"{DeserialisedResult.OpenT.Friday}");
+            Console.WriteLine($"{DeserialisedResult.OpenT.Saturday}");
+            Console.WriteLine($"{DeserialisedResult.OpenT.Sunday}");
             Console.WriteLine("\nDrup op Esc om terug te gaan");
             input = Console.ReadKey().Key;
             if (input == ConsoleKey.Escape)
             {
                 Hoofdmenuscherm.SchermKlanten();
             }
+        }
+        public static void ChangeInfoMenu()
+        {
+            Console.WriteLine("Wat wilt u veranderen?\n[1]Adres\n[2]Telefoonnummer\n[3]openingstijden\n");
+            var input=Console.ReadKey().Key;
+            Console.WriteLine("");
+            if (input == ConsoleKey.D1) { ChangeInfo(1); }
+            if (input == ConsoleKey.D2) { ChangeInfo(2); }
+            if (input == ConsoleKey.D3) { ChangeInfo(3); }
+        }
+        public static void ChangeInfo(int i)
+        {
+            var JsonString = File.ReadAllText("ContactInfo.json");
+            var DeserialisedResult = JsonConvert.DeserializeObject<ContactInfo>(JsonString);
+            if (i == 1)
+            {
+                Console.WriteLine("Geef een nieuw adres:\nVOORBEELD:VoorbeeldStraat 123, 1234AB Rotterdam\n");
+                var newAddress = new ContactInfo
+                {
+                    Address = Console.ReadLine(),
+                    Phone = DeserialisedResult.Phone,
+                    OpenT = DeserialisedResult.OpenT,
+                };
+                var AdJsonString = JsonConvert.SerializeObject(newAddress, Formatting.Indented);
+                File.WriteAllText("ContactInfo.json", AdJsonString);
+            }
+            if (i == 2)
+            {
+                Console.WriteLine("Geef een nieuw Telefoonnummer:\nVOORBEELD: 010-1234567\n");
+                var newPhone = new ContactInfo
+                {
+                    Address= DeserialisedResult.Address,
+                    Phone = Console.ReadLine(),
+                    OpenT = DeserialisedResult.OpenT,
+                };
+                var PhJsonString = JsonConvert.SerializeObject(newPhone, Formatting.Indented);
+                File.WriteAllText("ContactInfo.json", PhJsonString);
+            }
+            if (i == 3)
+            {
+                Console.WriteLine("Wat zijn de nieuwe openingstijden?\nVOORBEELD: 0:00-23:59\n0:00-23:00\n Vul een tijd in voor iedere dag\n");
+                var newOpent = new OpeningsTijden
+                {
+                    Monday = "Ma: "+Console.ReadLine(),
+                    Tuesday = "Di: "+Console.ReadLine(),
+                    Wednesday = "Wo: " + Console.ReadLine(),
+                    Thursday = "Do: " + Console.ReadLine(),
+                    Friday = "Vr: " + Console.ReadLine(),
+                    Saturday = "Za: " + Console.ReadLine(),
+                    Sunday = "Zo: " + Console.ReadLine()
+                };
+                var NewOpenT = new ContactInfo
+                {
+                    Address = DeserialisedResult.Address,
+                    Phone = DeserialisedResult.Phone,
+                    OpenT = newOpent
+                };
+                var OpTJsonString = JsonConvert.SerializeObject(NewOpenT, Formatting.Indented);
+                File.WriteAllText("ContactInfo.json", OpTJsonString);
+
+            }
+            
+            //var newOpen = new OpeningsTijden
+            //{
+            //    Monday = Console.ReadLine(),
+            //    Tuesday = Console.ReadLine(),
+            //    Wednesday = Console.ReadLine(),
+            //    Thursday = Console.ReadLine(),
+            //    Friday = Console.ReadLine(),
+            //    Saturday = Console.ReadLine(),
+            //    Sunday = Console.ReadLine()
+            //};
+            //var newContactInfo = new ContactInfo
+            //{
+            //    Address = Console.ReadLine(),
+            //    Phone = Console.ReadLine(),
+            //    OpenT = newOpen,
+            //};
+            
+            //var writeJsonString = JsonConvert.SerializeObject(newContactInfo, Formatting.Indented);
+            //File.WriteAllText("ContactInfo.json",writeJsonString);
+            
         }
     }
 }

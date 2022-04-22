@@ -15,7 +15,5 @@ namespace De_Wolven_Menuapp
         {
             Beginscherm.Begin();
         }
-
     }
-
 }

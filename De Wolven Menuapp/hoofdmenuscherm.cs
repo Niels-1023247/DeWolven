@@ -19,8 +19,37 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("[4] Bekijk besteltotaal per tafel");
             Console.WriteLine("[5] Verander menukaart");
             Console.WriteLine("Voer 1, 2, 3, 4 of 5");
-            string optiemedewerker = Console.ReadLine();
+
+
+            ConsoleKey optiemedewerker = Console.ReadKey().Key;
+            if (optiemedewerker == ConsoleKey.D1)
+            {
+                Verander.DisplayReserveringen();
+            }
+            else if (optiemedewerker == ConsoleKey.D2)
+            {
+                Console.Clear();
+                Bestellingopnemen.Bestelling();
+
+            }
+            else if (optiemedewerker == ConsoleKey.D3)
+            {
+                Console.Clear();
+                Reservering.AddReservering();
+
+            }
+            else if (optiemedewerker == ConsoleKey.D4)
+            {
+                Console.Clear();
+                Console.WriteLine("ook nog niks");
+            }
+            else if (optiemedewerker == ConsoleKey.D5)
+            {
+                Console.Clear();
+                Verander.VeranderenReservering();
+            }
         }
+      
 
         public static void SchermKlanten()
         {
@@ -35,7 +64,7 @@ namespace De_Wolven_Menuapp
             ConsoleKey optieklanten = Console.ReadKey().Key;
             if (optieklanten == ConsoleKey.D1)
             {
-                Console.WriteLine("Nog niks");
+                Reservering.AddReservering();
             }
 
             else if (optieklanten == ConsoleKey.D2)

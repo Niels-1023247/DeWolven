@@ -1,0 +1,32 @@
+{
+  "accounts": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "feyenoord010",
+      "code": "A6B03",
+      "level": "2"
+    },
+    {
+      "id": "2",
+      "username": "voetbal_fan1980",
+      "password": "messi",
+      "code": "N8K32",
+      "level": "1"
+    },
+    {
+      "id": "3",
+      "username": "quinten",
+      "password": "frans",
+      "code": "LO24G",
+      "level": "1"
+    },
+    {
+      "id": "4",
+      "username": "sjaak",
+      "password": "toprestaurant",
+      "code": "C8J56",
+      "level": "2"
+    }
+  ]
+}
