@@ -8,22 +8,6 @@ using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
-
-	public class AccountData
-	{
-		public Account[] Accounts { get; set; }
-	}
-	public class Account
-	{
-		public int Id { get; set; }
-		public string Username { get; set; }
-		public string Password { get; set; }
-
-		public string Code { get; set; }
-
-		public string Level { get; set; }
-	}
-
     public class ContactInfo
     {
         public string Address { get; set; }
@@ -40,6 +24,42 @@ namespace De_Wolven_Menuapp
         public string Saturday { get; set; }
         public string Sunday { get; set; }
     }
+    public class Account
+    {
+        public string Name { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public List<string> Code { get; set; }
+        public string Level { get; set; }
+    }
+    public class EmpAcc
+    {
+        public string Name { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public string Level { get; set; }
+    }
+        public class AccountData
+	{
+		public List<Account> Accounts { get; set; }
+        public List<Account> EmpAcc { get; set; }
+	}
+
+    public class Information
+    {
+        public List<EnkeleReservering> Reserveringen { get; set; }
+    }
+
+    public class EnkeleReservering
+    {
+        public string Name { get; set; }
+        public string Date { get; set; }
+        public string Time { get; set; }
+        public int Code { get; set; }
+        public string CountofPeople { get; set; }
+    }
 
     public class Menukaart
     {
@@ -48,7 +68,7 @@ namespace De_Wolven_Menuapp
         public MenuDesserts[] Desserts { get; set; }
 
     }
-    
+
     public class Gerechten
     {
         public string Gerechtnaam { get; set; }
@@ -69,5 +89,5 @@ namespace De_Wolven_Menuapp
         public string Allergenen { get; set; }
     }
 
-}
 
+}

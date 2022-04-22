@@ -17,7 +17,7 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("[3] Maak een nieuwe reservering");
             Console.WriteLine("[4] Bekijk besteltotaal per tafel");
             Console.WriteLine("[5] Verander menukaart");
-            Console.WriteLine("Voer 1, 2, 3, 4 of 5");
+            Console.WriteLine("Voer 1, 2, 3, 4 of 5 in");
 
             ConsoleKey optieMedewerker = Console.ReadKey().Key;
             if (optieMedewerker == ConsoleKey.D1)
@@ -31,6 +31,7 @@ namespace De_Wolven_Menuapp
             }
             else if (optieMedewerker == ConsoleKey.D3)
             {
+
                 Console.WriteLine("Nog niks");
             }
 
