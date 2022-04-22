@@ -27,6 +27,11 @@ namespace De_Wolven_Menuapp
                 Console.Clear();
                 Console.WriteLine("Name: Janell Acharju \nDate: 22/04/2022 \nTime: 18:00 \nCode: null \nCountofPeople: 12");
             }
+            else if (optiemedewerker == ConsoleKey.D2)
+            {
+                Console.Clear();
+                Console.ReadLine();
+            }
         }
       
 
