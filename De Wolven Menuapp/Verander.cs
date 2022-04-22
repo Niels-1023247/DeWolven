@@ -24,5 +24,13 @@ namespace De_Wolven_Menuapp
             }
             
         }
-    }
+
+        public static void VeranderenReservering()
+        {
+            DisplayReserveringen();
+            Console.WriteLine("Voer de naam in van de reservering die je wilt veranderen: \n");
+            string welkenaam = Console.ReadLine();
+
+        }
+    }  
 }
