@@ -62,7 +62,7 @@ namespace De_Wolven_Menuapp
             else Console.WriteLine("Welkom bij de wolven!");
             Console.WriteLine("[1] Reserveer een tafel");
             Console.WriteLine("[2] Bekijk de menukaart");
-            Console.WriteLine("[3] Log in");
+            if (!inlogstatus) Console.WriteLine("[3] Log in");
             Console.WriteLine("[4] Registreer");
             Console.WriteLine("[5] Reservering aanpassen");
             Console.WriteLine("[6] Over ons");
@@ -81,7 +81,7 @@ namespace De_Wolven_Menuapp
                 Console.Clear();
                 Menu.Menukaart();
             }
-            else if (optieklanten == ConsoleKey.D3)
+            else if (optieklanten == ConsoleKey.D3 && !inlogstatus)
 
             {
                 Loginfo.Loginfoscherm("Klant");
@@ -108,6 +108,7 @@ namespace De_Wolven_Menuapp
             else if (optieklanten == ConsoleKey.Escape)
             {
                 Console.Clear();
+                Program.SetLoginValues(null, null, null, null, null, null, false);
                 Beginscherm.Begin();
             }
             else SchermKlanten();
