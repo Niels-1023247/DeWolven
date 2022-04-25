@@ -20,7 +20,7 @@ namespace De_Wolven_Menuapp
         
         public static void Loginfoscherm(string soortGebruiker)
         {
-            
+            // algemeen inlogscherm laten zien
             Console.Clear();
             Console.WriteLine("LOGIN\n\n");
 
@@ -31,7 +31,7 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("Druk op Escape om terug te gaan!\n");
 
             
-
+            // druk op 1 om in te loggen
             ConsoleKey LoginType = Console.ReadKey().Key;
             if (LoginType == ConsoleKey.D1 || LoginType == ConsoleKey.Enter)
             {
@@ -40,7 +40,7 @@ namespace De_Wolven_Menuapp
                 
 
             }
-            
+            // anders terug naar vorig scherm
             else if (LoginType == ConsoleKey.Escape)
             {
                 if(soortGebruiker == "Klant") Hoofdmenuscherm.SchermKlanten();
@@ -50,7 +50,7 @@ namespace De_Wolven_Menuapp
         }
         public static void CreateAccount()
         {
-            
+            // script om invoer te vragen voor nieuw klantaccount
             Console.Clear();
             Console.WriteLine("Wat is uw naam?");
             string Name=Console.ReadLine();
@@ -60,6 +60,8 @@ namespace De_Wolven_Menuapp
             string Username = Console.ReadLine();
             Console.WriteLine("Kies een wachtwoord");
             string Password = Console.ReadLine();
+
+            // nieuw 'Account' object aanmaken en waarden assignen
             var NewCusAcc = new Account
             {
                 Name = Name,
@@ -69,23 +71,30 @@ namespace De_Wolven_Menuapp
                 Code = new List<string>(),
                 Level="1"
             };
+            // lees accounts.json in
             var JsonString = File.ReadAllText("accounts.json");
             var DeserialisedResult = JsonConvert.DeserializeObject<AccountData>(JsonString);
             Console.WriteLine(DeserialisedResult.Accounts[0]);
+
+            // nieuwe lijst maken, alle accounts daarnaar kopiëren en daarna het nieuwe account daar aan toevoegen
             var NewAccount = new AccountData { Accounts= new List<Account>(), EmpAcc=DeserialisedResult.EmpAcc};
             for (int i = 0; i < DeserialisedResult.Accounts.Count; i++)
             {
                 NewAccount.Accounts.Add(DeserialisedResult.Accounts[i]);
             }
             NewAccount.Accounts.Add(NewCusAcc);
+            
+            // terug naar de json schrijven
             var WrJsonString = JsonConvert.SerializeObject(NewAccount, Formatting.Indented);
             File.WriteAllText("accounts.json", WrJsonString);
         }
         public static void LoginAccount(string soortGebruiker)
         {
+            // json inlezen voor later
             string dejsontekst = File.ReadAllText("accounts.JSON");
             AccountData alleAccounts = JsonConvert.DeserializeObject<AccountData>(dejsontekst);
 
+            // script voor invoer login
             Console.Clear();
             bool inlogStatus = false;
             Console.WriteLine("Voer uw Gebruikersnaam in:");
@@ -97,9 +106,9 @@ namespace De_Wolven_Menuapp
             
             if(soortGebruiker == "Klant")
             {
+                // elk bestaand klantaccount afgaan en controleren of de login overeenkomt
                 for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
                 {
-                    //Console.WriteLine(alleAccounts.Accounts[item].Username);
 
                     if (alleAccounts.Accounts[item].Username == enteredusername && alleAccounts.Accounts[item].Password == enteredpassword)
                     {
@@ -113,8 +122,10 @@ namespace De_Wolven_Menuapp
                 }
             }
             if(soortGebruiker == "Medewerker")
-            {
+            {   // naar adminscherm sturen wanneer het de admin login is
                 if (enteredusername == "admin" && enteredpassword == "feyenoord010") Hoofdmenuscherm.SchermAdmin();
+
+                // elk bestaand medewerkersaccount afgaan en controleren of de login overeenkomt
                 for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
                 {
 
@@ -132,12 +143,14 @@ namespace De_Wolven_Menuapp
             }
             
 
-
+            // inlogStatus blijft op false staan wanneer er geen overeenkomend account is gevonden na de controles
+            // scherm wordt daarna herladen met Reload_back
             if (inlogStatus == false) Reload_back(soortGebruiker,"Verkeerde gegevens.");
 
 
 
         }
+        // herladen inlogscherm wanneer de inloginfo nergens mee overeenkomt
         public static void Reload_back(string soortGebruiker, string message)
         {
             Console.Clear();
@@ -151,7 +164,7 @@ namespace De_Wolven_Menuapp
                     Loginfo.Loginfoscherm(soortGebruiker);
                     break;
                 }
-                else 
+                else // verkeerde input
                 {
                     Reload_back(soortGebruiker,"Verkeerde toets!");
                 }
