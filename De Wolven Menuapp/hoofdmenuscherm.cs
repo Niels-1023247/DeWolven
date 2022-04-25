@@ -35,11 +35,14 @@ namespace De_Wolven_Menuapp
 
         public static void SchermKlanten()
         {
+            bool inlogstatus = Program.LoginCheck();
             Console.Clear();
-            Console.WriteLine("Welkom bij de wolven gast!");
+            if (inlogstatus) Console.WriteLine("Welkom bij de wolven " + Program.ActiefAccountValues("Name")+"!");
+            else Console.WriteLine("Welkom bij de wolven!");
             Console.WriteLine("[1] Reserveer een tafel");
             Console.WriteLine("[2] Bekijk de menukaart");
             Console.WriteLine("[3] Log in");
+
             Console.WriteLine("[4] Registreer");
             Console.WriteLine("[5] Reservering aanpassen");
             Console.WriteLine("[6] Over ons");
@@ -86,6 +89,7 @@ namespace De_Wolven_Menuapp
             {
                 Beginscherm.Begin();
             }
+            else SchermKlanten();
         }
     }
 }

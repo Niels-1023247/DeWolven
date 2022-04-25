@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-[{"Id":0,"Username":"ramazan","Password":"wachtwoord123"}]
-=======
 {
   "Accounts": [
     {
@@ -29,8 +26,8 @@
     },
     {
       "Name": "Niels",
-      "Username": "Sigma",
-      "Password": "balls",
+      "Username": "niels",
+      "Password": "klaver",
       "Email": "niels@niels.nl",
       "Code": [],
       "Level": "1"
@@ -47,4 +44,4 @@
     }
   ]
 }
->>>>>>> 03aaed8326f7d658aef0cf7e60ecb1aad76be741
+

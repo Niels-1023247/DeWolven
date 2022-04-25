@@ -33,22 +33,6 @@ namespace De_Wolven_Menuapp
             
             // druk op 1 om in te loggen
             ConsoleKey LoginType = Console.ReadKey().Key;
-            while (1 == 1)
-            {
-                if (LoginType == ConsoleKey.D1)
-                {
-                    LoginAccount("Klant");
-                }
-                else if (LoginType == ConsoleKey.D2)
-                {
-                    CreateAccount();
-                    Console.WriteLine("Vul uw gebruikersnaam in, druk daarna op enter en vul uw wachtwoord in: ");
-                }
-                else if (LoginType == ConsoleKey.Escape)
-                {
-                    Hoofdmenuscherm.SchermKlanten();
-                }
-            }
             if (LoginType == ConsoleKey.D1 || LoginType == ConsoleKey.Enter)
             {
                 
@@ -117,8 +101,6 @@ namespace De_Wolven_Menuapp
             string enteredusername = Console.ReadLine();
             Console.WriteLine("Voer uw Wachtwoord in:");
             string enteredpassword = Console.ReadLine();
-
-            // CODE WAT CHECKED OF HET DE ADMIN IS
             
             if(soortGebruiker == "Klant")
             {
@@ -128,10 +110,30 @@ namespace De_Wolven_Menuapp
 
                     if (alleAccounts.Accounts[item].Username == enteredusername && alleAccounts.Accounts[item].Password == enteredpassword)
                     {
-                        Console.WriteLine("Ingelogd");
+                        
                         inlogStatus = true;
 
-                        if (alleAccounts.Accounts[item].Level == "1") Hoofdmenuscherm.SchermKlanten();
+                        if (alleAccounts.Accounts[item].Level == "1")
+                        {
+                            Program.SetLoginValues(alleAccounts.Accounts[item].Username, alleAccounts.Accounts[item].Name, alleAccounts.Accounts[item].Password, 
+                                alleAccounts.Accounts[item].Email, alleAccounts.Accounts[item].Code, alleAccounts.Accounts[item].Level, true);
+                            Console.Clear();
+                            Console.WriteLine("Gebruiker: " + alleAccounts.Accounts[item].Name);
+                            Console.WriteLine("U bent ingelogd!");
+                            Console.WriteLine("Druk op ENTER om verder te gaan.");
+                            ConsoleKey invoerterug = Console.ReadKey().Key;
+                            while (true)
+                            {
+                                if (invoerterug == ConsoleKey.Enter) // terug naar klanten menu
+                                {
+                                    Hoofdmenuscherm.SchermKlanten();
+                                }
+                                
+                            }
+
+                            
+                        }
+                            
                         
                         break;
                     }
@@ -185,10 +187,7 @@ namespace De_Wolven_Menuapp
                     Reload_back(soortGebruiker,"Verkeerde toets!");
                 }
             }
-            string username = Console.ReadLine();
-            Console.WriteLine("Voer uw Wachtwoord in:");
-            string password = Console.ReadLine();
-            ConsoleKey input;
+            
 
             //for (int i = 0; i != account.Username.length; i++)
             //{
