@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace De_Wolven_Menuapp
 {
+    // hoofdmenu's voor elke soort gebruiker
     internal static class Hoofdmenuscherm
     {
         public static void SchermMedewerker()
@@ -40,7 +41,8 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("[2] Bekijk de menukaart");
             Console.WriteLine("[3] Log in");
             Console.WriteLine("[4] Registreer");
-            Console.WriteLine("[5] Over ons");
+            Console.WriteLine("[5] Reservering aanpassen");
+            Console.WriteLine("[6] Over ons");
             Console.WriteLine("Voer 1, 2, 3, 4 of 5 in");
             Console.WriteLine("Druk op esc om terug te gaan");
 
@@ -48,7 +50,7 @@ namespace De_Wolven_Menuapp
             if (optieklanten == ConsoleKey.D1)
             {
                 Reservering.AddReservering();
-                
+
             }
 
             else if (optieklanten == ConsoleKey.D2)
@@ -69,6 +71,12 @@ namespace De_Wolven_Menuapp
 
             }
             else if (optieklanten == ConsoleKey.D5)
+            {
+                Console.Clear();
+                Verander.reserveringAanpassenKlant();
+
+            }
+            else if (optieklanten == ConsoleKey.D6)
             {
                 Console.Clear();
                 Contact.Contactgegevens();

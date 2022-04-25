@@ -10,6 +10,7 @@ namespace De_Wolven_Menuapp
 {
     internal class Contact
     {
+        // laat contactgegevens zien
         public static void Contactgegevens()
         {
             var JsonString = File.ReadAllText("ContactInfo.json");
@@ -37,6 +38,7 @@ namespace De_Wolven_Menuapp
                 Hoofdmenuscherm.SchermKlanten();
             }
         }
+        // kies welke contactgegevens veranderd zullen worden
         public static void ChangeInfoMenu()
         {
             Console.WriteLine("Wat wilt u veranderen?\n[1]Adres\n[2]Telefoonnummer\n[3]openingstijden\n");
@@ -46,6 +48,7 @@ namespace De_Wolven_Menuapp
             if (input == ConsoleKey.D2) { ChangeInfo(2); }
             if (input == ConsoleKey.D3) { ChangeInfo(3); }
         }
+        // functie om de gegevens per soort (adres/telefoonnummer/openingstijden) te veranderen op basis van variable i
         public static void ChangeInfo(int i)
         {
             var JsonString = File.ReadAllText("ContactInfo.json");

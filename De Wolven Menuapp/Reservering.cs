@@ -10,8 +10,8 @@ namespace De_Wolven_Menuapp
 {
 	internal class Reservering
 	{
-
-		public static void Availability_Check() // beschikbaarheid tafel controleren, moet nog gemaakt worden.
+		// beschikbaarheid tafel controleren, moet nog gemaakt worden
+		public static void Availability_Check() 
 		{
 			int x = 1;
 			if (x == 1)
@@ -20,18 +20,21 @@ namespace De_Wolven_Menuapp
 			}
 		}
 
-		public static bool dubbeleReserveringsCodeGevonden(int nieuweCode) // returnt true als ie 
+		public static bool dubbeleReserveringsCodeGevonden(int nieuweCode) // returnt true of false
         {
-			var reserveringJson = File.ReadAllText("reserveringenbestand.json"); // json ophalen
+			// reserveringen ophalen
+			var reserveringJson = File.ReadAllText("reserveringenbestand.json"); 
 			Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
-			for (int i = 0; i < reserveringsData.Reserveringen.Count; i++) // ga elke reservering af
+
+			// ga elke reservering af
+			for (int i = 0; i < reserveringsData.Reserveringen.Count; i++) 
 			{
-				if (reserveringsData.Reserveringen[i].Code == nieuweCode) // komt de nieuwe code overeen?
+				if (reserveringsData.Reserveringen[i].Code == nieuweCode) // komt de nieuwe code overeen? return true
 				{
 					return true;
 				}
 			}
-			return false;
+			return false; // anders returnt hij false
 		}
 
 		/*public static Information jsonNaarObject(string fileName, class jsonStructuur)
@@ -68,15 +71,14 @@ namespace De_Wolven_Menuapp
 			Console.WriteLine($"Met hoeveel mensen wilt u komen op {newDate}");
 			newCountofPeople = Console.ReadLine();
 
-			// genereer nieuwe code en controleer
+			// genereer nieuwe code en controleer of deze niet eerder gebruikt is, met dubbeleReserveringsCodeGevonden()
 			int newNum = new Random().Next(10000, 99999);
 			while (dubbeleReserveringsCodeGevonden(newNum) == true) // als die code al gebruikt is 
             {
-                // Console.WriteLine($"code {newNum} was already found, generating new code...");
 				newNum = new Random().Next(10000, 99999);
 			}
-            // Console.WriteLine($"De nieuwe, niet eerder gebruikte code is: {newNum}");
 
+			// maak nieuwe reservering aan met de gegeven informatie
 			EnkeleReservering newReservation = new()
 				{
 					Name = newName,
@@ -89,12 +91,12 @@ namespace De_Wolven_Menuapp
 			// haal json op en voeg reservering toe, zet daarna terug in json
 			reserveringJson = File.ReadAllText("reserveringenbestand.json");
 			reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
+
+			// voeg reservering toe aan de lijst van reserveringen, en schrijf geüpdate lijst terug naar json
 			reserveringsData.Reserveringen.Add(newReservation);
 			var updatedReservations = JsonConvert.SerializeObject(reserveringsData, Formatting.Indented);
 			File.WriteAllText("reserveringenbestand.json", updatedReservations);
             Console.WriteLine(updatedReservations);
-
-			Console.ReadLine();
 
 
 			//DateTime d1 = DateTime.Now; // datum nu

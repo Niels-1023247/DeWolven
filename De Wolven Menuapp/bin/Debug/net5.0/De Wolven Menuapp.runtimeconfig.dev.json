@@ -2,12 +2,17 @@
   "runtimeOptions": {
     "additionalProbingPaths": [
 <<<<<<< HEAD
+<<<<<<< HEAD
       "C:\\Users\\ncvan\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\ncvan\\.nuget\\packages"
 =======
       "C:\\Users\\Jaël\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\Jaël\\.nuget\\packages"
 >>>>>>> af993202f54b7b1ea7c3864537724a2e460c27e3
+=======
+      "C:\\Users\\solqu\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\solqu\\.nuget\\packages"
+>>>>>>> 39a4451e168f376a9edf8d27698cc79e295baf33
     ]
   }
 }
