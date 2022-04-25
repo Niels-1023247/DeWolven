@@ -31,6 +31,14 @@
       "Email": "niels@niels.nl",
       "Code": [],
       "Level": "1"
+    },
+    {
+      "Name": "Frank Tomaat",
+      "Username": "Tomaat",
+      "Password": "geheim",
+      "Email": "frank@tomaat.nl",
+      "Code": [],
+      "Level": "1"
     }
   ],
   "EmpAcc": [

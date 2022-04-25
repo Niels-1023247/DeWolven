@@ -15,12 +15,12 @@ namespace De_Wolven_Menuapp
             var JsonString = File.ReadAllText("accounts.json");
             var DeserialisedResult = JsonConvert.DeserializeObject<AccountData>(JsonString);
             Console.WriteLine(DeserialisedResult.Accounts[1].Username);
-            
+
         }
-        
+
         public static void Loginfoscherm(string soortGebruiker)
         {
-            
+
             Console.Clear();
             Console.WriteLine("LOGIN\n\n");
 
@@ -30,32 +30,32 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("Druk op 1 om je gegevens in te voeren.!\n");
             Console.WriteLine("Druk op Escape om terug te gaan!\n");
 
-            
+
 
             ConsoleKey LoginType = Console.ReadKey().Key;
             if (LoginType == ConsoleKey.D1 || LoginType == ConsoleKey.Enter)
             {
-                
-               LoginAccount(soortGebruiker);
-                
+
+                LoginAccount(soortGebruiker);
+
 
             }
-            
+
             else if (LoginType == ConsoleKey.Escape)
             {
-                if(soortGebruiker == "Klant") Hoofdmenuscherm.SchermKlanten();
+                if (soortGebruiker == "Klant") Hoofdmenuscherm.SchermKlanten();
                 if (soortGebruiker == "Medewerker") Hoofdmenuscherm.SchermMedewerker();
             }
 
         }
         public static void CreateAccount()
         {
-            
+
             Console.Clear();
             Console.WriteLine("Wat is uw naam?");
-            string Name=Console.ReadLine();
+            string Name = Console.ReadLine();
             Console.WriteLine("Wat is uw E-mail");
-            string Mail=Console.ReadLine();
+            string Mail = Console.ReadLine();
             Console.WriteLine("Kies een Gebruikersnaam");
             string Username = Console.ReadLine();
             Console.WriteLine("Kies een wachtwoord");
@@ -67,12 +67,12 @@ namespace De_Wolven_Menuapp
                 Password = Password,
                 Username = Username,
                 Code = new List<string>(),
-                Level="1"
+                Level = "1"
             };
             var JsonString = File.ReadAllText("accounts.json");
             var DeserialisedResult = JsonConvert.DeserializeObject<AccountData>(JsonString);
             Console.WriteLine(DeserialisedResult.Accounts[0]);
-            var NewAccount = new AccountData { Accounts= new List<Account>(), EmpAcc=DeserialisedResult.EmpAcc};
+            var NewAccount = new AccountData { Accounts = new List<Account>(), EmpAcc = DeserialisedResult.EmpAcc };
             for (int i = 0; i < DeserialisedResult.Accounts.Count; i++)
             {
                 NewAccount.Accounts.Add(DeserialisedResult.Accounts[i]);
@@ -80,22 +80,24 @@ namespace De_Wolven_Menuapp
             NewAccount.Accounts.Add(NewCusAcc);
             var WrJsonString = JsonConvert.SerializeObject(NewAccount, Formatting.Indented);
             File.WriteAllText("accounts.json", WrJsonString);
+            Hoofdmenuscherm.SchermKlanten();
         }
         public static void LoginAccount(string soortGebruiker)
         {
+            Console.WriteLine("Test");
             string dejsontekst = File.ReadAllText("accounts.JSON");
             AccountData alleAccounts = JsonConvert.DeserializeObject<AccountData>(dejsontekst);
 
             Console.Clear();
-            bool inlogStatus = false;
+            bool inlogStatus = false
             Console.WriteLine("Voer uw Gebruikersnaam in:");
             string enteredusername = Console.ReadLine();
             Console.WriteLine("Voer uw Wachtwoord in:");
             string enteredpassword = Console.ReadLine();
 
             // CODE WAT CHECKED OF HET DE ADMIN IS
-            
-            if(soortGebruiker == "Klant")
+
+            if (soortGebruiker == "Klant")
             {
                 for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
                 {
@@ -107,12 +109,12 @@ namespace De_Wolven_Menuapp
                         inlogStatus = true;
 
                         if (alleAccounts.Accounts[item].Level == "1") Hoofdmenuscherm.SchermKlanten();
-                        
+
                         break;
                     }
                 }
             }
-            if(soortGebruiker == "Medewerker")
+            if (soortGebruiker == "Medewerker")
             {
                 if (enteredusername == "admin" && enteredpassword == "feyenoord010") Hoofdmenuscherm.SchermAdmin();
                 for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
@@ -123,17 +125,17 @@ namespace De_Wolven_Menuapp
                         Console.WriteLine("Ingelogd");
                         inlogStatus = true;
 
-                        
+
                         if (alleAccounts.EmpAcc[item].Level == "2") medewerkerHome.SchermMedewerker();
-                        
+
                         break;
                     }
                 }
             }
-            
 
 
-            if (inlogStatus == false) Reload_back(soortGebruiker,"Verkeerde gegevens.");
+
+            if (inlogStatus == false) Reload_back(soortGebruiker, "Verkeerde gegevens.");
 
 
 
@@ -151,9 +153,9 @@ namespace De_Wolven_Menuapp
                     Loginfo.Loginfoscherm(soortGebruiker);
                     break;
                 }
-                else 
+                else
                 {
-                    Reload_back(soortGebruiker,"Verkeerde toets!");
+                    Reload_back(soortGebruiker, "Verkeerde toets!");
                 }
             }
         }
