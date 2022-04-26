@@ -76,7 +76,7 @@ namespace De_Wolven_Menuapp
 			Console.WriteLine($"Hoelaat is de reservering?\n");
 			newTime = Console.ReadLine();
 
-			Console.WriteLine($"Met hoeveel mensen wilt u komen op {newDate}");
+			Console.WriteLine($"Met hoeveel mensen wilt u komen op {newDate}?");
 			newCountofPeople = Console.ReadLine();
 
 			// genereer nieuwe code en controleer of deze niet eerder gebruikt is, met dubbeleReserveringsCodeGevonden()
