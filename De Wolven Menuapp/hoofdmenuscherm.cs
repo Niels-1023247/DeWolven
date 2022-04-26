@@ -84,6 +84,7 @@ namespace De_Wolven_Menuapp
             else if (optieklanten == ConsoleKey.D3 && !inlogstatus)
 
             {
+                Console.Clear();
                 Loginfo.Loginfoscherm("Klant");
             }
 
