@@ -89,7 +89,7 @@ namespace De_Wolven_Menuapp
             AccountData alleAccounts = JsonConvert.DeserializeObject<AccountData>(dejsontekst);
 
             Console.Clear();
-            bool inlogStatus = false
+            bool inlogStatus = false;
             Console.WriteLine("Voer uw Gebruikersnaam in:");
             string enteredusername = Console.ReadLine();
             Console.WriteLine("Voer uw Wachtwoord in:");
