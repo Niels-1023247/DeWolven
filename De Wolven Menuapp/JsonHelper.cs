@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
+
     public class ContactInfo
     {
         public string Address { get; set; }
@@ -41,6 +42,19 @@ namespace De_Wolven_Menuapp
         public string Email { get; set; }
         public string Level { get; set; }
     }
+    
+    public class ActiveUser
+    {
+        public string Name;
+        public string Username;
+        public string Password;
+        public string Email;
+        public List<string> Code;
+        public string Level;
+        public bool IsIngelogd;
+        
+    }
+    
         public class AccountData
 	{
 		public List<Account> Accounts { get; set; }

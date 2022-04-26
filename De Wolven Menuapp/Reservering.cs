@@ -20,7 +20,7 @@ namespace De_Wolven_Menuapp
 			}
 		}
 
-		public static bool dubbeleReserveringsCodeGevonden(int nieuweCode) // returnt true of false
+		public static bool dubbeleReserveringsCodeGevonden(int nieuweCode) // return true of false
         {
 			// reserveringen ophalen
 			var reserveringJson = File.ReadAllText("reserveringenbestand.json"); 
@@ -46,6 +46,9 @@ namespace De_Wolven_Menuapp
 
 		public static void AddReservering()
 		{
+			bool inlogstatus = Program.LoginCheck();
+			
+
 			Console.Clear();
 			string newName;
 			string newDate;
@@ -59,8 +62,13 @@ namespace De_Wolven_Menuapp
 			// script voor gebruiker om nieuwe reservering te maken
 			Console.WriteLine("Vul de onderstaande gegevens in om een reservering te maken");
 
-			Console.WriteLine("Op welke naam is de reservering?\n");
-			newName = Console.ReadLine();
+			if (inlogstatus) newName = Program.ActiefAccountValues("Name");
+			else
+			{
+				Console.WriteLine("Op welke naam staat de reservering?\n");
+				newName = Console.ReadLine();
+			}
+			
 
 			Console.WriteLine("Op welke datum is de reservering?\n");
 			newDate = Console.ReadLine();

@@ -101,8 +101,6 @@ namespace De_Wolven_Menuapp
             string enteredusername = Console.ReadLine();
             Console.WriteLine("Voer uw Wachtwoord in:");
             string enteredpassword = Console.ReadLine();
-
-            // CODE WAT CHECKED OF HET DE ADMIN IS
             
             if(soortGebruiker == "Klant")
             {
@@ -112,10 +110,30 @@ namespace De_Wolven_Menuapp
 
                     if (alleAccounts.Accounts[item].Username == enteredusername && alleAccounts.Accounts[item].Password == enteredpassword)
                     {
-                        Console.WriteLine("Ingelogd");
+                        
                         inlogStatus = true;
 
-                        if (alleAccounts.Accounts[item].Level == "1") Hoofdmenuscherm.SchermKlanten();
+                        if (alleAccounts.Accounts[item].Level == "1")
+                        {
+                            Program.SetLoginValues(alleAccounts.Accounts[item].Username, alleAccounts.Accounts[item].Name, alleAccounts.Accounts[item].Password, 
+                                alleAccounts.Accounts[item].Email, alleAccounts.Accounts[item].Code, alleAccounts.Accounts[item].Level, true);
+                            Console.Clear();
+                            Console.WriteLine("Gebruiker: " + alleAccounts.Accounts[item].Name);
+                            Console.WriteLine("U bent ingelogd!");
+                            Console.WriteLine("Druk op ENTER om verder te gaan.");
+                            ConsoleKey invoerterug = Console.ReadKey().Key;
+                            while (true)
+                            {
+                                if (invoerterug == ConsoleKey.Enter) // terug naar klanten menu
+                                {
+                                    Hoofdmenuscherm.SchermKlanten();
+                                }
+                                
+                            }
+
+                            
+                        }
+                            
                         
                         break;
                     }
@@ -169,6 +187,56 @@ namespace De_Wolven_Menuapp
                     Reload_back(soortGebruiker,"Verkeerde toets!");
                 }
             }
+            
+
+            //for (int i = 0; i != account.Username.length; i++)
+            //{
+            //    // vul hier het stukje wat het account uitleest inplaats van wat de gerechten uitleest
+            //    if (username == account[i].Username & password == account[i].Password)
+            //    {
+            //        Console.WriteLine("Je bent ingelogd!");
+            //        input = Console.ReadKey().Key;
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Sorry je Geberuikersnaam/ Wachtwoord combinatie klopt niet!");
+            //        Console.WriteLine("Druk op Enter om je wachtwoord opnieuw in te voeren, of Esc om terug te gaan.");
+            //        input = Console.ReadKey().Key;
+            //        while (1 == 1)
+            //        {
+            //            if (input == ConsoleKey.Enter) // reset
+            //            {
+            //                Hoofdmenuscherm.SchermKlanten();
+            //                break;
+            //            }
+            //            if (input == ConsoleKey.Escape) // terug naar hoofdmenu
+            //            {
+            //                Loginfo.Loginfoscherm();
+            //                break;
+            //            }
+            //        }
+            //    }
+            //}
         }
+        //public static void LoginCode()
+        //{
+        //    Console.Clear();
+        //    Console.WriteLine("Voer hier de code in die u heeft ontvangen:");
+        //    string code = Console.ReadLine();
+        //    ///ValidateCode(code);
+        //    
+        //    // vul hier het stukje wat het account uitleest inplaats van wat de gerechten uitleest
+        //    if (code == hetgehelemenu.account[f].code)
+        //    {
+        //        Console.WriteLine("Je bent ingelogd!");
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Sorry je Code klopt niet!");
+        //        
+        //
+        //    }
+        //
+        //}
     }
 }

@@ -26,8 +26,8 @@
     },
     {
       "Name": "Niels",
-      "Username": "Sigma",
-      "Password": "balls",
+      "Username": "niels",
+      "Password": "klaver",
       "Email": "niels@niels.nl",
       "Code": [],
       "Level": "1"
@@ -44,3 +44,4 @@
     }
   ]
 }
+
