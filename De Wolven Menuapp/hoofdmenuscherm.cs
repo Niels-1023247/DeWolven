@@ -20,7 +20,13 @@ namespace De_Wolven_Menuapp
             ConsoleKey optieMedewerker = Console.ReadKey().Key;
             if (optieMedewerker == ConsoleKey.Enter)
             {
+                Console.Clear();
                 Loginfo.Loginfoscherm("Medewerker");
+            }
+            else if (optieMedewerker == ConsoleKey.Escape)
+            {
+                Console.Clear();
+                Beginscherm.Begin();
             }
 
         }
@@ -58,7 +64,7 @@ namespace De_Wolven_Menuapp
         {
             bool inlogstatus = Program.LoginCheck();
             Console.Clear();
-            if (inlogstatus) Console.WriteLine("Welkom bij de wolven, " + Program.ActiefAccountValues("Name") + "!");
+            if (inlogstatus) Console.WriteLine(" Welkom bij de wolven, " + Program.ActiefAccountValues("Name") + "!");
             else Console.WriteLine("Welkom bij de wolven!");
             Console.WriteLine("[1] Reserveer een tafel");
             Console.WriteLine("[2] Bekijk de menukaart");
@@ -84,6 +90,7 @@ namespace De_Wolven_Menuapp
             else if (optieklanten == ConsoleKey.D3 && !inlogstatus)
 
             {
+                Console.Clear();
                 Loginfo.Loginfoscherm("Klant");
             }
 

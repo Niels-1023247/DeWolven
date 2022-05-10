@@ -144,18 +144,18 @@ namespace De_Wolven_Menuapp
                 if (enteredusername == "admin" && enteredpassword == "feyenoord010") Hoofdmenuscherm.SchermAdmin();
 
                 // elk bestaand medewerkersaccount afgaan en controleren of de login overeenkomt
-                for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
+                else
                 {
-
-                    if (alleAccounts.EmpAcc[item].Username == enteredusername && alleAccounts.EmpAcc[item].Password == enteredpassword)
+                    for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
                     {
-                        Console.WriteLine("Ingelogd");
-                        inlogStatus = true;
+                        if (alleAccounts.EmpAcc[item].Username == enteredusername && alleAccounts.EmpAcc[item].Password == enteredpassword)
+                        {
+                            Console.WriteLine("Ingelogd");
+                            inlogStatus = true;
 
-                        
-                        if (alleAccounts.EmpAcc[item].Level == "2") medewerkerHome.SchermMedewerker();
-                        
-                        break;
+                            if (alleAccounts.EmpAcc[item].Level == "2") medewerkerHome.SchermMedewerker();
+                            break;
+                        }
                     }
                 }
             }

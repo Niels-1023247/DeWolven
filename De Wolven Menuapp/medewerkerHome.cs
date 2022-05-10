@@ -22,17 +22,18 @@ namespace De_Wolven_Menuapp
             ConsoleKey optieMedewerker = Console.ReadKey().Key;
             if (optieMedewerker == ConsoleKey.D1)
             {
-                Console.WriteLine("Nog niks");
+                Console.Clear();
+                Verander.DisplayReserveringen();
             }
 
             else if (optieMedewerker == ConsoleKey.D2)
             {
-                Console.WriteLine("Nog niks");
+                Bestellingopnemen.Bestelling();
             }
             else if (optieMedewerker == ConsoleKey.D3)
             {
-
-                Console.WriteLine("Nog niks");
+                Console.Clear();
+                Reservering.AddReservering();
             }
 
             else if (optieMedewerker == ConsoleKey.D4)

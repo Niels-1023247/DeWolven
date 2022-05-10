@@ -9,7 +9,10 @@
 *.user
 *.userosscache
 *.sln.docstates
-*.json
+accounts.json
+ContactInfo.json
+Menukaart.json
+reserveringenbestand.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

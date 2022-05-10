@@ -17,6 +17,7 @@ namespace De_Wolven_Menuapp
             Console.WriteLine($"Bestelling voor tafel {tafelnummer}");
             Menu.Menukaart();
             Console.ReadLine();
+
         }
         
       
