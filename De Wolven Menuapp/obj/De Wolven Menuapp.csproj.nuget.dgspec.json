@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\De Wolven Menuapp.csproj": {}
+    "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\De Wolven Menuapp.csproj": {
+    "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+        "projectUniqueName": "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
         "projectName": "De Wolven Menuapp",
-        "projectPath": "C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
-        "packagesPath": "C:\\Users\\ncvan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ncvan\\source\\repos\\Project B\\De Wolven Menuapp\\obj\\",
+        "projectPath": "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+        "packagesPath": "C:\\Users\\solqu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\solqu\\Documents\\GitHub\\DeWolven\\De Wolven Menuapp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ncvan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\solqu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
