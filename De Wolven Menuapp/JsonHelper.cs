@@ -52,15 +52,13 @@ namespace De_Wolven_Menuapp
         public List<string> Code;
         public string Level;
         public bool IsIngelogd;
-        
     }
     
-        public class AccountData
+    public class AccountData
 	{
-		public List<Account> Accounts { get; set; }
+	    public List<Account> Accounts { get; set; }
         public List<Account> EmpAcc { get; set; }
 	}
-
     public class Information
     {
         public List<EnkeleReservering> Reserveringen { get; set; }

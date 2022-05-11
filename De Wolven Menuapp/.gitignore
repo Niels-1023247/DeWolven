@@ -1,0 +1,7 @@
+*.v2
+*.v1
+*.suo
+*.dll
+*.pdb
+*.json
+*.cache
