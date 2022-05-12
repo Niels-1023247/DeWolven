@@ -12,6 +12,47 @@ namespace De_Wolven_Menuapp
     {
         public static void Dessertsmenukaart()
         {
+            string MenuJString = File.ReadAllText("Menukaart.JSON");
+            var MenuCompleet = JsonConvert.DeserializeObject<Menukaart>(MenuJString);
+            int screen = 0;
+            int max = MenuCompleet.Desserts.Length;
+            int pgmax = (max % 10 == 0) ? (MenuCompleet.Desserts.Length / 10 - 1) : (MenuCompleet.Desserts.Length / 10);
+
+            bool active = true;
+            while (active)
+            {
+
+                Console.WriteLine("MENUKAART - DESSERTS\n\n");
+                for (int i = 10 * screen; (10 * screen) < max ? i < max : i < 10 * screen; i++)
+                {
+                    Console.WriteLine(MenuCompleet.Desserts[i].Dessertnaam + ", " + MenuCompleet.Desserts[i].Prijs + " euro, " + MenuCompleet.Desserts[i].Allergenen);
+                }
+                Console.WriteLine($"Dit is pagina {screen + 1}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
+
+
+                ConsoleKey input;
+                input = Console.ReadKey().Key; // input staat gelijk aan de toets die de gebruiker invoert
+                if (input == ConsoleKey.RightArrow & pgmax != screen) // verhoog screenvariable
+                {
+                    screen++;
+                }
+                else if (input == ConsoleKey.LeftArrow & pgmax != 0 & screen > 0) // verlaag screenvariable
+                {
+                    screen -= 1;
+                }
+                else if (input == ConsoleKey.Escape) // terug naar hoofdmenu
+                {
+                    active = false;
+                }
+                else if (input == ConsoleKey.RightArrow & pgmax == screen) // als je na het laatste scherm naar rechts gaat dan gaat hij terug naar het eerste scherm
+                {
+                    screen = 0;
+                }
+            }
+            Menu.Menukaart();
+        }
+        public static void DessertsmenukaartOLD()
+        {
             int screen = 1; // bewaart op welke van de 5 schermen de gebruiker zit
             int pgmax = 5; // variable die bewaart hoeveel schermen er in totaal zijn
             ConsoleKey input;
