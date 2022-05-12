@@ -21,17 +21,17 @@ namespace De_Wolven_Menuapp
             bool active = true;
             while (active)
             {
-
                 Console.WriteLine("MENUKAART - DESSERTS\n\n");
-                for (int i = 10 * screen; (10 * screen) < max ? i < max : i < 10 * screen; i++)
+                for (int i = 10 * screen; (10 * (screen + 1)) > max ? i < max : i < 10 * (screen + 1); i++)
                 {
                     Console.WriteLine(MenuCompleet.Desserts[i].Dessertnaam + ", " + MenuCompleet.Desserts[i].Prijs + " euro, " + MenuCompleet.Desserts[i].Allergenen);
                 }
-                Console.WriteLine($"Dit is pagina {screen + 1}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
+                Console.WriteLine($"\nDit is pagina {screen + 1}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
 
 
                 ConsoleKey input;
                 input = Console.ReadKey().Key; // input staat gelijk aan de toets die de gebruiker invoert
+                Console.Clear();
                 if (input == ConsoleKey.RightArrow & pgmax != screen) // verhoog screenvariable
                 {
                     screen++;
