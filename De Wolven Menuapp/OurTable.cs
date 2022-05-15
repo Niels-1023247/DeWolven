@@ -14,12 +14,33 @@ namespace De_Wolven_Menuapp
         {
             var JsonString = File.ReadAllText("OurTable.json");
             var DeserialisedResult = JsonConvert.DeserializeObject<InGebruik>(JsonString);
-            if (DeserialisedResult.Tafels[Resv.Date] == null)
+            Tafels newTables = new Tafels
             {
-                var newdate = new Tafels
-                {
 
+            };
+            try
+            {
+
+                var newdate = new InGebruik
+                {
+                    Tafel = new Dictionary<string, Dictionary<string, Tafels>>()
                 };
+            }
+            catch (System.NullReferenceException)
+            {
+
+            }
+            if (DeserialisedResult.Tafel[Resv.Date] == null)
+            {
+                var newdate = new InGebruik
+                {
+                    Tafel=new Dictionary<string, Dictionary<string, Tafels>>
+                };
+            }
+            else if (DeserialisedResult.Tafel[Resv.Date] != null)
+            {
+                
+                
             }
         }
     }

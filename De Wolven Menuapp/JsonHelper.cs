@@ -14,7 +14,7 @@ namespace De_Wolven_Menuapp
     }
     public class InGebruik
     {
-        public Dictionary<string,Dictionary<string,Tafels>> Tafels { get; set; }
+        public Dictionary<string,Dictionary<string,Tafels>> Tafel { get; set; }
     }
     public class ContactInfo
     {

@@ -8,7 +8,8 @@ using Newtonsoft.Json;
 
 
 namespace De_Wolven_Menuapp
-{
+{ 
+
     public class Program
     {
         public static ActiveUser ActiefAccount = new ActiveUser();
@@ -17,11 +18,15 @@ namespace De_Wolven_Menuapp
 
         public static void Main()
         {
-/*            ActiefAccount.Name = "Freddy";
-            ActiefAccount.IsIngelogd = true;
-            Console.WriteLine(ActiefAccountValues("Name"));
-            Console.WriteLine(LoginCheck());*/
-            Beginscherm.Begin();
+            var reserveringJson = File.ReadAllText("reserveringenbestand.json");
+            Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
+            var Resv = reserveringsData.Reserveringen[0];
+            OurTable.AddTable(Resv);
+            /*            ActiefAccount.Name = "Freddy";
+                        ActiefAccount.IsIngelogd = true;
+                        Console.WriteLine(ActiefAccountValues("Name"));
+                        Console.WriteLine(LoginCheck());
+                      Beginscherm.Begin();*/
         }
         public static string ActiefAccountValues(string keuze)
         {
@@ -65,4 +70,4 @@ namespace De_Wolven_Menuapp
     }
 
 
-    }
+}
