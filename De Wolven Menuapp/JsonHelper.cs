@@ -8,7 +8,14 @@ using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
-
+    public class Tafels
+    {
+        public string[] GebrTafels { get; set; }
+    }
+    public class InGebruik
+    {
+        public Dictionary<string,Dictionary<string,Tafels>> Tafels { get; set; }
+    }
     public class ContactInfo
     {
         public string Address { get; set; }
