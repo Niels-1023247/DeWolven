@@ -33,9 +33,9 @@ namespace De_Wolven_Menuapp
                 var tafeltijd = new Dictionary<string, Tafels> { Resv.Time, newTables };
                 Tafel = new Dictionary<string, Dictionary<string, Tafels>>
                 {
-                    {"initial", new Dictionary<string, Tafels>{"Initial",new Tafels}
-                    { CurrentDate, new Dictionary<string, Tafels> { Resv.Time, newTables } },
-
+                    {"initial", new Dictionary<string, Tafels>{"Initial",new Tafels},
+                    { CurrentDate, new Dictionary<string, Tafels> { Resv.Time, newTables }
+                }
              
             if (DeserialisedResult.Tafel[Resv.Date] == null)
             {
