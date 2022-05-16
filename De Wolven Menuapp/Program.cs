@@ -13,8 +13,6 @@ namespace De_Wolven_Menuapp
     {
         public static ActiveUser ActiefAccount = new ActiveUser();
         
-
-
         public static void Main()
         {
 /*          
