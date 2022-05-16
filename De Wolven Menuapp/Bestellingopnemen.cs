@@ -12,11 +12,13 @@ namespace De_Wolven_Menuapp
     {
         public static void nieuweBestelling()
         {
+            // script nieuwe bestelling
             Console.WriteLine("Voor welke tafel moet er een bestelling opgenomen worden?");
             Console.WriteLine("Type het tafelnummer...");
             string tafelNummer = Console.ReadLine();
             Console.Clear();
 
+            // nieuwe lege bestelling maken, modelleren naar lege menukaart
             Bestelling nieuweBestelling = new()
             {
                 Tafel = tafelNummer,
@@ -25,9 +27,7 @@ namespace De_Wolven_Menuapp
                 Dranken = new List<MenuDranken>()
             };
 
-
             bestellenInWelkeCategorie(nieuweBestelling);
-
         }
 
         public static void bestellenInWelkeCategorie(Bestelling huidigeBestelling)
@@ -52,10 +52,7 @@ namespace De_Wolven_Menuapp
                 Console.WriteLine("Druk op Enter om bovenstaanden definitief aan de rekening toe te voegen.");
                 Console.WriteLine("Druk op Escape om terug te gaan naar het hoofdmenu en deze items weg te gooien.");
 
-
             }
-
-
 
             ConsoleKey Bestellen = Console.ReadKey().Key;
             if (Bestellen == ConsoleKey.D1)
@@ -89,7 +86,6 @@ namespace De_Wolven_Menuapp
             {
                 Console.Clear();
                 bestellenInWelkeCategorie(huidigeBestelling);
-
             }
         }
 
@@ -314,6 +310,8 @@ namespace De_Wolven_Menuapp
             {
                 if (bestellingenData.Bestellingen[i].Tafel == nieuweToevoeging.Tafel) // is de tafel gevonden?
                 {
+                    // todo: programmeren wanneer het gerecht al in de rekening staat, verhoog bestellingData.Categorie.Aantal dan. nu werkt dat nog niet.
+
                     for (int j = 0; j < nieuweToevoeging.gerechten.Count; j++) bestellingenData.Bestellingen[i].gerechten.Add(nieuweToevoeging.gerechten[j]);
                     for (int j = 0; j < nieuweToevoeging.Desserts.Count; j++) bestellingenData.Bestellingen[i].Desserts.Add(nieuweToevoeging.Desserts[j]);
                     for (int j = 0; j < nieuweToevoeging.Dranken.Count; j++) bestellingenData.Bestellingen[i].Dranken.Add(nieuweToevoeging.Dranken[j]);
