@@ -25,10 +25,10 @@ namespace De_Wolven_Menuapp
         public static void MenuSplit()
         {
             Console.Clear();
-            Console.WriteLine("Welkom bij het menu-scherm van De Wolven!");
-            Console.WriteLine("[1] Bekijk onze Gerechten");
-            Console.WriteLine("[2] Bekijk onze Desserts");
-            Console.WriteLine("[3] Bekijk onze Dranken");
+            Console.WriteLine("Kies van welke categorie u wilt bestellen...");
+            Console.WriteLine("[1] Gerechten");
+            Console.WriteLine("[2] Desserts");
+            Console.WriteLine("[3] Dranken");
             Console.WriteLine("Voer 1, 2 of 3 in");
             ConsoleKey Bestellen = Console.ReadKey().Key;
             if (Bestellen == ConsoleKey.D1)
@@ -40,13 +40,13 @@ namespace De_Wolven_Menuapp
             else if (Bestellen == ConsoleKey.D2)
             {
                 Console.Clear();
-                DessertsBestellen();
+                //DessertsBestellen();
             }
             else if (Bestellen == ConsoleKey.D3)
 
             {
                 Console.Clear();
-                DrankenBestellen();
+                //DrankenBestellen();
             }
             else if (Bestellen == ConsoleKey.Escape) // terug naar hoofdmenu
             {
@@ -104,7 +104,7 @@ namespace De_Wolven_Menuapp
                 else
                 {
                     var bestellingList=new List<Gerechten>();
-                    for (input;) 
+                    //for (input;) 
                 }
             }
 

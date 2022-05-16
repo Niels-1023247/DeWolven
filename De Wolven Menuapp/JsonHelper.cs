@@ -9,6 +9,10 @@ using Newtonsoft.Json;
 namespace De_Wolven_Menuapp
 {
 
+    public class Bestelling : Menukaart
+    {
+
+    }
     public class ContactInfo
     {
         public string Address { get; set; }
