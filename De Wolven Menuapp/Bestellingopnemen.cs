@@ -34,7 +34,7 @@ namespace De_Wolven_Menuapp
             if (Bestellen == ConsoleKey.D1)
             {
                 Console.Clear();
-                Gerechtenkaart.GerechtenBestellen();
+                GerechtenBestellen();
             }
 
             else if (Bestellen == ConsoleKey.D2)
@@ -100,6 +100,11 @@ namespace De_Wolven_Menuapp
                 else if (input == ConsoleKey.RightArrow & pgmax == screen) // als je na het laatste scherm naar rechts gaat dan gaat hij terug naar het eerste scherm
                 {
                     screen = 0;
+                }
+                else
+                {
+                    var bestellingList=new List<Gerechten>();
+                    for (input;) 
                 }
             }
 
