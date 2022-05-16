@@ -32,7 +32,7 @@ namespace De_Wolven_Menuapp
             {
 
                 Console.Clear();
-                Bestellingopnemen.bestellenInWelkeCategorie();
+                Bestellingopnemen.nieuweBestelling();
             }
             
             if (soortgebruiker == ConsoleKey.Escape)
