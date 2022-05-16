@@ -20,8 +20,7 @@ namespace De_Wolven_Menuapp
                         ActiefAccount.IsIngelogd = true;
                         Console.WriteLine(ActiefAccountValues("Name"));
                         Console.WriteLine(LoginCheck());*/
-            //Beginscherm.Begin();
-            Bestellingopnemen.MenuSplit();
+            Beginscherm.Begin();
         }
         public static string ActiefAccountValues(string keuze)
         {
