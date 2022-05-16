@@ -28,7 +28,7 @@ namespace De_Wolven_Menuapp
 
             else if (optieMedewerker == ConsoleKey.D2)
             {
-                Bestellingopnemen.Bestelling();
+                Bestellingopnemen.nieuweBestelling();
             }
             else if (optieMedewerker == ConsoleKey.D3)
             {
