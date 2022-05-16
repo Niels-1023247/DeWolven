@@ -41,9 +41,6 @@
     "C:\\Users\\kevin\\.nuget\\packages\\system.xml.readerwriter\\4.0.11\\system.xml.readerwriter.4.0.11.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512"
   ],
-<<<<<<< Updated upstream
-  "logs": []
-=======
   "logs": [
     {
       "code": "Undefined",
@@ -52,5 +49,4 @@
       "message": "Problem reading the cache file C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'expectedPackageFiles', line 44, position 0."
     }
   ]
->>>>>>> Stashed changes
 }

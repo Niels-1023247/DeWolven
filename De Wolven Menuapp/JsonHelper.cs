@@ -8,7 +8,6 @@ using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
-<<<<<<< Updated upstream
 
     public class bestellingenRoot
     {
@@ -20,7 +19,7 @@ namespace De_Wolven_Menuapp
     {
         public string Tafel { get; set; } // tafel waar de desbetreffende bestelling aan gekoppeld is
     }
-=======
+
     public class Tafels
     {
         public List<string> GebrTafels { get; set; }
@@ -29,7 +28,6 @@ namespace De_Wolven_Menuapp
     {
         public Dictionary<string,Dictionary<string,Tafels>> Tafel { get; set; }
     }
->>>>>>> Stashed changes
     public class ContactInfo
     {
         public string Address { get; set; }

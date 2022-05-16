@@ -78,9 +78,9 @@ namespace De_Wolven_Menuapp
                 Console.WriteLine("MENUKAART - GERECHTEN\n\n");
                 for (int i = 10 * screen; (10 * screen) < max ? i < max : i < 10 * screen; i++)
                 {
-                    Console.WriteLine(MenuCompleet.gerechten[i].Gerechtnaam + ", " + MenuCompleet.gerechten[i].Prijs + " euro, " + MenuCompleet.gerechten[i].Allergenen);
+                    Console.WriteLine($"[{i}] {MenuCompleet.gerechten[i].Gerechtnaam}, {MenuCompleet.gerechten[i].Prijs} euro, {MenuCompleet.gerechten[i].Allergenen}");
                 }
-                Console.WriteLine($"Dit is pagina {screen + 1}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
+                Console.WriteLine($"Dit is pagina {screen + 1}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.\n\nGebruik de nummertoetsen om een menuoptie te kiezen");
                 Console.WriteLine($"[1] [2]\n ^");
 
                 ConsoleKey input;
@@ -104,8 +104,16 @@ namespace De_Wolven_Menuapp
                 else
                 {
                     var bestellingList=new List<Gerechten>();
-                    //for (input;) 
+                    ConsoleKey[] keys = { ConsoleKey.D1, ConsoleKey.D2, ConsoleKey.D3, ConsoleKey.D4, ConsoleKey.D5, ConsoleKey.D6, ConsoleKey.D7, ConsoleKey.D, ConsoleKey.D9, ConsoleKey.D0, };
+                    for (int i = 0; i < keys.Length; i++)
+                    if (input == keys[i])
+                    {
+                        bestellingList.Add(MenuCompleet.gerechten[10 * screen + i]);
+                    }
+                    Console.WriteLine(bestellingList[0].Gerechtnaam);
+
                 }
+                Console.WriteLine("end");
             }
 
         }
