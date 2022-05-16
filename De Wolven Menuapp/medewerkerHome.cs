@@ -8,7 +8,7 @@ namespace De_Wolven_Menuapp
 {
     internal class medewerkerHome
     {
-        public static void SchermMedewerker()
+        public static void SchermMedewerker(string melding = "")
         {
             Console.Clear();
             Console.WriteLine("Welkom medewerker");
@@ -18,6 +18,8 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("[4] Bekijk besteltotaal per tafel");
             Console.WriteLine("[5] Verander menukaart");
             Console.WriteLine("Voer 1, 2, 3, 4 of 5 in");
+
+            if (melding != "") Console.WriteLine("\n" + melding);
 
             ConsoleKey optieMedewerker = Console.ReadKey().Key;
             if (optieMedewerker == ConsoleKey.D1)
