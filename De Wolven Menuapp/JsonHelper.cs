@@ -19,6 +19,15 @@ namespace De_Wolven_Menuapp
     {
         public string Tafel { get; set; } // tafel waar de desbetreffende bestelling aan gekoppeld is
     }
+
+    public class Tafels
+    {
+        public List<string> GebrTafels { get; set; }
+    }
+    public class InGebruik
+    {
+        public Dictionary<string,Dictionary<string,Tafels>> Tafel { get; set; }
+    }
     public class ContactInfo
     {
         public string Address { get; set; }
