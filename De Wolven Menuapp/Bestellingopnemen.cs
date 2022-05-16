@@ -13,77 +13,103 @@ namespace De_Wolven_Menuapp
         public static void nieuweBestelling()
         {
             Console.WriteLine("Voor welke tafel moet er een bestelling opgenomen worden?");
-            Console.WriteLine("Type het tafelnummer");
-            ConsoleKey tafelnummer = Console.ReadKey().Key;
+            Console.WriteLine("Type het tafelnummer...");
+            string tafelNummer = Console.ReadLine();
             Console.Clear();
-            Console.WriteLine($"Bestelling voor tafel {tafelnummer}");
 
-            // list hier alle bestellingen op deze rekening
+            Bestelling nieuweBestelling = new()
+            {
+                Tafel = tafelNummer,
+                gerechten = new List<Gerechten>(),
+                Desserts = new List<MenuDesserts>(),
+                Dranken = new List<MenuDranken>()
+            };
 
-            bestellenInWelkeCategorie();
+
+            bestellenInWelkeCategorie(nieuweBestelling);
 
         }
 
-        public static void bestellenInWelkeCategorie()
+        public static void bestellenInWelkeCategorie(Bestelling huidigeBestelling)
         {
             Console.Clear();
+            Console.WriteLine($"NIEUWE BESTELLING TOEVOEGEN VOOR TAFEL {huidigeBestelling.Tafel}\n");
             Console.WriteLine("Kies van welke categorie u wilt bestellen...");
             Console.WriteLine("[1] Gerechten");
             Console.WriteLine("[2] Desserts");
             Console.WriteLine("[3] Dranken");
             Console.WriteLine("Voer 1, 2 of 3 in");
 
-            // hier komt het overzicht van alles wat toegevoegd wordt.
-
-            Bestelling nieuweBestelling = new()
+            if (huidigeBestelling.gerechten.Count != 0 | huidigeBestelling.Desserts.Count != 0 | huidigeBestelling.Dranken.Count != 0)
             {
-                Tafel = "1A",
-                gerechten = new List<Gerechten>(),
-                Desserts = new List<MenuDesserts>(),
-                Dranken = new List<MenuDranken>()
-            };
+                Console.WriteLine($"\nAan het toevoegen voor tafel {huidigeBestelling.Tafel}:");
+                
+                for (int i = 0; i < huidigeBestelling.gerechten.Count; i++) Console.WriteLine($"{huidigeBestelling.gerechten[i].Aantal}x {huidigeBestelling.gerechten[i].Gerechtnaam}");
+                for (int i = 0; i < huidigeBestelling.Desserts.Count; i++) Console.WriteLine($"{huidigeBestelling.Desserts[i].Aantal}x {huidigeBestelling.Desserts[i].Dessertnaam}");
+                for (int i = 0; i < huidigeBestelling.Dranken.Count; i++) Console.WriteLine($"{huidigeBestelling.Dranken[i].Aantal}x {huidigeBestelling.Dranken[i].Dranknaam}");
+                
+                Console.WriteLine();
+                Console.WriteLine("Druk op Enter om bovenstaanden definitief aan de rekening toe te voegen.");
+                Console.WriteLine("Druk op Escape om terug te gaan naar het hoofdmenu en deze items weg te gooien.");
+
+
+            }
+
+
 
             ConsoleKey Bestellen = Console.ReadKey().Key;
             if (Bestellen == ConsoleKey.D1)
             {
                 Console.Clear();
-                bestellingKiesOptie(1, nieuweBestelling, "", 0);
+                bestellingKiesOptie(1, huidigeBestelling, "", 0);
             }
 
             else if (Bestellen == ConsoleKey.D2)
             {
                 Console.Clear();
-                bestellingKiesOptie(2, nieuweBestelling, "", 0);
+                bestellingKiesOptie(2, huidigeBestelling, "", 0);
             }
 
             else if (Bestellen == ConsoleKey.D3)
             {
                 Console.Clear();
-                bestellingKiesOptie(3, nieuweBestelling, "", 0);
+                bestellingKiesOptie(3, huidigeBestelling, "", 0);
             }
             else if (Bestellen == ConsoleKey.Escape) // terug naar hoofdmenu
             {
                 Console.Clear();
-                
+                medewerkerHome.SchermMedewerker($"De voorgenoemde items van tafel {huidigeBestelling.Tafel} zijn weggegooid.");
+            }
+            else if (Bestellen == ConsoleKey.Enter)
+            {
+                Console.Clear();
+                bestellingDoorvoeren(huidigeBestelling);
             }
             else
             {
                 Console.Clear();
-                bestellenInWelkeCategorie();
+                bestellenInWelkeCategorie(huidigeBestelling);
 
             }
         }
 
-        //Onderstaande method leest de menukaart in
-        public static void bestellingKiesOptie(int categorie, Bestelling nieuweItems, string laatsteItem, int laatsteItemHvh)
+        //onderstaande method leest de menukaart in
+        public static void bestellingKiesOptie(int categorie, Bestelling nieuweItems, string laatsteItem = "", int laatsteItemHvh = 0)
         {
-            
+            // laadbericht
+            Console.Clear();
+            Console.WriteLine("Menu inlezen...");
+
+            // menukaart inlezen
             string menukaartJson = File.ReadAllText("Menukaart.JSON");
             var menuData = JsonConvert.DeserializeObject<Menukaart>(menukaartJson);
 
+            // bestellingen inlezen
             string bestellingenJson = File.ReadAllText("bestellingen.JSON");
             var bestellingenData = JsonConvert.DeserializeObject<bestellingenRoot>(bestellingenJson);
 
+            Console.Clear();
+            // initialiseren variables
             int screen = 0;
             int max = 0;
             int pgmax = 0;
@@ -113,9 +139,11 @@ namespace De_Wolven_Menuapp
 
             while (active)
             {
+                
+                // weergeven menu items van juiste pagina
                 Console.WriteLine($"MENUKAART - {categorienaam.ToUpper()} KIEZEN");
-                Console.WriteLine($"Pagina {screen} van {pgmax}");
-                Console.WriteLine(laatsteItemHvh != 0 ? $"[!] {laatsteItemHvh}x {laatsteItem} toegevoegd aan rekening voor tafel [1A]" : "");
+                Console.WriteLine($"Pagina {screen+1} van {pgmax+1}");
+                Console.WriteLine(laatsteItemHvh != 0 ? $"[!] {laatsteItemHvh}x {laatsteItem} toegevoegd aan rekening voor tafel [1A]" : ""); // optioneel laatst toegevoegd item
                 Console.WriteLine("\n\n");
 
                 for (int i = 8 * screen, c = 1; c <= 8 | i <= max-1; i++, c++) // c is het nummer voor de bestelling [c] weergeven, i is de index van het gerecht in de json
@@ -131,12 +159,13 @@ namespace De_Wolven_Menuapp
                     }
                 }
 
-                // 1x Erwtensoep toegevoegd aan rekening tafel 1A
                 Console.WriteLine($"\n\nDruk op het gewenste nummer om uw {categorienaam} te selecteren.\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
-
+                
+                //Console.WriteLine(nieuweItemsCommitten != null ? "Druk op Enter om ");
+                
                 var opties = mogelijkeInputs(hoeveelheidOpties);
 
-
+                // keuzes die de gebruiker kan maken
                 ConsoleKey input;
                 input = Console.ReadKey().Key; // input staat gelijk aan de toets die de gebruiker invoert
                 if (input == ConsoleKey.RightArrow & pgmax != screen) // verhoog screenvariable
@@ -152,6 +181,8 @@ namespace De_Wolven_Menuapp
                 else if (input == ConsoleKey.Escape) // terug naar hoofdmenu
                 {
                     active = false;
+                    Console.Clear();
+                    bestellenInWelkeCategorie(nieuweItems);
                 }
                 else if (input == ConsoleKey.RightArrow & pgmax == screen) // als je na het laatste scherm naar rechts gaat dan gaat hij terug naar het eerste scherm
                 {
@@ -159,10 +190,9 @@ namespace De_Wolven_Menuapp
                     Console.Clear();
                 }
                 
-                else if (opties.Contains(input)) // als de gebruiker een van de beschikbare getallen invoert...
+                else if (opties.Contains(input)) // als de gebruiker een item van het menu kiest...
                 {
                     Console.Clear();
-                    Console.WriteLine("U heeft gekozen voor: ");
 
                     //Console.WriteLine(menuData.gerechten[menuItemIndexOphalen(screen, input)].Gerechtnaam);
                     //else if (categorie == 2) Console.WriteLine(menuData.Desserts[menuItemIndexOphalen(screen, input)].Dessertnaam;
@@ -173,13 +203,16 @@ namespace De_Wolven_Menuapp
                     string recentItemNaam = "";
                     int recentItemHvh = 0;
 
+                    // het is nog niet geprogrammeerd dat de item aan het aantal wordt toegevoegd als ie al aanwezig is.
+
                     if (categorie == 1) // nieuw item toevoegen aan lege bestelling dummy
                     {
-                        int rightIndex = menuItemIndexOphalen(screen, input);
-                        nieuweItems.gerechten.Add(menuData.gerechten[rightIndex]);
-                        nieuweItems.gerechten[nieuweItems.gerechten.Count-1].Aantal = kiesHoeveelheidKeuze();
+                        int rightIndex = menuItemIndexOphalen(screen, input); // juiste index van menukaart ophalen
+                        nieuweItems.gerechten.Add(menuData.gerechten[rightIndex]); // menu item aan lege dummy bestelling toevoegen
+                        Console.WriteLine($"U heeft gekozen voor {menuData.gerechten[menuItemIndexOphalen(screen, input)].Gerechtnaam}.");
+                        nieuweItems.gerechten[nieuweItems.gerechten.Count-1].Aantal = kiesHoeveelheidKeuze(); // prompt hoeveel er besteld moeten worden
 
-                        recentItemNaam = nieuweItems.gerechten[nieuweItems.gerechten.Count - 1].Gerechtnaam;
+                        recentItemNaam = nieuweItems.gerechten[nieuweItems.gerechten.Count - 1].Gerechtnaam; 
                         recentItemHvh = nieuweItems.gerechten[nieuweItems.gerechten.Count - 1].Aantal;
 
                     }
@@ -187,6 +220,7 @@ namespace De_Wolven_Menuapp
                     {
                         int rightIndex = menuItemIndexOphalen(screen, input);
                         nieuweItems.Desserts.Add(menuData.Desserts[rightIndex]);
+                        Console.WriteLine($"U heeft gekozen voor {menuData.Desserts[menuItemIndexOphalen(screen, input)].Dessertnaam}.");
                         nieuweItems.Desserts[nieuweItems.Desserts.Count - 1].Aantal = kiesHoeveelheidKeuze();
 
                         recentItemNaam = nieuweItems.Desserts[nieuweItems.Desserts.Count - 1].Dessertnaam;
@@ -197,13 +231,14 @@ namespace De_Wolven_Menuapp
                     {
                         int rightIndex = menuItemIndexOphalen(screen, input);
                         nieuweItems.Dranken.Add(menuData.Dranken[rightIndex]);
+                        Console.WriteLine($"U heeft gekozen voor {menuData.Dranken[menuItemIndexOphalen(screen, input)].Dranknaam}.");
                         nieuweItems.Dranken[nieuweItems.Dranken.Count - 1].Aantal = kiesHoeveelheidKeuze();
 
                         recentItemNaam = nieuweItems.Dranken[nieuweItems.Dranken.Count - 1].Dranknaam;
                         recentItemHvh = nieuweItems.Dranken[nieuweItems.Dranken.Count - 1].Aantal;
 
                     }
-
+                    Console.Clear();
                     bestellingKiesOptie(categorie, nieuweItems, recentItemNaam, recentItemHvh);
 
 
@@ -216,6 +251,11 @@ namespace De_Wolven_Menuapp
                     // terug naar selecteer categorie, dan op enter.
                     // dan gaat hij terug naar het medewerkersscherm
 
+                }
+
+                else
+                {
+                    bestellingKiesOptie(categorie, nieuweItems);
                 }
             }
 
@@ -260,6 +300,38 @@ namespace De_Wolven_Menuapp
 
         }
 
+        public static void bestellingDoorvoeren(Bestelling nieuweToevoeging)
+        {
+            
+            // bestellingen inlezen
+            string bestellingenJson = File.ReadAllText("bestellingen.JSON");
+            var bestellingenData = JsonConvert.DeserializeObject<bestellingenRoot>(bestellingenJson);
+
+            bool maakNieuweRekening = true;
+
+            // appenden aan bestaande rekening
+            for (int i = 0; i < bestellingenData.Bestellingen.Count(); i++) 
+            {
+                if (bestellingenData.Bestellingen[i].Tafel == nieuweToevoeging.Tafel) // is de tafel gevonden?
+                {
+                    for (int j = 0; j < nieuweToevoeging.gerechten.Count; j++) bestellingenData.Bestellingen[i].gerechten.Add(nieuweToevoeging.gerechten[j]);
+                    for (int j = 0; j < nieuweToevoeging.Desserts.Count; j++) bestellingenData.Bestellingen[i].Desserts.Add(nieuweToevoeging.Desserts[j]);
+                    for (int j = 0; j < nieuweToevoeging.Dranken.Count; j++) bestellingenData.Bestellingen[i].Dranken.Add(nieuweToevoeging.Dranken[j]);
+                    maakNieuweRekening = false;
+                }
+            }
+            
+            // nieuwe rekening aanmaken ipv aan bestaande toevoegen
+            if (maakNieuweRekening) bestellingenData.Bestellingen.Add(nieuweToevoeging);
+
+            // bestellingen met geupdate items naar disk schrijven
+            var geupdateBestellingen = JsonConvert.SerializeObject(bestellingenData, Formatting.Indented);
+            File.WriteAllText("bestellingen.json", geupdateBestellingen);
+
+            // terug naar hoofdmenu
+            medewerkerHome.SchermMedewerker($"Succesvol de nieuwe bestellingen aan de rekening van tafel {nieuweToevoeging.Tafel} toegevoegd!");
+
+        }
 
     }
 }
