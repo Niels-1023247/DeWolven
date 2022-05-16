@@ -76,9 +76,9 @@ namespace De_Wolven_Menuapp
                 Console.WriteLine(screen);
                 Console.WriteLine(pgmax);
                 Console.WriteLine("MENUKAART - GERECHTEN\n\n");
-                for (int i = 10 * screen; (10 * screen) < max ? i < max : i < 10 * screen; i++)
+                for (int i = 10 * screen; (10 * (screen + 1)) > max ? i < max : i < 10 * (screen + 1); i++)
                 {
-                    Console.WriteLine($"[{i}] {MenuCompleet.gerechten[i].Gerechtnaam}, {MenuCompleet.gerechten[i].Prijs} euro, {MenuCompleet.gerechten[i].Allergenen}");
+                    Console.WriteLine($"[{i+1}] {MenuCompleet.gerechten[i].Gerechtnaam}, {MenuCompleet.gerechten[i].Prijs} euro, {MenuCompleet.gerechten[i].Allergenen}");
                 }
                 Console.WriteLine($"Dit is pagina {screen + 1}\n\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.\n\nGebruik de nummertoetsen om een menuoptie te kiezen");
                 Console.WriteLine($"[1] [2]\n ^");
