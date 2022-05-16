@@ -17,7 +17,8 @@ namespace De_Wolven_Menuapp
 
         public static void Main()
         {
-/*            ActiefAccount.Name = "Freddy";
+/*          
+ *          ActiefAccount.Name = "Freddy";
             ActiefAccount.IsIngelogd = true;
             Console.WriteLine(ActiefAccountValues("Name"));
             Console.WriteLine(LoginCheck());*/

@@ -9,9 +9,15 @@ using Newtonsoft.Json;
 namespace De_Wolven_Menuapp
 {
 
+    public class bestellingenRoot
+    {
+        public Bestelling[] Bestellingen { get; set; } // root van de bestellingen.json, een lijst van bestellingen
+    }
+    
+    
     public class Bestelling : Menukaart
     {
-
+        public string Tafel { get; set; } // tafel waar de desbetreffende bestelling aan gekoppeld is
     }
     public class ContactInfo
     {
@@ -81,9 +87,9 @@ namespace De_Wolven_Menuapp
 
     public class Menukaart
     {
-        public Gerechten[] gerechten;
-        public MenuDranken[] Dranken { get; set; }
-        public MenuDesserts[] Desserts { get; set; }
+        public List<Gerechten> gerechten { get; set; }
+        public List<MenuDranken> Dranken { get; set; }
+        public List<MenuDesserts> Desserts { get; set; }
 
     }
 
@@ -92,6 +98,7 @@ namespace De_Wolven_Menuapp
         public string Gerechtnaam { get; set; }
         public string Prijs { get; set; }
         public string Allergenen { get; set; }
+        public int Aantal { get; set; } // alleen gebruikt voor bestellingen
     }
 
     public class MenuDranken
@@ -99,12 +106,14 @@ namespace De_Wolven_Menuapp
         public string Dranknaam { get; set; }
         public string Prijs { get; set; }
         public string Allergenen { get; set; }
+        public int Aantal { get; set; } // alleen gebruikt voor bestellingen
     }
     public class MenuDesserts
     {
         public string Dessertnaam { get; set; }
         public string Prijs { get; set; }
         public string Allergenen { get; set; }
+        public int Aantal { get; set; } // alleen gebruikt voor bestellingen
     }
 
 
