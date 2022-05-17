@@ -11,7 +11,7 @@ namespace De_Wolven_Menuapp
     internal class OurTable
     {
         public static void AddTable(EnkeleReservering Resv)
-        {
+        {/*
             var JsonString = File.ReadAllText("OurTable.json");
             var DeserialisedResult = JsonConvert.DeserializeObject<InGebruik>(JsonString);
             string CurrentDate = Resv.Date;
@@ -48,7 +48,7 @@ namespace De_Wolven_Menuapp
             {
                 
                 
-            }
+            }*/
         }
     }
 }
