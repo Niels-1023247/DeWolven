@@ -31,6 +31,14 @@
       "Email": "niels@niels.nl",
       "Code": [],
       "Level": "1"
+    },
+    {
+      "Name": "mees",
+      "Username": "mees",
+      "Password": "mees",
+      "Email": "mees",
+      "Code": [],
+      "Level": "1"
     }
   ],
   "EmpAcc": [
@@ -44,4 +52,3 @@
     }
   ]
 }
-
