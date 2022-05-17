@@ -7,28 +7,20 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
-{
-<<<<<<< HEAD
+{ 
     public class Tafels
     {
         public string[] GebrTafels { get; set; }
-=======
-
+    }
     public class bestellingenRoot
     {
         public List<Bestelling> Bestellingen { get; set; } // root van de bestellingen.json, een lijst van bestellingen
     }
-    
-    
+
+
     public class Bestelling : Menukaart
     {
         public string Tafel { get; set; } // tafel waar de desbetreffende bestelling aan gekoppeld is
-    }
-
-    public class Tafels
-    {
-        public List<string> GebrTafels { get; set; }
->>>>>>> origin/bestellingen
     }
     public class InGebruik
     {

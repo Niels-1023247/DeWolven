@@ -15,8 +15,8 @@ namespace De_Wolven_Menuapp
             string MenuJString = File.ReadAllText("Menukaart.JSON");
             var MenuCompleet = JsonConvert.DeserializeObject<Menukaart>(MenuJString);
             int screen=0;
-            int max = MenuCompleet.gerechten.Length;
-            int pgmax = (max%10 == 0)?(MenuCompleet.gerechten.Length / 10-1): (MenuCompleet.gerechten.Length / 10);
+            int max = MenuCompleet.gerechten.Count;
+            int pgmax = (max%10 == 0)?(MenuCompleet.gerechten.Count / 10-1): (MenuCompleet.gerechten.Count / 10);
             Console.WriteLine(max);
             Console.WriteLine(pgmax);
             bool active = true;

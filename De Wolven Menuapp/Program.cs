@@ -16,19 +16,13 @@ namespace De_Wolven_Menuapp
         
         public static void Main()
         {
-<<<<<<< HEAD
-            var reserveringJson = File.ReadAllText("reserveringenbestand.json");
-            Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
-            var Resv = reserveringsData.Reserveringen[0];
-            OurTable.AddTable(Resv);
+
             /*            ActiefAccount.Name = "Freddy";
                         ActiefAccount.IsIngelogd = true;
                         Console.WriteLine(ActiefAccountValues("Name"));
-                        Console.WriteLine(LoginCheck());
-                      Beginscherm.Begin();*/
-=======
-            Beginscherm.Begin();
->>>>>>> origin/bestellingen
+                        Console.WriteLine(LoginCheck());*/
+                      Beginscherm.Begin();
+
         }
         public static string ActiefAccountValues(string keuze)
         {
