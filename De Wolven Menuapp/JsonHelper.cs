@@ -8,9 +8,27 @@ using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
+<<<<<<< HEAD
     public class Tafels
     {
         public string[] GebrTafels { get; set; }
+=======
+
+    public class bestellingenRoot
+    {
+        public List<Bestelling> Bestellingen { get; set; } // root van de bestellingen.json, een lijst van bestellingen
+    }
+    
+    
+    public class Bestelling : Menukaart
+    {
+        public string Tafel { get; set; } // tafel waar de desbetreffende bestelling aan gekoppeld is
+    }
+
+    public class Tafels
+    {
+        public List<string> GebrTafels { get; set; }
+>>>>>>> origin/bestellingen
     }
     public class InGebruik
     {
@@ -59,15 +77,13 @@ namespace De_Wolven_Menuapp
         public List<string> Code;
         public string Level;
         public bool IsIngelogd;
-        
     }
     
-        public class AccountData
+    public class AccountData
 	{
-		public List<Account> Accounts { get; set; }
+	    public List<Account> Accounts { get; set; }
         public List<Account> EmpAcc { get; set; }
 	}
-
     public class Information
     {
         public List<EnkeleReservering> Reserveringen { get; set; }
@@ -84,9 +100,9 @@ namespace De_Wolven_Menuapp
 
     public class Menukaart
     {
-        public Gerechten[] gerechten;
-        public MenuDranken[] Dranken { get; set; }
-        public MenuDesserts[] Desserts { get; set; }
+        public List<Gerechten> gerechten { get; set; }
+        public List<MenuDranken> Dranken { get; set; }
+        public List<MenuDesserts> Desserts { get; set; }
 
     }
 
@@ -95,6 +111,7 @@ namespace De_Wolven_Menuapp
         public string Gerechtnaam { get; set; }
         public string Prijs { get; set; }
         public string Allergenen { get; set; }
+        public int Aantal { get; set; } // alleen gebruikt voor bestellingen
     }
 
     public class MenuDranken
@@ -102,12 +119,14 @@ namespace De_Wolven_Menuapp
         public string Dranknaam { get; set; }
         public string Prijs { get; set; }
         public string Allergenen { get; set; }
+        public int Aantal { get; set; } // alleen gebruikt voor bestellingen
     }
     public class MenuDesserts
     {
         public string Dessertnaam { get; set; }
         public string Prijs { get; set; }
         public string Allergenen { get; set; }
+        public int Aantal { get; set; } // alleen gebruikt voor bestellingen
     }
 
 

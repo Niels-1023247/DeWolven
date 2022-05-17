@@ -20,13 +20,19 @@ namespace De_Wolven_Menuapp
             soortgebruiker = Console.ReadKey().Key;
             if (soortgebruiker == ConsoleKey.D1)
             {
-                
+
                 Hoofdmenuscherm.SchermKlanten();
             }
             else if (soortgebruiker == ConsoleKey.D2)
             {
-                
+
                 Hoofdmenuscherm.SchermMedewerker();
+            }
+            else if (soortgebruiker == ConsoleKey.D9) // backdoor voor snel naar bestellen
+            {
+
+                Console.Clear();
+                Bestellingopnemen.nieuweBestelling();
             }
             
             if (soortgebruiker == ConsoleKey.Escape)

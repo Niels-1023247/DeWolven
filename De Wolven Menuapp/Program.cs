@@ -14,10 +14,9 @@ namespace De_Wolven_Menuapp
     {
         public static ActiveUser ActiefAccount = new ActiveUser();
         
-
-
         public static void Main()
         {
+<<<<<<< HEAD
             var reserveringJson = File.ReadAllText("reserveringenbestand.json");
             Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
             var Resv = reserveringsData.Reserveringen[0];
@@ -27,6 +26,9 @@ namespace De_Wolven_Menuapp
                         Console.WriteLine(ActiefAccountValues("Name"));
                         Console.WriteLine(LoginCheck());
                       Beginscherm.Begin();*/
+=======
+            Beginscherm.Begin();
+>>>>>>> origin/bestellingen
         }
         public static string ActiefAccountValues(string keuze)
         {

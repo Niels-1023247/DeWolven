@@ -41,6 +41,7 @@
     "C:\\Users\\RAlti\\.nuget\\packages\\system.xml.readerwriter\\4.0.11\\system.xml.readerwriter.4.0.11.nupkg.sha512",
     "C:\\Users\\RAlti\\.nuget\\packages\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512"
   ],
+<<<<<<< HEAD
   "logs": [
     {
       "code": "Undefined",
@@ -53,4 +54,7 @@
 >>>>>>> Re-JSON
     }
   ]
+=======
+  "logs": []
+>>>>>>> origin/bestellingen
 }
