@@ -9,10 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-accounts.json
-ContactInfo.json
-Menukaart.json
-reserveringenbestand.json
+*.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -21,6 +18,10 @@ reserveringenbestand.json
 mono_crash.*
 
 # Build results
+.vs/
+.vscode/
+bin/Debug/net5.0
+obj/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/

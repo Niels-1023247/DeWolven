@@ -46,7 +46,11 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Problem reading the cache file C:\\Users\\RAlti\\Source\\Repos\\DeWolven\\De Wolven Menuapp\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'expectedPackageFiles', line 44, position 0."
+=======
+      "message": "Problem reading the cache file C:\\Users\\kevin\\source\\repos\\DeWolven\\De Wolven Menuapp\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'expectedPackageFiles', line 44, position 0."
+>>>>>>> Re-JSON
     }
   ]
 }
