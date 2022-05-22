@@ -16,8 +16,6 @@ namespace De_Wolven_Menuapp
     {
         public List<Bestelling> Bestellingen { get; set; } // root van de bestellingen.json, een lijst van bestellingen
     }
-
-
     public class Bestelling : Menukaart
     {
         public string Tafel { get; set; } // tafel waar de desbetreffende bestelling aan gekoppeld is
@@ -59,7 +57,6 @@ namespace De_Wolven_Menuapp
         public string Email { get; set; }
         public string Level { get; set; }
     }
-    
     public class ActiveUser
     {
         public string Name;
@@ -70,26 +67,23 @@ namespace De_Wolven_Menuapp
         public string Level;
         public bool IsIngelogd;
     }
-    
     public class AccountData
 	{
 	    public List<Account> Accounts { get; set; }
         public List<Account> EmpAcc { get; set; }
 	}
-    public class Information
+    public class reserveringenRoot
     {
         public List<EnkeleReservering> Reserveringen { get; set; }
     }
-
     public class EnkeleReservering
     {
         public string Name { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
         public int Code { get; set; }
-        public string CountofPeople { get; set; }
+        public int CountofPeople { get; set; }
     }
-
     public class Menukaart
     {
         public List<Gerechten> gerechten { get; set; }
@@ -97,7 +91,6 @@ namespace De_Wolven_Menuapp
         public List<MenuDesserts> Desserts { get; set; }
 
     }
-
     public class Gerechten
     {
         public string Gerechtnaam { get; set; }
@@ -105,7 +98,6 @@ namespace De_Wolven_Menuapp
         public string Allergenen { get; set; }
         public int Aantal { get; set; } // alleen gebruikt voor bestellingen
     }
-
     public class MenuDranken
     {
         public string Dranknaam { get; set; }
@@ -120,6 +112,5 @@ namespace De_Wolven_Menuapp
         public string Allergenen { get; set; }
         public int Aantal { get; set; } // alleen gebruikt voor bestellingen
     }
-
 
 }
