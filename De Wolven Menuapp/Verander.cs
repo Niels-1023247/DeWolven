@@ -106,7 +106,7 @@ namespace De_Wolven_Menuapp
                     else if (welkVeldAanpassen == ConsoleKey.D4)
                     {
                         Console.WriteLine("U past de hoeveelheid mensen aan naar: \n");
-                        geselecteerdeReservering.CountofPeople = Console.ReadLine();
+                        geselecteerdeReservering.CountofPeople = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine($"U heeft de hoeveelheid mensen aangepast naar: {geselecteerdeReservering.CountofPeople}");
                     }
                     else
