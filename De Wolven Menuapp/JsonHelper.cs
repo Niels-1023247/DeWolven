@@ -59,7 +59,6 @@ namespace De_Wolven_Menuapp
         public string Email { get; set; }
         public string Level { get; set; }
     }
-    
     public class ActiveUser
     {
         public string Name;
