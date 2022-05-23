@@ -156,7 +156,7 @@ namespace De_Wolven_Menuapp
 					}
 				}
 
-				Console.WriteLine($"\n\nDruk op het gewenste nummer om uw {categorienaam} te selecteren.\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Escape om terug te gaan.");
+				Console.WriteLine($"\n\nDruk op het gewenste nummer om uw {categorienaam} te selecteren.\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Enter of Escape om terug te gaan.");
 				
 				//Console.WriteLine(nieuweItemsCommitten != null ? "Druk op Enter om ");
 				
@@ -175,7 +175,7 @@ namespace De_Wolven_Menuapp
 					screen -= 1;
 					Console.Clear();
 				}
-				else if (input == ConsoleKey.Escape) // terug naar hoofdmenu
+				else if (input == ConsoleKey.Escape || input == ConsoleKey.Enter) // terug naar hoofdmenu
 				{
 					active = false;
 					Console.Clear();
