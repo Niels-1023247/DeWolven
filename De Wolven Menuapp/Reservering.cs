@@ -39,7 +39,7 @@ namespace De_Wolven_Menuapp
 
 		public static void AddReserveringUnitTest()
 		{
-			Console.WriteLine("[UNIT TESTING] Het toevoegen van nieuwe reserveringen wordt nu getest.");
+			Console.WriteLine("[UNIT TESTING] TOEVOEGEN NIEUWE RESERVERINGEN TESTEN");
 			Console.WriteLine("[UNIT TESTING] De functie zal door middel van de test cases die in de code gespecificeerd zijn getest worden.");
 
 			AddReservering(true, Tuple.Create<string[], int>(new string[] {"Quinten", "12-juni-2001", "19.00"}, 12));
@@ -65,7 +65,7 @@ namespace De_Wolven_Menuapp
 			bool inlogstatus = Program.LoginCheck();
 
 			// nieuwe lege vars voor de nieuwe reservering
-			Console.Clear();
+
 			string newName;
 			string newDate;
 			string newTime;
@@ -82,11 +82,12 @@ namespace De_Wolven_Menuapp
 				newDate = unitTestCase.Item1[1];
 				newTime = unitTestCase.Item1[2];
 				newCountofPeople = unitTestCase.Item2;
-                Console.WriteLine($"[UNIT TESTING] Testen nieuwe reservering aanmaken met invoer {newName} | {newDate} | {newTime} | {newCountofPeople}...");
+                Console.WriteLine($"[UNIT TESTING] Testen nieuwe reservering aanmaken met invoer {newName} | {newDate} | {newTime} | {newCountofPeople} | ...");
 			}
 			// script voor gebruiker om nieuwe reservering te maken
 			else 
 			{
+				Console.Clear();
 				Console.WriteLine("Vul de onderstaande gegevens in om een reservering te maken");
 				if (inlogstatus) newName = Program.ActiefAccountValues("Name");
 				else
@@ -156,7 +157,6 @@ namespace De_Wolven_Menuapp
                         }
                     }
                 }
-                Console.WriteLine("");
 			}
 			else
 			{

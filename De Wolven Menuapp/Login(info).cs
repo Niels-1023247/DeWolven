@@ -50,7 +50,7 @@ namespace De_Wolven_Menuapp
 
 		public static void loginUnitTest() // unit test voor correct inloggen (testgevallen moeten nog worden toegevoegd)
 		{
-            Console.WriteLine("[UNIT TESTING] Login met bestaande en niet-bestaande accounts worden getest...");
+            Console.WriteLine("[UNIT TESTING] INLOGSYSTEEM TESTEN");
 			Console.WriteLine(loginTestCase("Klant", "quinten", "frans"));
 			Console.WriteLine(loginTestCase("Klant", "kevn", "kevnWW"));
 			Console.WriteLine(loginTestCase("Klant", "quinten", "frans"));
@@ -62,6 +62,7 @@ namespace De_Wolven_Menuapp
 			AccountData alleAccounts = JsonConvert.DeserializeObject<AccountData>(dejsontekst);
 			bool inlogStatus = false;
 
+			Console.WriteLine($"[UNIT TESTING] Testen inloggen met invoer {enteredusername} | {enteredpassword} | ...");
 			if (soortGebruiker == "Klant")
 			{
 				for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
@@ -69,14 +70,14 @@ namespace De_Wolven_Menuapp
 					if (alleAccounts.Accounts[item].Username == enteredusername && alleAccounts.Accounts[item].Password == enteredpassword)
 					{
 						inlogStatus = true;
-						return $"{soortGebruiker} {enteredusername} with pw {enteredpassword} logged in - SUCCES";
+						return $"[UNIT TESTING] {soortGebruiker} {enteredusername} met wachtwoord {enteredpassword} ingelogd - TEST CASE PASSED";
 					}
 				}
 			}
 
 			if (soortGebruiker == "Medewerker")
 			{   
-				if (enteredusername == "admin" && enteredpassword == "feyenoord010") return $"{soortGebruiker} {enteredusername} with pw {enteredpassword} logged in - SUCCES";
+				if (enteredusername == "admin" && enteredpassword == "feyenoord010") return $"{soortGebruiker} {enteredusername} with pw {enteredpassword} ingelogd - TEST CASE PASSED";
 				else
 				{
 					for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
@@ -84,7 +85,7 @@ namespace De_Wolven_Menuapp
 						if (alleAccounts.EmpAcc[item].Username == enteredusername && alleAccounts.EmpAcc[item].Password == enteredpassword)
 						{
 							inlogStatus = true;
-							return $"{soortGebruiker} {enteredusername} with pw {enteredpassword} logged in - SUCCES";
+							return $"[UNIT TESTING] {soortGebruiker} {enteredusername} met wachtwoord {enteredpassword} ingelogd - TEST CASE PASSED";
 						}
 					}
 				}
@@ -94,7 +95,10 @@ namespace De_Wolven_Menuapp
 
 			// inlogStatus blijft op false staan wanneer er geen overeenkomend account is gevonden na de controles
 			// scherm wordt daarna herladen met Reload_back
-			return $"{soortGebruiker} {enteredusername} with pw {enteredpassword} did not log in - FAIL";
+			
+
+
+			return $"[UNIT TESTING] {soortGebruiker} {enteredusername} met wachtwoord {enteredpassword} niet ingelogd - TEST CASE FAILED";
 		}
 
 		public static void CreateAccount()
