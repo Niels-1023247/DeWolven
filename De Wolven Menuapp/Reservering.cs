@@ -43,6 +43,13 @@ namespace De_Wolven_Menuapp
 
 		}
 		*/
+		public static void AddReserveringUnitTest()
+        {
+            Console.WriteLine("[UNIT TESTING] Het toevoegen van nieuwe reserveringen wordt nu getest.");
+            Console.WriteLine("[UNIT TESTING] De functie zal door middel van de test cases die in de code gespecificeerd zijn getest worden.");
+
+
+        }
 
 		public static void AddReservering(bool unitTesting = false, Tuple<string[], int> unitTestCase = null)
 		{

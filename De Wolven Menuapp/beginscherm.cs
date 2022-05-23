@@ -25,20 +25,36 @@ namespace De_Wolven_Menuapp
             }
             else if (soortgebruiker == ConsoleKey.D2)
             {
-
                 Hoofdmenuscherm.SchermMedewerker();
             }
-            else if (soortgebruiker == ConsoleKey.D9) // backdoor voor snel naar bestellen
+            else if (soortgebruiker == ConsoleKey.D9) // verborgen unit test menu
             {
-
-                Console.Clear();
-                Bestellingopnemen.nieuweBestelling();
+                unitTestingMain();
             }
-            
             if (soortgebruiker == ConsoleKey.Escape)
             {
                 Environment.Exit(0);
             }
+        }
+        public static void unitTestingMain()
+        {
+            Console.Clear();
+            Console.WriteLine("[UNIT TESTING] Kies de unit test die u wilt doen.");
+            Console.WriteLine("[1] Alle tests");
+            Console.WriteLine("[2] Testen nieuwe reserveringen toevoegen");
+            Console.WriteLine("[3] Testen inloggen met bestaande en niet-bestaande accounts");
+
+            ConsoleKey unitTestKeuzeKey = Console.ReadKey().Key;
+            if (unitTestKeuzeKey == ConsoleKey.D1)
+            {
+                Reservering.AddReserveringUnitTest();
+                Loginfo.loginUnitTest();
+            }
+            else if (unitTestKeuzeKey == ConsoleKey.Escape) Begin();
+
+            else if (unitTestKeuzeKey == ConsoleKey.D2) Reservering.AddReserveringUnitTest();
+            else if (unitTestKeuzeKey == ConsoleKey.D3) Loginfo.loginUnitTest();
+
         }
     }
 }
