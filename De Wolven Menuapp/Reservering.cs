@@ -146,13 +146,17 @@ namespace De_Wolven_Menuapp
                 {
 					if (reserveringenDataBase.Reserveringen[i].Code == newNum)
                     {
-						Console.WriteLine($"[UNIT TESTING] Reservering gevonden met code {newNum}. Testen of informatie overeen komt met invoer...");
+						Console.WriteLine($"[UNIT TESTING] Reservering gevonden met code {newNum}. Testen of informatie overeen komt met test case...");
 						if (newName == reserveringenDataBase.Reserveringen[i].Name &
 							newDate == reserveringenDataBase.Reserveringen[i].Date &
 							newTime == reserveringenDataBase.Reserveringen[i].Time &
 							newCountofPeople == reserveringenDataBase.Reserveringen[i].CountofPeople)
                         {
-                            Console.WriteLine("[UNIT TESTING] Succesvol de reservering terug gevonden! TEST CASE PASSED");
+                            Console.WriteLine($"[UNIT TESTING] Gevonden informatie: {reserveringenDataBase.Reserveringen[i].Name} | " +
+                                $"{reserveringenDataBase.Reserveringen[i].Date} | " +
+                                $"{reserveringenDataBase.Reserveringen[i].Time} | " +
+                                $"{reserveringenDataBase.Reserveringen[i].CountofPeople}");
+							Console.WriteLine("[UNIT TESTING] Succesvol de reservering terug gevonden! TEST CASE PASSED");
 							reserveringSuccesvolTeruggevonden = true;
                         }
                     }
