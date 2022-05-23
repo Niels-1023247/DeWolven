@@ -55,7 +55,6 @@ namespace De_Wolven_Menuapp
 			Console.WriteLine(loginTestCase("Klant", "kevn", "kevnWW"));
 			Console.WriteLine(loginTestCase("Klant", "quinten", "frans"));
 			Console.WriteLine(loginTestCase("Klant", "quinten", "frans"));
-
 		}
 		public static string loginTestCase(string soortGebruiker, string enteredusername, string enteredpassword) //// EEN ENKEL TESTGEVAL
 		{

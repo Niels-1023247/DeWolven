@@ -52,7 +52,11 @@ namespace De_Wolven_Menuapp
             }
             else if (unitTestKeuzeKey == ConsoleKey.Escape) Begin();
 
-            else if (unitTestKeuzeKey == ConsoleKey.D2) Reservering.AddReserveringUnitTest();
+            else if (unitTestKeuzeKey == ConsoleKey.D2)
+            {
+                Reservering.AddReserveringUnitTest();
+                unitTestingMain();
+            }
             else if (unitTestKeuzeKey == ConsoleKey.D3) Loginfo.loginUnitTest();
 
         }

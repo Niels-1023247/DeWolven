@@ -37,19 +37,27 @@ namespace De_Wolven_Menuapp
 			return false; // anders returnt hij false
 		}
 
-		/*public static Information jsonNaarObject(string fileName, class jsonStructuur)
-		{
-			string opgehaaldeTekst = File.ReadAllText(fileName);
-
-		}
-		*/
 		public static void AddReserveringUnitTest()
-        {
-            Console.WriteLine("[UNIT TESTING] Het toevoegen van nieuwe reserveringen wordt nu getest.");
-            Console.WriteLine("[UNIT TESTING] De functie zal door middel van de test cases die in de code gespecificeerd zijn getest worden.");
+		{
+			Console.WriteLine("[UNIT TESTING] Het toevoegen van nieuwe reserveringen wordt nu getest.");
+			Console.WriteLine("[UNIT TESTING] De functie zal door middel van de test cases die in de code gespecificeerd zijn getest worden.");
 
+			AddReservering(true, Tuple.Create<string[], int>(new string[] {"Quinten", "12-juni-2001", "19.00"}, 12));
+			AddReservering(true, Tuple.Create<string[], int>(new string[] {"Kevin", "1 januari 2022", "19.00"}, 2));
+			AddReservering(true, Tuple.Create<string[], int>(new string[] {"Niels", "3 april 2022", "19.00"}, 4));
+			AddReservering(true, Tuple.Create<string[], int>(new string[] {"Frans", "8 mei 2023", "19.00"}, 6));
 
-        }
+			var reserveringenJson = File.ReadAllText("reserveringenbestand.json");
+			var reserveringenDataBase = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringenJson);
+
+			reserveringenDataBase.Reserveringen.RemoveAt(reserveringenDataBase.Reserveringen.Count - 1);
+			reserveringenDataBase.Reserveringen.RemoveAt(reserveringenDataBase.Reserveringen.Count - 1);
+			reserveringenDataBase.Reserveringen.RemoveAt(reserveringenDataBase.Reserveringen.Count - 1);
+			reserveringenDataBase.Reserveringen.RemoveAt(reserveringenDataBase.Reserveringen.Count - 1);
+
+			var updatedReservations = JsonConvert.SerializeObject(reserveringenDataBase, Formatting.Indented);
+			File.WriteAllText("reserveringenbestand.json", updatedReservations);
+		}
 
 		public static void AddReservering(bool unitTesting = false, Tuple<string[], int> unitTestCase = null)
 		{
@@ -115,7 +123,7 @@ namespace De_Wolven_Menuapp
 					CountofPeople = newCountofPeople
 				};
 
-			// haal json op en voeg reservering toe, zet daarna terug in json
+			// haal json op en converteer naar c#
 			reserveringenJson = File.ReadAllText("reserveringenbestand.json");
 			reserveringenDataBase = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringenJson);
 
