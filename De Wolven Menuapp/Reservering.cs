@@ -106,7 +106,7 @@ namespace De_Wolven_Menuapp
 			File.WriteAllText("reserveringenbestand.json", updatedReservations);
             Console.WriteLine(updatedReservations);
 
-			Beginscherm.Begin();
+			
 
 
 			//DateTime d1 = DateTime.Now; // datum nu
