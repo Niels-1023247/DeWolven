@@ -48,6 +48,11 @@ namespace De_Wolven_Menuapp
 				Contact.ChangeInfoMenu();
 
 			}
+			else
+            {
+				Console.Clear();
+				SchermMedewerker();
+            }
 		}
 	}
 }

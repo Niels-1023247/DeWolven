@@ -117,7 +117,7 @@ namespace De_Wolven_Menuapp
 		}
 		public static string rekeningCheck(Bestelling bes)
         {
-			if (bes.Dranken != null) return bes.Dranken[0].Aantal == 420 && bes.Dranken[0].Dranknaam == "Mystery Cocktail..." ? "Nice.\n" : "";
+			if (bes.Dranken.Count != 0) return bes.Dranken[0].Aantal == 420 && bes.Dranken[0].Dranknaam == "Mystery Cocktail..." ? "Nice.\n" : "";
 			else return "";
 		}
 	}
