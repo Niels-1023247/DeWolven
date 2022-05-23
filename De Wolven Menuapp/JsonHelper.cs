@@ -100,7 +100,7 @@ namespace De_Wolven_Menuapp
     public class Gerechten
     {
         public string Gerechtnaam { get; set; }
-        public string Prijs { get; set; }
+        public float Prijs { get; set; }
         public string Allergenen { get; set; }
         public int Aantal { get; set; } // alleen gebruikt voor bestellingen
     }
@@ -108,14 +108,14 @@ namespace De_Wolven_Menuapp
     public class MenuDranken
     {
         public string Dranknaam { get; set; }
-        public string Prijs { get; set; }
+        public float Prijs { get; set; }
         public string Allergenen { get; set; }
         public int Aantal { get; set; } // alleen gebruikt voor bestellingen
     }
     public class MenuDesserts
     {
         public string Dessertnaam { get; set; }
-        public string Prijs { get; set; }
+        public float Prijs { get; set; }
         public string Allergenen { get; set; }
         public int Aantal { get; set; } // alleen gebruikt voor bestellingen
     }
