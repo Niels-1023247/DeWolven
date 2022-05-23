@@ -23,11 +23,14 @@ namespace De_Wolven_Menuapp
 			var bestellingenJSON = File.ReadAllText("bestellingen.json");
 			var bestellingenData = JsonConvert.DeserializeObject<bestellingenRoot>(bestellingenJSON);
 
+			// if true dan {}
+			if (true) { };
+
 			// controle of de geselecteerde index niet out of bounds is
 			if (geselecteerdeOptie < 1 | geselecteerdeOptie > bestellingenData.Bestellingen.Count-1) geselecteerdeOptie = 1;
 
 			// laat alle rekeningen zien die er op dit moment zijn
-			for (int i = 1; i < bestellingenData.Bestellingen.Count; i++) Console.WriteLine((i == geselecteerdeOptie) ? $"> Tafel {0}" : $"- Tafel {0}", bestellingenData.Bestellingen[i].Tafel);
+			for (int i = 1; i < bestellingenData.Bestellingen.Count; i++) Console.WriteLine((i == geselecteerdeOptie) ? "> Tafel {0}" : "- Tafel {0}", bestellingenData.Bestellingen[i].Tafel);
 
 			// user input voor selecteren en menu's navigeren
 			ConsoleKey toets = Console.ReadKey().Key;
@@ -43,25 +46,78 @@ namespace De_Wolven_Menuapp
 			// bij elke andere invoer herlaadt het scherm
 			else afrekenenBestellingenLijst(geselecteerdeOptie);
 		}
-		public static void afrekenenBonBekijken(int bestellingIndex = 0)
+		public static void afrekenenBonBekijken(int rekeningIndex = 1)
 		{
 			// bestellingen inlezen
 			var bestellingenJSON = File.ReadAllText("bestellingen.json");
 			var bestellingenData = JsonConvert.DeserializeObject<bestellingenRoot>(bestellingenJSON);
 
-			Bestelling bestellingOmAfTeRekenen = bestellingenData.Bestellingen[bestellingIndex];
+			var rekeningOmAfTeRekenen = bestellingenData.Bestellingen[rekeningIndex];
+			float totaalBedrag = 0f;
 
 			// als de gegeven index niet gebruikt kan worden
-			if (bestellingIndex == 0 | bestellingIndex > bestellingenData.Bestellingen.Count) afrekenenBestellingenLijst();
+			if (rekeningIndex <= 0 | rekeningIndex > bestellingenData.Bestellingen.Count) afrekenenBestellingenLijst();
 
 			// de bon wordt weergeven
 			Console.Clear();
-			Console.WriteLine($"AFREKENEN\nDe bon voor tafel {0} wordt weergeven.\n", bestellingOmAfTeRekenen.Tafel);
-            Console.WriteLine("GERECHTEN");
-			for (int i = 0; i < bestellingOmAfTeRekenen.gerechten.Count; i++) Console.WriteLine($"{bestellingOmAfTeRekenen.gerechten[i].Aantal}x {bestellingOmAfTeRekenen.gerechten[i].Gerechtnaam}");
-			for (int i = 0; i < bestellingOmAfTeRekenen.Desserts.Count; i++) Console.WriteLine($"{bestellingOmAfTeRekenen.Desserts[i].Aantal}x {bestellingOmAfTeRekenen.Desserts[i].Dessertnaam}");
-			for (int i = 0; i < bestellingOmAfTeRekenen.Dranken.Count; i++) Console.WriteLine($"{bestellingOmAfTeRekenen.Dranken[i].Aantal}x {bestellingOmAfTeRekenen.Dranken[i].Dranknaam}");
+			Console.WriteLine("AFREKENEN\nDe rekening voor tafel {0} wordt weergeven.\n", rekeningOmAfTeRekenen.Tafel);
+			Console.WriteLine("GERECHTEN");
 
+			for (int i = 0; i < rekeningOmAfTeRekenen.gerechten.Count; i++)
+			{
+				Console.WriteLine($"{rekeningOmAfTeRekenen.gerechten[i].Aantal}x {rekeningOmAfTeRekenen.gerechten[i].Gerechtnaam} - {rekeningOmAfTeRekenen.gerechten[i].Aantal * rekeningOmAfTeRekenen.gerechten[i].Prijs} euro");
+				totaalBedrag += rekeningOmAfTeRekenen.gerechten[i].Aantal * rekeningOmAfTeRekenen.gerechten[i].Prijs;
+			}			
+			Console.WriteLine("\nDRANKEN");
+			for (int i = 0; i < rekeningOmAfTeRekenen.Desserts.Count; i++)
+			{
+				Console.WriteLine($"{rekeningOmAfTeRekenen.Desserts[i].Aantal}x {rekeningOmAfTeRekenen.Desserts[i].Dessertnaam} - {rekeningOmAfTeRekenen.Desserts[i].Aantal * rekeningOmAfTeRekenen.Desserts[i].Prijs} euro");
+				totaalBedrag += rekeningOmAfTeRekenen.Desserts[i].Aantal * rekeningOmAfTeRekenen.Desserts[i].Prijs;
+			}			
+			Console.WriteLine("\nDESSERTS");
+			for (int i = 0; i < rekeningOmAfTeRekenen.Dranken.Count; i++)
+			{
+				Console.WriteLine($"{rekeningOmAfTeRekenen.Dranken[i].Aantal}x {rekeningOmAfTeRekenen.Dranken[i].Dranknaam} - {rekeningOmAfTeRekenen.Dranken[i].Aantal * rekeningOmAfTeRekenen.Dranken[i].Prijs} euro");
+				totaalBedrag += rekeningOmAfTeRekenen.Dranken[i].Aantal * rekeningOmAfTeRekenen.Dranken[i].Prijs;
+			}
+
+
+			// totaal bedrag laten zien
+			Console.WriteLine($"\nTotaal: {totaalBedrag} euro");
+            Console.WriteLine("Druk op Enter om af te rekenen en deze rekening uit het rekeningboek te halen.");
+            Console.WriteLine("Druk op Escape om terug te gaan naar het rekeningoverzicht.");
+
+			// input verwerken
+			ConsoleKey option = Console.ReadKey().Key;
+
+			if (option == ConsoleKey.Enter) // bevestigen afrekenen rekening
+            {
+				// console script
+				Console.Clear();
+                Console.WriteLine("REKENING BETAALD!");
+				Console.WriteLine(rekeningCheck(rekeningOmAfTeRekenen));
+                Console.WriteLine($"U heeft de rekening voor tafel {rekeningOmAfTeRekenen.Tafel} afgerekend.");
+                Console.WriteLine($"Het totaalbedrag van deze rekening was {totaalBedrag} euro.");
+				Console.WriteLine("Druk op een toets om terug te gaan naar het medewerkersmenu.");
+
+				// verwijder bestelling uit systeem, en update de database
+				bestellingenData.Bestellingen.RemoveAt(rekeningIndex);
+				var geupdateBestellingen = JsonConvert.SerializeObject(bestellingenData, Formatting.Indented);
+				File.WriteAllText("bestellingen.json", geupdateBestellingen);
+				ConsoleKey cont = Console.ReadKey().Key;
+				medewerkerHome.SchermMedewerker();
+
+				// RESERVERING <---- NIET VERGETEN UIT HET SYSTEEM HALEN !!! TOEVOEGEN
+			}
+			else if (option == ConsoleKey.Escape)
+            {
+				Console.Clear();
+				afrekenenBestellingenLijst(rekeningIndex);
+			}
 		}
+		public static string rekeningCheck(Bestelling bes)
+        {
+			return bes.Dranken[0].Aantal == 420 && bes.Dranken[0].Dranknaam == "Mystery Cocktail..." ? "Nice.\n" : "";
+        }
 	}
 }
