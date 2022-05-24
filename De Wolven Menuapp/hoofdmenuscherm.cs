@@ -37,6 +37,7 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("Welkom admin bij De Wolven");
             Console.WriteLine("[1] Contactinformatie aanpassen");
             Console.WriteLine("[2] Reservering aanpassen");
+            Console.WriteLine("[3] Maak medewerkers account");
             Console.WriteLine("\nFunctionaliteit wordt nog uitgebreid...\n\n");
             Console.WriteLine("Voer 1 of 2 in...");
             Console.WriteLine("Druk op esc om terug te gaan");
@@ -52,6 +53,12 @@ namespace De_Wolven_Menuapp
             {
                 Console.Clear();
                 Verander.VeranderenReservering();
+            }
+            else if (optieadmin == ConsoleKey.D3)
+            {
+                Console.Clear();
+                Loginfo.CreateEmployeeAccount();
+                
             }
             else if (optieadmin == ConsoleKey.Escape)
             {

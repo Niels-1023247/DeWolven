@@ -39,6 +39,14 @@
       "Email": "mees",
       "Code": [],
       "Level": "1"
+    },
+    {
+      "Name": "sjaak",
+      "Username": "sjakie",
+      "Password": "toprestaurant",
+      "Email": "s@jaak.com",
+      "Code": null,
+      "Level": "2"
     }
   ],
   "EmpAcc": [
@@ -47,6 +55,14 @@
       "Username": "sjakie",
       "Password": "toprestaurant",
       "Email": "s@jaak.com",
+      "Code": null,
+      "Level": "2"
+    },
+    {
+      "Name": "Kevin Bakker",
+      "Username": "bakker",
+      "Password": "toprestaurant",
+      "Email": "bakker@dewolven.nl",
       "Code": null,
       "Level": "2"
     }

@@ -107,6 +107,52 @@ namespace De_Wolven_Menuapp
 			return $"{soortGebruiker} {enteredusername} with pw {enteredpassword} did not log in - FAIL";
 		}
 
+		public static void CreateEmployeeAccount()
+		{
+			// script om invoer te vragen voor nieuw medewerkerAccount
+			Console.Clear();
+			Console.WriteLine("Wat is de naam van de medewerker?");
+			string Name = Console.ReadLine();
+			Console.WriteLine("Wat is de E-mail van de medewerker?");
+			string Mail = Console.ReadLine();
+			Console.WriteLine("Kies een Gebruikersnaam voor de medewerker.");
+			string Username = Console.ReadLine();
+			Console.WriteLine("Kies een wachtwoord voor de medewerker.");
+			string Password = Console.ReadLine();
+
+			// nieuw 'Account' object aanmaken en waarden assignen
+			var NewEmpAcc = new Account
+			{
+				Name = Name,
+				Email = Mail,
+				Password = Password,
+				Username = Username,
+				Code = null,
+				Level = "2"
+			};
+			// lees accounts.json in
+			var JsonString = File.ReadAllText("accounts.json");
+			var DeserialisedResult = JsonConvert.DeserializeObject<AccountData>(JsonString);
+			Console.WriteLine(DeserialisedResult.EmpAcc[0]);
+
+			// nieuwe lijst maken, alle accounts daarnaar kopiëren en daarna het nieuwe account daar aan toevoegen
+			var NewAccount = new AccountData { 
+				Accounts=DeserialisedResult.Accounts, 
+				EmpAcc = DeserialisedResult.EmpAcc 
+			};
+			for (int i = 0; i < DeserialisedResult.EmpAcc.Count; i++)
+			{
+				NewAccount.Accounts.Add(DeserialisedResult.EmpAcc[i]);
+			}
+			NewAccount.EmpAcc.Add(NewEmpAcc);
+
+			// terug naar de json schrijven
+			var WrJsonString = JsonConvert.SerializeObject(NewAccount, Formatting.Indented);
+			File.WriteAllText("accounts.json", WrJsonString);
+			Console.WriteLine("Medewerker account aangemaakt!");
+			Hoofdmenuscherm.SchermAdmin();
+		}
+
 		public static void CreateAccount()
 		{
 			// script om invoer te vragen voor nieuw klantaccount
@@ -247,6 +293,8 @@ namespace De_Wolven_Menuapp
 				}
 			}
 			
+
+
 
 			//for (int i = 0; i != account.Username.length; i++)
 			//{
