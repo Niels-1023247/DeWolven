@@ -10,21 +10,21 @@ namespace De_Wolven_Menuapp
 {
 	public class Afrekenen
 	{
-		public static void afrekenenBestellingenLijst(int geselecteerdeOptie = 1) // geselecteerdeOptie is voor welke tafel je geselecteerd hebt, start bij 1
+		public static void rekeningenLijst(int geselecteerdeOptie = 1) // geselecteerdeOptie is voor welke tafel je geselecteerd hebt, start bij 1 (default is 1)
 		{
 			// script voor console
 			Console.Clear();
-			Console.WriteLine("AFREKENEN TAFEL");
+			Console.WriteLine("OPENSTAANDE REKENINGEN");
 			Console.WriteLine("Alle openstaande rekeningen worden per tafel weergeven.");
-			Console.WriteLine("Selecteer met de pijltjestoetsen ^ v welke u af wilt rekenen en druk op Enter om de bon te zien.");
-			Console.WriteLine("Of druk op Escape om terug te gaan naar het hoofdmenu.\n");
+			Console.WriteLine("Selecteer met de pijltjestoetsen [^] [v] om een bon te bekijken en druk op Enter voor meer opties.");
+			Console.WriteLine("Of druk op [Escape] om terug te gaan naar het hoofdmenu.\n");
 
 			// bestellingen inlezen
 			var bestellingenJSON = File.ReadAllText("bestellingen.json");
 			var bestellingenData = JsonConvert.DeserializeObject<bestellingenRoot>(bestellingenJSON);
 
 			// if true dan {}
-			if (true) { };
+			if (true) { }; // lol
 
 			// controle of de geselecteerde index niet out of bounds is
 			if (geselecteerdeOptie < 1 | geselecteerdeOptie > bestellingenData.Bestellingen.Count-1) geselecteerdeOptie = 1;
@@ -34,33 +34,34 @@ namespace De_Wolven_Menuapp
 
 			// user input voor selecteren en menu's navigeren
 			ConsoleKey toets = Console.ReadKey().Key;
-			if (toets == ConsoleKey.DownArrow | toets == ConsoleKey.RightArrow) afrekenenBestellingenLijst(geselecteerdeOptie + 1);
-			else if (toets == ConsoleKey.UpArrow | toets == ConsoleKey.LeftArrow) afrekenenBestellingenLijst(geselecteerdeOptie - 1);
+			if (toets == ConsoleKey.DownArrow | toets == ConsoleKey.RightArrow) rekeningenLijst(geselecteerdeOptie + 1);
+			else if (toets == ConsoleKey.UpArrow | toets == ConsoleKey.LeftArrow) rekeningenLijst(geselecteerdeOptie - 1);
 
 			// naar de bon toe van de geselecteerde bestelling
-			else if (toets == ConsoleKey.Enter) afrekenenBonBekijken(geselecteerdeOptie);
+			else if (toets == ConsoleKey.Enter) rekeningBekijken(geselecteerdeOptie);
 
 			// terug naar het vorige menu
 			else if (toets == ConsoleKey.Escape) medewerkerHome.SchermMedewerker();
 
 			// bij elke andere invoer herlaadt het scherm
-			else afrekenenBestellingenLijst(geselecteerdeOptie);
+			else rekeningenLijst(geselecteerdeOptie);
 		}
-		public static void afrekenenBonBekijken(int rekeningIndex = 1)
+		public static void rekeningBekijken(int rekeningIndex = 1)
 		{
 			// bestellingen inlezen
 			var bestellingenJSON = File.ReadAllText("bestellingen.json");
 			var bestellingenData = JsonConvert.DeserializeObject<bestellingenRoot>(bestellingenJSON);
 
+			// shorthand voor de te bekijken rekening
 			var rekeningOmAfTeRekenen = bestellingenData.Bestellingen[rekeningIndex];
 			float totaalBedrag = 0f;
 
 			// als de gegeven index niet gebruikt kan worden
-			if (rekeningIndex <= 0 | rekeningIndex > bestellingenData.Bestellingen.Count) afrekenenBestellingenLijst();
+			if (rekeningIndex <= 0 | rekeningIndex > bestellingenData.Bestellingen.Count) rekeningenLijst();
 
-			// de bon wordt weergeven
+			// de rekening wordt weergeven
 			Console.Clear();
-			Console.WriteLine("AFREKENEN\nDe rekening voor tafel {0} wordt weergeven.\n", rekeningOmAfTeRekenen.Tafel);
+			Console.WriteLine("REKENING BEKIJKEN\nDe rekening voor tafel {0} wordt weergeven.\n", rekeningOmAfTeRekenen.Tafel);
 			Console.WriteLine("GERECHTEN");
 
 			for (int i = 0; i < rekeningOmAfTeRekenen.gerechten.Count; i++)
@@ -81,23 +82,24 @@ namespace De_Wolven_Menuapp
 				totaalBedrag += rekeningOmAfTeRekenen.Dranken[i].Aantal * rekeningOmAfTeRekenen.Dranken[i].Prijs;
 			}
 
-
-			// totaal bedrag laten zien
-			Console.WriteLine($"\nTotaal: {totaalBedrag} euro");
-            Console.WriteLine("Druk op Enter om af te rekenen en deze rekening uit het rekeningboek te halen.");
-            Console.WriteLine("Druk op Escape om terug te gaan naar het rekeningoverzicht.");
+			// totaal bedrag laten zien en script
+			Console.WriteLine($"\nTotaal: {totaalBedrag} euro\n");
+			Console.WriteLine("Druk op [Enter] om af te rekenen en deze rekening uit het rekeningboek te halen.");
+			Console.WriteLine("Druk op [X] om deze rekening weg te gooien zonder af te rekenen.");
+			Console.WriteLine("Druk op [Escape] om terug te gaan naar het rekeningoverzicht.");
 
 			// input verwerken
 			ConsoleKey option = Console.ReadKey().Key;
 
-			if (option == ConsoleKey.Enter) // bevestigen afrekenen rekening
-            {
+			// bevestigen afrekenen rekening
+			if (option == ConsoleKey.Enter) 
+			{
 				// console script
 				Console.Clear();
-                Console.WriteLine("REKENING BETAALD!");
+				Console.WriteLine("REKENING BETAALD!");
 				Console.WriteLine(rekeningCheck(rekeningOmAfTeRekenen));
-                Console.WriteLine($"U heeft de rekening voor tafel {rekeningOmAfTeRekenen.Tafel} afgerekend.");
-                Console.WriteLine($"Het totaalbedrag van deze rekening was {totaalBedrag} euro.");
+				Console.WriteLine($"U heeft de rekening voor tafel {rekeningOmAfTeRekenen.Tafel} afgerekend.");
+				Console.WriteLine($"Het totaalbedrag van deze rekening was {totaalBedrag} euro.");
 				Console.WriteLine("Druk op een toets om terug te gaan naar het medewerkersmenu.");
 
 				// verwijder bestelling uit systeem, en update de database
@@ -109,14 +111,52 @@ namespace De_Wolven_Menuapp
 
 				// RESERVERING <---- NIET VERGETEN UIT HET SYSTEEM HALEN !!! TOEVOEGEN
 			}
-			else if (option == ConsoleKey.Escape)
-            {
+
+			// optie rekening verwijderen zonder af te rekenen
+			else if (option == ConsoleKey.X)
+			{
 				Console.Clear();
-				afrekenenBestellingenLijst(rekeningIndex);
+				if (rekeningVerwijderen(rekeningOmAfTeRekenen))
+                {
+					string verwijderdeTafelNaam = rekeningOmAfTeRekenen.Tafel;
+					bestellingenData.Bestellingen.RemoveAt(rekeningIndex);
+					var geupdateBestellingen = JsonConvert.SerializeObject(bestellingenData, Formatting.Indented);
+					File.WriteAllText("bestellingen.json", geupdateBestellingen);
+					medewerkerHome.SchermMedewerker($"[!] De rekening van tafel {verwijderdeTafelNaam} is uit de openstaande rekeningen gehaald.");
+				}
+                else
+                {
+					rekeningBekijken(rekeningIndex);
+                }
 			}
+
+			// terug naar lijst met rekeningen
+			else if (option == ConsoleKey.Escape) 
+			{
+				Console.Clear();
+				rekeningenLijst(rekeningIndex);
+			}
+
+			// onverwachte input
+			else
+			{
+				rekeningBekijken(rekeningIndex);
+			}
+
+		}
+		public static bool rekeningVerwijderen(Bestelling rekeningOmAfTeRekenen)
+		{
+			Console.Clear();
+			Console.WriteLine("REKENING VERWIJDEREN\nU staat op het moment om de rekening van tafel {0} uit het systeem te halen.\n", rekeningOmAfTeRekenen.Tafel);
+            Console.WriteLine("[!] Weet u zeker dat u deze rekening wilt verwijderen?");
+            Console.WriteLine("Druk op [Enter] om de rekening definitief te verwijderen. Dit kan niet ongedaan worden gemaakt.");
+            Console.WriteLine("Druk op een andere toets om terug te gaan.");
+
+			ConsoleKey option = Console.ReadKey().Key;
+			return (option == ConsoleKey.Enter);
 		}
 		public static string rekeningCheck(Bestelling bes)
-        {
+		{
 			if (bes.Dranken.Count != 0) return bes.Dranken[0].Aantal == 69 && bes.Dranken[0].Dranknaam == "Mystery Cocktail..." && bes.Tafel == "SIGMA" ? "Nice.\n" : "";
 			else return "";
 		}

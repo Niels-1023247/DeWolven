@@ -11,12 +11,12 @@ namespace De_Wolven_Menuapp
 		public static void SchermMedewerker(string melding = "")
 		{
 			Console.Clear();
-			Console.WriteLine("Welkom medewerker");
-			Console.WriteLine("[1] Bekijk de reserveringen");
-			Console.WriteLine("[2] Neem een bestelling op");
-			Console.WriteLine("[3] Maak een nieuwe reservering");
-			Console.WriteLine("[4] Rekening uitprinten voor tafel");
-			Console.WriteLine("[5] Verander menukaart");
+			Console.WriteLine("WELKOM MEDEWERKER");
+			Console.WriteLine("[1] Mijn opgeslagen reserveringen");
+			Console.WriteLine("[2] Nieuwe reservering aanmaken");
+			Console.WriteLine("[3] Neem een bestelling op/nieuwe rekening openen");
+			Console.WriteLine("[4] Openstaande rekeningen bekijken");
+			Console.WriteLine("[5] Menukaart aanpassen");
 			Console.WriteLine("Voer 1, 2, 3, 4 of 5 in");
 
 			if (melding != "") Console.WriteLine("\n" + melding);
@@ -30,29 +30,28 @@ namespace De_Wolven_Menuapp
 
 			else if (optieMedewerker == ConsoleKey.D2)
 			{
-				Bestellingopnemen.nieuweBestelling();
+				Console.Clear();
+				Reservering.AddReservering();
 			}
 			else if (optieMedewerker == ConsoleKey.D3)
 			{
-				Console.Clear();
-				Reservering.AddReservering();
+				Bestellingopnemen.nieuweBestelling();
 			}
 
 			else if (optieMedewerker == ConsoleKey.D4)
 			{
-				Afrekenen.afrekenenBestellingenLijst();
+				Afrekenen.rekeningenLijst();
 			}
 
 			else if (optieMedewerker == ConsoleKey.D5)
 			{
 				Contact.ChangeInfoMenu();
-
 			}
 			else
-            {
+			{
 				Console.Clear();
 				SchermMedewerker();
-            }
+			}
 		}
 	}
 }
