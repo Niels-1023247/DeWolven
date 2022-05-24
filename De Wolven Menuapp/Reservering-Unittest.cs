@@ -12,12 +12,17 @@ namespace De_Wolven_Menuapp
     internal class ResvUTest
     {
         //JSON laden werkt correct
-        public static void TestforJsonLoad()
+        public static Information TestforJsonLoad()
         {
             string reserveringJson = File.ReadAllText("reserveringenbestand.json");
             var reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
             Debug.Assert(reserveringsData is Information);
-            Console.WriteLine("done");
+            return reserveringsData;
+        }
+        public static void CheckContents()
+        {
+            var reserveringsData=TestforJsonLoad();
+            Console.WriteLine(reserveringsData.Reserveringen);
         }
     }
 }
