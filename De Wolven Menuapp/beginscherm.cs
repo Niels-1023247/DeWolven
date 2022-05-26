@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace De_Wolven_Menuapp
 {
-    internal class Beginscherm
+    public class Beginscherm
     {
         public static void Begin()
         {
@@ -25,20 +25,63 @@ namespace De_Wolven_Menuapp
             }
             else if (soortgebruiker == ConsoleKey.D2)
             {
-
                 Hoofdmenuscherm.SchermMedewerker();
             }
-            else if (soortgebruiker == ConsoleKey.D9) // backdoor voor snel naar bestellen
+            else if (soortgebruiker == ConsoleKey.D9) // verborgen unit test menu
             {
-
-                Console.Clear();
-                medewerkerHome.SchermMedewerker();
+                unitTestingMain();
             }
-            
             if (soortgebruiker == ConsoleKey.Escape)
             {
                 Environment.Exit(0);
             }
+        }
+        public static void unitTestingMain()
+        {
+            int errors = 0;
+
+            Console.Clear();
+            Console.WriteLine("[UNIT TESTING] Kies de unit test die u wilt doen.");
+            Console.WriteLine("[1] Alle tests");
+            Console.WriteLine("[2] Testen nieuwe reserveringen toevoegen");
+            Console.WriteLine("[3] Testen inloggen met bestaande en niet-bestaande accounts");
+
+            ConsoleKey unitTestKeuzeKey = Console.ReadKey().Key;
+            Console.WriteLine("");
+            if (unitTestKeuzeKey == ConsoleKey.D1)
+            {
+                Reservering.AddReserveringUnitTest();
+                Console.WriteLine("");
+                Loginfo.loginUnitTest();
+                Console.WriteLine("");
+
+                Console.WriteLine("[UNIT TESTING] Alle tests uitgevoerd!");
+                Console.WriteLine("[UNIT TESTING] Er zijn {0} testen gefaald.", errors);
+
+                // error message als het niet gelukt is
+                ConsoleKey cont = Console.ReadKey().Key;
+                if (true) unitTestingMain();
+
+            }
+            else if (unitTestKeuzeKey == ConsoleKey.Escape)
+            {
+                Console.Clear();
+                Begin();
+            }
+
+            else if (unitTestKeuzeKey == ConsoleKey.D2)
+            {
+                Reservering.AddReserveringUnitTest();
+                ConsoleKey cont = Console.ReadKey().Key;
+                if (true) unitTestingMain();
+            }
+            else if (unitTestKeuzeKey == ConsoleKey.D3)
+            {
+                Loginfo.loginUnitTest();
+                ConsoleKey cont = Console.ReadKey().Key;
+                if (true) unitTestingMain();
+            }
+
         }
     }
 }

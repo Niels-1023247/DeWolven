@@ -13,7 +13,7 @@ namespace De_Wolven_Menuapp
         public static void DisplayReserveringen()
         {
             var reserveringJson = File.ReadAllText("reserveringenbestand.json");
-            Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
+            reserveringenRoot reserveringsData = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
             for(int i=0; i < reserveringsData.Reserveringen.Count; i++)
             {
                 Console.WriteLine(reserveringsData.Reserveringen[i].Name);
@@ -30,7 +30,7 @@ namespace De_Wolven_Menuapp
             DisplayReserveringen();
 
             var reserveringJson = File.ReadAllText("reserveringenbestand.json");
-            Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
+            reserveringenRoot reserveringsData = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
 
             Console.WriteLine("Voer de naam in van de reservering die je wilt veranderen: \n");
             string welkenaam = Console.ReadLine();
@@ -48,7 +48,7 @@ namespace De_Wolven_Menuapp
                     string changeTime = Console.ReadLine();
                     reserveringsData.Reserveringen[i].Time = changeTime;
                     Console.WriteLine("Voor hoeveel mensen wilt u reserveren");
-                    string changeCountofPeople = Console.ReadLine();
+                    int changeCountofPeople = Convert.ToInt32(Console.ReadLine());
                     reserveringsData.Reserveringen[i].CountofPeople = changeCountofPeople;
 
                     var updatedReservations = JsonConvert.SerializeObject(reserveringsData, Formatting.Indented);
@@ -66,7 +66,7 @@ namespace De_Wolven_Menuapp
             
             // reserveringen inlezen
             var reserveringJson = File.ReadAllText("reserveringenbestand.json");
-            Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
+            reserveringenRoot reserveringsData = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
 
             // vraag klant om code van reservering
             Console.WriteLine("Wat is de code van uw reservering?\nDeze heeft u ontvangen na het maken van uw reservering.\nVoorbeeld: 32767\n");
@@ -106,7 +106,7 @@ namespace De_Wolven_Menuapp
                     else if (welkVeldAanpassen == ConsoleKey.D4)
                     {
                         Console.WriteLine("U past de hoeveelheid mensen aan naar: \n");
-                        geselecteerdeReservering.CountofPeople = Console.ReadLine();
+                        geselecteerdeReservering.CountofPeople = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine($"U heeft de hoeveelheid mensen aangepast naar: {geselecteerdeReservering.CountofPeople}");
                     }
                     else

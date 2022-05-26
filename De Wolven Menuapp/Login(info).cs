@@ -23,11 +23,8 @@ namespace De_Wolven_Menuapp
 			// algemeen inlogscherm laten zien
 			Console.Clear();
 			Console.WriteLine("LOGIN\n\n");
-
 			Console.WriteLine("Hallo " + soortGebruiker + ".\n");
-
 			Console.WriteLine("[1]Login met een bestaand account.\n");
-			//Console.WriteLine("[2] tijdelijke unit test"); druk op 2 voor unit test
 			Console.WriteLine("Druk op 1 om je gegevens in te voeren.!\n");
 			Console.WriteLine("Druk op Escape om terug te gaan!\n");
 
@@ -41,13 +38,6 @@ namespace De_Wolven_Menuapp
 				
 			
 			}            
-			// unit test
-			else if (LoginType == ConsoleKey.D2 || LoginType == ConsoleKey.Enter)
-			{
-				Console.Clear();
-				unitTest();
-
-			}
 
 			// anders terug naar vorig scherm
 			else if (LoginType == ConsoleKey.Escape)
@@ -58,20 +48,21 @@ namespace De_Wolven_Menuapp
 
 		}
 
-		public static void unitTest() // unit test voor correct inloggen (testgevallen moeten nog worden toegevoegd)
+		public static void loginUnitTest() // unit test voor correct inloggen (testgevallen moeten nog worden toegevoegd)
 		{
-			Console.WriteLine(enkeleTest("Klant", "quinten", "frans"));
-			Console.WriteLine(enkeleTest("Klant", "kevn", "kevnWW"));
-			Console.WriteLine(enkeleTest("Klant", "quinten", "frans"));
-			Console.WriteLine(enkeleTest("Klant", "quinten", "frans"));
-
+            Console.WriteLine("[UNIT TESTING] INLOGSYSTEEM TESTEN");
+			Console.WriteLine(loginTestCase("Klant", "quinten", "frans"));
+			Console.WriteLine(loginTestCase("Klant", "kevn", "kevnWW"));
+			Console.WriteLine(loginTestCase("Klant", "quinten", "frans"));
+			Console.WriteLine(loginTestCase("Klant", "quinten", "frans"));
 		}
-		public static string enkeleTest(string soortGebruiker, string enteredusername, string enteredpassword) //// EEN ENKEL TESTGEVAL
+		public static string loginTestCase(string soortGebruiker, string enteredusername, string enteredpassword) //// EEN ENKEL TESTGEVAL
 		{
 			string dejsontekst = File.ReadAllText("accounts.JSON");
 			AccountData alleAccounts = JsonConvert.DeserializeObject<AccountData>(dejsontekst);
 			bool inlogStatus = false;
 
+			Console.WriteLine($"[UNIT TESTING] Testen inloggen met invoer {enteredusername} | {enteredpassword} | ...");
 			if (soortGebruiker == "Klant")
 			{
 				for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
@@ -79,14 +70,14 @@ namespace De_Wolven_Menuapp
 					if (alleAccounts.Accounts[item].Username == enteredusername && alleAccounts.Accounts[item].Password == enteredpassword)
 					{
 						inlogStatus = true;
-						return $"{soortGebruiker} {enteredusername} with pw {enteredpassword} logged in - SUCCES";
+						return $"[UNIT TESTING] {soortGebruiker} {enteredusername} met wachtwoord {enteredpassword} ingelogd - TEST CASE PASSED";
 					}
 				}
 			}
 
 			if (soortGebruiker == "Medewerker")
 			{   
-				if (enteredusername == "admin" && enteredpassword == "feyenoord010") return $"{soortGebruiker} {enteredusername} with pw {enteredpassword} logged in - SUCCES";
+				if (enteredusername == "admin" && enteredpassword == "feyenoord010") return $"{soortGebruiker} {enteredusername} with pw {enteredpassword} ingelogd - TEST CASE PASSED";
 				else
 				{
 					for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
@@ -94,7 +85,7 @@ namespace De_Wolven_Menuapp
 						if (alleAccounts.EmpAcc[item].Username == enteredusername && alleAccounts.EmpAcc[item].Password == enteredpassword)
 						{
 							inlogStatus = true;
-							return $"{soortGebruiker} {enteredusername} with pw {enteredpassword} logged in - SUCCES";
+							return $"[UNIT TESTING] {soortGebruiker} {enteredusername} met wachtwoord {enteredpassword} ingelogd - TEST CASE PASSED";
 						}
 					}
 				}
@@ -104,7 +95,10 @@ namespace De_Wolven_Menuapp
 
 			// inlogStatus blijft op false staan wanneer er geen overeenkomend account is gevonden na de controles
 			// scherm wordt daarna herladen met Reload_back
-			return $"{soortGebruiker} {enteredusername} with pw {enteredpassword} did not log in - FAIL";
+			
+
+
+			return $"[UNIT TESTING] {soortGebruiker} {enteredusername} met wachtwoord {enteredpassword} niet ingelogd - TEST CASE FAILED";
 		}
 
 		public static void CreateAccount()
