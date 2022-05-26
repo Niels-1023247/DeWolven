@@ -27,7 +27,7 @@ namespace De_Wolven_Menuapp
             {
                 Hoofdmenuscherm.SchermMedewerker();
             }
-            else if (soortgebruiker == ConsoleKey.D9) // verborgen unit test menu
+            else if (soortgebruiker == ConsoleKey.U) // verborgen unit test menu [U]
             {
                 unitTestingMain();
             }

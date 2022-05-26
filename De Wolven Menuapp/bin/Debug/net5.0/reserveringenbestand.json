@@ -1,39 +1,32 @@
 {
   "Reserveringen": [
     {
-      "Name": "Francois",
-      "Date": "zijnverjaardag",
+      "Name": "dummy",
+      "Date": "dummy",
       "Time": "3.00",
       "Code": 12345,
-      "CountofPeople": "20"
+      "CountofPeople": 20
     },
     {
       "Name": "Kevin",
       "Date": "12/02/1990",
       "Time": "18:00",
       "Code": 44092,
-      "CountofPeople": "21"
+      "CountofPeople": 21
     },
     {
       "Name": "rgbf",
       "Date": "tyu",
       "Time": "rthfg",
       "Code": 17664,
-      "CountofPeople": "gg"
-    },
-    {
-      "Name": null,
-      "Date": null,
-      "Time": null,
-      "Code": 0,
-      "CountofPeople": null
+      "CountofPeople": 21
     },
     {
       "Name": "niels",
       "Date": "04-08-2030",
       "Time": "13:20",
       "Code": 21598,
-      "CountofPeople": "2"
+      "CountofPeople": 2
     }
   ]
 }
