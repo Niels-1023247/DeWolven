@@ -16,13 +16,13 @@ namespace De_Wolven_Menuapp
         
         public static void Main()
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Beginscherm.Begin();
 
             /*            ActiefAccount.Name = "Freddy";
                         ActiefAccount.IsIngelogd = true;
                         Console.WriteLine(ActiefAccountValues("Name"));
                         Console.WriteLine(LoginCheck());*/
-                      Beginscherm.Begin();
-
         }
         public static string ActiefAccountValues(string keuze)
         {
