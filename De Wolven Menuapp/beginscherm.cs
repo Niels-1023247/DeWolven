@@ -24,19 +24,20 @@ namespace De_Wolven_Menuapp
                 if (soortgebruiker == ConsoleKey.D1)
                 {
 
-                Hoofdmenuscherm.SchermKlanten();
-            }
-            else if (soortgebruiker == ConsoleKey.D2)
-            {
-                Hoofdmenuscherm.SchermMedewerker();
-            }
-            else if (soortgebruiker == ConsoleKey.U) // verborgen unit test menu [U]
-            {
-                unitTestingMain();
-            }
-            if (soortgebruiker == ConsoleKey.Escape)
-            {
-                Environment.Exit(0);
+                    Hoofdmenuscherm.SchermKlanten();
+                }
+                else if (soortgebruiker == ConsoleKey.D2)
+                {
+                    Loginfo.LoginAccount("Medewerker");
+                }
+                else if (soortgebruiker == ConsoleKey.U) // verborgen unit test menu [U]
+                {
+                    unitTestingMain();
+                }
+                if (soortgebruiker == ConsoleKey.Escape)
+                {
+                    Environment.Exit(0);
+                }
             }
         }
         public static void unitTestingMain()
@@ -84,7 +85,6 @@ namespace De_Wolven_Menuapp
                 ConsoleKey cont = Console.ReadKey().Key;
                 if (true) unitTestingMain();
             }
-
         }
     }
 }

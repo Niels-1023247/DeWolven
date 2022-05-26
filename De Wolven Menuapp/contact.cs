@@ -13,29 +13,32 @@ namespace De_Wolven_Menuapp
         // laat contactgegevens zien
         public static void Contactgegevens()
         {
-            var JsonString = File.ReadAllText("ContactInfo.json");
-            var DeserialisedResult = JsonConvert.DeserializeObject<ContactInfo>(JsonString);
-
-            ConsoleKey input;
-            Console.Clear();
-            Console.WriteLine("De Wolven");
-            Console.WriteLine("CONTACT");
-            Console.WriteLine($"Adres: {DeserialisedResult.Address}");
-            Console.WriteLine($"Telefoonnumer: {DeserialisedResult.Phone}");
-            Console.WriteLine("\n\nOPENINGSTIJDEN");
-            Console.WriteLine("Openigtijden:\n");
-            Console.WriteLine($"{DeserialisedResult.OpenT.Monday}");
-            Console.WriteLine($"{DeserialisedResult.OpenT.Tuesday}");
-            Console.WriteLine($"{DeserialisedResult.OpenT.Wednesday}");
-            Console.WriteLine($"{DeserialisedResult.OpenT.Thursday}");
-            Console.WriteLine($"{DeserialisedResult.OpenT.Friday}");
-            Console.WriteLine($"{DeserialisedResult.OpenT.Saturday}");
-            Console.WriteLine($"{DeserialisedResult.OpenT.Sunday}");
-            Console.WriteLine("\nDrup op Esc om terug te gaan");
-            input = Console.ReadKey().Key;
-            if (input == ConsoleKey.Escape)
+            while (true)
             {
-                Hoofdmenuscherm.SchermKlanten();
+                var JsonString = File.ReadAllText("ContactInfo.json");
+                var DeserialisedResult = JsonConvert.DeserializeObject<ContactInfo>(JsonString);
+
+                ConsoleKey input;
+                Console.Clear();
+                Console.WriteLine("De Wolven");
+                Console.WriteLine("CONTACT");
+                Console.WriteLine($"Adres: {DeserialisedResult.Address}");
+                Console.WriteLine($"Telefoonnumer: {DeserialisedResult.Phone}");
+                Console.WriteLine("\n\nOPENINGSTIJDEN");
+                Console.WriteLine("Openigtijden:\n");
+                Console.WriteLine($"{DeserialisedResult.OpenT.Monday}");
+                Console.WriteLine($"{DeserialisedResult.OpenT.Tuesday}");
+                Console.WriteLine($"{DeserialisedResult.OpenT.Wednesday}");
+                Console.WriteLine($"{DeserialisedResult.OpenT.Thursday}");
+                Console.WriteLine($"{DeserialisedResult.OpenT.Friday}");
+                Console.WriteLine($"{DeserialisedResult.OpenT.Saturday}");
+                Console.WriteLine($"{DeserialisedResult.OpenT.Sunday}");
+                Console.WriteLine("\nDrup op Esc om terug te gaan");
+                input = Console.ReadKey().Key;
+                if (input == ConsoleKey.Escape)
+                {
+                    break;
+                }
             }
         }
         // kies welke contactgegevens veranderd zullen worden

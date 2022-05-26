@@ -18,8 +18,8 @@ namespace De_Wolven_Menuapp
             int max = MenuCompleet.gerechten.Count;
             int pgmax = (max % 10 == 0) ? (MenuCompleet.gerechten.Count / 10 - 1) : (MenuCompleet.gerechten.Count / 10);
 
-            bool active = true;
-            while (active)
+            
+            while (true)
             {
                 Console.WriteLine("MENUKAART - GERECHTEN\n\n");
                 
@@ -42,14 +42,14 @@ namespace De_Wolven_Menuapp
                 }
                 else if (input == ConsoleKey.Escape) // terug naar hoofdmenu
                 {
-                    active = false;
+                    break;
                 }
                 else if (input == ConsoleKey.RightArrow & pgmax == screen) // als je na het laatste scherm naar rechts gaat dan gaat hij terug naar het eerste scherm
                 {
                     screen = 0;
                 }
             }
-            Menu.Menukaart();
+            
         }
     }
 }

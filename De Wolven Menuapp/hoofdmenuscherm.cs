@@ -11,6 +11,7 @@ namespace De_Wolven_Menuapp
     internal static class Hoofdmenuscherm
     {
         //Void
+        /*
         public static void SchermMedewerker()
         {
             Console.Clear();
@@ -30,48 +31,51 @@ namespace De_Wolven_Menuapp
                 Beginscherm.Begin();
             }
 
-        }
+        }*/
 
         public static void SchermAdmin()
         {
-            Console.Clear();
-            Console.WriteLine("Welkom admin bij De Wolven");
-            Console.WriteLine("[1] Contactinformatie aanpassen");
-            Console.WriteLine("[2] Reservering aanpassen");
-            Console.WriteLine("\nGeadvanceerde opties");
-            Console.WriteLine("[3] Unit testing menu");
-            Console.WriteLine("Voer [1], [2] of [3] in...");
-            Console.WriteLine("Druk op [Escape] om terug te gaan");
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Welkom admin bij De Wolven");
+                Console.WriteLine("[1] Contactinformatie aanpassen");
+                Console.WriteLine("[2] Reservering aanpassen");
+                Console.WriteLine("\nGeadvanceerde opties");
+                Console.WriteLine("[3] Unit testing menu");
+                Console.WriteLine("Voer [1], [2] of [3] in...");
+                Console.WriteLine("Druk op [Escape] om terug te gaan");
 
-            ConsoleKey optieadmin = Console.ReadKey().Key;
-            if (optieadmin == ConsoleKey.D1)
-            {
-                Console.Clear();
-                Contact.ChangeInfoMenu();
-            }
+                ConsoleKey optieadmin = Console.ReadKey().Key;
+                if (optieadmin == ConsoleKey.D1)
+                {
+                    Console.Clear();
+                    Contact.ChangeInfoMenu();
+                }
 
-            else if (optieadmin == ConsoleKey.D2)
-            {
-                Console.Clear();
-                Verander.VeranderenReservering();
-            }
-            else if (optieadmin == ConsoleKey.D3)
-            {
-                Console.Clear();
-                Beginscherm.unitTestingMain();
-            }
-            else if (optieadmin == ConsoleKey.Escape)
-            {
-                Console.Clear();
-                Beginscherm.Begin();
+                else if (optieadmin == ConsoleKey.D2)
+                {
+                    Console.Clear();
+                    Verander.VeranderenReservering();
+                }
+                else if (optieadmin == ConsoleKey.D3)
+                {
+                    Console.Clear();
+                    Beginscherm.unitTestingMain();
+                }
+                else if (optieadmin == ConsoleKey.Escape)
+                {
+                    Console.Clear();
+                    break;
+                }
             }
         }
 
         public static void SchermKlanten()
         {
-            bool SKRun = true;
+            
             bool inlogstatus = Program.LoginCheck();
-            while (SKRun)
+            while (true)
             {
                 Console.Clear();
                 if (inlogstatus) Console.WriteLine(" Welkom bij de wolven, " + Program.ActiefAccountValues("Name") + "!");
@@ -126,7 +130,7 @@ namespace De_Wolven_Menuapp
                 {
                     Console.Clear();
                     Program.SetLoginValues(null, null, null, null, null, null, false);
-                    SKRun = false;
+                    break;
                 }
             }
         }

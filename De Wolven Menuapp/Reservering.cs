@@ -171,7 +171,7 @@ namespace De_Wolven_Menuapp
 				Console.WriteLine($"\nUw reserveringscode is: {newNum}\nBewaar deze code goed, hiermee kunt u de reservering aanpassen of verwijderen!");
 				Console.WriteLine("Druk op een toets om terug te gaan naar het menu.");
 				if (Program.ActiefAccountValues("Level") == "Klant") Hoofdmenuscherm.SchermKlanten();
-				else Hoofdmenuscherm.SchermMedewerker();
+				else medewerkerHome.SchermMedewerker();
 			}
 
 
