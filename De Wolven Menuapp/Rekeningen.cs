@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
-	public class Afrekenen
+	public class Rekeningen
 	{
 		public static void rekeningenLijst(int geselecteerdeOptie = 1) // geselecteerdeOptie is voor welke tafel je geselecteerd hebt, start bij 1 (default is 1)
 		{
@@ -91,7 +91,7 @@ namespace De_Wolven_Menuapp
 			// input verwerken
 			ConsoleKey option = Console.ReadKey().Key;
 
-			// bevestigen afrekenen rekening
+			// optie bevestigen afrekenen rekening
 			if (option == ConsoleKey.Enter) 
 			{
 				// console script
@@ -117,27 +117,29 @@ namespace De_Wolven_Menuapp
 			{
 				Console.Clear();
 				if (rekeningVerwijderen(rekeningOmAfTeRekenen))
-                {
+				{
 					string verwijderdeTafelNaam = rekeningOmAfTeRekenen.Tafel;
 					bestellingenData.Bestellingen.RemoveAt(rekeningIndex);
 					var geupdateBestellingen = JsonConvert.SerializeObject(bestellingenData, Formatting.Indented);
 					File.WriteAllText("bestellingen.json", geupdateBestellingen);
 					medewerkerHome.SchermMedewerker($"[!] De rekening van tafel {verwijderdeTafelNaam} is uit de openstaande rekeningen gehaald.");
 				}
-                else
-                {
+				else
+				{
 					rekeningBekijken(rekeningIndex);
-                }
+				}
 			}
 
-			// terug naar lijst met rekeningen
+			// optie aanpassen rekening [E] (WIP)
+
+			// optie terug naar lijst met rekeningen
 			else if (option == ConsoleKey.Escape) 
 			{
 				Console.Clear();
 				rekeningenLijst(rekeningIndex);
 			}
 
-			// onverwachte input
+			// optie onverwachte input
 			else
 			{
 				rekeningBekijken(rekeningIndex);
@@ -148,9 +150,9 @@ namespace De_Wolven_Menuapp
 		{
 			Console.Clear();
 			Console.WriteLine("REKENING VERWIJDEREN\nU staat op het moment om de rekening van tafel {0} uit het systeem te halen.\n", rekeningOmAfTeRekenen.Tafel);
-            Console.WriteLine("[!] Weet u zeker dat u deze rekening wilt verwijderen?");
-            Console.WriteLine("Druk op [Enter] om de rekening definitief te verwijderen. Dit kan niet ongedaan worden gemaakt.");
-            Console.WriteLine("Druk op een andere toets om terug te gaan.");
+			Console.WriteLine("[!] Weet u zeker dat u deze rekening wilt verwijderen?");
+			Console.WriteLine("Druk op [Enter] om de rekening definitief te verwijderen. Dit kan niet ongedaan worden gemaakt.");
+			Console.WriteLine("Druk op een andere toets om terug te gaan.");
 
 			ConsoleKey option = Console.ReadKey().Key;
 			return (option == ConsoleKey.Enter);

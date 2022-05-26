@@ -17,7 +17,7 @@ namespace De_Wolven_Menuapp
 			Console.WriteLine("[3] Neem een bestelling op/nieuwe rekening openen");
 			Console.WriteLine("[4] Openstaande rekeningen bekijken");
 			Console.WriteLine("[5] Menukaart aanpassen");
-			Console.WriteLine("Voer 1, 2, 3, 4 of 5 in");
+			Console.WriteLine("Voer [1], [2], [3], [4] of [5] in");
 
 			if (melding != "") Console.WriteLine("\n" + melding);
 
@@ -33,6 +33,7 @@ namespace De_Wolven_Menuapp
 				Console.Clear();
 				Reservering.AddReservering();
 			}
+
 			else if (optieMedewerker == ConsoleKey.D3)
 			{
 				Bestellingopnemen.nieuweBestelling();
@@ -40,13 +41,14 @@ namespace De_Wolven_Menuapp
 
 			else if (optieMedewerker == ConsoleKey.D4)
 			{
-				Afrekenen.rekeningenLijst();
+				Rekeningen.rekeningenLijst();
 			}
 
 			else if (optieMedewerker == ConsoleKey.D5)
 			{
 				Contact.ChangeInfoMenu();
 			}
+			// uitloggen met enter toevoegen !!!
 			else
 			{
 				Console.Clear();
