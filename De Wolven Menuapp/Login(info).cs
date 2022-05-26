@@ -17,7 +17,7 @@ namespace De_Wolven_Menuapp
 			Console.WriteLine(DeserialisedResult.Accounts[1].Username);
 			
 		}
-		
+		//VOID
 		public static void Loginfoscherm(string soortGebruiker)
 		{
 			// algemeen inlogscherm laten zien
@@ -150,6 +150,7 @@ namespace De_Wolven_Menuapp
 			// script voor invoer login
 			Console.Clear();
 			bool inlogStatus = false;
+            Console.WriteLine($"Welkom {soortGebruiker}");
 			Console.WriteLine("Voer uw Gebruikersnaam in:");
 			string enteredusername = Console.ReadLine();
 			Console.WriteLine("Voer uw Wachtwoord in:");

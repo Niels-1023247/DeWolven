@@ -10,16 +10,19 @@ namespace De_Wolven_Menuapp
     {
         public static void Begin()
         {
-            ConsoleKey soortgebruiker;
-            Console.WriteLine("Welkom bij de wolven!");
-            Console.WriteLine("Bent u gast of medewerker?");
-            Console.WriteLine("[1] Gast");
-            Console.WriteLine("[2] Medewerker");
-            Console.WriteLine("Voer 1 of 2 in");
-            Console.WriteLine("\nDruk op Esc om te stoppen");
-            soortgebruiker = Console.ReadKey().Key;
-            if (soortgebruiker == ConsoleKey.D1)
+            while (true)
             {
+                Console.Clear();
+                ConsoleKey soortgebruiker;
+                Console.WriteLine("Welkom bij de wolven!");
+                Console.WriteLine("Bent u gast of medewerker?");
+                Console.WriteLine("[1] Gast");
+                Console.WriteLine("[2] Medewerker");
+                Console.WriteLine("Voer 1 of 2 in");
+                Console.WriteLine("\nDruk op Esc om te stoppen");
+                soortgebruiker = Console.ReadKey().Key;
+                if (soortgebruiker == ConsoleKey.D1)
+                {
 
                 Hoofdmenuscherm.SchermKlanten();
             }
