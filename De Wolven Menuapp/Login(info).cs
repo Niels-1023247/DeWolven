@@ -62,7 +62,7 @@ namespace De_Wolven_Menuapp
 			AccountData alleAccounts = JsonConvert.DeserializeObject<AccountData>(dejsontekst);
 			bool inlogStatus = false;
 
-			Console.WriteLine($"[UNIT TESTING] Testen inloggen met invoer {enteredusername} | {enteredpassword} | ...");
+			Console.WriteLine($"[UNIT TESTING] Testen inloggen met invoer {enteredusername} | {enteredpassword} ...");
 			if (soortGebruiker == "Klant")
 			{
 				for (int item = 0; item < alleAccounts.Accounts.Count(); item++)

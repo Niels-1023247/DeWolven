@@ -54,6 +54,7 @@ namespace De_Wolven_Menuapp
 			reserveringenDataBase.Reserveringen.RemoveAt(reserveringenDataBase.Reserveringen.Count - 1);
 			reserveringenDataBase.Reserveringen.RemoveAt(reserveringenDataBase.Reserveringen.Count - 1);
 			reserveringenDataBase.Reserveringen.RemoveAt(reserveringenDataBase.Reserveringen.Count - 1);
+            Console.WriteLine("[UNIT TESTING] Test reserveringen zijn succesvol verwijderd.");
 
 			var updatedReservations = JsonConvert.SerializeObject(reserveringenDataBase, Formatting.Indented);
 			File.WriteAllText("reserveringenbestand.json", updatedReservations);
@@ -82,7 +83,7 @@ namespace De_Wolven_Menuapp
 				newDate = unitTestCase.Item1[1];
 				newTime = unitTestCase.Item1[2];
 				newCountofPeople = unitTestCase.Item2;
-                Console.WriteLine($"[UNIT TESTING] Testen nieuwe reservering aanmaken met invoer {newName} | {newDate} | {newTime} | {newCountofPeople} | ...");
+                Console.WriteLine($"[UNIT TESTING] Testen nieuwe reservering aanmaken met invoer {newName} | {newDate} | {newTime} | {newCountofPeople} ...");
 			}
 			// script voor gebruiker om nieuwe reservering te maken
 			else 
