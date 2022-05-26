@@ -17,8 +17,8 @@ namespace De_Wolven_Menuapp
             int screen = 0;
             int max = MenuCompleet.Dranken.Count;
             int pgmax = (max % 10 == 0) ? (MenuCompleet.Dranken.Count / 10 - 1) : (MenuCompleet.Dranken.Count / 10);
-            bool active = true;
-            while (active)
+            
+            while (true)
             {
                 Console.WriteLine("MENUKAART - DRANKEN\n\n");
                 for (int i = 10 * screen; (10 * (screen + 1)) > max ? i < max : i < 10 * (screen + 1); i++)
@@ -40,7 +40,7 @@ namespace De_Wolven_Menuapp
                 }
                 else if (input == ConsoleKey.Escape) // terug naar hoofdmenu
                 {
-                    active = false;
+                    break;
                 }
                 else if (input == ConsoleKey.RightArrow & pgmax == screen) // als je na het laatste scherm naar rechts gaat dan gaat hij terug naar het eerste scherm
                 {

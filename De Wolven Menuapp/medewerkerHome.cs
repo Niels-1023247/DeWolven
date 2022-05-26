@@ -10,49 +10,48 @@ namespace De_Wolven_Menuapp
 	{
 		public static void SchermMedewerker(string melding = "")
 		{
-			Console.Clear();
-			Console.WriteLine("WELKOM MEDEWERKER");
-			Console.WriteLine("[1] Mijn opgeslagen reserveringen");
-			Console.WriteLine("[2] Nieuwe reservering aanmaken");
-			Console.WriteLine("[3] Neem een bestelling op/nieuwe rekening openen");
-			Console.WriteLine("[4] Openstaande rekeningen bekijken");
-			Console.WriteLine("[5] Menukaart aanpassen");
-			Console.WriteLine("Voer [1], [2], [3], [4] of [5] in");
-
-			if (melding != "") Console.WriteLine("\n" + melding);
-
-			ConsoleKey optieMedewerker = Console.ReadKey().Key;
-			if (optieMedewerker == ConsoleKey.D1)
+			while (true)
 			{
 				Console.Clear();
-				Verander.DisplayReserveringen();
-			}
+				Console.WriteLine("WELKOM MEDEWERKER");
+				Console.WriteLine("[1] Mijn opgeslagen reserveringen");
+				Console.WriteLine("[2] Nieuwe reservering aanmaken");
+				Console.WriteLine("[3] Neem een bestelling op/nieuwe rekening openen");
+				Console.WriteLine("[4] Openstaande rekeningen bekijken");
+				Console.WriteLine("[5] Contactinformatie aanpassen");
+				Console.WriteLine("Voer [1], [2], [3], [4] of [5] in");
 
-			else if (optieMedewerker == ConsoleKey.D2)
-			{
-				Console.Clear();
-				Reservering.AddReservering();
-			}
+				if (melding != "") Console.WriteLine("\n" + melding);
 
-			else if (optieMedewerker == ConsoleKey.D3)
-			{
-				Bestellingopnemen.nieuweBestelling();
-			}
+				ConsoleKey optieMedewerker = Console.ReadKey().Key;
+				if (optieMedewerker == ConsoleKey.D1)
+				{
+					Console.Clear();
+					Verander.DisplayReserveringen();
+				}
 
-			else if (optieMedewerker == ConsoleKey.D4)
-			{
-				Rekeningen.rekeningenLijst();
-			}
+				else if (optieMedewerker == ConsoleKey.D2)
+				{
+					Console.Clear();
+					Reservering.AddReservering();
+				}
 
-			else if (optieMedewerker == ConsoleKey.D5)
-			{
-				Contact.ChangeInfoMenu();
-			}
-			// uitloggen met enter toevoegen !!!
-			else
-			{
-				Console.Clear();
-				SchermMedewerker();
+				else if (optieMedewerker == ConsoleKey.D3)
+				{
+					Bestellingopnemen.nieuweBestelling();
+				}
+
+				else if (optieMedewerker == ConsoleKey.D4)
+				{
+					Rekeningen.rekeningenLijst();
+				}
+
+				else if (optieMedewerker == ConsoleKey.D5)
+				{
+					Contact.ChangeInfoMenu();
+				}
+				// uitloggen met enter toevoegen !!!
+				
 			}
 		}
 	}
