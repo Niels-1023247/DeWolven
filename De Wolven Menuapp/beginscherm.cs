@@ -31,6 +31,10 @@ namespace De_Wolven_Menuapp
             {
                 unitTestingMain();
             }
+            else if (soortgebruiker == ConsoleKey.X) // tijdelijke coole backdoor hehehe
+            {
+                medewerkerHome.SchermMedewerker();
+            }
             if (soortgebruiker == ConsoleKey.Escape)
             {
                 Environment.Exit(0);
