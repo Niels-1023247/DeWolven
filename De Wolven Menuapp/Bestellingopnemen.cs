@@ -35,7 +35,7 @@ namespace De_Wolven_Menuapp
 		public static void bestellenInWelkeCategorie(Bestelling huidigeBestelling)
 		{
 			Console.Clear();
-			Console.WriteLine($"NIEUWE BESTELLING TOEVOEGEN VOOR TAFEL {huidigeBestelling.Tafel}\n");
+			Console.WriteLine($"NIEUWE BESTELLING(EN) TOEVOEGEN VOOR TAFEL {huidigeBestelling.Tafel}\n");
 			Console.WriteLine("Kies van welke categorie u wilt bestellen...");
 			Console.WriteLine("[1] Gerechten");
 			Console.WriteLine("[2] Desserts");

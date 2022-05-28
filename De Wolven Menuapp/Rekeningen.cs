@@ -136,7 +136,7 @@ namespace De_Wolven_Menuapp
 				}
 			}
 
-			// optie aanpassen rekening [B] (WIP)
+			// optie aanpassen items op rekening
 			else if (option == ConsoleKey.B)
 			{
 				rekeningAanpassen(geselecteerdeRekening, rekeningIndex);
@@ -156,17 +156,30 @@ namespace De_Wolven_Menuapp
 			}
 
 		}
-		public static void rekeningAanpassen(Bestelling geselecteerdeRekening, int rekeningIndex = 1, int geselecteerdeCategorie = 0, int geselecteerdeIndex = 0)
+		public static void rekeningAanpassen(Bestelling geselecteerdeRekening, int rekeningIndex = 1, int geselecteerdeCategorie = 0, int geselecteerdeIndex = 0, bool changesMade = false)
 		{
+			// veranderingen toepassen indien je terugkomt van items aanpassen
+			if (changesMade)
+            {
+				// inlezen
+				var rekeningenJSON = File.ReadAllText("bestellingen.json");
+				var rekeningenData = JsonConvert.DeserializeObject<bestellingenRoot>(rekeningenJSON);
+				rekeningenData.Bestellingen[rekeningIndex] = geselecteerdeRekening;
+
+				// terugschrijven
+				var geupdateRekeningen = JsonConvert.SerializeObject(rekeningenData, Formatting.Indented);
+				File.WriteAllText("bestellingen.json", geupdateRekeningen);
+
+			}
+
 			// init variables
 			string prefix = "- ";
-			
+
 			// script voor weergave items bij bewerken menu
 			Console.Clear();
 			Console.WriteLine("REKENING AANPASSEN");
 			Console.WriteLine("U kunt hier het aantal van een item aanpassen of verwijderen.\n");
 			Console.WriteLine("GERECHTEN");
-
 			for (int i = 0; i < geselecteerdeRekening.gerechten.Count; i++)
 			{
 				prefix = (geselecteerdeIndex == i && geselecteerdeCategorie == 0) ? "> " : "- "; // juiste prefix voor uitprinten item bepalen (item geselecteerd of niet?)
@@ -202,7 +215,7 @@ namespace De_Wolven_Menuapp
 				if (i == 2) hoeveelPerCategorie[i] = geselecteerdeRekening.Dranken.Count != 0 ? geselecteerdeRekening.Dranken.Count : 0;
 			}
 
-			// input verwerken deel 1
+			// input verwerken
 			ConsoleKey input = Console.ReadKey().Key;
 			if (input == ConsoleKey.DownArrow || input == ConsoleKey.RightArrow)
             {
@@ -240,53 +253,102 @@ namespace De_Wolven_Menuapp
 					geselecteerdeIndex = hoeveelPerCategorie[geselecteerdeCategorie] - 1;
 				}
 			}
+			// optie terug naar rekening bekijken
 			else if (input == ConsoleKey.Escape)
             {
 				Console.Clear();
 				rekeningBekijken(rekeningIndex);
             }
-			// input gebruiker deel 2, want die moet hierzo because reden
+			
+			// optie item selecteren
 			else if (input == ConsoleKey.Enter)
             {
-				// ophalen naam en hoeveelheid van geselecteerd item. ik wou dat dit beter kon, maar oude code en tijdsdruk
+				// item aanpassen of verwijderen
 				string currentItemName = "";
-				if (geselecteerdeCategorie == 0) currentItemName = geselecteerdeRekening.gerechten[geselecteerdeIndex].Gerechtnaam;
-				if (geselecteerdeCategorie == 1) currentItemName = geselecteerdeRekening.Desserts[geselecteerdeIndex].Dessertnaam;
-				if (geselecteerdeCategorie == 2) currentItemName = geselecteerdeRekening.Dranken[geselecteerdeIndex].Dranknaam;
-
 				int currentItemQuant = 0;
-				if (geselecteerdeCategorie == 0) currentItemQuant = geselecteerdeRekening.gerechten[geselecteerdeIndex].Aantal;
-				if (geselecteerdeCategorie == 1) currentItemQuant = geselecteerdeRekening.Desserts[geselecteerdeIndex].Aantal;
-				if (geselecteerdeCategorie == 2) currentItemQuant = geselecteerdeRekening.Dranken[geselecteerdeIndex].Aantal;
 
-				itemAanpassen(currentItemName, currentItemQuant);
+				// per categorie een if statement
+				if (geselecteerdeCategorie == 0) // aanpassen hvh item als het een gerecht is
+                {
+					currentItemName = geselecteerdeRekening.gerechten[geselecteerdeIndex].Gerechtnaam;
+					currentItemQuant = geselecteerdeRekening.gerechten[geselecteerdeIndex].Aantal;
+
+					int newQuant = itemAanpassen(currentItemName, currentItemQuant);
+					geselecteerdeRekening.gerechten[geselecteerdeIndex].Aantal = newQuant != -1 ? newQuant : currentItemQuant;
+                    Console.WriteLine();
+				}
+				if (geselecteerdeCategorie == 1) // aanpassen hvh item als het een dessert is
+                {
+					currentItemName = geselecteerdeRekening.Desserts[geselecteerdeIndex].Dessertnaam;
+					currentItemQuant = geselecteerdeRekening.Desserts[geselecteerdeIndex].Aantal;
+
+					int newQuant = itemAanpassen(currentItemName, currentItemQuant);
+					geselecteerdeRekening.Desserts[geselecteerdeIndex].Aantal = newQuant != -1 ? newQuant : currentItemQuant;
+
+				}
+				if (geselecteerdeCategorie == 2) // aanpassen hvh item als het een drank is
+                {
+					currentItemName = geselecteerdeRekening.Dranken[geselecteerdeIndex].Dranknaam;
+					currentItemQuant = geselecteerdeRekening.Dranken[geselecteerdeIndex].Aantal;
+
+					int newQuant = itemAanpassen(currentItemName, currentItemQuant);
+					geselecteerdeRekening.Dranken[geselecteerdeIndex].Aantal = newQuant != -1 ? newQuant : currentItemQuant;
+				}
+
+				rekeningAanpassen(geselecteerdeRekening, rekeningIndex, geselecteerdeCategorie, geselecteerdeIndex, true);
+				
             }
-            else
+            
+			// onverwachte input
+			else
             {
                 rekeningAanpassen(geselecteerdeRekening, rekeningIndex);
             }
 
-
-            // reload
+            // reload (niet nodig?)
             rekeningAanpassen(geselecteerdeRekening, rekeningIndex, geselecteerdeCategorie, geselecteerdeIndex);
 
 		}
 		public static int itemAanpassen(string naamItem, int huidigeHoeveelheid)
 		{
-			int nieuweHoeveelheid = 1;
-            Console.Clear();
-			Console.WriteLine("AANPASSEN ITEM OP REKENING\n");
-            Console.WriteLine("  ^");
-            Console.WriteLine($"  {nieuweHoeveelheid} x {naamItem}");
-            Console.WriteLine("  V\n");
-			
-			Console.WriteLine("Druk op de pijltjestoetsen [^] [v] om het aantal aan te passen");
-			Console.WriteLine("Druk op [X] om dit item te verwijderen.");
-			Console.WriteLine("Of druk op [A] om het aantal aan te passen.");
-			Console.ReadLine();
+			while (true)
+            {
+				// script voor console
+				Console.Clear();
+				Console.WriteLine("AANPASSEN ITEM OP REKENING\n");
+				Console.WriteLine("  ^");
+				Console.WriteLine($"  {huidigeHoeveelheid} x {naamItem}");
+				Console.WriteLine("  V\n");
 
+				Console.WriteLine("[^] [v] Pas hoeveelheid item aan");
+				Console.WriteLine("[X] Item verwijderen uit rekening.");
+				Console.WriteLine("[Enter] Wijziging opslaan");
+				Console.WriteLine("[Escape] Terug naar menu en wijziging niet opslaan");
 
-			return 1;
+				ConsoleKey hvh = Console.ReadKey().Key;
+				
+				// hoger
+				if (hvh == ConsoleKey.UpArrow)
+				{
+					huidigeHoeveelheid += 1;
+				}
+				// lager
+				else if (hvh == ConsoleKey.DownArrow && huidigeHoeveelheid > 1)
+				{
+					huidigeHoeveelheid -= 1;
+				}
+				// toepassen
+				else if (hvh == ConsoleKey.Enter)
+				{
+					return huidigeHoeveelheid;
+				}
+				// annuleren
+				else if (hvh == ConsoleKey.Escape)
+                {
+					return -1;
+                }
+			}
+
 		}
 		public static bool rekeningVerwijderen(Bestelling rekeningOmAfTeRekenen)
 		{
