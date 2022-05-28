@@ -177,7 +177,7 @@ namespace De_Wolven_Menuapp
 
 			// script voor weergave items bij bewerken menu
 			Console.Clear();
-			Console.WriteLine("REKENING AANPASSEN");
+			Console.WriteLine("REKENING BEWERKEN");
 			Console.WriteLine("U kunt hier het aantal van een item aanpassen of verwijderen.\n");
 			Console.WriteLine("GERECHTEN");
 			for (int i = 0; i < geselecteerdeRekening.gerechten.Count; i++)
@@ -200,9 +200,10 @@ namespace De_Wolven_Menuapp
 
 			// script voor console
 			Console.WriteLine("\n[^] [v] Selecteer een item");
-            Console.WriteLine("[Enter] Kies item om aan te passen");
+            Console.WriteLine("[Enter] Item bewerken");
+            Console.WriteLine("[X] Item verwijderen");
 			Console.WriteLine("[Escape] Terug naar inzien rekening\n");
-            Console.WriteLine($"{geselecteerdeIndex} - {geselecteerdeCategorie}");
+            //Console.WriteLine($"{geselecteerdeIndex} - {geselecteerdeCategorie}"); // cool code testing thing
 
 			// hoeveelheid items per categorie van de bestelling berekenen
 			// dit moet helaas omdat we 3 categorieën hebben en de gebruiker moet kunnen schakelen tussen de items alsof het 1 categorie is.
@@ -298,7 +299,34 @@ namespace De_Wolven_Menuapp
 				rekeningAanpassen(geselecteerdeRekening, rekeningIndex, geselecteerdeCategorie, geselecteerdeIndex, true);
 				
             }
-            
+
+			// optie item verwijderen
+			else if (input == ConsoleKey.X)
+            {
+				string currentItemName = "";
+				if (geselecteerdeCategorie == 0)
+                {
+					currentItemName = geselecteerdeRekening.gerechten[geselecteerdeIndex].Gerechtnaam;
+					if (itemVerwijderen(currentItemName)) geselecteerdeRekening.gerechten.RemoveAt(geselecteerdeIndex);
+				}
+
+				if (geselecteerdeCategorie == 1)
+                {
+					currentItemName = geselecteerdeRekening.Desserts[geselecteerdeIndex].Dessertnaam;
+					if (itemVerwijderen(currentItemName)) geselecteerdeRekening.Desserts.RemoveAt(geselecteerdeIndex);
+				}
+
+				if (geselecteerdeCategorie == 2)
+                {
+					currentItemName = geselecteerdeRekening.Dranken[geselecteerdeIndex].Dranknaam;
+					if (itemVerwijderen(currentItemName)) geselecteerdeRekening.Dranken.RemoveAt(geselecteerdeIndex);
+				}
+
+				rekeningAanpassen(geselecteerdeRekening, rekeningIndex, 0, 0, true);
+
+
+			}
+
 			// onverwachte input
 			else
             {
@@ -315,16 +343,16 @@ namespace De_Wolven_Menuapp
             {
 				// script voor console
 				Console.Clear();
-				Console.WriteLine("AANPASSEN ITEM OP REKENING\n");
+				Console.WriteLine("BEWERKEN ITEM OP REKENING\n");
 				Console.WriteLine("  ^");
 				Console.WriteLine($"  {huidigeHoeveelheid} x {naamItem}");
 				Console.WriteLine("  V\n");
 
 				Console.WriteLine("[^] [v] Pas hoeveelheid item aan");
-				Console.WriteLine("[X] Item verwijderen uit rekening.");
 				Console.WriteLine("[Enter] Wijziging opslaan");
 				Console.WriteLine("[Escape] Terug naar menu en wijziging niet opslaan");
 
+				// input lezen
 				ConsoleKey hvh = Console.ReadKey().Key;
 				
 				// hoger
@@ -350,6 +378,24 @@ namespace De_Wolven_Menuapp
 			}
 
 		}
+		public static bool itemVerwijderen(string naamItem)
+        {
+			Console.Clear();
+			Console.WriteLine("ITEM VERWIJDEREN VAN REKENING");
+            Console.WriteLine($"\nWeet u zeker dat u {naamItem} wilt verwijderen van deze rekening?");
+            Console.WriteLine("\n[Enter] Bevestigen");
+            Console.WriteLine("[Andere toets] Annuleren");
+
+			ConsoleKey consoleKey = Console.ReadKey().Key;
+			if (consoleKey == ConsoleKey.Enter)
+            {
+				return true;
+            }
+			else
+            {
+				return false;
+            }
+        }
 		public static bool rekeningVerwijderen(Bestelling rekeningOmAfTeRekenen)
 		{
 			Console.Clear();
