@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -70,10 +71,46 @@ namespace De_Wolven_Menuapp
 			}
 			
 
-			Console.WriteLine("Op welke datum is de reservering?\n");
-			newDate = Console.ReadLine();
+			Console.WriteLine("Op welke datum is de reservering? \n(Het gewenste formaat is: dag/maand/jaar (voorbeeld: 24/05/2022).)\n");
+			string tijdelijkeDatum;
+			tijdelijkeDatum = Console.ReadLine();
 
-			Console.WriteLine($"Hoelaat is de reservering?\n");
+			bool funcDatumValidatie(string dateToValidate)
+            {
+				 DateTime d;
+				bool dateValidatie = DateTime.TryParseExact(
+				dateToValidate,
+				"dd/MM/yyyy",
+				CultureInfo.InvariantCulture,
+				DateTimeStyles.None,
+				out d);
+
+				if (DateTime.ParseExact(dateToValidate, "dd/MM/yyyy", CultureInfo.InvariantCulture) < DateTime.Now.Date)
+                {
+					dateValidatie = false;
+                }
+				
+				return dateValidatie;
+                
+			}
+
+			bool dateVoldoet = funcDatumValidatie(tijdelijkeDatum);
+			while (!dateVoldoet)
+			{
+				Console.WriteLine("Sorry uw datum ( " + tijdelijkeDatum + " ) voldoet niet aan ons formaat of is al geweest.\n Dit is het gewenste formaat: dag/maand/jaar (voorbeeld: 24/05/2022).\n Voer uw datum nogmaals in.");
+				tijdelijkeDatum = Console.ReadLine();
+				dateVoldoet = funcDatumValidatie(tijdelijkeDatum);
+
+			}
+
+            newDate = tijdelijkeDatum;
+			/*Console.WriteLine(DateTime.Now.Date < DateTime.ParseExact(tijdelijkeDatum, "dd/MM/yyyy", CultureInfo.InvariantCulture));
+			Console.WriteLine(DateTime.Now.Date);
+			Console.WriteLine(DateTime.ParseExact(tijdelijkeDatum, "dd/MM/yyyy", CultureInfo.InvariantCulture));
+			Console.WriteLine(DateTime.ParseExact(DateTime.Today.Date.ToString("dd/MM/yyyy"), "dd/MM/yyyy", CultureInfo.InvariantCulture));
+			//newDate = Console.ReadLine();*/
+
+			Console.WriteLine($"Hoelaat is de reservering? (Voer de tijd in volgens het volgende formaat: 15:43 )\n");
 			newTime = Console.ReadLine();
 
 			Console.WriteLine($"Met hoeveel mensen wilt u komen op {newDate}?");
