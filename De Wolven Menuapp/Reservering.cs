@@ -75,6 +75,11 @@ namespace De_Wolven_Menuapp
 			string tijdelijkeDatum;
 			tijdelijkeDatum = Console.ReadLine();
 
+
+			// variabel om te checken of de reservering op dezelfde dag valt dat je reserveert. Zodat je bij de tijdsvalidatie een extra check kan uitvoeren.
+			bool zelfdeDag = false;
+
+			// functie die bekijkt of de ingevoerde datum wel overeenkomt met het gewenste formaat en of de ingevoerde datum niet eerder is dan de huidige datum.
 			bool funcDatumValidatie(string dateToValidate)
             {
 				 DateTime d;
@@ -85,6 +90,13 @@ namespace De_Wolven_Menuapp
 				DateTimeStyles.None,
 				out d);
 
+				// check of de reservering op dezelfde dag valt dat je reserveert. Ik vraag bij de tijds check deze waarde.
+				if (DateTime.ParseExact(dateToValidate, "dd/MM/yyyy", CultureInfo.InvariantCulture) == DateTime.Now.Date)
+                {
+					zelfdeDag = true;
+                }
+
+				// als de ingevoerde datum eerder is dan de huidige datum dan zet hij de validatie bool op false.
 				if (DateTime.ParseExact(dateToValidate, "dd/MM/yyyy", CultureInfo.InvariantCulture) < DateTime.Now.Date)
                 {
 					dateValidatie = false;
@@ -94,6 +106,7 @@ namespace De_Wolven_Menuapp
                 
 			}
 
+			// Check of de datum wel voldoet na de Validatie Functie, zo niet vraagt ie om een nieuwe input en doet hij de validatie opnieuw
 			bool dateVoldoet = funcDatumValidatie(tijdelijkeDatum);
 			while (!dateVoldoet)
 			{
@@ -104,14 +117,37 @@ namespace De_Wolven_Menuapp
 			}
 
             newDate = tijdelijkeDatum;
-			/*Console.WriteLine(DateTime.Now.Date < DateTime.ParseExact(tijdelijkeDatum, "dd/MM/yyyy", CultureInfo.InvariantCulture));
-			Console.WriteLine(DateTime.Now.Date);
-			Console.WriteLine(DateTime.ParseExact(tijdelijkeDatum, "dd/MM/yyyy", CultureInfo.InvariantCulture));
-			Console.WriteLine(DateTime.ParseExact(DateTime.Today.Date.ToString("dd/MM/yyyy"), "dd/MM/yyyy", CultureInfo.InvariantCulture));
-			//newDate = Console.ReadLine();*/
 
 			Console.WriteLine($"Hoelaat is de reservering? (Voer de tijd in volgens het volgende formaat: 15:43 )\n");
-			newTime = Console.ReadLine();
+
+			string tijdelijkeTijd = Console.ReadLine();
+
+
+			// valideert of de ingevulde tijd wel klopt qua formaat en als je voor vandaag reserveert dat die tijd niet al geweest is
+			bool funcTijdValidatie(string time, string format = "HH:mm")
+			{
+				DateTime outTime;
+				
+				// Checkt als je reserveert voor vandaag en checkt dan of die tijd niet al geweest is.
+				
+				if(zelfdeDag && (DateTime.ParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None) < DateTime.Now)) { return false; }
+				
+				return DateTime.TryParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out outTime);
+			}
+
+			bool tijdVoldoet = funcTijdValidatie(tijdelijkeTijd);
+
+			// Check of de tijd wel voldoet na de Validatie Functie, zo niet vraagt ie om een nieuwe input en doet hij de validatie opnieuw
+			while (!tijdVoldoet)
+			{
+				Console.WriteLine("Sorry uw tijd ( " + tijdelijkeTijd + " ) voldoet niet aan ons formaat of is al geweest (als u voor vandaag reserveert).\n Dit is het gewenste formaat: 15:43 \n Voer uw tijd nogmaals in.");
+				tijdelijkeTijd = Console.ReadLine();
+				tijdVoldoet = funcTijdValidatie(tijdelijkeTijd);
+
+			}
+
+			newTime = tijdelijkeTijd;
+			//newTime = Console.ReadLine();
 
 			Console.WriteLine($"Met hoeveel mensen wilt u komen op {newDate}?");
 			newCountofPeople = Console.ReadLine();
