@@ -20,6 +20,7 @@ namespace De_Wolven_Menuapp
 			// bestellingen inlezen
 			var bestellingenJSON = File.ReadAllText("bestellingen.json");
 			var bestellingenData = JsonConvert.DeserializeObject<bestellingenRoot>(bestellingenJSON);
+			string suffix = "";
 
 			// if true dan {}
 			if (true) { }; // lol
@@ -28,11 +29,15 @@ namespace De_Wolven_Menuapp
 			if (geselecteerdeOptie < 1 | geselecteerdeOptie > bestellingenData.Bestellingen.Count-1) geselecteerdeOptie = 1;
 
 			// laat alle rekeningen zien die er op dit moment zijn
-			for (int i = 1; i < bestellingenData.Bestellingen.Count; i++) Console.WriteLine((i == geselecteerdeOptie) ? "> Tafel {0}" : "- Tafel {0}", bestellingenData.Bestellingen[i].Tafel);
+			for (int i = 1; i < bestellingenData.Bestellingen.Count; i++)
+            {
+				suffix = legeRekeningCheck(bestellingenData.Bestellingen[i]) ? " [Leeg]" : "";
+				Console.WriteLine((i == geselecteerdeOptie) ? "> Tafel {0}{1}" : "- Tafel {0}{1}", bestellingenData.Bestellingen[i].Tafel, suffix);
+            }
 
 			// rest van het script
 			Console.WriteLine("\n[^] [v] Selecteer een rekening");
-			Console.WriteLine("[Enter] Bekijk rekening");
+            Console.WriteLine("[Enter] Bekijk rekening");
 			Console.WriteLine("[Escape] Terug naar het hoofdmenu\n");
 
 			// user input voor selecteren en menu's navigeren
@@ -41,7 +46,7 @@ namespace De_Wolven_Menuapp
 			else if (toets == ConsoleKey.UpArrow | toets == ConsoleKey.LeftArrow) rekeningenLijst(geselecteerdeOptie - 1);
 
 			// naar de bon toe van de geselecteerde bestelling
-			else if (toets == ConsoleKey.Enter) rekeningBekijken(geselecteerdeOptie);
+			else if (toets == ConsoleKey.Enter) rekeningBekijken(geselecteerdeOptie, !legeRekeningCheck(bestellingenData.Bestellingen[geselecteerdeOptie]));
 
 			// terug naar het vorige menu
 			else if (toets == ConsoleKey.Escape) medewerkerHome.SchermMedewerker();
@@ -49,7 +54,7 @@ namespace De_Wolven_Menuapp
 			// bij elke andere invoer herlaadt het scherm
 			else rekeningenLijst(geselecteerdeOptie);
 		}
-		public static void rekeningBekijken(int rekeningIndex = 1)
+		public static void rekeningBekijken(int rekeningIndex = 1, bool magAanpassen = true, string melding = "")
 		{
 			// bestellingen inlezen
 			var bestellingenJSON = File.ReadAllText("bestellingen.json");
@@ -59,12 +64,20 @@ namespace De_Wolven_Menuapp
 			var geselecteerdeRekening = bestellingenData.Bestellingen[rekeningIndex];
 			float totaalBedrag = 0f;
 
+			// lege rekening melding
+			if (legeRekeningCheck(geselecteerdeRekening))
+            {
+				melding = "[!] U kunt deze bestelling niet bewerken omdat deze leeg is.\n";
+				magAanpassen = false;
+            }
+
 			// als de gegeven index niet gebruikt kan worden
 			if (rekeningIndex <= 0 | rekeningIndex > bestellingenData.Bestellingen.Count) rekeningenLijst();
 
 			// de rekening wordt weergeven
 			Console.Clear();
-			Console.WriteLine("REKENING BEKIJKEN\nDe rekening voor tafel {0} wordt weergeven.\n", geselecteerdeRekening.Tafel);
+			Console.WriteLine("REKENING BEKIJKEN\nDe rekening voor tafel {0} wordt weergeven.", geselecteerdeRekening.Tafel);
+            Console.WriteLine(melding);
 			Console.WriteLine("GERECHTEN");
 
 			for (int i = 0; i < geselecteerdeRekening.gerechten.Count; i++)
@@ -87,9 +100,14 @@ namespace De_Wolven_Menuapp
 
 			// totaal bedrag laten zien en script
 			Console.WriteLine($"\nTotaal: {totaalBedrag} euro\n");
-			Console.WriteLine("[Enter] Deze rekening afrekenen en uit het overzicht halen");
+
+			// voorwaardelijke opties (is de bestelling niet leeg?)
+            if (magAanpassen)
+            {
+				Console.WriteLine("[Enter] Deze rekening afrekenen en uit het overzicht halen");
+				Console.WriteLine("[B] Rekening bewerken");
+			}
 			Console.WriteLine("[X] Rekening weggooien zonder af te rekenen");
-			Console.WriteLine("[B] Rekening bewerken");
 			Console.WriteLine("[Escape] Terug naar rekeningoverzicht");
 
 			// input verwerken
@@ -98,6 +116,12 @@ namespace De_Wolven_Menuapp
 			// optie bevestigen afrekenen rekening
 			if (option == ConsoleKey.Enter) 
 			{
+				// controle lege rekening
+				if (legeRekeningCheck(geselecteerdeRekening))
+				{
+					rekeningBekijken(rekeningIndex, false, "[!] U kunt deze bestelling niet bewerken omdat deze leeg is.");
+				}
+				
 				// console script
 				Console.Clear();
 				Console.WriteLine("REKENING BETAALD!");
@@ -139,7 +163,10 @@ namespace De_Wolven_Menuapp
 			// optie aanpassen items op rekening
 			else if (option == ConsoleKey.B)
 			{
-				rekeningAanpassen(geselecteerdeRekening, rekeningIndex);
+				if (legeRekeningCheck(geselecteerdeRekening)) {
+					rekeningBekijken(rekeningIndex, false, "[!] U kunt deze bestelling niet bewerken omdat deze leeg is.");
+				}
+				else rekeningAanpassen(geselecteerdeRekening, rekeningIndex);
 			}
 
 			// optie terug naar lijst met rekeningen
@@ -169,7 +196,12 @@ namespace De_Wolven_Menuapp
 				// terugschrijven
 				var geupdateRekeningen = JsonConvert.SerializeObject(rekeningenData, Formatting.Indented);
 				File.WriteAllText("bestellingen.json", geupdateRekeningen);
+			}
 
+			// check of de bestelling leeg is
+			if (legeRekeningCheck(geselecteerdeRekening))
+			{
+				rekeningBekijken(rekeningIndex, false, "[!] U kunt deze bestelling niet bewerken omdat deze leeg is.\n");
 			}
 
 			// init variables
@@ -407,6 +439,10 @@ namespace De_Wolven_Menuapp
 			ConsoleKey option = Console.ReadKey().Key;
 			return (option == ConsoleKey.Enter);
 		}
+		public static bool legeRekeningCheck(Bestelling deRekening)
+        {
+			return (deRekening.gerechten.Count == 0 && deRekening.Desserts.Count == 0 && deRekening.Dranken.Count == 0);
+        }
 		public static string rekeningCheck(Bestelling bes)
 		{
 			if (bes.Dranken.Count != 0) return bes.Dranken[0].Aantal == 69 && bes.Dranken[0].Dranknaam == "Mystery Cocktail..." && bes.Tafel == "SIGMA" ? "Nice.\n" : "";
