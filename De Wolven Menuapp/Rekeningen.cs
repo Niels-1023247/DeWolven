@@ -18,7 +18,7 @@ namespace De_Wolven_Menuapp
 			Console.WriteLine("Alle openstaande rekeningen worden per tafel weergeven.\n");
 
 			// bestellingen inlezen
-			var bestellingenJSON = File.ReadAllText("bestellingen.json");
+			var bestellingenJSON = File.ReadAllText(@"D:\DeWolven\De Wolven Menuapp\data\rekeningen.json");
 			var bestellingenData = JsonConvert.DeserializeObject<bestellingenRoot>(bestellingenJSON);
 			string suffix = "";
 
