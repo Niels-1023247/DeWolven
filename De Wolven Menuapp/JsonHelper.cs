@@ -14,7 +14,7 @@ namespace De_Wolven_Menuapp
     }
     public class bestellingenRoot
     {
-        public List<Bestelling> Bestellingen { get; set; } // root van de bestellingen.json, een lijst van bestellingen
+        public List<Bestelling> Bestellingen { get; set; } // root van rekeningen.json, een lijst van rekeningen met elk bestellingen
     }
     public class Bestelling : Menukaart
     {

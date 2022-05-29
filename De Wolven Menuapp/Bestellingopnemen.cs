@@ -101,7 +101,7 @@ namespace De_Wolven_Menuapp
 			var menuData = JsonConvert.DeserializeObject<Menukaart>(menukaartJson);
 
 			// bestellingen inlezen
-			string bestellingenJson = File.ReadAllText("bestellingen.JSON");
+			string bestellingenJson = File.ReadAllText(GetFilePath.RekeningenPath);
 			var bestellingenData = JsonConvert.DeserializeObject<bestellingenRoot>(bestellingenJson);
 
 			Console.Clear();
@@ -280,7 +280,7 @@ namespace De_Wolven_Menuapp
 		{
 			
 			// bestellingen inlezen
-			string bestellingenJson = File.ReadAllText("bestellingen.JSON");
+			string bestellingenJson = File.ReadAllText(GetFilePath.RekeningenPath);
 			var bestellingenData = JsonConvert.DeserializeObject<bestellingenRoot>(bestellingenJson);
 
 			bool maakNieuweRekening = true;
@@ -304,7 +304,7 @@ namespace De_Wolven_Menuapp
 
 			// bestellingen met geupdate items naar disk schrijven
 			var geupdateBestellingen = JsonConvert.SerializeObject(bestellingenData, Formatting.Indented);
-			File.WriteAllText("bestellingen.json", geupdateBestellingen);
+			File.WriteAllText(GetFilePath.RekeningenPath, geupdateBestellingen);
 
 			// terug naar hoofdmenu
 			medewerkerHome.SchermMedewerker($"Succesvol de nieuwe bestelling(en) aan de rekening van tafel {nieuweToevoeging.Tafel} toegevoegd!");
