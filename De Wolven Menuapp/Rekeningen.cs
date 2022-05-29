@@ -18,7 +18,7 @@ namespace De_Wolven_Menuapp
 			Console.WriteLine("Alle openstaande rekeningen worden per tafel weergeven.\n");
 
 			// bestellingen inlezen
-			var bestellingenJSON = File.ReadAllText(@"D:\DeWolven\De Wolven Menuapp\data\rekeningen.json");
+			var bestellingenJSON = File.ReadAllText(GetFilePath.RekeningenPath);
 			var bestellingenData = JsonConvert.DeserializeObject<bestellingenRoot>(bestellingenJSON);
 			string suffix = "";
 
@@ -57,7 +57,7 @@ namespace De_Wolven_Menuapp
 		public static void rekeningBekijken(int rekeningIndex = 1, bool magAanpassen = true, string melding = "")
 		{
 			// bestellingen inlezen
-			var bestellingenJSON = File.ReadAllText("bestellingen.json");
+			var bestellingenJSON = File.ReadAllText(GetFilePath.RekeningenPath);
 			var bestellingenData = JsonConvert.DeserializeObject<bestellingenRoot>(bestellingenJSON);
 
 			// shorthand voor de te bekijken rekening
@@ -133,7 +133,7 @@ namespace De_Wolven_Menuapp
 				// verwijder bestelling uit systeem, en update de database
 				bestellingenData.Bestellingen.RemoveAt(rekeningIndex);
 				var geupdateBestellingen = JsonConvert.SerializeObject(bestellingenData, Formatting.Indented);
-				File.WriteAllText("bestellingen.json", geupdateBestellingen);
+				File.WriteAllText(GetFilePath.RekeningenPath, geupdateBestellingen);
 				ConsoleKey cont = Console.ReadKey().Key;
 				medewerkerHome.SchermMedewerker();
 
@@ -151,7 +151,7 @@ namespace De_Wolven_Menuapp
 					string verwijderdeTafelNaam = geselecteerdeRekening.Tafel;
 					bestellingenData.Bestellingen.RemoveAt(rekeningIndex);
 					var geupdateBestellingen = JsonConvert.SerializeObject(bestellingenData, Formatting.Indented);
-					File.WriteAllText("bestellingen.json", geupdateBestellingen);
+					File.WriteAllText(GetFilePath.RekeningenPath, geupdateBestellingen);
 					medewerkerHome.SchermMedewerker($"[!] De rekening van tafel {verwijderdeTafelNaam} is uit de openstaande rekeningen gehaald.");
 				}
 				else
@@ -189,13 +189,13 @@ namespace De_Wolven_Menuapp
 			if (changesMade)
             {
 				// inlezen
-				var rekeningenJSON = File.ReadAllText("bestellingen.json");
+				var rekeningenJSON = File.ReadAllText(GetFilePath.RekeningenPath);
 				var rekeningenData = JsonConvert.DeserializeObject<bestellingenRoot>(rekeningenJSON);
 				rekeningenData.Bestellingen[rekeningIndex] = geselecteerdeRekening;
 
 				// terugschrijven
 				var geupdateRekeningen = JsonConvert.SerializeObject(rekeningenData, Formatting.Indented);
-				File.WriteAllText("bestellingen.json", geupdateRekeningen);
+				File.WriteAllText(GetFilePath.RekeningenPath, geupdateRekeningen);
 			}
 
 			// check of de bestelling leeg is
@@ -419,14 +419,7 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("[Andere toets] Annuleren");
 
 			ConsoleKey consoleKey = Console.ReadKey().Key;
-			if (consoleKey == ConsoleKey.Enter)
-            {
-				return true;
-            }
-			else
-            {
-				return false;
-            }
+            return consoleKey == ConsoleKey.Enter;
         }
 		public static bool rekeningVerwijderen(Bestelling rekeningOmAfTeRekenen)
 		{
