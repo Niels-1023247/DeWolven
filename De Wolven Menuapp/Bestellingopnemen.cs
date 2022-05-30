@@ -40,7 +40,7 @@ namespace De_Wolven_Menuapp
 			Console.WriteLine("[1] Gerechten");
 			Console.WriteLine("[2] Desserts");
 			Console.WriteLine("[3] Dranken");
-			Console.WriteLine("Voer 1, 2 of 3 in");
+			Console.WriteLine("Voer [1], [2] of [3] in");
 
 			if (huidigeBestelling.gerechten.Count != 0 | huidigeBestelling.Desserts.Count != 0 | huidigeBestelling.Dranken.Count != 0)
 			{
@@ -51,8 +51,8 @@ namespace De_Wolven_Menuapp
 				for (int i = 0; i < huidigeBestelling.Dranken.Count; i++) Console.WriteLine($"{huidigeBestelling.Dranken[i].Aantal}x {huidigeBestelling.Dranken[i].Dranknaam}");
 				
 				Console.WriteLine();
-				Console.WriteLine("Druk op Enter om bovenstaanden definitief aan de rekening toe te voegen.");
-				Console.WriteLine("Druk op Escape om terug te gaan naar het hoofdmenu en deze items weg te gooien.");
+				Console.WriteLine("[Enter] Items definitief aan de rekening toevoegen.");
+				Console.WriteLine("[Escape] Teruggaan naar het hoofdmenu en items weggooien.");
 
 			}
 
@@ -60,19 +60,19 @@ namespace De_Wolven_Menuapp
 			if (Bestellen == ConsoleKey.D1)
 			{
 				Console.Clear();
-				bestellingKiesOptie(1, huidigeBestelling, "", 0);
+				bestellingKiesOptie(1, huidigeBestelling);
 			}
 
 			else if (Bestellen == ConsoleKey.D2)
 			{
 				Console.Clear();
-				bestellingKiesOptie(2, huidigeBestelling, "", 0);
+				bestellingKiesOptie(2, huidigeBestelling);
 			}
 
 			else if (Bestellen == ConsoleKey.D3)
 			{
 				Console.Clear();
-				bestellingKiesOptie(3, huidigeBestelling, "", 0);
+				bestellingKiesOptie(3, huidigeBestelling);
 			}
 			else if (Bestellen == ConsoleKey.Escape) // terug naar hoofdmenu
 			{
@@ -155,7 +155,7 @@ namespace De_Wolven_Menuapp
 					}
 				}
 
-				Console.WriteLine($"\n\nDruk op het gewenste nummer om uw {categorienaam} te selecteren.\nDruk op de pijltjestoetsen om van pagina te wisselen, \nDruk op Enter of Escape om terug te gaan.");
+				Console.WriteLine($"\n\n[1] - [8] {categorienaam} selecteren\n[<] [>] Pagina wisselen\n[Enter] of [Escape] Terug naar categorieselectie");
 				
 				//Console.WriteLine(nieuweItemsCommitten != null ? "Druk op Enter om ");
 				
@@ -269,10 +269,15 @@ namespace De_Wolven_Menuapp
 		}
 		public static int kiesHoeveelheidKeuze()
 		{
-			Console.WriteLine("Geef aan hoeveel er u voor deze tafel wilt bestellen.");
+			Console.WriteLine("\nGeef aan hoeveel er u voor deze tafel wilt bestellen. Voer een getal in en druk op [Enter].");
 
-			int aantalVanOptie = Convert.ToInt32(Console.ReadLine());
-
+			int aantalVanOptie;
+			while (!Int32.TryParse(Console.ReadLine(), out aantalVanOptie))
+            {
+				Console.Clear();
+				Console.WriteLine("[!] Geen geldige input. Voer een getal in.\n");
+				Console.WriteLine("Geef aan hoeveel er u voor deze tafel wilt bestellen. Voer een getal in en druk op [Enter].");
+			}
 			return aantalVanOptie;
 
 		}
