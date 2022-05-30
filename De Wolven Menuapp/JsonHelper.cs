@@ -10,7 +10,9 @@ namespace De_Wolven_Menuapp
 {
     public class Tafels
     {
-        public string[] GebrTafels { get; set; }
+        public int BeschTaf6 { get; set; }
+        public int BeschTaf4 { get; set; }
+        public int BeschTaf2 { get; set; }
     }
     public class InGebruik
     {
@@ -79,7 +81,7 @@ namespace De_Wolven_Menuapp
         public string Date { get; set; }
         public string Time { get; set; }
         public int Code { get; set; }
-        public string CountofPeople { get; set; }
+        public int CountofPeople { get; set; }
     }
 
     public class Menukaart

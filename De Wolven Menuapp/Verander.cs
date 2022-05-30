@@ -48,7 +48,7 @@ namespace De_Wolven_Menuapp
                     string changeTime = Console.ReadLine();
                     reserveringsData.Reserveringen[i].Time = changeTime;
                     Console.WriteLine("Voor hoeveel mensen wilt u reserveren");
-                    string changeCountofPeople = Console.ReadLine();
+                    int changeCountofPeople = Convert.ToInt32(Console.ReadLine());
                     reserveringsData.Reserveringen[i].CountofPeople = changeCountofPeople;
 
                     var updatedReservations = JsonConvert.SerializeObject(reserveringsData, Formatting.Indented);
@@ -83,7 +83,7 @@ namespace De_Wolven_Menuapp
                     Console.Clear();
                     laatEenReserveringZien(geselecteerdeReservering);
                     Console.WriteLine("Welke wilt u aanpassen? Voer 1, 2, 3 of 4 in.\n");
-
+                    
                     // keuzemenu voor welk veld aangepast moet worden
                     ConsoleKey welkVeldAanpassen = Console.ReadKey().Key;
                     if (welkVeldAanpassen == ConsoleKey.D1)
@@ -106,7 +106,7 @@ namespace De_Wolven_Menuapp
                     else if (welkVeldAanpassen == ConsoleKey.D4)
                     {
                         Console.WriteLine("U past de hoeveelheid mensen aan naar: \n");
-                        geselecteerdeReservering.CountofPeople = Console.ReadLine();
+                        geselecteerdeReservering.CountofPeople = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine($"U heeft de hoeveelheid mensen aangepast naar: {geselecteerdeReservering.CountofPeople}");
                     }
                     else

@@ -10,44 +10,59 @@ namespace De_Wolven_Menuapp
 {
     internal class OurTable
     {
+        /* Maak NewDate method
+         * maak NewTime method
+         */
+        public static void NewDate()
+        {
+
+        }
+        public static void NewTime()
+        {
+
+        }
         public static void AddTable(EnkeleReservering Resv)
         {
             var JsonString = File.ReadAllText("OurTable.json");
             var DeserialisedResult = JsonConvert.DeserializeObject<InGebruik>(JsonString);
             string CurrentDate = Resv.Date;
-            Tafels newTables = new Tafels
+            string CurrentTime = Resv.Time;
+            bool datePresent = DeserialisedResult.Tafel.ContainsKey(CurrentDate);
+            bool timePresent = DeserialisedResult.Tafel.ContainsKey(CurrentTime);
+            if (!datePresent) { NewDate(); }
+            if (!timePresent) { NewTime(); }
+            Tafels newTables = new()
             {
-
+                BeschTaf2 = DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf2,
+                BeschTaf4 = DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf4,
+                BeschTaf6 = DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf6,
             };
-            try
+            if (Resv.CountofPeople<2 && Resv.CountofPeople > 0)
             {
-                var addedTable = DeserialisedResult;
-                addedTable.Tafel[Resv.Date].Add(Resv.Time,newTables);
-                var newdate = new InGebruik
+                if (DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf2 == 0)
                 {
-                    
-                };
-            }
-            catch (System.NullReferenceException)
-            {
-                var tafeltijd = new Dictionary<string, Tafels> { Resv.Time, newTables };
-                Tafel = new Dictionary<string, Dictionary<string, Tafels>>
-                {
-                    {"initial", new Dictionary<string, Tafels>{"Initial",new Tafels},
-                    { CurrentDate, new Dictionary<string, Tafels> { Resv.Time, newTables }
+                    if (DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf4 == 0)
+                    {
+                        if (DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
+                        else { newTables.BeschTaf6--; }
+                    }
+                    else { newTables.BeschTaf4--; }
                 }
-             
-            if (DeserialisedResult.Tafel[Resv.Date] == null)
-            {
-                var newdate = new InGebruik
-                {
-                    
-                };
+                else { newTables.BeschTaf2--; }
             }
-            else if (DeserialisedResult.Tafel[Resv.Date] != null)
+            else if (Resv.CountofPeople>2 && Resv.CountofPeople <= 4)
             {
-                
-                
+                if (DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf4 == 0)
+                {
+                    if (DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
+                    else { newTables.BeschTaf6--; }
+                }
+                else { newTables.BeschTaf4--; }
+            }
+            else if (Resv.CountofPeople>4&&Resv.CountofPeople <= 5)
+            {
+                if (DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
+                else { newTables.BeschTaf6--; }
             }
         }
     }
