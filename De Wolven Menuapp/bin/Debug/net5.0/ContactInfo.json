@@ -1,6 +1,6 @@
 {
-  "Address": "Wijnhaven 60,\\n          3011WM Rotterdam",
-  "Phone": "010-2189034",
+  "Address": "Wijnhaven 60,\n          3011WM Rotterdam",
+  "Phone": "010-12345678",
   "OpenT": {
     "Monday": "12:00-22:00",
     "Tuesday": "12:00-22:00",
