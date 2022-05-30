@@ -16,13 +16,7 @@ namespace De_Wolven_Menuapp
         
         public static void Main()
         {
-
-            /*            ActiefAccount.Name = "Freddy";
-                        ActiefAccount.IsIngelogd = true;
-                        Console.WriteLine(ActiefAccountValues("Name"));
-                        Console.WriteLine(LoginCheck());*/
-            MenuschermTest.BadInputTest();
-
+            Beginscherm.Begin();
         }
         public static string ActiefAccountValues(string keuze)
         {
