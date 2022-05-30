@@ -27,7 +27,10 @@ namespace De_Wolven_Menuapp
         }
         public static void BadInputTest()
         {
-
+            Console.WriteLine("kijk of onjuiste inputs iets doen. druk op willekeurige knoppen in de menus.");
+            Console.ReadKey();
+            Contact.Contactgegevens();
+            Menu.Menukaart();
         }
 
         /*test het laden van de JSONS
