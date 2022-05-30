@@ -10,48 +10,76 @@ namespace De_Wolven_Menuapp
 {
 	public class Rekeningen
 	{
-		public static void rekeningenLijst(int geselecteerdeOptie = 1) // geselecteerdeOptie is voor welke tafel je geselecteerd hebt, start bij 1 (default is 1)
-		{
-			// script voor console
-			Console.Clear();
-			Console.WriteLine("OPENSTAANDE REKENINGEN");
-			Console.WriteLine("Alle openstaande rekeningen worden per tafel weergeven.\n");
+		public static void rekeningenUnitTestMain()
+        {
+			// wat moet er getest worden?
 
+
+			// willekeurige bestelling toevoegen moet auto getest worden
+			// pak willekeurige index van elke categorie
+			// pak van 1 categorie twee
+
+			// test verkeerde input bij categorie item kiezen
+
+			// pak van 1 item later nog een keer iets
+
+			// bestelling dupliceren
+
+			// bestelling proberen te verwijderen
+			// gebruik ook daadwerkelijk de inputs met consolekeys om dit te testen.
+			
+			// bestelling dupliceren
+			// item editen
+			// voeg van 
+			
+
+
+        }
+		
+		public static void rekeningenLijst(int geselecteerdeOptie = 1, bool testingMode = false, ConsoleKey input = ConsoleKey.Tab) // geselecteerdeOptie is voor welke tafel je geselecteerd hebt, start bij 1 (default is 1)
+		{
 			// bestellingen inlezen
 			var rekeningenJSON = File.ReadAllText(GetFilePath.RekeningenPath);
 			var rekeningenData = JsonConvert.DeserializeObject<bestellingenRoot>(rekeningenJSON);
 			string suffix;
 
+			// script voor console
+			if (!testingMode)
+			{
+				// tekst
+				Console.Clear();
+				Console.WriteLine("OPENSTAANDE REKENINGEN");
+				Console.WriteLine("Alle openstaande rekeningen worden per tafel weergeven.\n");
+				// laat alle rekeningen zien die er op dit moment zijn
+				for (int i = 1; i < rekeningenData.Bestellingen.Count; i++)
+				{
+					suffix = legeRekeningCheck(rekeningenData.Bestellingen[i]) ? " [Leeg]" : "";
+					Console.WriteLine((i == geselecteerdeOptie) ? "> Tafel {0}{1}" : "- Tafel {0}{1}", rekeningenData.Bestellingen[i].Tafel, suffix);
+				}
+				// rest van het script
+				Console.WriteLine("\n[^] [v] Selecteer een rekening");
+				Console.WriteLine("[Enter] Bekijk rekening");
+				Console.WriteLine("[Escape] Terug naar het hoofdmenu\n");
+			}
+
 			// controle of de geselecteerde index niet out of bounds is
 			if (geselecteerdeOptie < 1 | geselecteerdeOptie > rekeningenData.Bestellingen.Count - 1) geselecteerdeOptie = 1;
 
-			// laat alle rekeningen zien die er op dit moment zijn
-			for (int i = 1; i < rekeningenData.Bestellingen.Count; i++)
-            {
-				suffix = legeRekeningCheck(rekeningenData.Bestellingen[i]) ? " [Leeg]" : "";
-				Console.WriteLine((i == geselecteerdeOptie) ? "> Tafel {0}{1}" : "- Tafel {0}{1}", rekeningenData.Bestellingen[i].Tafel, suffix);
-            }
-
-			// rest van het script
-			Console.WriteLine("\n[^] [v] Selecteer een rekening");
-            Console.WriteLine("[Enter] Bekijk rekening");
-			Console.WriteLine("[Escape] Terug naar het hoofdmenu\n");
-
 			// user input voor selecteren en menu's navigeren
-			ConsoleKey toets = Console.ReadKey().Key;
-			if (toets == ConsoleKey.DownArrow | toets == ConsoleKey.RightArrow) rekeningenLijst(geselecteerdeOptie + 1);
-			else if (toets == ConsoleKey.UpArrow | toets == ConsoleKey.LeftArrow) rekeningenLijst(geselecteerdeOptie - 1);
+			if (!testingMode) input = Console.ReadKey().Key;
+			if (input == ConsoleKey.DownArrow | input == ConsoleKey.RightArrow) rekeningenLijst(geselecteerdeOptie + 1);
+			else if (input == ConsoleKey.UpArrow | input == ConsoleKey.LeftArrow) rekeningenLijst(geselecteerdeOptie - 1);
 
 			// naar de bon toe van de geselecteerde bestelling
-			else if (toets == ConsoleKey.Enter) rekeningBekijken(geselecteerdeOptie, !legeRekeningCheck(rekeningenData.Bestellingen[geselecteerdeOptie]));
+			else if (input == ConsoleKey.Enter) rekeningBekijken(geselecteerdeOptie, !legeRekeningCheck(rekeningenData.Bestellingen[geselecteerdeOptie]));
 
 			// terug naar het vorige menu
-			else if (toets == ConsoleKey.Escape) medewerkerHome.SchermMedewerker();
+			else if (input == ConsoleKey.Escape) medewerkerHome.SchermMedewerker();
 
 			// bij elke andere invoer herlaadt het scherm
 			else rekeningenLijst(geselecteerdeOptie);
 		}
-		public static void rekeningBekijken(int rekeningIndex = 1, bool magAanpassen = true, string melding = "")
+		public static void rekeningBekijken(int rekeningIndex = 1, bool magAanpassen = true, string melding = "", bool testingMode = false)
 		{
 			// bestellingen inlezen
 			var rekeningenJSON = File.ReadAllText(GetFilePath.RekeningenPath);
