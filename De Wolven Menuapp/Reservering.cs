@@ -90,11 +90,21 @@ namespace De_Wolven_Menuapp
 				DateTimeStyles.None,
 				out d);
 
-				// check of de reservering op dezelfde dag valt dat je reserveert. Ik vraag bij de tijds check deze waarde.
-				if (DateTime.ParseExact(dateToValidate, "dd/MM/yyyy", CultureInfo.InvariantCulture) == DateTime.Now.Date)
+                try
                 {
-					zelfdeDag = true;
+					// check of de reservering op dezelfde dag valt dat je reserveert. Ik vraag bij de tijds check deze waarde.
+					if (DateTime.ParseExact(dateToValidate, "dd/MM/yyyy", CultureInfo.InvariantCulture) == DateTime.Now.Date)
+					{
+						zelfdeDag = true;
+					}
+				}
+				catch (Exception ex)
+                {
+					dateValidatie = false;
+					return dateValidatie;
+					
                 }
+				
 
 				// als de ingevoerde datum eerder is dan de huidige datum dan zet hij de validatie bool op false.
 				if (DateTime.ParseExact(dateToValidate, "dd/MM/yyyy", CultureInfo.InvariantCulture) < DateTime.Now.Date)

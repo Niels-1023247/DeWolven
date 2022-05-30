@@ -189,12 +189,22 @@ namespace De_Wolven_Menuapp
                             DateTimeStyles.None,
                             out d);
 
+
+                            try
+                            {
+                                // als de ingevoerde datum eerder is dan de huidige datum dan zet hij de validatie bool op false.
+                                if (DateTime.ParseExact(dateToValidate, "dd/MM/yyyy", CultureInfo.InvariantCulture) < DateTime.Now.Date)
+                                {
+                                    dateValidatie = false;
+                                }
+                            }
                             
 
-                            // als de ingevoerde datum eerder is dan de huidige datum dan zet hij de validatie bool op false.
-                            if (DateTime.ParseExact(dateToValidate, "dd/MM/yyyy", CultureInfo.InvariantCulture) < DateTime.Now.Date)
+                            catch (Exception ex)
                             {
                                 dateValidatie = false;
+                                return dateValidatie;
+
                             }
 
                             return dateValidatie;
