@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 {
-    public class Tafels
+    /*public class Tafels
     {
         public int BeschTaf6 { get; set; }
         public int BeschTaf4 { get; set; }
@@ -17,6 +17,20 @@ namespace De_Wolven_Menuapp
     public class InGebruik
     {
         public Dictionary<string,Dictionary<string,Tafels>> Tafel { get; set; }
+    }*/
+    class Datum
+    {
+        public Dictionary<string, Tijd> Data { get; set; }
+    }
+    class Tijd
+    {
+        public Dictionary<string, Tafels> Tijdblok { get; set; }
+    }
+    class Tafels
+    {
+        public int BeschTaf6 { get; set; }
+        public int BeschTaf4 { get; set; }
+        public int BeschTaf2 { get; set; }
     }
     public class ContactInfo
     {

@@ -24,26 +24,26 @@ namespace De_Wolven_Menuapp
         public static void AddTable(EnkeleReservering Resv)
         {
             var JsonString = File.ReadAllText("OurTable.json");
-            var DeserialisedResult = JsonConvert.DeserializeObject<InGebruik>(JsonString);
+            var DeserialisedResult = JsonConvert.DeserializeObject<Datum>(JsonString);
             string CurrentDate = Resv.Date;
             string CurrentTime = Resv.Time;
-            bool datePresent = DeserialisedResult.Tafel.ContainsKey(CurrentDate);
-            bool timePresent = DeserialisedResult.Tafel.ContainsKey(CurrentTime);
+            bool datePresent = DeserialisedResult.Data.ContainsKey(CurrentDate);
             if (!datePresent) { NewDate(); }
+            bool timePresent = DeserialisedResult.Data[CurrentDate].Tijdblok.ContainsKey(CurrentTime);
             if (!timePresent) { NewTime(); }
             Tafels newTables = new()
             {
-                BeschTaf2 = DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf2,
-                BeschTaf4 = DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf4,
-                BeschTaf6 = DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf6,
+                BeschTaf2 = DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf2,
+                BeschTaf4 = DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf4,
+                BeschTaf6 = DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6,
             };
             if (Resv.CountofPeople<2 && Resv.CountofPeople > 0)
             {
-                if (DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf2 == 0)
+                if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf2 == 0)
                 {
-                    if (DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf4 == 0)
+                    if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf4 == 0)
                     {
-                        if (DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
+                        if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
                         else { newTables.BeschTaf6--; }
                     }
                     else { newTables.BeschTaf4--; }
@@ -52,16 +52,16 @@ namespace De_Wolven_Menuapp
             }
             else if (Resv.CountofPeople>2 && Resv.CountofPeople <= 4)
             {
-                if (DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf4 == 0)
+                if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf4 == 0)
                 {
-                    if (DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
+                    if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
                     else { newTables.BeschTaf6--; }
                 }
                 else { newTables.BeschTaf4--; }
             }
             else if (Resv.CountofPeople>4&&Resv.CountofPeople <= 5)
             {
-                if (DeserialisedResult.Tafel[CurrentDate][CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
+                if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
                 else { newTables.BeschTaf6--; }
             }
         }
