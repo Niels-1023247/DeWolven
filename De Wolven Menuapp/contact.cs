@@ -13,10 +13,11 @@ namespace De_Wolven_Menuapp
         // laat contactgegevens zien
         public static void Contactgegevens()
         {
+
+            var JsonString = File.ReadAllText("ContactInfo.json");
+            var DeserialisedResult = JsonConvert.DeserializeObject<ContactInfo>(JsonString);
             while (true)
             {
-                var JsonString = File.ReadAllText("ContactInfo.json");
-                var DeserialisedResult = JsonConvert.DeserializeObject<ContactInfo>(JsonString);
 
                 ConsoleKey input;
                 Console.Clear();
@@ -83,15 +84,22 @@ namespace De_Wolven_Menuapp
             if (i == 3)
             {
                 Console.WriteLine("Wat zijn de nieuwe openingstijden?\nVOORBEELD: 0:00-23:59\n0:00-23:00\n Vul een tijd in voor iedere dag\n");
+                Console.WriteLine("Ma: "); var Monday=Console.ReadLine();
+                Console.WriteLine("Di: "); var Tuesday = Console.ReadLine();
+                Console.WriteLine("Wo: "); var Wednesday = Console.ReadLine();
+                Console.WriteLine("Do: "); var Thursday = Console.ReadLine();
+                Console.WriteLine("Vr: "); var Friday = Console.ReadLine();
+                Console.WriteLine("Za: "); var Saturday = Console.ReadLine();
+                Console.WriteLine("Zo: "); var Sunday = Console.ReadLine();
                 var newOpent = new OpeningsTijden
                 {
-                    Monday = "Ma: "+Console.ReadLine(),
-                    Tuesday = "Di: "+Console.ReadLine(),
-                    Wednesday = "Wo: " + Console.ReadLine(),
-                    Thursday = "Do: " + Console.ReadLine(),
-                    Friday = "Vr: " + Console.ReadLine(),
-                    Saturday = "Za: " + Console.ReadLine(),
-                    Sunday = "Zo: " + Console.ReadLine()
+                    Monday = Monday,
+                    Tuesday = Tuesday,
+                    Wednesday = Wednesday,
+                    Thursday = Thursday,
+                    Friday = Friday,
+                    Saturday = Saturday,
+                    Sunday = Sunday
                 };
                 var NewOpenT = new ContactInfo
                 {

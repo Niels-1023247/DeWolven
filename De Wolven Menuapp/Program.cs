@@ -21,7 +21,7 @@ namespace De_Wolven_Menuapp
                         ActiefAccount.IsIngelogd = true;
                         Console.WriteLine(ActiefAccountValues("Name"));
                         Console.WriteLine(LoginCheck());*/
-                      Beginscherm.Begin();
+            MenuschermTest.ChangeConInfoTest();
 
         }
         public static string ActiefAccountValues(string keuze)
