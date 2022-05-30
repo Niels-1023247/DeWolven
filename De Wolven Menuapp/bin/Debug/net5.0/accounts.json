@@ -26,13 +26,19 @@
     },
     {
       "Name": "Niels",
+<<<<<<< HEAD
       "Username": "niels",
       "Password": "klaver",
+=======
+      "Username": "Sigma",
+      "Password": "ww",
+>>>>>>> Login
       "Email": "niels@niels.nl",
       "Code": [],
       "Level": "1"
     },
     {
+<<<<<<< HEAD
       "Name": "mees",
       "Username": "mees",
       "Password": "mees",
@@ -45,6 +51,12 @@
       "Username": "ds",
       "Password": "d",
       "Email": "sd",
+=======
+      "Name": "Frank Tomaat",
+      "Username": "Tomaat",
+      "Password": "geheim",
+      "Email": "frank@tomaat.nl",
+>>>>>>> Login
       "Code": [],
       "Level": "1"
     }

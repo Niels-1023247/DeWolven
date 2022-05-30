@@ -16,38 +16,8 @@ namespace De_Wolven_Menuapp
 			var DeserialisedResult = JsonConvert.DeserializeObject<AccountData>(JsonString);
 			Console.WriteLine(DeserialisedResult.Accounts[1].Username);
 
+
 		}
-		//VOID
-		/*
-		public static void Loginfoscherm(string soortGebruiker)
-		{
-			// algemeen inlogscherm laten zien
-			Console.Clear();
-			Console.WriteLine("LOGIN\n\n");
-			Console.WriteLine("Hallo " + soortGebruiker + ".\n");
-			Console.WriteLine("[1]Login met een bestaand account.\n");
-			Console.WriteLine("Druk op 1 om je gegevens in te voeren.!\n");
-			Console.WriteLine("Druk op Escape om terug te gaan!\n");
-
-			
-			// druk op 1 om in te loggen
-			ConsoleKey LoginType = Console.ReadKey().Key;
-			if (LoginType == ConsoleKey.D1 || LoginType == ConsoleKey.Enter)
-			{
-				
-			   LoginAccount(soortGebruiker);
-				
-			
-			}            
-
-			// anders terug naar vorig scherm
-			else if (LoginType == ConsoleKey.Escape)
-			{
-				if(soortGebruiker == "Klant") Hoofdmenuscherm.SchermKlanten();
-				if (soortGebruiker == "Medewerker") Hoofdmenuscherm.SchermMedewerker();
-			}
-
-		}*/
 
 		public static void loginUnitTest() // unit test voor correct inloggen (testgevallen moeten nog worden toegevoegd)
 		{
@@ -175,7 +145,7 @@ namespace De_Wolven_Menuapp
 							Console.Clear();
 							Console.WriteLine("Gebruiker: " + alleAccounts.Accounts[item].Name);
 							Console.WriteLine("U bent ingelogd!");
-							
+
 							Hoofdmenuscherm.SchermKlanten();
 
 
@@ -236,56 +206,7 @@ namespace De_Wolven_Menuapp
 				}
 			}
 
-			/*
-			for (int i = 0; i != account.Username.length; i++)
-			{
-			    // vul hier het stukje wat het account uitleest inplaats van wat de gerechten uitleest
-			    if (username == account[i].Username & password == account[i].Password)
-			    {
-			        Console.WriteLine("Je bent ingelogd!");
-			        input = Console.ReadKey().Key;
-			    }
-			    else
-			    {
-			        Console.WriteLine("Sorry je Geberuikersnaam/ Wachtwoord combinatie klopt niet!");
-			        Console.WriteLine("Druk op Enter om je wachtwoord opnieuw in te voeren, of Esc om terug te gaan.");
-			        input = Console.ReadKey().Key;
-			        while (1 == 1)
-			        {
-			            if (input == ConsoleKey.Enter) // reset
-			            {
-			                Hoofdmenuscherm.SchermKlanten();
-			                break;
-			            }
-			            if (input == ConsoleKey.Escape) // terug naar hoofdmenu
-			            {
-			                Loginfo.Loginfoscherm();
-			                break;
-			            }
-			        }
-			    }
-			}
-		}
-		public static void LoginCode()
-		{
-		    Console.Clear();
-		    Console.WriteLine("Voer hier de code in die u heeft ontvangen:");
-		    string code = Console.ReadLine();
-		    ///ValidateCode(code);
-		    
-		    // vul hier het stukje wat het account uitleest inplaats van wat de gerechten uitleest
-		    if (code == hetgehelemenu.account[f].code)
-		    {
-		        Console.WriteLine("Je bent ingelogd!");
-		    }
-		    else
-		    {
-		        Console.WriteLine("Sorry je Code klopt niet!");
-		        
-		
-		    }
-		
-		}*/
+
 		}
 	}
 }
