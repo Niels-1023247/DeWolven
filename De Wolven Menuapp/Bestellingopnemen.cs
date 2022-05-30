@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,7 +54,6 @@ namespace De_Wolven_Menuapp
 				Console.WriteLine();
 				Console.WriteLine("[Enter] Items definitief aan de rekening toevoegen.");
 				Console.WriteLine("[Escape] Teruggaan naar het hoofdmenu en items weggooien.");
-
 			}
 
 			ConsoleKey Bestellen = Console.ReadKey().Key;
@@ -142,23 +142,21 @@ namespace De_Wolven_Menuapp
 				Console.WriteLine(laatsteItemHvh != 0 ? $"[!] {laatsteItemHvh}x {laatsteItem} toegevoegd aan rekening voor tafel [1A]" : ""); // optioneel laatst toegevoegd item
 				Console.WriteLine("\n\n");
 
-				for (int i = 8 * screen, c = 1; c <= 8 | i <= max-1; i++, c++) // c is het nummer voor de bestellingoptie [c] weergeven, i is de index van het gerecht in de json
-				{
+				// c is het nummer voor de bestellingoptie [c] weergeven, i is de index van het gerecht in de json
+				for (int i = 8 * screen, c = 1; c <= 8 | i <= max-1; i++, c++) 
 					if (i < max && c < 9)
 					{
 						if (categorie == 1) Console.WriteLine("[" + c + "] " + menuData.gerechten[i].Gerechtnaam + ", " + menuData.gerechten[i].Prijs + " euro, " + menuData.gerechten[i].Allergenen);
 						else if (categorie == 2) Console.WriteLine("[" + c + "] " + menuData.Desserts[i].Dessertnaam + ", " + menuData.Desserts[i].Prijs + " euro, " + menuData.Desserts[i].Allergenen);
 						else if (categorie == 3) Console.WriteLine("[" + c + "] " + menuData.Dranken[i].Dranknaam + ", " + menuData.Dranken[i].Prijs + " euro, " + menuData.Dranken[i].Allergenen);
-
 						hoeveelheidOpties = c; // mogelijk aantal inputs bepalen
-
 					}
-				}
 
-				Console.WriteLine($"\n\n[1] - [8] {categorienaam} selecteren\n[<] [>] Pagina wisselen\n[Enter] of [Escape] Terug naar categorieselectie");
+				// moeilijk doen over hoofdletters
+				TextInfo Cap = new CultureInfo("en-US", false).TextInfo; 
+				Console.WriteLine($"\n\n[1] - [8] {Cap.ToTitleCase(categorienaam)} selecteren\n[<] [>] Pagina wisselen\n[Enter] of [Escape] Terug naar categorieselectie");
 				
-				//Console.WriteLine(nieuweItemsCommitten != null ? "Druk op Enter om ");
-				
+				// bepalen welke ConsoleKeys gebruikt mogen worden voor de input (1-8)
 				var opties = mogelijkeInputs(hoeveelheidOpties);
 
 				// keuzes die de gebruiker kan maken
@@ -190,22 +188,24 @@ namespace De_Wolven_Menuapp
 				{
 					Console.Clear();
 
+					// init variabelen
 					string recentItemNaam = "";
 					int recentItemHvh = 0;
 
-					// het is nog niet geprogrammeerd dat de item aan het aantal wordt toegevoegd als ie al aanwezig is.
-
-					if (categorie == 1) // nieuw item toevoegen aan lege bestelling dummy
+					// nieuw item toevoegen aan lege bestelling dummy
+					if (categorie == 1) 
 					{
 						int rightIndex = menuItemIndexOphalen(screen, input); // juiste index van menukaart ophalen
 						nieuweItems.gerechten.Add(menuData.gerechten[rightIndex]); // menu item aan lege dummy bestelling toevoegen
-						Console.WriteLine($"U heeft gekozen voor {menuData.gerechten[menuItemIndexOphalen(screen, input)].Gerechtnaam}.");
+						Console.WriteLine($"U heeft gekozen voor {menuData.gerechten[menuItemIndexOphalen(screen, input)].Gerechtnaam}."); // console
 						nieuweItems.gerechten[nieuweItems.gerechten.Count-1].Aantal = kiesHoeveelheidKeuze(); // prompt hoeveel er besteld moeten worden
 
+						// voor wanneer je uit het menu gaat
 						recentItemNaam = nieuweItems.gerechten[nieuweItems.gerechten.Count - 1].Gerechtnaam; 
 						recentItemHvh = nieuweItems.gerechten[nieuweItems.gerechten.Count - 1].Aantal;
 
 					}
+					// etc voor elke categorie
 					else if (categorie == 2)
 					{
 						int rightIndex = menuItemIndexOphalen(screen, input);
@@ -229,13 +229,12 @@ namespace De_Wolven_Menuapp
 
 					}
 					Console.Clear();
+
+					// herladen wanneer hij klaar is
 					bestellingKiesOptie(categorie, nieuweItems, recentItemNaam, recentItemHvh);
 				}
-
-				else
-				{
-					bestellingKiesOptie(categorie, nieuweItems);
-				}
+				// en anders
+				else bestellingKiesOptie(categorie, nieuweItems);
 			}
 
 		}
@@ -269,6 +268,7 @@ namespace De_Wolven_Menuapp
 		}
 		public static int kiesHoeveelheidKeuze()
 		{
+			// prompt voor kiezen hoeveelheid van item plus invoercontrole
 			Console.WriteLine("\nGeef aan hoeveel er u voor deze tafel wilt bestellen. Voer een getal in en druk op [Enter].");
 
 			int aantalVanOptie;
@@ -279,40 +279,53 @@ namespace De_Wolven_Menuapp
 				Console.WriteLine("Geef aan hoeveel er u voor deze tafel wilt bestellen. Voer een getal in en druk op [Enter].");
 			}
 			return aantalVanOptie;
-
 		}
 		public static void bestellingDoorvoeren(Bestelling nieuweToevoeging)
 		{
-			
 			// bestellingen inlezen
-			string bestellingenJson = File.ReadAllText(GetFilePath.RekeningenPath);
-			var bestellingenData = JsonConvert.DeserializeObject<bestellingenRoot>(bestellingenJson);
+			string rekeningenJson = File.ReadAllText(GetFilePath.RekeningenPath);
+			var rekeningenData = JsonConvert.DeserializeObject<bestellingenRoot>(rekeningenJson);
 
-			bool maakNieuweRekening = true;
+			bool maakNieuweRekening = true; // gaat naar false als de rekening is gevonden. anders maakt hij een nieuwe rekening aan
 
 			// appenden aan bestaande rekening
-			for (int i = 0; i < bestellingenData.Bestellingen.Count(); i++) 
+			for (int i = 0; i < rekeningenData.Bestellingen.Count(); i++) // ga alle bestaande rekeningen af...
 			{
-				if (bestellingenData.Bestellingen[i].Tafel == nieuweToevoeging.Tafel) // is de tafel gevonden?
+				if (rekeningenData.Bestellingen[i].Tafel == nieuweToevoeging.Tafel) // is de tafel gevonden?
 				{
-					// todo: programmeren wanneer het gerecht al in de rekening staat, verhoog bestellingData.Categorie.Aantal dan. nu werkt dat nog niet.
+					maakNieuweRekening = false; // er hoeft geen nieuwe rekening aangemaakt te worden als dit bereikt wordt
 
-					for (int j = 0; j < nieuweToevoeging.gerechten.Count; j++) bestellingenData.Bestellingen[i].gerechten.Add(nieuweToevoeging.gerechten[j]);
-					for (int j = 0; j < nieuweToevoeging.Desserts.Count; j++) bestellingenData.Bestellingen[i].Desserts.Add(nieuweToevoeging.Desserts[j]);
-					for (int j = 0; j < nieuweToevoeging.Dranken.Count; j++) bestellingenData.Bestellingen[i].Dranken.Add(nieuweToevoeging.Dranken[j]);
-					maakNieuweRekening = false;
+					for (int j = 0; j < nieuweToevoeging.gerechten.Count; j++) // voor elk gerecht wat nieuw toegevoegd wordt ..
+                    {
+						if (rekeningenData.Bestellingen[i].gerechten[j].Gerechtnaam == nieuweToevoeging.gerechten[j].Gerechtnaam) // komt de naam overeen met iets wat al op de rekening staat?
+							rekeningenData.Bestellingen[i].gerechten[j].Aantal += nieuweToevoeging.gerechten[j].Aantal;// .. dan niet toevoegen als nieuwe order, maar aantal optellen bij wat al besteld is
+						else rekeningenData.Bestellingen[i].gerechten.Add(nieuweToevoeging.gerechten[j]);// .. en anders gewoon toevoegen
+					}
+					for (int j = 0; j < nieuweToevoeging.Desserts.Count; j++) // hetzelfde voor alle nieuwe desserts ..
+                    {
+						if (rekeningenData.Bestellingen[i].Desserts[j].Dessertnaam == nieuweToevoeging.Desserts[j].Dessertnaam)
+						if (rekeningenData.Bestellingen[i].Desserts[j].Dessertnaam == nieuweToevoeging.Desserts[j].Dessertnaam)
+								rekeningenData.Bestellingen[i].Desserts[j].Aantal += nieuweToevoeging.Desserts[j].Aantal; 
+						else rekeningenData.Bestellingen[i].Desserts.Add(nieuweToevoeging.Desserts[j]);
+					}
+					for (int j = 0; j < nieuweToevoeging.Dranken.Count; j++) // .. en nieuwe dranken
+                    {
+						if (rekeningenData.Bestellingen[i].Dranken[j].Dranknaam == nieuweToevoeging.Dranken[j].Dranknaam)
+							rekeningenData.Bestellingen[i].Dranken[j].Aantal += nieuweToevoeging.Dranken[j].Aantal;
+						else rekeningenData.Bestellingen[i].Dranken.Add(nieuweToevoeging.Dranken[j]);
+					}
 				}
 			}
 			
 			// nieuwe rekening aanmaken ipv aan bestaande toevoegen
-			if (maakNieuweRekening) bestellingenData.Bestellingen.Add(nieuweToevoeging);
+			if (maakNieuweRekening) rekeningenData.Bestellingen.Add(nieuweToevoeging);
 
 			// bestellingen met geupdate items naar disk schrijven
-			var geupdateBestellingen = JsonConvert.SerializeObject(bestellingenData, Formatting.Indented);
+			var geupdateBestellingen = JsonConvert.SerializeObject(rekeningenData, Formatting.Indented);
 			File.WriteAllText(GetFilePath.RekeningenPath, geupdateBestellingen);
 
 			// terug naar hoofdmenu
-			medewerkerHome.SchermMedewerker($"Succesvol de nieuwe bestelling(en) aan de rekening van tafel {nieuweToevoeging.Tafel} toegevoegd!");
+			medewerkerHome.SchermMedewerker($"[!] Succesvol de nieuwe bestelling(en) aan de rekening van tafel {nieuweToevoeging.Tafel} toegevoegd!");
 
 		}
 
