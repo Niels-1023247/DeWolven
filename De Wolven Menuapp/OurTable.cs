@@ -13,9 +13,14 @@ namespace De_Wolven_Menuapp
         /* Maak NewDate method
          * maak NewTime method
          */
-        public static void NewDate()
+        public static void NewDate(string themDates)
         {
-
+            var temp = new Datum()
+            {
+                Data=new Dictionary<string, Tijd>() { { themDates, null } }
+            };
+            var NewDate=JsonConvert.SerializeObject(temp,Formatting.Indented);
+            File.WriteAllText("OurTable.json", NewDate);
         }
         public static void NewTime() 
         { 
@@ -28,7 +33,7 @@ namespace De_Wolven_Menuapp
             string CurrentDate = Resv.Date;
             string CurrentTime = Resv.Time;
             bool datePresent = DeserialisedResult.Data.ContainsKey(CurrentDate);
-            if (!datePresent) { NewDate(); }
+            if (!datePresent) { NewDate(CurrentDate); }
             bool timePresent = DeserialisedResult.Data[CurrentDate].Tijdblok.ContainsKey(CurrentTime);
             if (!timePresent) { NewTime(); }
             Tafels newTables = new()
