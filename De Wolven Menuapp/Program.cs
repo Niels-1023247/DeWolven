@@ -20,7 +20,7 @@ namespace De_Wolven_Menuapp
         {
             var reserveringJson = File.ReadAllText("reserveringenbestand.json");
             Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
-            var Resv = reserveringsData.Reserveringen[0];
+            var Resv = reserveringsData.Reserveringen[3];
             OurTable.AddTable(Resv);
             /*            ActiefAccount.Name = "Freddy";
                         ActiefAccount.IsIngelogd = true;
