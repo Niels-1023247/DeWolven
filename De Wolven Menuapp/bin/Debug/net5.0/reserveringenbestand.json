@@ -5,9 +5,6 @@
       "Date": "dummy",
       "Time": "3.00",
       "Code": 12345,
-<<<<<<< HEAD
-      "CountofPeople": 20
-=======
       "CountofPeople": 2
     },
     {
@@ -44,29 +41,23 @@
       "Time": "asdf",
       "Code": 12345,
       "CountofPeople": 8
->>>>>>> Re-JSON
+
     },
     {
       "Name": "Kevin",
       "Date": "12/02/1990",
       "Time": "18:00",
       "Code": 44092,
-<<<<<<< HEAD
-      "CountofPeople": 21
-=======
-      "CountofPeople": 200
->>>>>>> Re-JSON
+      "CountofPeople": 6
+
     },
     {
       "Name": "rgbf",
       "Date": "tyu",
       "Time": "rthfg",
       "Code": 17664,
-<<<<<<< HEAD
-      "CountofPeople": 21
-=======
       "CountofPeople": 6
->>>>>>> Re-JSON
+
     },
     {
       "Name": "niels",
@@ -74,10 +65,6 @@
       "Time": "13:20",
       "Code": 21598,
       "CountofPeople": 2
-<<<<<<< HEAD
-
-=======
->>>>>>> Re-JSON
     }
   ]
 }
