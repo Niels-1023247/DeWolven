@@ -20,7 +20,7 @@ mono_crash.*
 # Build results
 .vs/
 .vscode/
-bin/Debug/net5.0
+bin/
 obj/
 [Dd]ebug/
 [Dd]ebugPublic/
