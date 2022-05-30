@@ -19,7 +19,19 @@ namespace De_Wolven_Menuapp
         public static ActiveUser ActiefAccount = new ActiveUser();
         public static void Main()
         {
+<<<<<<< HEAD
             Beginscherm.Begin();
+=======
+            var reserveringJson = File.ReadAllText("reserveringenbestand.json");
+            Information reserveringsData = JsonConvert.DeserializeObject<Information>(reserveringJson);
+            var Resv = reserveringsData.Reserveringen[3];
+            OurTable.AddTable(Resv);
+            /*            ActiefAccount.Name = "Freddy";
+                        ActiefAccount.IsIngelogd = true;
+                        Console.WriteLine(ActiefAccountValues("Name"));
+                        Console.WriteLine(LoginCheck());
+                      Beginscherm.Begin();*/
+>>>>>>> Re-JSON
         }
         public static string ActiefAccountValues(string keuze)
         {

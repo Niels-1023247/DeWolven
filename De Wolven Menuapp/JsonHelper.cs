@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
+
 { 
-    public class Tafels
-    {
-        public string[] GebrTafels { get; set; }
-    }
     public class bestellingenRoot
     {
         public List<Bestelling> Bestellingen { get; set; } // root van rekeningen.json, een lijst van rekeningen met elk bestellingen
@@ -20,9 +17,19 @@ namespace De_Wolven_Menuapp
     {
         public string Tafel { get; set; } // tafel waar de desbetreffende bestelling aan gekoppeld is
     }
-    public class InGebruik
+    class Datum
     {
-        public Dictionary<string,Dictionary<string,Tafels>> Tafel { get; set; }
+        public Dictionary<string, Tijd> Data { get; set; }
+    }
+    class Tijd
+    {
+        public Dictionary<string, Tafels> Tijdblok { get; set; }
+    }
+    class Tafels
+    {
+        public int BeschTaf6 { get; set; }
+        public int BeschTaf4 { get; set; }
+        public int BeschTaf2 { get; set; }
     }
     public class ContactInfo
     {

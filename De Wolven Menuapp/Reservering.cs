@@ -122,7 +122,7 @@ namespace De_Wolven_Menuapp
 					Date = newDate,
 					Time = newTime,
 					Code = newNum,
-					CountofPeople = newCountofPeople
+					CountofPeople = Convert.ToInt32(newCountofPeople)
 				};
 
 			// haal json op en converteer naar c#

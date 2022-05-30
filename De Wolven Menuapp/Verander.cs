@@ -83,7 +83,7 @@ namespace De_Wolven_Menuapp
                     Console.Clear();
                     laatEenReserveringZien(geselecteerdeReservering);
                     Console.WriteLine("Welke wilt u aanpassen? Voer 1, 2, 3 of 4 in.\n");
-
+                    
                     // keuzemenu voor welk veld aangepast moet worden
                     ConsoleKey welkVeldAanpassen = Console.ReadKey().Key;
                     if (welkVeldAanpassen == ConsoleKey.D1)
