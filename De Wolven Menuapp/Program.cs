@@ -9,11 +9,14 @@ using Newtonsoft.Json;
 
 namespace De_Wolven_Menuapp
 { 
+    public static class GetFilePath
+    {
+        public static string RekeningenPath = Path.Combine(Directory.GetCurrentDirectory().Remove(Directory.GetCurrentDirectory().Length - 17), "data", "rekeningen.json");
 
+    }
     public class Program
     {
         public static ActiveUser ActiefAccount = new ActiveUser();
-        
         public static void Main()
         {
             Beginscherm.Begin();
