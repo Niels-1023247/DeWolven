@@ -17,7 +17,9 @@ namespace De_Wolven_Menuapp
         {
 
         }
-        public static void NewTime() { 
+        public static void NewTime() 
+        { 
+
         }
         public static void AddTable(EnkeleReservering Resv)
         {
