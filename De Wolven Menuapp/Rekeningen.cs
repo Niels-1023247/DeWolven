@@ -153,6 +153,7 @@ namespace De_Wolven_Menuapp
 							File.WriteAllText("reserveringenbestand.json", updatedReservations);
 						}
 					}
+					// comment
 
 					// verwijder bestelling uit systeem, en update de database
 					rekeningenData.Bestellingen.RemoveAt(rekeningIndex);
