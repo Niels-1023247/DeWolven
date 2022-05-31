@@ -36,7 +36,7 @@ namespace De_Wolven_Menuapp
                 }
                 if (soortgebruiker == ConsoleKey.Escape)
                 {
-                    Environment.Exit(0);
+                    break;
                 }
             }
         }

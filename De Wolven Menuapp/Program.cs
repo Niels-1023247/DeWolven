@@ -20,12 +20,12 @@ namespace De_Wolven_Menuapp
         public static void Main()
         {
 
-            //Beginscherm.Begin();
+            Beginscherm.Begin();
 
-            var reserveringJson = File.ReadAllText("reserveringenbestand.json");
+            /*var reserveringJson = File.ReadAllText("reserveringenbestand.json");
             reserveringenRoot reserveringsData = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
             var Resv = reserveringsData.Reserveringen[6];
-            OurTable.AddTable(Resv);
+            OurTable.AddTable(Resv);*/
 
         }
         public static string ActiefAccountValues(string keuze)

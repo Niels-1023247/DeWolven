@@ -45,16 +45,20 @@ namespace De_Wolven_Menuapp
         // kies welke contactgegevens veranderd zullen worden
         public static void ChangeInfoMenu()
         {
-            Console.WriteLine("Wat wilt u veranderen?\n[1]Adres\n[2]Telefoonnummer\n[3]openingstijden\n");
-            var input=Console.ReadKey().Key;
-            Console.WriteLine("");
-            if (input == ConsoleKey.D1) { ChangeInfo(1); }
-            if (input == ConsoleKey.D2) { ChangeInfo(2); }
-            if (input == ConsoleKey.D3) { ChangeInfo(3); }
+            while (true)
+            {
+                Console.WriteLine("Wat wilt u veranderen?\n[1]Adres\n[2]Telefoonnummer\n[3]openingstijden\n\nDruk op Esc om terug te gaan");
+                var input = Console.ReadKey().Key;
+                Console.WriteLine("");
+                if (input == ConsoleKey.D1) { ChangeInfo(1); }
+                else if (input == ConsoleKey.D2) { ChangeInfo(2); }
+                else if (input == ConsoleKey.D3) { ChangeInfo(3); }
+                else if (input == ConsoleKey.Escape) { break; }
+            }
         }
         // functie om de gegevens per soort (adres/telefoonnummer/openingstijden) te veranderen op basis van variable i
         public static void ChangeInfo(int i)
-        {
+        { 
             var JsonString = File.ReadAllText("ContactInfo.json");
             var DeserialisedResult = JsonConvert.DeserializeObject<ContactInfo>(JsonString);
             if (i == 1)
