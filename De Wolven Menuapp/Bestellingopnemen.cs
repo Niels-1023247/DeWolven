@@ -100,8 +100,16 @@ namespace De_Wolven_Menuapp
 			var menuData = JsonConvert.DeserializeObject<Menukaart>(menukaartJson);
 
 			// bestellingen inlezen
-			string bestellingenJson = File.ReadAllText(GetFilePath.RekeningenPath);
-			var bestellingenData = JsonConvert.DeserializeObject<bestellingenRoot>(bestellingenJson);
+			try
+			{
+				string bestellingenJson = File.ReadAllText(GetFilePath.Dir("rekeningen.json"));
+				var bestellingenData = JsonConvert.DeserializeObject<bestellingenRoot>(bestellingenJson);
+			}
+            catch (FileNotFoundException)
+            {
+				string a = "";
+				File.WriteAllText(GetFilePath.Dir("rekeningen.json"), a);
+            };
 
 			Console.Clear();
 			// initialiseren variables
@@ -274,7 +282,7 @@ namespace De_Wolven_Menuapp
 		public static void bestellingDoorvoeren(Bestelling nieuweToevoeging)
 		{
 			// bestellingen inlezen
-			string rekeningenJson = File.ReadAllText(GetFilePath.RekeningenPath);
+			string rekeningenJson = File.ReadAllText(GetFilePath.Dir("rekeningen.json"));
 			var rekeningenData = JsonConvert.DeserializeObject<bestellingenRoot>(rekeningenJson);
 
 			bool maakNieuweRekening = true; // gaat naar false als de rekening is gevonden. anders maakt hij een nieuwe rekening aan
@@ -313,7 +321,7 @@ namespace De_Wolven_Menuapp
 
 			// bestellingen met geupdate items naar disk schrijven
 			var geupdateBestellingen = JsonConvert.SerializeObject(rekeningenData, Formatting.Indented);
-			File.WriteAllText(GetFilePath.RekeningenPath, geupdateBestellingen);
+			File.WriteAllText(GetFilePath.Dir("rekeningen.json"), geupdateBestellingen);
 
 			// terug naar hoofdmenu
 			medewerkerHome.SchermMedewerker($"[!] Succesvol de nieuwe bestelling(en) aan de rekening van tafel {nieuweToevoeging.Tafel} toegevoegd!");

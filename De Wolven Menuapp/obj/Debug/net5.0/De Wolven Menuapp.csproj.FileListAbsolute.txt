@@ -15,3 +15,4 @@ C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolve
 C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\ref\De Wolven Menuapp.dll
 C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.pdb
 C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.genruntimeconfig.cache
+C:\Users\kevin\source\repos\DeWolven\De Wolven Menuapp\obj\Debug\net5.0\De Wolven Menuapp.csproj.AssemblyReference.cache
