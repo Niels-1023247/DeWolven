@@ -16,11 +16,11 @@ namespace De_Wolven_Menuapp
             reserveringenRoot reserveringsData = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
             for(int i=0; i < reserveringsData.Reserveringen.Count; i++)
             {
-                Console.WriteLine(reserveringsData.Reserveringen[i].Name);
-                Console.WriteLine(reserveringsData.Reserveringen[i].Date);
-                Console.WriteLine(reserveringsData.Reserveringen[i].Time);
-                Console.WriteLine(reserveringsData.Reserveringen[i].Code);
-                Console.WriteLine(reserveringsData.Reserveringen[i].CountofPeople);
+                Console.WriteLine($"Reservering op naam {reserveringsData.Reserveringen[i].Name}\n");
+                //Console.WriteLine(reserveringsData.Reserveringen[i].Date);
+                //Console.WriteLine(reserveringsData.Reserveringen[i].Time);
+                //Console.WriteLine(reserveringsData.Reserveringen[i].Code);
+                //Console.WriteLine(reserveringsData.Reserveringen[i].CountofPeople);
             }
             
         }
@@ -53,8 +53,6 @@ namespace De_Wolven_Menuapp
 
                     var updatedReservations = JsonConvert.SerializeObject(reserveringsData, Formatting.Indented);
                     File.WriteAllText("reserveringenbestand.json", updatedReservations);
-                    Console.WriteLine(updatedReservations);
-                    Console.ReadLine();
 
                 }
             }
