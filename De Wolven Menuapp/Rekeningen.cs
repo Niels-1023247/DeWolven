@@ -140,14 +140,26 @@ namespace De_Wolven_Menuapp
 					Console.WriteLine($"Het totaalbedrag van deze rekening was {totaalBedrag} euro.");
 					Console.WriteLine("Druk op een toets om terug te gaan naar het medewerkersmenu.");
 
+					var reserveringenJson = File.ReadAllText("reserveringenbestand.json");
+					var reserveringenDataBase = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringenJson);
+
+					// reservering verwijderen na afrekenen
+					for (int i = 0; i < reserveringenDataBase.Reserveringen.Count; i++)
+                    {
+						if (reserveringenDataBase.Reserveringen[i].Code == geselecteerdeRekening.Code)
+                        {
+							reserveringenDataBase.Reserveringen.RemoveAt(i);
+							var updatedReservations = JsonConvert.SerializeObject(reserveringenDataBase, Formatting.Indented);
+							File.WriteAllText("reserveringenbestand.json", updatedReservations);
+						}
+					}
+
 					// verwijder bestelling uit systeem, en update de database
 					rekeningenData.Bestellingen.RemoveAt(rekeningIndex);
 					var geupdateRekeningen = JsonConvert.SerializeObject(rekeningenData, Formatting.Indented);
 					File.WriteAllText(GetFilePath.RekeningenPath, geupdateRekeningen);
 					ConsoleKey cont = Console.ReadKey().Key;
 					medewerkerHome.SchermMedewerker();
-
-					// RESERVERING <---- NIET VERGETEN UIT HET SYSTEEM HALEN !!! TOEVOEGEN
 				}
 
 				// optie rekening verwijderen zonder af te rekenen
