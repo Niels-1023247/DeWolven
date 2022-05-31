@@ -80,34 +80,51 @@ namespace De_Wolven_Menuapp
                 BeschTaf6 = DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6
             };
             //logica voor indelen tafels
-            Console.WriteLine(Resv.CountofPeople);
-            if (Resv.CountofPeople<=2 && Resv.CountofPeople > 0)
+            var themPeeps = Resv.CountofPeople;
+            while (themPeeps > 0)
             {
-                if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf2 == 0)
+                if (themPeeps <= 2 && themPeeps > 0)
+                {
+                    if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf2 == 0)
+                    {
+                        if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf4 == 0)
+                        {
+                            if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
+                            //tafel van beschikbaarheid schrijven
+                            else { newTables.BeschTaf6--; break; }
+                        }
+                        else { newTables.BeschTaf4--; break; }
+                    }
+                    else { newTables.BeschTaf2--; break; }
+                }
+                else if (themPeeps > 2 && themPeeps <= 4)
                 {
                     if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf4 == 0)
                     {
                         if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
-                        //tafel van beschikbaarheid schrijven
-                        else { newTables.BeschTaf6--; }
+                        else { newTables.BeschTaf6--; break; }
                     }
-                    else { newTables.BeschTaf4--; }
+                    else { newTables.BeschTaf4--; break; }
                 }
-                else { newTables.BeschTaf2--; }
-            }
-            else if (Resv.CountofPeople>2 && Resv.CountofPeople <= 4)
-            {
-                if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf4 == 0)
+                else if (themPeeps > 4 && themPeeps <= 6)
                 {
                     if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
-                    else { newTables.BeschTaf6--; }
+                    else { newTables.BeschTaf6--; break; }
                 }
-                else { newTables.BeschTaf4--; }
-            }
-            else if (Resv.CountofPeople>4 && Resv.CountofPeople <= 6)
-            {
-                if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
-                else { newTables.BeschTaf6--; }
+                else if (themPeeps > 6)
+                {
+                    if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
+                    else
+                    {
+                        if (themPeeps <= 8) { newTables.BeschTaf4 -= 2; break; }
+                        else
+                        {
+                            newTables.BeschTaf6--;
+                            themPeeps -= 6;
+                        }
+                        
+                    }
+                }
             }
             DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime] = newTables;
             var NewStuff = JsonConvert.SerializeObject(DeserialisedResult, Formatting.Indented);
