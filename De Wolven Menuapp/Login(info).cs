@@ -163,8 +163,9 @@ namespace De_Wolven_Menuapp
 				// elk bestaand medewerkersaccount afgaan en controleren of de login overeenkomt
 				else
 				{
-					for (int item = 0; item < alleAccounts.Accounts.Count(); item++)
+					for (int item = 0; item < alleAccounts.EmpAcc.Count(); item++)
 					{
+
 						if (alleAccounts.EmpAcc[item].Username == enteredusername && alleAccounts.EmpAcc[item].Password == enteredpassword)
 						{
 							Console.WriteLine("Ingelogd");
