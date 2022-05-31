@@ -165,11 +165,12 @@ namespace De_Wolven_Menuapp
 			}
 			else
 			{
-				ConsoleKey eenToets = Console.ReadKey().Key;
-				Console.WriteLine("U heeft succesvol de volgende reservering toegevoegd!");
+				
+				Console.WriteLine("\nU heeft succesvol de volgende reservering toegevoegd!");
 				Console.WriteLine($"Naam: {newName}\nDate: {newDate}\nTime: {newTime}\nAantal plaatsen: {newCountofPeople}");
 				Console.WriteLine($"\nUw reserveringscode is: {newNum}\nBewaar deze code goed, hiermee kunt u de reservering aanpassen of verwijderen!");
 				Console.WriteLine("Druk op een toets om terug te gaan naar het menu.");
+				ConsoleKey eenToets = Console.ReadKey().Key;
 				if (Program.ActiefAccountValues("Level") == "Klant") Hoofdmenuscherm.SchermKlanten();
 				else medewerkerHome.SchermMedewerker();
 			}

@@ -16,6 +16,7 @@ namespace De_Wolven_Menuapp
     public class Bestelling : Menukaart
     {
         public string Tafel { get; set; } // tafel waar de desbetreffende bestelling aan gekoppeld is
+        public int Code { get; set; }
     }
     class Datum
     {

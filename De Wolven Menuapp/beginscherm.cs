@@ -34,6 +34,10 @@ namespace De_Wolven_Menuapp
                 {
                     unitTestingMain();
                 }
+                else if (soortgebruiker == ConsoleKey.X) // verborgen unit test menu [U]
+                {
+                    Bestellingopnemen.nieuweBestelling();
+                }
                 if (soortgebruiker == ConsoleKey.Escape)
                 {
                     break;
