@@ -161,6 +161,8 @@ namespace De_Wolven_Menuapp
 					File.WriteAllText(GetFilePath.RekeningenPath, geupdateRekeningen);
 					ConsoleKey cont = Console.ReadKey().Key;
 					medewerkerHome.SchermMedewerker();
+					break;
+
 				}
 
 				// optie rekening verwijderen zonder af te rekenen
