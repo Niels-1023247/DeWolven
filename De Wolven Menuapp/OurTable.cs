@@ -52,7 +52,7 @@ namespace De_Wolven_Menuapp
             File.WriteAllText("OurTable.json", NewTime);
         }
 
-        public static void AddTable(EnkeleReservering Resv)
+        public static bool AddTable(EnkeleReservering Resv)
         {
             var JsonString = File.ReadAllText("OurTable.json");
             var DeserialisedResult = JsonConvert.DeserializeObject<Datum>(JsonString);
@@ -81,15 +81,16 @@ namespace De_Wolven_Menuapp
             };
             //logica voor indelen tafels
             var themPeeps = Resv.CountofPeople;
+            if (themPeeps < 0) return false;
             while (themPeeps > 0)
             {
                 if (themPeeps <= 2 && themPeeps > 0)
                 {
-                    if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf2 == 0)
+                    if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf2 <= 0)
                     {
-                        if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf4 == 0)
+                        if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf4 <= 0)
                         {
-                            if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
+                            if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 <= 0) { return false; }
                             //tafel van beschikbaarheid schrijven
                             else { newTables.BeschTaf6--; break; }
                         }
@@ -99,36 +100,37 @@ namespace De_Wolven_Menuapp
                 }
                 else if (themPeeps > 2 && themPeeps <= 4)
                 {
-                    if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf4 == 0)
+                    if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf4 <= 0)
                     {
-                        if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
+                        if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 <= 0) { return false; }
                         else { newTables.BeschTaf6--; break; }
                     }
                     else { newTables.BeschTaf4--; break; }
                 }
                 else if (themPeeps > 4 && themPeeps <= 6)
                 {
-                    if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
+                    if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 <= 0) { return false; }
                     else { newTables.BeschTaf6--; break; }
                 }
                 else if (themPeeps > 6)
                 {
-                    if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 == 0) { Console.WriteLine("Geen zitplaatsen meer over"); }
-                    else
+                    if (themPeeps <= 8 && DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 >= 2)
                     {
-                        if (themPeeps <= 8) { newTables.BeschTaf4 -= 2; break; }
-                        else
-                        {
-                            newTables.BeschTaf6--;
-                            themPeeps -= 6;
-                        }
-                        
+                        newTables.BeschTaf4 -= 2; break;
+                    }
+                    else if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 <= 0) { return false; }
+                    else if(DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 * 6 <= themPeeps) { return false; }
+                    {
+                        newTables.BeschTaf6--;
+                        themPeeps -= 6;
                     }
                 }
             }
             DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime] = newTables;
             var NewStuff = JsonConvert.SerializeObject(DeserialisedResult, Formatting.Indented);
             File.WriteAllText("OurTable.json", NewStuff);
+            return true;
+
         }
     }
 }

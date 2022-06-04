@@ -158,7 +158,7 @@ namespace De_Wolven_Menuapp
 
 				newDate = tijdelijkeDatum;
 
-				Console.WriteLine($"Hoelaat is de reservering? (Voer de tijd in volgens het volgende formaat: 15:43 )\n");
+				Console.WriteLine($"Hoelaat is de reservering? (Voer de tijd in volgens het volgende formaat, Vul alleen hele uren in alstublieft: 15:00 )\n");
 
 				string tijdelijkeTijd = Console.ReadLine();
 
@@ -188,11 +188,8 @@ namespace De_Wolven_Menuapp
 
 				newTime = tijdelijkeTijd;
 				//newTime = Console.ReadLine();
-
-				Console.WriteLine($"Met hoeveel mensen wilt u komen op {newDate}?");
-				newCountofPeople = Console.ReadLine();
-
-
+				
+				EnkeleReservering newReservation;
 				// genereer nieuwe code en controleer of deze niet eerder gebruikt is, met dubbeleReserveringsCodeGevonden()
 				int newNum = new Random().Next(10000, 99999);
 				while (dubbeleReserveringsCodeGevonden(newNum) == true) // als die code al gebruikt is 
@@ -200,10 +197,13 @@ namespace De_Wolven_Menuapp
 					newNum = new Random().Next(10000, 99999);
 				}
 
-				if (unitTesting) Console.WriteLine($"[UNIT TESTING] Gegenereerde code is {newNum}...");
+				if (unitTesting) { Console.WriteLine($"[UNIT TESTING] Gegenereerde code is {newNum}..."); }
+				
+				Console.WriteLine($"Met hoeveel mensen wilt u komen op {newDate}?");
+				newCountofPeople = Convert.ToInt32(Console.ReadLine());
 
 				// maak nieuwe reservering aan met de gegeven informatie
-				EnkeleReservering newReservation = new()
+				newReservation = new()
 				{
 					Name = newName,
 					Date = newDate,
@@ -211,7 +211,13 @@ namespace De_Wolven_Menuapp
 					Code = newNum,
 					CountofPeople = Convert.ToInt32(newCountofPeople)
 				};
-
+				bool IsTable = OurTable.AddTable(newReservation);
+				while (!IsTable)
+				{
+					Console.WriteLine("Er zijn niet genoeg plaatsen over in het restaurant, of u heeft een onjuist getal ingevuld, probeer het nog een keer");
+				    newReservation.CountofPeople= Convert.ToInt32(Console.ReadLine());
+					IsTable = OurTable.AddTable(newReservation);
+				}
 				// haal json op en converteer naar c#
 				reserveringenJson = File.ReadAllText("reserveringenbestand.json");
 				reserveringenDataBase = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringenJson);
