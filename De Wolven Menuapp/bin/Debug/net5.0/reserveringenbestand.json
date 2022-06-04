@@ -64,7 +64,32 @@
       "Date": "04-08-2030",
       "Time": "13:20",
       "Code": 21598,
+<<<<<<< HEAD
       "CountofPeople": 2
+=======
+      "CountofPeople": "2"
+    },
+    {
+      "Name": "Niels van Klaveren",
+      "Date": "29/05/2022",
+      "Time": "23:00",
+      "Code": 51594,
+      "CountofPeople": "3"
+    },
+    {
+      "Name": "Smidt",
+      "Date": "29/05/2022",
+      "Time": "18:30",
+      "Code": 44213,
+      "CountofPeople": "2"
+    },
+    {
+      "Name": "Ruyter",
+      "Date": "30/06/2022",
+      "Time": "23:59",
+      "Code": 74929,
+      "CountofPeople": "2"
+>>>>>>> datetime_valideren
     }
   ]
 }

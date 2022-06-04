@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -83,10 +84,10 @@ namespace De_Wolven_Menuapp
 				newDate = unitTestCase.Item1[1];
 				newTime = unitTestCase.Item1[2];
 				newCountofPeople = unitTestCase.Item2;
-                Console.WriteLine($"[UNIT TESTING] Testen nieuwe reservering aanmaken met invoer {newName} | {newDate} | {newTime} | {newCountofPeople} ...");
+				Console.WriteLine($"[UNIT TESTING] Testen nieuwe reservering aanmaken met invoer {newName} | {newDate} | {newTime} | {newCountofPeople} ...");
 			}
 			// script voor gebruiker om nieuwe reservering te maken
-			else 
+			else
 			{
 				Console.Clear();
 				Console.WriteLine("Vul de onderstaande gegevens in om een reservering te maken");
@@ -99,24 +100,110 @@ namespace De_Wolven_Menuapp
 				Console.WriteLine("Op welke datum is de reservering?\n");
 				newDate = Console.ReadLine();
 
-				Console.WriteLine($"Hoelaat is de reservering?\n");
-				newTime = Console.ReadLine();
+
+				Console.WriteLine("Op welke datum is de reservering? \n(Het gewenste formaat is: dag/maand/jaar (voorbeeld: 24/05/2022).)\n");
+				string tijdelijkeDatum;
+				tijdelijkeDatum = Console.ReadLine();
+
+
+				// variabel om te checken of de reservering op dezelfde dag valt dat je reserveert. Zodat je bij de tijdsvalidatie een extra check kan uitvoeren.
+				bool zelfdeDag = false;
+
+				// functie die bekijkt of de ingevoerde datum wel overeenkomt met het gewenste formaat en of de ingevoerde datum niet eerder is dan de huidige datum.
+				bool funcDatumValidatie(string dateToValidate)
+				{
+					DateTime d;
+					bool dateValidatie = DateTime.TryParseExact(
+					dateToValidate,
+					"dd/MM/yyyy",
+					CultureInfo.InvariantCulture,
+					DateTimeStyles.None,
+					out d);
+
+					try
+					{
+						// check of de reservering op dezelfde dag valt dat je reserveert. Ik vraag bij de tijds check deze waarde.
+						if (DateTime.ParseExact(dateToValidate, "dd/MM/yyyy", CultureInfo.InvariantCulture) == DateTime.Now.Date)
+						{
+							zelfdeDag = true;
+						}
+					}
+					catch (Exception ex)
+					{
+						dateValidatie = false;
+						return dateValidatie;
+
+					}
+
+
+					// als de ingevoerde datum eerder is dan de huidige datum dan zet hij de validatie bool op false.
+					if (DateTime.ParseExact(dateToValidate, "dd/MM/yyyy", CultureInfo.InvariantCulture) < DateTime.Now.Date)
+					{
+						dateValidatie = false;
+					}
+
+					return dateValidatie;
+
+				}
+
+				// Check of de datum wel voldoet na de Validatie Functie, zo niet vraagt ie om een nieuwe input en doet hij de validatie opnieuw
+				bool dateVoldoet = funcDatumValidatie(tijdelijkeDatum);
+				while (!dateVoldoet)
+				{
+					Console.WriteLine("Sorry uw datum ( " + tijdelijkeDatum + " ) voldoet niet aan ons formaat of is al geweest.\n Dit is het gewenste formaat: dag/maand/jaar (voorbeeld: 24/05/2022).\n Voer uw datum nogmaals in.");
+					tijdelijkeDatum = Console.ReadLine();
+					dateVoldoet = funcDatumValidatie(tijdelijkeDatum);
+
+				}
+
+				newDate = tijdelijkeDatum;
+
+				Console.WriteLine($"Hoelaat is de reservering? (Voer de tijd in volgens het volgende formaat: 15:43 )\n");
+
+				string tijdelijkeTijd = Console.ReadLine();
+
+
+				// valideert of de ingevulde tijd wel klopt qua formaat en als je voor vandaag reserveert dat die tijd niet al geweest is
+				bool funcTijdValidatie(string time, string format = "HH:mm")
+				{
+					DateTime outTime;
+
+					// Checkt als je reserveert voor vandaag en checkt dan of die tijd niet al geweest is.
+
+					if (zelfdeDag && (DateTime.ParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None) < DateTime.Now)) { return false; }
+
+					return DateTime.TryParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out outTime);
+				}
+
+				bool tijdVoldoet = funcTijdValidatie(tijdelijkeTijd);
+
+				// Check of de tijd wel voldoet na de Validatie Functie, zo niet vraagt ie om een nieuwe input en doet hij de validatie opnieuw
+				while (!tijdVoldoet)
+				{
+					Console.WriteLine("Sorry uw tijd ( " + tijdelijkeTijd + " ) voldoet niet aan ons formaat of is al geweest (als u voor vandaag reserveert).\n Dit is het gewenste formaat: 15:43 \n Voer uw tijd nogmaals in.");
+					tijdelijkeTijd = Console.ReadLine();
+					tijdVoldoet = funcTijdValidatie(tijdelijkeTijd);
+
+				}
+
+				newTime = tijdelijkeTijd;
+				//newTime = Console.ReadLine();
 
 				Console.WriteLine($"Met hoeveel mensen wilt u komen op {newDate}?");
-				newCountofPeople = Convert.ToInt32(Console.ReadLine());
-			}
+				newCountofPeople = Console.ReadLine();
 
-			// genereer nieuwe code en controleer of deze niet eerder gebruikt is, met dubbeleReserveringsCodeGevonden()
-			int newNum = new Random().Next(10000, 99999);
-			while (dubbeleReserveringsCodeGevonden(newNum) == true) // als die code al gebruikt is 
-			{
-				newNum = new Random().Next(10000, 99999);
-			}
 
-            if (unitTesting) Console.WriteLine($"[UNIT TESTING] Gegenereerde code is {newNum}...");
+				// genereer nieuwe code en controleer of deze niet eerder gebruikt is, met dubbeleReserveringsCodeGevonden()
+				int newNum = new Random().Next(10000, 99999);
+				while (dubbeleReserveringsCodeGevonden(newNum) == true) // als die code al gebruikt is 
+				{
+					newNum = new Random().Next(10000, 99999);
+				}
 
-			// maak nieuwe reservering aan met de gegeven informatie
-			EnkeleReservering newReservation = new()
+				if (unitTesting) Console.WriteLine($"[UNIT TESTING] Gegenereerde code is {newNum}...");
+
+				// maak nieuwe reservering aan met de gegeven informatie
+				EnkeleReservering newReservation = new()
 				{
 					Name = newName,
 					Date = newDate,
@@ -125,57 +212,56 @@ namespace De_Wolven_Menuapp
 					CountofPeople = Convert.ToInt32(newCountofPeople)
 				};
 
-			// haal json op en converteer naar c#
-			reserveringenJson = File.ReadAllText("reserveringenbestand.json");
-			reserveringenDataBase = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringenJson);
-
-			// voeg reservering toe aan de lijst van reserveringen, en schrijf geüpdate lijst terug naar json
-			reserveringenDataBase.Reserveringen.Add(newReservation);
-			var updatedReservations = JsonConvert.SerializeObject(reserveringenDataBase, Formatting.Indented);
-			File.WriteAllText("reserveringenbestand.json", updatedReservations);
-
-
-
-			// terug naar juiste menu
-			if (unitTesting)
-			{
+				// haal json op en converteer naar c#
 				reserveringenJson = File.ReadAllText("reserveringenbestand.json");
 				reserveringenDataBase = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringenJson);
-                Console.WriteLine("[UNIT TESTING] Reservering proberen terug te vinden in JSON...");
-				bool reserveringSuccesvolTeruggevonden = false;
-				for (int i = 0; i < reserveringenDataBase.Reserveringen.Count; i++)
-                {
-					if (reserveringenDataBase.Reserveringen[i].Code == newNum)
-                    {
-						Console.WriteLine($"[UNIT TESTING] Reservering gevonden met code {newNum}. Testen of informatie overeen komt met test case...");
-						if (newName == reserveringenDataBase.Reserveringen[i].Name &
-							newDate == reserveringenDataBase.Reserveringen[i].Date &
-							newTime == reserveringenDataBase.Reserveringen[i].Time &
-							newCountofPeople == reserveringenDataBase.Reserveringen[i].CountofPeople)
-                        {
-                            Console.WriteLine($"[UNIT TESTING] Gevonden informatie: {reserveringenDataBase.Reserveringen[i].Name} | " +
-                                $"{reserveringenDataBase.Reserveringen[i].Date} | " +
-                                $"{reserveringenDataBase.Reserveringen[i].Time} | " +
-                                $"{reserveringenDataBase.Reserveringen[i].CountofPeople}");
-							Console.WriteLine("[UNIT TESTING] Succesvol de reservering terug gevonden! TEST CASE PASSED");
-							reserveringSuccesvolTeruggevonden = true;
-                        }
-                    }
-                }
-			}
-			else
-			{
-				
-				Console.WriteLine("\nU heeft succesvol de volgende reservering toegevoegd!");
-				Console.WriteLine($"Naam: {newName}\nDate: {newDate}\nTime: {newTime}\nAantal plaatsen: {newCountofPeople}");
-				Console.WriteLine($"\nUw reserveringscode is: {newNum}\nBewaar deze code goed, hiermee kunt u de reservering aanpassen of verwijderen!");
-				Console.WriteLine("Druk op een toets om terug te gaan naar het menu.");
-				ConsoleKey eenToets = Console.ReadKey().Key;
-				if (Program.ActiefAccountValues("Level") == "Klant") Hoofdmenuscherm.SchermKlanten();
-				else medewerkerHome.SchermMedewerker();
-			}
 
-			
+				// voeg reservering toe aan de lijst van reserveringen, en schrijf geüpdate lijst terug naar json
+				reserveringenDataBase.Reserveringen.Add(newReservation);
+				var updatedReservations = JsonConvert.SerializeObject(reserveringenDataBase, Formatting.Indented);
+				File.WriteAllText("reserveringenbestand.json", updatedReservations);
+
+
+
+				// terug naar juiste menu
+				if (unitTesting)
+				{
+					reserveringenJson = File.ReadAllText("reserveringenbestand.json");
+					reserveringenDataBase = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringenJson);
+					Console.WriteLine("[UNIT TESTING] Reservering proberen terug te vinden in JSON...");
+					bool reserveringSuccesvolTeruggevonden = false;
+					for (int i = 0; i < reserveringenDataBase.Reserveringen.Count; i++)
+					{
+						if (reserveringenDataBase.Reserveringen[i].Code == newNum)
+						{
+							Console.WriteLine($"[UNIT TESTING] Reservering gevonden met code {newNum}. Testen of informatie overeen komt met test case...");
+							if (newName == reserveringenDataBase.Reserveringen[i].Name &
+								newDate == reserveringenDataBase.Reserveringen[i].Date &
+								newTime == reserveringenDataBase.Reserveringen[i].Time &
+								newCountofPeople == reserveringenDataBase.Reserveringen[i].CountofPeople)
+							{
+								Console.WriteLine($"[UNIT TESTING] Gevonden informatie: {reserveringenDataBase.Reserveringen[i].Name} | " +
+									$"{reserveringenDataBase.Reserveringen[i].Date} | " +
+									$"{reserveringenDataBase.Reserveringen[i].Time} | " +
+									$"{reserveringenDataBase.Reserveringen[i].CountofPeople}");
+								Console.WriteLine("[UNIT TESTING] Succesvol de reservering terug gevonden! TEST CASE PASSED");
+								reserveringSuccesvolTeruggevonden = true;
+							}
+						}
+					}
+				}
+				else
+				{
+
+					Console.WriteLine("\nU heeft succesvol de volgende reservering toegevoegd!");
+					Console.WriteLine($"Naam: {newName}\nDate: {newDate}\nTime: {newTime}\nAantal plaatsen: {newCountofPeople}");
+					Console.WriteLine($"\nUw reserveringscode is: {newNum}\nBewaar deze code goed, hiermee kunt u de reservering aanpassen of verwijderen!");
+					Console.WriteLine("Druk op een toets om terug te gaan naar het menu.");
+					ConsoleKey eenToets = Console.ReadKey().Key;
+					
+				}
+
+
 
 
 
@@ -202,7 +288,8 @@ namespace De_Wolven_Menuapp
 				//		Console.WriteLine("Datum is vandaag of al geweest, voer opnieuw in");
 				//	}
 				//}
-
+			
+			}
 		}
 		public static int Compare(DateTime d1, DateTime d2)
 		{
