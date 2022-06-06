@@ -64,10 +64,7 @@
       "Date": "04-08-2030",
       "Time": "13:20",
       "Code": 21598,
-<<<<<<< HEAD
       "CountofPeople": 2
-=======
-      "CountofPeople": "2"
     },
     {
       "Name": "Niels van Klaveren",
@@ -89,7 +86,6 @@
       "Time": "23:59",
       "Code": 74929,
       "CountofPeople": "2"
->>>>>>> datetime_valideren
     }
   ]
 }

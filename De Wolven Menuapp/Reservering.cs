@@ -97,8 +97,7 @@ namespace De_Wolven_Menuapp
 					Console.WriteLine("Op welke naam staat de reservering?\n");
 					newName = Console.ReadLine();
 				}
-				Console.WriteLine("Op welke datum is de reservering?\n");
-				newDate = Console.ReadLine();
+				
 
 
 				Console.WriteLine("Op welke datum is de reservering? \n(Het gewenste formaat is: dag/maand/jaar (voorbeeld: 24/05/2022).)\n");
@@ -180,7 +179,7 @@ namespace De_Wolven_Menuapp
 				// Check of de tijd wel voldoet na de Validatie Functie, zo niet vraagt ie om een nieuwe input en doet hij de validatie opnieuw
 				while (!tijdVoldoet)
 				{
-					Console.WriteLine("Sorry uw tijd ( " + tijdelijkeTijd + " ) voldoet niet aan ons formaat of is al geweest (als u voor vandaag reserveert).\n Dit is het gewenste formaat: 15:43 \n Voer uw tijd nogmaals in.");
+					Console.WriteLine("Sorry uw tijd ( " + tijdelijkeTijd + " ) voldoet niet aan ons formaat of is al geweest (als u voor vandaag reserveert).\n Dit is het gewenste formaat: 15:00 \n Voer uw tijd nogmaals in.");
 					tijdelijkeTijd = Console.ReadLine();
 					tijdVoldoet = funcTijdValidatie(tijdelijkeTijd);
 
