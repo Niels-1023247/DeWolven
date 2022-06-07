@@ -147,21 +147,66 @@ namespace De_Wolven_Menuapp
 
 				newDate = tijdelijkeDatum;
 
+				DateTime weekDag = DateTime.ParseExact(newDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+				string dagVanDeWeek = (weekDag.ToString("dddd",
+								  new CultureInfo("nl-NL"))).ToString();
+
+
+
 				Console.WriteLine($"Hoelaat is de reservering? (Voer de tijd in volgens het volgende formaat, Vul alleen hele uren in alstublieft: 15:00 )\n");
 
 				string tijdelijkeTijd = Console.ReadLine();
 
 
 				// valideert of de ingevulde tijd wel klopt qua formaat en als je voor vandaag reserveert dat die tijd niet al geweest is
-				bool funcTijdValidatie(string time, string format = "HH:mm")
+				bool funcTijdValidatie(string time, string format = "HH:00")
 				{
 					DateTime outTime;
 
 					// Checkt als je reserveert voor vandaag en checkt dan of die tijd niet al geweest is.
 
+
+
 					if (zelfdeDag && (DateTime.ParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None) < DateTime.Now)) { return false; }
 
-					return DateTime.TryParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out outTime);
+					TimeSpan start = TimeSpan.Parse("12:00"); 
+					TimeSpan end = TimeSpan.Parse("22:00"); 
+					
+					try
+                    {
+						TimeSpan now = DateTime.ParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None).TimeOfDay;
+
+						if (start <= end)
+						{
+							// start and stop times are in the same day
+							if (now >= start && now < end)
+							{
+								// current time is between start and stop
+
+							}
+							else
+							{
+								return false;
+							}
+						}
+						else
+						{
+							return false;
+							// start and stop times are in different days
+							if (now >= start || now <= end)
+							{
+								// current time is between start and stop
+							}
+						}
+
+						return DateTime.TryParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out outTime);
+					}
+					
+					catch (Exception ex)
+					{
+						return false;
+					}
+					
 				}
 
 				bool tijdVoldoet = funcTijdValidatie(tijdelijkeTijd);
