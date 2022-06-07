@@ -14,19 +14,19 @@ namespace De_Wolven_Menuapp
         public static void NewDate(string themDates, string themTimes)
         {
             //lees JSON, 
-            var JstringTmp = File.ReadAllText("OurTable.json");
+            var JstringTmp = File.ReadAllText(GetFilePath.Dir("OurTable.json"));
             var LeOld = JsonConvert.DeserializeObject<Datum>(JstringTmp);
             //voeg lege datum toe
             LeOld.Data.Add(themDates,null);
             var NewDate=JsonConvert.SerializeObject(LeOld,Formatting.Indented);
-            File.WriteAllText("OurTable.json", NewDate);
+            File.WriteAllText(GetFilePath.Dir("OurTable.json"), NewDate);
             //naar newTime
             NewTime(themDates, themTimes);
         }
         public static void NewTime(string themDates,string themTimes) 
         {
             //lees JSON
-            var JstringTmp= File.ReadAllText("OurTable.json");
+            var JstringTmp= File.ReadAllText(GetFilePath.Dir("OurTable.json"));
             var LeOld = JsonConvert.DeserializeObject<Datum>(JstringTmp);
             //maak standaard tafels aan voor een uurblok
             var theBase = new Tafels()
@@ -49,12 +49,12 @@ namespace De_Wolven_Menuapp
                 LeOld.Data[themDates].Tijdblok.Add(themTimes, theBase);
             }
             var NewTime = JsonConvert.SerializeObject(LeOld, Formatting.Indented);
-            File.WriteAllText("OurTable.json", NewTime);
+            File.WriteAllText(GetFilePath.Dir("OurTable.json"), NewTime);
         }
 
         public static bool AddTable(EnkeleReservering Resv)
         {
-            var JsonString = File.ReadAllText("OurTable.json");
+            var JsonString = File.ReadAllText(GetFilePath.Dir("OurTable.json"));
             var DeserialisedResult = JsonConvert.DeserializeObject<Datum>(JsonString);
             //lees  datum en tijd van de ingev. reservering
             string CurrentDate = Resv.Date;
@@ -64,13 +64,13 @@ namespace De_Wolven_Menuapp
             //naar NewDate
             if (!datePresent) { NewDate(CurrentDate,CurrentTime); }
             //refresh de json in memory met de nieuwe informatie
-            JsonString = File.ReadAllText("OurTable.json");
+            JsonString = File.ReadAllText(GetFilePath.Dir("OurTable.json"));
             DeserialisedResult = JsonConvert.DeserializeObject<Datum>(JsonString);
             //checkt of er al een tijd in de JSON staat
             bool timePresent = DeserialisedResult.Data[CurrentDate].Tijdblok.ContainsKey(CurrentTime);
             if (!timePresent) { NewTime(CurrentDate,CurrentTime); }
             //refresh de JSON in memory met nieuwe informatie
-            JsonString = File.ReadAllText("OurTable.json");
+            JsonString = File.ReadAllText(GetFilePath.Dir("OurTable.json"));
             DeserialisedResult = JsonConvert.DeserializeObject<Datum>(JsonString);
             //maakt nieuwe Tafel(object) aan dat aangepast kan worden
             Tafels newTables = new()

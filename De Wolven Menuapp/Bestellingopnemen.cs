@@ -14,7 +14,7 @@ namespace De_Wolven_Menuapp
 		public static void nieuweBestelling()
 		{
 			// inlezen json
-			var reserveringJson = File.ReadAllText("reserveringenbestand.json");
+			var reserveringJson = File.ReadAllText(GetFilePath.Dir("reserveringenbestand.json"));
 			reserveringenRoot reserveringsData = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
 			string prefix;
 			int geselecteerdeIndex = 1;
@@ -126,7 +126,7 @@ namespace De_Wolven_Menuapp
 			Console.WriteLine("Menu inlezen...");
 			 
 			// menukaart inlezen
-			string menukaartJson = File.ReadAllText("Menukaart.JSON");
+			string menukaartJson = File.ReadAllText(GetFilePath.Dir("Menukaart.JSON"));
 			var menuData = JsonConvert.DeserializeObject<Menukaart>(menukaartJson);
 
 			// bestellingen inlezen

@@ -16,7 +16,7 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("RESERVERINGEN INZIEN\n");
             while (true)
             {
-                var reserveringJson = File.ReadAllText("reserveringenbestand.json");
+                var reserveringJson = File.ReadAllText(GetFilePath.Dir("reserveringenbestand.json"));
                 reserveringenRoot reserveringsData = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
                 EnkeleReservering res = new EnkeleReservering();
                 for (int i = 1; i < reserveringsData.Reserveringen.Count; i++)
@@ -36,7 +36,7 @@ namespace De_Wolven_Menuapp
         {
             DisplayReserveringen();
 
-            var reserveringJson = File.ReadAllText("reserveringenbestand.json");
+            var reserveringJson = File.ReadAllText(GetFilePath.Dir("reserveringenbestand.json"));
             reserveringenRoot reserveringsData = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
 
             Console.WriteLine("Voer de naam in van de reservering die je wilt veranderen: \n");
@@ -145,7 +145,7 @@ namespace De_Wolven_Menuapp
             EnkeleReservering geselecteerdeReservering;
             
             // reserveringen inlezen
-            var reserveringJson = File.ReadAllText("reserveringenbestand.json");
+            var reserveringJson = File.ReadAllText(GetFilePath.Dir("reserveringenbestand.json"));
             reserveringenRoot reserveringsData = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
 
             // vraag klant om code van reservering
@@ -283,7 +283,7 @@ namespace De_Wolven_Menuapp
                     // schrijf geüpdate reservering terug naar json
                     reserveringsData.Reserveringen[i] = geselecteerdeReservering;
                     var updatedReservations = JsonConvert.SerializeObject(reserveringsData, Formatting.Indented);
-                    File.WriteAllText("reserveringenbestand.json", updatedReservations);
+                    File.WriteAllText(GetFilePath.Dir("reserveringenbestand.json"), updatedReservations);
 
                     laatEenReserveringZien(reserveringsData.Reserveringen[i]);
                 }

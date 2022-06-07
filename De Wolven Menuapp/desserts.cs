@@ -12,7 +12,7 @@ namespace De_Wolven_Menuapp
     {
         public static void Dessertsmenukaart()
         {
-            string MenuJString = File.ReadAllText("Menukaart.JSON");
+            string MenuJString = File.ReadAllText(GetFilePath.Dir("Menukaart.JSON"));
             var MenuCompleet = JsonConvert.DeserializeObject<Menukaart>(MenuJString);
             int screen = 0;
             int max = MenuCompleet.Desserts.Count;
@@ -56,7 +56,7 @@ namespace De_Wolven_Menuapp
             int screen = 1; // bewaart op welke van de 5 schermen de gebruiker zit
             int pgmax = 5; // variable die bewaart hoeveel schermen er in totaal zijn
             ConsoleKey input;
-            string dejsontekst = File.ReadAllText("Menukaart.JSON");
+            string dejsontekst = File.ReadAllText(GetFilePath.Dir("Menukaart.JSON"));
             var hetgehelemenu = JsonConvert.DeserializeObject<Menukaart>(dejsontekst);
             while (true)
             {

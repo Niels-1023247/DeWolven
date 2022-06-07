@@ -24,7 +24,7 @@ namespace De_Wolven_Menuapp
 				var rekeningenData = JsonConvert.DeserializeObject<bestellingenRoot>(rekeningenJSON);
 
 				// reserveringen ophalen
-				var reserveringJson = File.ReadAllText("reserveringenbestand.json");
+				var reserveringJson = File.ReadAllText(GetFilePath.Dir("reserveringenbestand.json"));
 				reserveringenRoot reserveringsData = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
 
 				string suffix;
@@ -70,7 +70,7 @@ namespace De_Wolven_Menuapp
 			{
 
 				// bestellingen inlezen
-				var rekeningenJSON = File.ReadAllText(GetFilePath.RekeningenPath);
+				var rekeningenJSON = File.ReadAllText(GetFilePath.Dir("rekeningen.json"));
 				var rekeningenData = JsonConvert.DeserializeObject<bestellingenRoot>(rekeningenJSON);
 
 				// shorthand voor de te bekijken rekening
@@ -121,6 +121,7 @@ namespace De_Wolven_Menuapp
 					Console.WriteLine("[B] Rekening bewerken");
 				}
 				Console.WriteLine("[X] Rekening weggooien zonder af te rekenen");
+				Console.WriteLine("[D] Rekening weggooien en reservering verwijderen");
 				Console.WriteLine("[Escape] Terug naar rekeningoverzicht");
 
 				// input verwerken
@@ -150,7 +151,7 @@ namespace De_Wolven_Menuapp
                         {
 							reserveringenDataBase.Reserveringen.RemoveAt(i);
 							var updatedReservations = JsonConvert.SerializeObject(reserveringenDataBase, Formatting.Indented);
-							File.WriteAllText("reserveringenbestand.json", updatedReservations);
+							File.WriteAllText(GetFilePath.Dir("reserveringenbestand.json"), updatedReservations);
 						}
 					}
 					// comment
@@ -158,7 +159,7 @@ namespace De_Wolven_Menuapp
 					// verwijder bestelling uit systeem, en update de database
 					rekeningenData.Bestellingen.RemoveAt(rekeningIndex);
 					var geupdateRekeningen = JsonConvert.SerializeObject(rekeningenData, Formatting.Indented);
-					File.WriteAllText(GetFilePath.RekeningenPath, geupdateRekeningen);
+					File.WriteAllText(GetFilePath.Dir("rekeningen.json"), geupdateRekeningen);
 					ConsoleKey cont = Console.ReadKey().Key;
 					medewerkerHome.SchermMedewerker();
 					break;
@@ -174,8 +175,34 @@ namespace De_Wolven_Menuapp
 						string verwijderdeTafelNaam = geselecteerdeRekening.Tafel;
 						rekeningenData.Bestellingen.RemoveAt(rekeningIndex);
 						var geupdateBestellingen = JsonConvert.SerializeObject(rekeningenData, Formatting.Indented);
-						File.WriteAllText(GetFilePath.RekeningenPath, geupdateBestellingen);
+						File.WriteAllText(GetFilePath.Dir("bestellingen.json"), geupdateBestellingen);
 						medewerkerHome.SchermMedewerker($"[!] De rekening van tafel {verwijderdeTafelNaam} is uit de openstaande rekeningen gehaald.");
+					}
+				}
+
+				// optie rekening verwijderen en reservering weghalen
+				else if (option == ConsoleKey.D)
+				{
+					Console.Clear();
+					if (rekeningEnReserveringVerwijderen(geselecteerdeRekening))
+					{
+						// rekening verwijderen
+						string verwijderdeTafelNaam = geselecteerdeRekening.Tafel;
+						rekeningenData.Bestellingen.RemoveAt(rekeningIndex);
+						var geupdateBestellingen = JsonConvert.SerializeObject(rekeningenData, Formatting.Indented);
+						File.WriteAllText(GetFilePath.RekeningenPath, geupdateBestellingen);
+
+						// reservering verwijderen
+						var reserveringJson = File.ReadAllText(GetFilePath.Dir("reserveringenbestand.json"));
+						var reserveringObj = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
+						for (int i = 0; i < reserveringObj.Reserveringen.Count; i++)
+							if (reserveringObj.Reserveringen[i].Code == geselecteerdeRekening.Code)
+								reserveringObj.Reserveringen.RemoveAt(i);
+
+						var geupdateReserveringen = JsonConvert.SerializeObject(reserveringObj, Formatting.Indented);
+						File.WriteAllText(GetFilePath.Dir("reserveringenbestand.json"), geupdateReserveringen);
+
+						medewerkerHome.SchermMedewerker($"[!] De rekening en reservering van tafel {verwijderdeTafelNaam} zijn uit het systeem gehaald.");
 					}
 				}
 
@@ -209,7 +236,7 @@ namespace De_Wolven_Menuapp
 
 					// terugschrijven
 					var geupdateRekeningen = JsonConvert.SerializeObject(rekeningenData, Formatting.Indented);
-					File.WriteAllText(GetFilePath.RekeningenPath, geupdateRekeningen);
+					File.WriteAllText(GetFilePath.Dir("rekeningen.json"), geupdateRekeningen);
 				}
 
 				// check of de bestelling leeg is
@@ -428,6 +455,18 @@ namespace De_Wolven_Menuapp
 			Console.WriteLine("REKENING VERWIJDEREN\nU staat op het moment om de rekening van tafel {0} uit het systeem te halen.\n", rekeningOmAfTeRekenen.Tafel);
 			Console.WriteLine("[!] Weet u zeker dat u deze rekening wilt verwijderen?");
 			Console.WriteLine("[Enter] Rekening definitief verwijderen");
+			Console.WriteLine("[Andere toets] Annuleren");
+
+			ConsoleKey option = Console.ReadKey().Key;
+			return (option == ConsoleKey.Enter);
+		}
+
+		public static bool rekeningEnReserveringVerwijderen(Bestelling rekeningOmAfTeRekenen)
+		{
+			Console.Clear();
+			Console.WriteLine("REKENING VERWIJDEREN EN RESERVERING ANNULEREN\nU staat op het moment om de rekening van tafel {0} uit het systeem te halen,\nen de reservering uit het systeem te verwijderen.", rekeningOmAfTeRekenen.Tafel);
+			Console.WriteLine("[!] Weet u zeker dat u door wilt gaan?");
+			Console.WriteLine("[Enter] Rekening en reservering definitief verwijderen uit systeem");
 			Console.WriteLine("[Andere toets] Annuleren");
 
 			ConsoleKey option = Console.ReadKey().Key;

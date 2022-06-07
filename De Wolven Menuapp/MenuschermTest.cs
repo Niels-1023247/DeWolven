@@ -12,14 +12,14 @@ namespace De_Wolven_Menuapp
     {
         public static void ChangeConInfoTest()
         {
-            var Backup = File.ReadAllText("ContactInfo.json");
+            var Backup = File.ReadAllText(GetFilePath.Dir("ContactInfo.json"));
             var testing = true;
             while (testing)
             {
                 
                 Contact.ChangeInfoMenu();
                 Contact.Contactgegevens();
-                File.WriteAllText("ContactInfo.json", Backup);
+                File.WriteAllText(GetFilePath.Dir("ContactInfo.json"), Backup);
                 Console.WriteLine(" again?");
                 var input=Console.ReadKey().Key;
                 testing= input!=ConsoleKey.N;

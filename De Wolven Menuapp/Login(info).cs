@@ -12,7 +12,7 @@ namespace De_Wolven_Menuapp
 	{
 		public static void Jsontest()
 		{
-			var JsonString = File.ReadAllText("accounts.json");
+			var JsonString = File.ReadAllText(GetFilePath.Dir("accounts.json"));
 			var DeserialisedResult = JsonConvert.DeserializeObject<AccountData>(JsonString);
 			Console.WriteLine(DeserialisedResult.Accounts[1].Username);
 
@@ -96,7 +96,7 @@ namespace De_Wolven_Menuapp
 				Level = "1"
 			};
 			// lees accounts.json in
-			var JsonString = File.ReadAllText("accounts.json");
+			var JsonString = File.ReadAllText(GetFilePath.Dir("accounts.json"));
 			var DeserialisedResult = JsonConvert.DeserializeObject<AccountData>(JsonString);
 			Console.WriteLine(DeserialisedResult.Accounts[0]);
 
@@ -110,7 +110,7 @@ namespace De_Wolven_Menuapp
 
 			// terug naar de json schrijven
 			var WrJsonString = JsonConvert.SerializeObject(NewAccount, Formatting.Indented);
-			File.WriteAllText("accounts.json", WrJsonString);
+			File.WriteAllText(GetFilePath.Dir("accounts.json"), WrJsonString);
 		}
 
 
@@ -138,7 +138,7 @@ namespace De_Wolven_Menuapp
 				Level = "2"
 			};
 			// lees accounts.json in
-			var JsonString = File.ReadAllText("accounts.json");
+			var JsonString = File.ReadAllText(GetFilePath.Dir("accounts.json"));
 			var DeserialisedResult = JsonConvert.DeserializeObject<AccountData>(JsonString);
 			Console.WriteLine(DeserialisedResult.EmpAcc[0]);
 
@@ -156,7 +156,7 @@ namespace De_Wolven_Menuapp
 
 			// terug naar de json schrijven
 			var WrJsonString = JsonConvert.SerializeObject(NewAccount, Formatting.Indented);
-			File.WriteAllText("accounts.json", WrJsonString);
+			File.WriteAllText(GetFilePath.Dir("accounts.json"), WrJsonString);
 			Console.WriteLine("Medewerker account aangemaakt!");
 			Hoofdmenuscherm.SchermAdmin();
 		}
@@ -164,7 +164,7 @@ namespace De_Wolven_Menuapp
 		public static void LoginAccount(string soortGebruiker)
 		{
 			// json inlezen voor later
-			string dejsontekst = File.ReadAllText("accounts.JSON");
+			string dejsontekst = File.ReadAllText(GetFilePath.Dir("accounts.JSON"));
 			AccountData alleAccounts = JsonConvert.DeserializeObject<AccountData>(dejsontekst);
 
 			// script voor invoer login

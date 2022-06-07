@@ -14,7 +14,7 @@ namespace De_Wolven_Menuapp
         public static void Contactgegevens()
         {
 
-            var JsonString = File.ReadAllText("ContactInfo.json");
+            var JsonString = File.ReadAllText(GetFilePath.Dir("ContactInfo.json"));
             var DeserialisedResult = JsonConvert.DeserializeObject<ContactInfo>(JsonString);
             while (true)
             {
@@ -59,7 +59,7 @@ namespace De_Wolven_Menuapp
         // functie om de gegevens per soort (adres/telefoonnummer/openingstijden) te veranderen op basis van variable i
         public static void ChangeInfo(int i)
         { 
-            var JsonString = File.ReadAllText("ContactInfo.json");
+            var JsonString = File.ReadAllText(GetFilePath.Dir("ContactInfo.json"));
             var DeserialisedResult = JsonConvert.DeserializeObject<ContactInfo>(JsonString);
             if (i == 1)
             {
@@ -71,7 +71,7 @@ namespace De_Wolven_Menuapp
                     OpenT = DeserialisedResult.OpenT,
                 };
                 var AdJsonString = JsonConvert.SerializeObject(newAddress, Formatting.Indented);
-                File.WriteAllText("ContactInfo.json", AdJsonString);
+                File.WriteAllText(GetFilePath.Dir("ContactInfo.json"), AdJsonString);
             }
             if (i == 2)
             {
@@ -83,7 +83,7 @@ namespace De_Wolven_Menuapp
                     OpenT = DeserialisedResult.OpenT,
                 };
                 var PhJsonString = JsonConvert.SerializeObject(newPhone, Formatting.Indented);
-                File.WriteAllText("ContactInfo.json", PhJsonString);
+                File.WriteAllText(GetFilePath.Dir("ContactInfo.json"), PhJsonString);
             }
             if (i == 3)
             {
@@ -112,7 +112,7 @@ namespace De_Wolven_Menuapp
                     OpenT = newOpent
                 };
                 var OpTJsonString = JsonConvert.SerializeObject(NewOpenT, Formatting.Indented);
-                File.WriteAllText("ContactInfo.json", OpTJsonString);
+                File.WriteAllText(GetFilePath.Dir("ContactInfo.json"), OpTJsonString);
 
             }
             
