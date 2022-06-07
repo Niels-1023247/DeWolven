@@ -44,7 +44,7 @@ namespace De_Wolven_Menuapp
                 Console.WriteLine("[3] Maak medewerkers account");
                 Console.WriteLine("\nGeadvanceerde opties");
                 Console.WriteLine("[4] Unit testing menu");
-                Console.WriteLine("Voer [1], [2] of [3] in...");
+                Console.WriteLine("Voer [1], [2], [3] of [4] in...");
                 Console.WriteLine("Druk op [Escape] om terug te gaan");
 
                 ConsoleKey optieadmin = Console.ReadKey().Key;
