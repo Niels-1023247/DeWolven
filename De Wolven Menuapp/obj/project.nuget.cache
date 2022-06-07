@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VB6L7uuDzeso1awiRUjiMD2eRwKMxye66tqDvOa86816DcPxPXiGIWC9QUH0gl3H7MFBK0H8nINKfvgcGOcP2A==",
+  "dgSpecHash": "7fRAb/2+p2x7NlcHM0AGOFGGC9SHm+pwpyhtEY+yrqhi0pEEV+Fdxii+kXhaQc0eequ+3nIlUfN6hgyY+7ctmQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ncvan\\Source\\Repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
+  "projectFilePath": "C:\\Users\\ncvan\\source\\repos\\DeWolven\\De Wolven Menuapp\\De Wolven Menuapp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ncvan\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\ncvan\\.nuget\\packages\\microsoft.netcore.platforms\\1.0.1\\microsoft.netcore.platforms.1.0.1.nupkg.sha512",
