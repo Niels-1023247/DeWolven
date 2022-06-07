@@ -11,16 +11,6 @@ namespace De_Wolven_Menuapp
 {
 	internal class Reservering
 	{
-		// beschikbaarheid tafel controleren, moet nog gemaakt worden
-		public static void Availability_Check() 
-		{
-			int x = 1;
-			if (x == 1)
-			{
-				Console.WriteLine("ökay then");
-			}
-		}
-
 		public static bool dubbeleReserveringsCodeGevonden(int nieuweCode) // return true of false
 		{
 			// reserveringen ophalen

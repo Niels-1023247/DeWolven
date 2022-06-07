@@ -13,15 +13,21 @@ namespace De_Wolven_Menuapp
     {
         public static void DisplayReserveringen()
         {
-            var reserveringJson = File.ReadAllText("reserveringenbestand.json");
-            reserveringenRoot reserveringsData = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
-            for(int i=0; i < reserveringsData.Reserveringen.Count; i++)
+            Console.WriteLine("RESERVERINGEN INZIEN\n");
+            while (true)
             {
-                Console.WriteLine($"Reservering op naam {reserveringsData.Reserveringen[i].Name}\n");
-                //Console.WriteLine(reserveringsData.Reserveringen[i].Date);
-                //Console.WriteLine(reserveringsData.Reserveringen[i].Time);
-                //Console.WriteLine(reserveringsData.Reserveringen[i].Code);
-                //Console.WriteLine(reserveringsData.Reserveringen[i].CountofPeople);
+                var reserveringJson = File.ReadAllText("reserveringenbestand.json");
+                reserveringenRoot reserveringsData = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
+                EnkeleReservering res = new EnkeleReservering();
+                for (int i = 1; i < reserveringsData.Reserveringen.Count; i++)
+                {
+                    res = reserveringsData.Reserveringen[i];
+                    Console.WriteLine($"Reservering op naam {res.Name}");
+                    Console.WriteLine($"{res.Date} | {res.Time} | Code: {res.Code} | {res.CountofPeople} mensen\n");
+                }
+                Console.WriteLine("[Elke toets] Terug naar vorige menu");
+                ConsoleKey terug = Console.ReadKey().Key;
+                break;
             }
             
         }
