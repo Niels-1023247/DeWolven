@@ -149,8 +149,15 @@ namespace De_Wolven_Menuapp
 
             // vraag klant om code van reservering
             Console.WriteLine("Wat is de code van uw reservering?\nDeze heeft u ontvangen na het maken van uw reservering.\nVoorbeeld: 32767\n");
-            int opgegevenCode = Convert.ToInt32(Console.ReadLine()); // er moet nog een controle unit bij zodat de code juist is ingevoerd
-
+            int opgegevenCode = 0;
+            try
+            {
+                opgegevenCode = Convert.ToInt32(Console.ReadLine()); // er moet nog een controle unit bij zodat de code juist is ingevoerd
+            }
+            catch(Exception ex)
+            {
+                reserveringAanpassenKlant();
+            }
             // ga elke reservering af
             for (int i = 0; i < reserveringsData.Reserveringen.Count; i++)
             {
