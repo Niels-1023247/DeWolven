@@ -237,30 +237,51 @@ namespace De_Wolven_Menuapp
                     }
                     else if (welkVeldAanpassen == ConsoleKey.D3)
                     {
-                        Console.WriteLine($"Hoelaat is de reservering? (Voer de tijd in volgens het volgende formaat: 15:43 )\n U past de tijd aan naar: \n");
+                        Console.WriteLine($"Hoelaat is de reservering? (Voer de tijd in volgens het volgende formaat: 15:00 Vergeet niet hele uren te gebruiken )\n U past de tijd aan naar: \n");
 
                         geselecteerdeReservering.Time = Console.ReadLine();
 
 
                         // valideert of de ingevulde tijd wel klopt qua formaat en als je voor vandaag reserveert dat die tijd niet al geweest is
-                        bool funcTijdValidatie(string time, string format = "HH:mm")
+                        bool funcTijdValidatie(string time, string format = "HH:00")
                         {
                             DateTime outTime;
 
-                            bool zelfdeDag = false;
+                            
 
-                            // Checkt als je reserveert voor vandaag en checkt dan of die tijd niet al geweest is.
-                            if (DateTime.ParseExact(geselecteerdeReservering.Date, "dd/MM/yyyy", CultureInfo.InvariantCulture) == DateTime.Now.Date)
+                            TimeSpan start = TimeSpan.Parse("12:00");
+                            TimeSpan end = TimeSpan.Parse("22:00");
+
+                            try
                             {
-                                zelfdeDag = true;
+                                TimeSpan now = DateTime.ParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None).TimeOfDay;
+
+                                if (start <= end)
+                                {
+                                    // start and stop times are in the same day
+                                    if (now >= start && now < end)
+                                    {
+                                        // current time is between start and stop
+
+                                    }
+                                    else
+                                    {
+                                        return false;
+                                    }
+                                }
+                                else
+                                {
+                                    return false;
+
+                                }
+
+                                return DateTime.TryParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out outTime);
                             }
 
-                            if (zelfdeDag && (DateTime.ParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None) < DateTime.Now)) 
-                            { 
-                                return false; 
+                            catch (Exception ex)
+                            {
+                                return false;
                             }
-
-                            return DateTime.TryParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out outTime);
                         }
 
                         bool tijdVoldoet = funcTijdValidatie(geselecteerdeReservering.Time);
@@ -268,7 +289,7 @@ namespace De_Wolven_Menuapp
                         // Check of de tijd wel voldoet na de Validatie Functie, zo niet vraagt ie om een nieuwe input en doet hij de validatie opnieuw
                         while (!tijdVoldoet)
                         {
-                            Console.WriteLine("Sorry uw tijd ( " + geselecteerdeReservering.Time + " ) voldoet niet aan ons formaat of is al geweest (als u voor vandaag reserveert).\n Dit is het gewenste formaat: 15:43 \n Voer uw tijd nogmaals in.");
+                            Console.WriteLine("Sorry uw tijd ( " + geselecteerdeReservering.Time + " ) voldoet niet aan ons formaat of is al geweest (als u voor vandaag reserveert).\n Dit is het gewenste formaat: 15:00 (graag hele uren invullen)\n Voer uw tijd nogmaals in.");
                             geselecteerdeReservering.Time = Console.ReadLine();
                             tijdVoldoet = funcTijdValidatie(geselecteerdeReservering.Time);
 

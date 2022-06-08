@@ -147,21 +147,62 @@ namespace De_Wolven_Menuapp
 
 				newDate = tijdelijkeDatum;
 
+				DateTime weekDag = DateTime.ParseExact(newDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+				string dagVanDeWeek = (weekDag.ToString("dddd",
+								  new CultureInfo("nl-NL"))).ToString();
+
+
+
 				Console.WriteLine($"Hoelaat is de reservering? (Voer de tijd in volgens het volgende formaat, Vul alleen hele uren in alstublieft: 15:00 )\n");
 
 				string tijdelijkeTijd = Console.ReadLine();
 
 
 				// valideert of de ingevulde tijd wel klopt qua formaat en als je voor vandaag reserveert dat die tijd niet al geweest is
-				bool funcTijdValidatie(string time, string format = "HH:mm")
+				bool funcTijdValidatie(string time, string format = "HH:00")
 				{
 					DateTime outTime;
 
 					// Checkt als je reserveert voor vandaag en checkt dan of die tijd niet al geweest is.
 
+
+
 					if (zelfdeDag && (DateTime.ParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None) < DateTime.Now)) { return false; }
 
-					return DateTime.TryParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out outTime);
+					TimeSpan start = TimeSpan.Parse("12:00");
+					TimeSpan end = TimeSpan.Parse("22:00");
+
+					try
+					{
+						TimeSpan now = DateTime.ParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None).TimeOfDay;
+
+						if (start <= end)
+						{
+							// start and stop times are in the same day
+							if (now >= start && now < end)
+							{
+								// current time is between start and stop
+
+							}
+							else
+							{
+								return false;
+							}
+						}
+						else
+						{
+							return false;
+							
+						}
+
+						return DateTime.TryParseExact(time, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out outTime);
+					}
+
+					catch (Exception ex)
+					{
+						return false;
+					}
+
 				}
 
 				bool tijdVoldoet = funcTijdValidatie(tijdelijkeTijd);
@@ -169,7 +210,7 @@ namespace De_Wolven_Menuapp
 				// Check of de tijd wel voldoet na de Validatie Functie, zo niet vraagt ie om een nieuwe input en doet hij de validatie opnieuw
 				while (!tijdVoldoet)
 				{
-					Console.WriteLine("Sorry uw tijd ( " + tijdelijkeTijd + " ) voldoet niet aan ons formaat of is al geweest (als u voor vandaag reserveert).\n Dit is het gewenste formaat: 15:00 \n Voer uw tijd nogmaals in.");
+					Console.WriteLine("Sorry uw tijd ( " + tijdelijkeTijd + " ) voldoet niet aan ons formaat of is al geweest (als u voor vandaag reserveert).\n Dit is het gewenste formaat: 15:00 \n Voer uw tijd nogmaals in (vergeet niet hele uren te gebruiken).");
 					tijdelijkeTijd = Console.ReadLine();
 					tijdVoldoet = funcTijdValidatie(tijdelijkeTijd);
 
@@ -177,7 +218,7 @@ namespace De_Wolven_Menuapp
 
 				newTime = tijdelijkeTijd;
 				//newTime = Console.ReadLine();
-				
+
 				EnkeleReservering newReservation;
 				// genereer nieuwe code en controleer of deze niet eerder gebruikt is, met dubbeleReserveringsCodeGevonden()
 				int newNum = new Random().Next(10000, 99999);
