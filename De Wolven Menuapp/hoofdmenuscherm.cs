@@ -85,15 +85,16 @@ namespace De_Wolven_Menuapp
             while (true)
             {
                 Console.Clear();
-                if (inlogstatus) Console.WriteLine(" Welkom bij de wolven, " + Program.ActiefAccountValues("Name") + "!");
+                if (inlogstatus) Console.WriteLine($" Welkom bij de wolven, {Program.ActiefAccountValues("Name")}!");
                 else Console.WriteLine("Welkom bij de wolven!");
                 Console.WriteLine("[1] Reserveer een tafel");
                 Console.WriteLine("[2] Bekijk de menukaart");
-                if (!inlogstatus) Console.WriteLine("[3] Log in");
-                if (!inlogstatus) Console.WriteLine("[4] Registreer");
-                Console.WriteLine("[5] Reservering aanpassen");
-                if (inlogstatus) Console.WriteLine("[6] Mijn reserveringen inzien");
-                Console.WriteLine("[7] Over ons");
+                Console.WriteLine("[3] Over ons");
+                if (!inlogstatus) Console.WriteLine("[4] Log in");
+                if (!inlogstatus) Console.WriteLine("[5] Registreer");
+                if (!inlogstatus) Console.WriteLine("[6] Reservering aanpassen");
+                if (inlogstatus) Console.WriteLine("[4] Mijn reserveringen inzien");
+                
                 Console.WriteLine("Voer een van de zichtbare getallen in en druk op [Enter]");
                 Console.WriteLine("Druk op esc om terug te gaan");
 
@@ -109,33 +110,33 @@ namespace De_Wolven_Menuapp
                     Console.Clear();
                     Menu.Menukaart();
                 }
-                else if (optieklanten == ConsoleKey.D3 && !inlogstatus)
+                else if (optieklanten == ConsoleKey.D4 && !inlogstatus)
 
                 {
                     Console.Clear();
                     Loginfo.LoginAccount("Klant");
                 }
 
-                else if (optieklanten == ConsoleKey.D4)
+                else if (optieklanten == ConsoleKey.D5 && !inlogstatus)
                 {
                     Console.Clear();
                     Loginfo.CreateAccount();
 
                 }
-                else if (optieklanten == ConsoleKey.D5)
+                else if (optieklanten == ConsoleKey.D6)
                 {
                     Console.Clear();
                     Verander.reserveringAanpassenKlant();
 
                 }
 
-                else if (optieklanten == ConsoleKey.D6 && inlogstatus)
+                else if (optieklanten == ConsoleKey.D4 && inlogstatus)
                 {
                     Console.Clear();
                     Reservering.mijnReserveringenInzien(Program.ActiefAccountValues("Name"));
 
                 }
-                else if (optieklanten == ConsoleKey.D7)
+                else if (optieklanten == ConsoleKey.D3)
                 {
                     Console.Clear();
                     Contact.Contactgegevens();

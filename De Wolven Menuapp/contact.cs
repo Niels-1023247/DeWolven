@@ -27,13 +27,13 @@ namespace De_Wolven_Menuapp
                 Console.WriteLine($"Telefoonnumer: {DeserialisedResult.Phone}");
                 Console.WriteLine("\n\nOPENINGSTIJDEN");
                 Console.WriteLine("Openigtijden:\n");
-                Console.WriteLine($"{DeserialisedResult.OpenT.Monday}");
-                Console.WriteLine($"{DeserialisedResult.OpenT.Tuesday}");
-                Console.WriteLine($"{DeserialisedResult.OpenT.Wednesday}");
-                Console.WriteLine($"{DeserialisedResult.OpenT.Thursday}");
-                Console.WriteLine($"{DeserialisedResult.OpenT.Friday}");
-                Console.WriteLine($"{DeserialisedResult.OpenT.Saturday}");
-                Console.WriteLine($"{DeserialisedResult.OpenT.Sunday}");
+                Console.WriteLine($"Maandag:   {DeserialisedResult.OpenT.Monday}");
+                Console.WriteLine($"Dinsdag:   {DeserialisedResult.OpenT.Tuesday}");
+                Console.WriteLine($"Woensdag:  {DeserialisedResult.OpenT.Wednesday}");
+                Console.WriteLine($"Donderdag: {DeserialisedResult.OpenT.Thursday}");
+                Console.WriteLine($"Vrijdag:   {DeserialisedResult.OpenT.Friday}");
+                Console.WriteLine($"Zaterdag:  {DeserialisedResult.OpenT.Saturday}");
+                Console.WriteLine($"Zondag:    {DeserialisedResult.OpenT.Sunday}");
                 Console.WriteLine("\nDrup op Esc om terug te gaan");
                 input = Console.ReadKey().Key;
                 if (input == ConsoleKey.Escape)

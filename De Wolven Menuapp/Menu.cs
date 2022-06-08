@@ -19,6 +19,7 @@ namespace De_Wolven_Menuapp
 				Console.WriteLine("[2] Bekijk onze Desserts");
 				Console.WriteLine("[3] Bekijk onze Dranken");
 				Console.WriteLine("Voer 1, 2 of 3 in");
+                Console.WriteLine("Druk op Escape om terug te gaan");
 				ConsoleKey optieklanten = Console.ReadKey().Key;
 				if (optieklanten == ConsoleKey.D1)
 				{

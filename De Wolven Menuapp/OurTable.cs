@@ -80,11 +80,11 @@ namespace De_Wolven_Menuapp
                 BeschTaf6 = DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6
             };
             //logica voor indelen tafels
-            var themPeeps = Resv.CountofPeople;
-            if (themPeeps < 0) return false;
-            while (themPeeps > 0)
+            var PplAtNewTable = Resv.CountofPeople;
+            if (PplAtNewTable < 0) return false;
+            while (PplAtNewTable > 0)
             {
-                if (themPeeps <= 2 && themPeeps > 0)
+                if (PplAtNewTable <= 2 && PplAtNewTable > 0)
                 {
                     if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf2 <= 0)
                     {
@@ -98,7 +98,7 @@ namespace De_Wolven_Menuapp
                     }
                     else { newTables.BeschTaf2--; break; }
                 }
-                else if (themPeeps > 2 && themPeeps <= 4)
+                else if (PplAtNewTable > 2 && PplAtNewTable <= 4)
                 {
                     if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf4 <= 0)
                     {
@@ -107,22 +107,22 @@ namespace De_Wolven_Menuapp
                     }
                     else { newTables.BeschTaf4--; break; }
                 }
-                else if (themPeeps > 4 && themPeeps <= 6)
+                else if (PplAtNewTable > 4 && PplAtNewTable <= 6)
                 {
                     if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 <= 0) { return false; }
                     else { newTables.BeschTaf6--; break; }
                 }
-                else if (themPeeps > 6)
+                else if (PplAtNewTable > 6)
                 {
-                    if (themPeeps <= 8 && DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 >= 2)
+                    if (PplAtNewTable <= 8 && DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 >= 2)
                     {
                         newTables.BeschTaf4 -= 2; break;
                     }
                     else if (DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 <= 0) { return false; }
-                    else if(DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 * 6 <= themPeeps) { return false; }
+                    else if(DeserialisedResult.Data[CurrentDate].Tijdblok[CurrentTime].BeschTaf6 * 6 <= PplAtNewTable) { return false; }
                     {
                         newTables.BeschTaf6--;
-                        themPeeps -= 6;
+                        PplAtNewTable -= 6;
                     }
                 }
             }
