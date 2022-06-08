@@ -14,7 +14,7 @@ namespace De_Wolven_Menuapp
         //JSON laden werkt correct
         public static reserveringenRoot TestforJsonLoad()
         {
-            string reserveringJson = File.ReadAllText("reserveringenbestand.json");
+            string reserveringJson = File.ReadAllText(GetFilePath.Dir("reserveringenbestand.json"));
             var reserveringsData = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
             Debug.Assert(reserveringsData is reserveringenRoot);
             return reserveringsData;

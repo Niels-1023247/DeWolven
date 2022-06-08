@@ -11,10 +11,31 @@ namespace De_Wolven_Menuapp
 {
 	internal class Reservering
 	{
+		public static void mijnReserveringenInzien(string username)
+		{
+			Console.WriteLine("MIJN RESERVERINGEN INZIEN\n");
+			while (true)
+			{
+				var reserveringJson = File.ReadAllText(GetFilePath.Dir("reserveringenbestand.json"));
+				reserveringenRoot reserveringsData = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
+				string prefix = "";
+
+                for (int i = 1; i < reserveringsData.Reserveringen.Count; i++)
+                    if (reserveringsData.Reserveringen[i].Name == username)
+                    {
+                        Console.WriteLine($"{prefix} Reservering op datum {reserveringsData.Reserveringen[i].Date}");
+                        Console.WriteLine($"{reserveringsData.Reserveringen[i].Time} | Code: {reserveringsData.Reserveringen[i].Code} | {reserveringsData.Reserveringen[i].CountofPeople} mensen\n");
+                    }
+				Console.WriteLine("[Elke toets] Terug naar het vorige menu");
+				ConsoleKey terug = Console.ReadKey().Key;
+				break;
+			}
+		}
+
 		public static bool dubbeleReserveringsCodeGevonden(int nieuweCode) // return true of false
 		{
 			// reserveringen ophalen
-			var reserveringJson = File.ReadAllText("reserveringenbestand.json");
+			var reserveringJson = File.ReadAllText(GetFilePath.Dir("reserveringenbestand.json"));
 			reserveringenRoot reserveringsData = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringJson);
 
 			// ga elke reservering af
@@ -48,7 +69,7 @@ namespace De_Wolven_Menuapp
             Console.WriteLine("[UNIT TESTING] Test reserveringen zijn succesvol verwijderd.");
 
 			var updatedReservations = JsonConvert.SerializeObject(reserveringenDataBase, Formatting.Indented);
-			File.WriteAllText("reserveringenbestand.json", updatedReservations);
+			File.WriteAllText(GetFilePath.Dir("reserveringenbestand.json"), updatedReservations);
 		}
 
 		public static void AddReservering(bool unitTesting = false, Tuple<string[], int> unitTestCase = null)
@@ -249,20 +270,20 @@ namespace De_Wolven_Menuapp
 					IsTable = OurTable.AddTable(newReservation);
 				}
 				// haal json op en converteer naar c#
-				reserveringenJson = File.ReadAllText("reserveringenbestand.json");
+				reserveringenJson = File.ReadAllText(GetFilePath.Dir("reserveringenbestand.json"));
 				reserveringenDataBase = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringenJson);
 
 				// voeg reservering toe aan de lijst van reserveringen, en schrijf geüpdate lijst terug naar json
 				reserveringenDataBase.Reserveringen.Add(newReservation);
 				var updatedReservations = JsonConvert.SerializeObject(reserveringenDataBase, Formatting.Indented);
-				File.WriteAllText("reserveringenbestand.json", updatedReservations);
+				File.WriteAllText(GetFilePath.Dir("reserveringenbestand.json"), updatedReservations);
 
 
 
 				// terug naar juiste menu
 				if (unitTesting)
 				{
-					reserveringenJson = File.ReadAllText("reserveringenbestand.json");
+					reserveringenJson = File.ReadAllText(GetFilePath.Dir("reserveringenbestand.json"));
 					reserveringenDataBase = JsonConvert.DeserializeObject<reserveringenRoot>(reserveringenJson);
 					Console.WriteLine("[UNIT TESTING] Reservering proberen terug te vinden in JSON...");
 					bool reserveringSuccesvolTeruggevonden = false;

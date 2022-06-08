@@ -12,7 +12,7 @@ namespace De_Wolven_Menuapp
     {
         public static void Gerechtenmenukaart()
         {
-            string MenuJString = File.ReadAllText("Menukaart.JSON");
+            string MenuJString = File.ReadAllText(GetFilePath.Dir("Menukaart.JSON"));
             var MenuCompleet = JsonConvert.DeserializeObject<Menukaart>(MenuJString);
             int screen = 0;
             int max = MenuCompleet.gerechten.Count;
