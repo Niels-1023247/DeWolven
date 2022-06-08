@@ -460,7 +460,6 @@ namespace De_Wolven_Menuapp
 			ConsoleKey option = Console.ReadKey().Key;
 			return (option == ConsoleKey.Enter);
 		}
-
 		public static bool rekeningEnReserveringVerwijderen(Bestelling rekeningOmAfTeRekenen)
 		{
 			Console.Clear();

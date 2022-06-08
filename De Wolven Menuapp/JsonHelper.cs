@@ -21,7 +21,7 @@ namespace De_Wolven_Menuapp
     class Datum
     {
         public Dictionary<string, Tijd> Data { get; set; }
-    }
+    } 
     class Tijd
     {
         public Dictionary<string, Tafels> Tijdblok { get; set; }

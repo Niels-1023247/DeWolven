@@ -90,10 +90,11 @@ namespace De_Wolven_Menuapp
                 Console.WriteLine("[1] Reserveer een tafel");
                 Console.WriteLine("[2] Bekijk de menukaart");
                 if (!inlogstatus) Console.WriteLine("[3] Log in");
-                Console.WriteLine("[4] Registreer");
+                if (!inlogstatus) Console.WriteLine("[4] Registreer");
                 Console.WriteLine("[5] Reservering aanpassen");
-                Console.WriteLine("[6] Over ons");
-                Console.WriteLine("Voer 1, 2, 3, 4 of 5 in");
+                if (inlogstatus) Console.WriteLine("[6] Mijn reserveringen inzien");
+                Console.WriteLine("[7] Over ons");
+                Console.WriteLine("Voer een van de zichtbare getallen in en druk op [Enter]");
                 Console.WriteLine("Druk op esc om terug te gaan");
 
                 ConsoleKey optieklanten = Console.ReadKey().Key;
@@ -127,7 +128,14 @@ namespace De_Wolven_Menuapp
                     Verander.reserveringAanpassenKlant();
 
                 }
-                else if (optieklanten == ConsoleKey.D6)
+
+                else if (optieklanten == ConsoleKey.D6 && inlogstatus)
+                {
+                    Console.Clear();
+                    Reservering.mijnReserveringenInzien(Program.ActiefAccountValues("Name"));
+
+                }
+                else if (optieklanten == ConsoleKey.D7)
                 {
                     Console.Clear();
                     Contact.Contactgegevens();

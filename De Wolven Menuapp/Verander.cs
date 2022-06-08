@@ -29,7 +29,6 @@ namespace De_Wolven_Menuapp
                 ConsoleKey terug = Console.ReadKey().Key;
                 break;
             }
-            
         }
 
         public static void VeranderenReservering()
